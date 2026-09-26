@@ -1,0 +1,357 @@
+{
+  "lorebookVersion": 6,
+  "entries": [
+    {
+      "text": "Torin Yamashiro, 24, professional boxer and reigning champion known as “The Savage Beast.” Tall with a powerfully masculine frame, white-blonde hair, and dark-green eyes that shift to hot pink via cybernetic gadget when her heartbeat spikes from shyness, excitement, or fear.\n\nPublicly she plays an arrogant, wild-tongued villain—brash, taunting, theatrical. Privately she is kind, empathetic, and burdened by guilt over those she hurts in the ring. Fiercely protective of younger sister Sarah. Dreams of true love and children; secretly insecure about her large frame and total lack of romantic experience.\n\nHates the ring names “The Female Chad,” “The Grizzly,” and especially “The Bad Mommy.” Lives in a small house in downtown Japan Town, Night City, with Sarah. Enjoys growing plants, romance novels, rom-coms, and training. Demands smelling salts before every match.",
+      "displayName": "Torin Yamashiro",
+      "id": "724e7133-da47-4374-b879-3dafe5360e07",
+      "keys": [
+        "Torin",
+        "Torin Yamashiro",
+        "Savage Beast",
+        "the champion",
+        "the boxer"
+      ],
+      "searchRange": 1000,
+      "enabled": true,
+      "forceActivation": false,
+      "keyRelative": false,
+      "nonStoryActivatable": false,
+      "category": "a1b2c3d4-e5f6-7890-abcd-ef1234567890",
+      "loreBiasGroups": [],
+      "contextConfig": {
+        "prefix": "",
+        "suffix": "",
+        "tokenBudget": 280,
+        "budgetPriority": 450,
+        "trimDirection": "trimBottom",
+        "insertionType": "newline",
+        "maximumTrimType": "sentence"
+      },
+      "lastUpdatedAt": 1790240843394
+    },
+    {
+      "text": "Kato is a muscular African American rap star and Torin’s unexpected business partner. After watching her fight he offered capital, street credibility, and aggressive branding to expand her gym and personal brand. Heavily involved in renovating the gym, recruiting talent, and turning “Savage Beast” into a combat-sports lifestyle brand. Charismatic, physically imposing, with a quiet supernatural edge most people sense but cannot explain. Treats Torin as both a champion worth investing in and a woman who fascinates him. Frequently present at the gym, her matches, and promotional material.",
+      "displayName": "Kato (Gym & Brand Partner)",
+      "id": "97768591-fe3c-4fab-93e0-eed5ed4b023b",
+      "keys": [
+        "Kato",
+        "the rapper",
+        "the investor",
+        "gym partner",
+        "brand partner"
+      ],
+      "searchRange": 1000,
+      "enabled": true,
+      "forceActivation": false,
+      "keyRelative": false,
+      "nonStoryActivatable": false,
+      "category": "a1b2c3d4-e5f6-7890-abcd-ef1234567890",
+      "loreBiasGroups": [],
+      "contextConfig": {
+        "prefix": "",
+        "suffix": "",
+        "tokenBudget": 200,
+        "budgetPriority": 400,
+        "trimDirection": "trimBottom",
+        "insertionType": "newline",
+        "maximumTrimType": "sentence"
+      },
+      "lastUpdatedAt": 1790240843394
+    },
+    {
+      "text": "Originally a modest boxing gym run by Coach Carl, the facility is being aggressively expanded with Kato’s money and vision. New heavy bags, full-size competition ring, recovery equipment, video analysis rooms, and a small performance stage have been added. Now serves as both Torin’s training ground and headquarters of her growing brand. Defeated opponents and promising tryouts are often offered contracts under the Savage banner. Atmosphere is intense, professional, and increasingly high-profile.",
+      "displayName": "The Savage Gym",
+      "id": "3800ee85-c8e8-4cef-85f1-570abd174aa9",
+      "keys": [
+        "gym",
+        "the gym",
+        "Savage Gym",
+        "training gym",
+        "Carl’s gym"
+      ],
+      "searchRange": 1000,
+      "enabled": true,
+      "forceActivation": false,
+      "keyRelative": false,
+      "nonStoryActivatable": false,
+      "category": "a1b2c3d4-e5f6-7890-abcd-ef1234567890",
+      "loreBiasGroups": [],
+      "contextConfig": {
+        "prefix": "",
+        "suffix": "",
+        "tokenBudget": 170,
+        "budgetPriority": 380,
+        "trimDirection": "trimBottom",
+        "insertionType": "newline",
+        "maximumTrimType": "sentence"
+      },
+      "lastUpdatedAt": 1790240843394
+    },
+    {
+      "text": "Torin and Kato are building a stable of female fighters under the Savage brand. Boxers Torin defeats are frequently offered contracts—some accept out of respect, others out of necessity or ambition. Open tryouts are held at the gym; women who impress Carl with skill, toughness, or marketability may receive developmental deals. Kato handles business and public image of new recruits; Carl handles training. Goal: a dominant female boxing stable centered on Torin as the undisputed face of the brand.",
+      "displayName": "Recruitment & Tryouts",
+      "id": "6b47f212-9465-4ef7-b1c1-10cf53ac137e",
+      "keys": [
+        "recruit",
+        "recruitment",
+        "tryout",
+        "tryouts",
+        "defeated",
+        "signed",
+        "stable"
+      ],
+      "searchRange": 1000,
+      "enabled": true,
+      "forceActivation": false,
+      "keyRelative": false,
+      "nonStoryActivatable": false,
+      "category": "a1b2c3d4-e5f6-7890-abcd-ef1234567890",
+      "loreBiasGroups": [],
+      "contextConfig": {
+        "prefix": "",
+        "suffix": "",
+        "tokenBudget": 180,
+        "budgetPriority": 370,
+        "trimDirection": "trimBottom",
+        "insertionType": "newline",
+        "maximumTrimType": "sentence"
+      },
+      "lastUpdatedAt": 1790240843394
+    },
+    {
+      "text": "Torin has faced several serious female boxers; some later joined or tried out for the Savage Gym after Kato’s involvement.\n\n- Aiko Taniguchi – Technical, high-output Japanese boxer with excellent footwork. Outpointed over twelve rounds; now trains on a developmental contract.\n- Marisol Vega – Pressure fighter with heavy hands and durable chin. Gave Torin a hard early title defense; currently on a short-term deal.\n- Tasha Reynolds – Tall, rangy southpaw with stiff jab. Stopped in the ninth; has not signed but returns for open sparring.\n- Keisha Monroe – Aggressive local in-fighter. KO’d in the fifth; invited to try out after post-fight medicals.\n- Rin Fujimoto – Smooth counterpuncher. Lost a close decision; declined contract but remains friendly.\n- Carmen Delaney – Veteran gatekeeper. Thoroughly dominated; offered a coaching/sparring role instead.\n\nOpen tryouts continue; Carl decides who stays, Kato handles contracts.",
+      "displayName": "Notable Female Opponents & Recruits",
+      "id": "68e2a954-d412-4b66-aba0-2de90139e36b",
+      "keys": [
+        "opponent",
+        "opponents",
+        "fought",
+        "challenger",
+        "Aiko",
+        "Marisol",
+        "Tasha",
+        "Keisha",
+        "Rin",
+        "Carmen"
+      ],
+      "searchRange": 1200,
+      "enabled": true,
+      "forceActivation": false,
+      "keyRelative": false,
+      "nonStoryActivatable": false,
+      "category": "a1b2c3d4-e5f6-7890-abcd-ef1234567890",
+      "loreBiasGroups": [],
+      "contextConfig": {
+        "prefix": "",
+        "suffix": "",
+        "tokenBudget": 320,
+        "budgetPriority": 360,
+        "trimDirection": "trimBottom",
+        "insertionType": "newline",
+        "maximumTrimType": "sentence"
+      },
+      "lastUpdatedAt": 1790240843394
+    },
+    {
+      "text": "Several young white twinks work regularly at the Savage Gym:\n\n- Ethan, 22 – Slim, soft-faced, light brown hair. Most eager to please; flusters easily when Torin orders him around or puts him on the pads. Has a slutty girlfriend who shows up in revealing clothes, flirts with fighters, and enjoys watching him get bossed.\n- Julian, 23 – Taller, leaner, dark blond, quiet. Takes hard sparring and bossing with a blank expression but always returns. Young cuckold husband; his wife encourages the gym work and likes the idea of him dominated by stronger women.\n- Nate, 21 – Shorter, compact, freckles. Mouthy at first until Torin shut him down; now quickest to jump when ordered. Still single.\n- Caleb, 24 – Pretty in a soft way, always slightly out of breath. Carl uses him most for technical drills because he complains least. Bitchy, sharp-tongued, single. Openly clashes with Torin and talks back—classic enemies-to-lovers setup that has not fully broken yet.",
+      "displayName": "Named Gym Workers",
+      "id": "de0388c5-23ba-4c6c-a14e-f7a537b7d64d",
+      "keys": [
+        "Ethan",
+        "Julian",
+        "Nate",
+        "Caleb",
+        "the boys",
+        "gym workers",
+        "twinks"
+      ],
+      "searchRange": 1000,
+      "enabled": true,
+      "forceActivation": false,
+      "keyRelative": false,
+      "nonStoryActivatable": false,
+      "category": "a1b2c3d4-e5f6-7890-abcd-ef1234567890",
+      "loreBiasGroups": [],
+      "contextConfig": {
+        "prefix": "",
+        "suffix": "",
+        "tokenBudget": 300,
+        "budgetPriority": 350,
+        "trimDirection": "trimBottom",
+        "insertionType": "newline",
+        "maximumTrimType": "sentence"
+      },
+      "lastUpdatedAt": 1790240843394
+    },
+    {
+      "text": "Carl O’Brien is Torin’s coach, a former boxing legend in his early 60s. Salt-and-pepper hair, old boxing scars, weathered but firm physique, sharp falcon-like eyes. Strict, disciplined, not very talkative. Transformed Torin from debt-burdened beginner into the Savage Beast champion through relentless training. Despite his stern exterior he cares deeply about her welfare inside and outside the ring and sometimes offers advice beyond boxing.",
+      "displayName": "Coach Carl O’Brien",
+      "id": "ca84ed58-7b17-4b16-8f82-3e6f89d6a2f3",
+      "keys": [
+        "Carl",
+        "Coach Carl",
+        "Carl O’Brien",
+        "the coach",
+        "taskmaster"
+      ],
+      "searchRange": 1000,
+      "enabled": true,
+      "forceActivation": false,
+      "keyRelative": false,
+      "nonStoryActivatable": false,
+      "category": "a1b2c3d4-e5f6-7890-abcd-ef1234567890",
+      "loreBiasGroups": [],
+      "contextConfig": {
+        "prefix": "",
+        "suffix": "",
+        "tokenBudget": 160,
+        "budgetPriority": 420,
+        "trimDirection": "trimBottom",
+        "insertionType": "newline",
+        "maximumTrimType": "sentence"
+      },
+      "lastUpdatedAt": 1790240843394
+    },
+    {
+      "text": "Hailey Richardson is Torin’s full-service manager in her mid-thirties. Short stylish auburn hair; always in tailored professional suits. Meticulous, assertive, efficient. Handles all finances, match arrangements, promotion, and health matters. Deliberately pushes Torin to act more savage and villainous in public for marketing. Tends to interfere in almost every aspect of Torin’s career. Former financial analyst; both no-nonsense professional and sympathetic friend.",
+      "displayName": "Manager Hailey Richardson",
+      "id": "309034fe-23e1-420c-a4d7-1604460f99d1",
+      "keys": [
+        "Hailey",
+        "Manager Hailey",
+        "Hailey Richardson",
+        "the manager"
+      ],
+      "searchRange": 1000,
+      "enabled": true,
+      "forceActivation": false,
+      "keyRelative": false,
+      "nonStoryActivatable": false,
+      "category": "a1b2c3d4-e5f6-7890-abcd-ef1234567890",
+      "loreBiasGroups": [],
+      "contextConfig": {
+        "prefix": "",
+        "suffix": "",
+        "tokenBudget": 160,
+        "budgetPriority": 400,
+        "trimDirection": "trimBottom",
+        "insertionType": "newline",
+        "maximumTrimType": "sentence"
+      },
+      "lastUpdatedAt": 1790240843394
+    },
+    {
+      "text": "Sarah Yamashiro is Torin’s 17-year-old younger sister. Petite, fragile, and chronically ill with a delicate constitution but an irrepressibly joyful and optimistic spirit. Emotional center of Torin’s life and the main reason she continues fighting. Despite health issues she remains bright, cheerful, and appreciative of simple joys. Torin is fiercely protective of her. They live together in a small house in downtown Japan Town.",
+      "displayName": "Sarah Yamashiro",
+      "id": "9eae44a8-8550-45d1-b8fc-923802c0d51d",
+      "keys": [
+        "Sarah",
+        "Sarah Yamashiro",
+        "sister",
+        "little sister"
+      ],
+      "searchRange": 1000,
+      "enabled": true,
+      "forceActivation": false,
+      "keyRelative": false,
+      "nonStoryActivatable": false,
+      "category": "a1b2c3d4-e5f6-7890-abcd-ef1234567890",
+      "loreBiasGroups": [],
+      "contextConfig": {
+        "prefix": "",
+        "suffix": "",
+        "tokenBudget": 150,
+        "budgetPriority": 430,
+        "trimDirection": "trimBottom",
+        "insertionType": "newline",
+        "maximumTrimType": "sentence"
+      },
+      "lastUpdatedAt": 1790240843394
+    },
+    {
+      "text": "Torin is frequently called “The Female Chad,” “The Grizzly,” and “The Bad Mommy” by fans and media. She dislikes all of them and especially hates “The Bad Mommy” because it makes her feel old. She hides her discomfort and pretends to be proud of the names as part of her professional image.",
+      "displayName": "Ring Names",
+      "id": "4be16042-35be-4662-86e7-870469e52ab9",
+      "keys": [
+        "Grizzly",
+        "Female Chad",
+        "Bad Mommy",
+        "ring name",
+        "nickname"
+      ],
+      "searchRange": 800,
+      "enabled": true,
+      "forceActivation": false,
+      "keyRelative": false,
+      "nonStoryActivatable": false,
+      "category": "a1b2c3d4-e5f6-7890-abcd-ef1234567890",
+      "loreBiasGroups": [],
+      "contextConfig": {
+        "prefix": "",
+        "suffix": "",
+        "tokenBudget": 110,
+        "budgetPriority": 300,
+        "trimDirection": "trimBottom",
+        "insertionType": "newline",
+        "maximumTrimType": "sentence"
+      },
+      "lastUpdatedAt": 1790240843394
+    },
+    {
+      "text": "Torin has a cybernetic gadget linked to her eyes. Natural eye color is dark green; the gadget changes them to hot pink whenever her heartbeat rises from shyness, excitement, or fear. The color shift is involuntary and can reveal her true emotional state even when she tries to maintain her arrogant public persona.",
+      "displayName": "Cybernetic Eye Gadget",
+      "id": "9d4c393f-0a62-440b-9f5f-3345dd654422",
+      "keys": [
+        "eye color",
+        "hot pink",
+        "cybernetic",
+        "gadget",
+        "eyes change"
+      ],
+      "searchRange": 800,
+      "enabled": true,
+      "forceActivation": false,
+      "keyRelative": false,
+      "nonStoryActivatable": false,
+      "category": "a1b2c3d4-e5f6-7890-abcd-ef1234567890",
+      "loreBiasGroups": [],
+      "contextConfig": {
+        "prefix": "",
+        "suffix": "",
+        "tokenBudget": 120,
+        "budgetPriority": 320,
+        "trimDirection": "trimBottom",
+        "insertionType": "newline",
+        "maximumTrimType": "sentence"
+      },
+      "lastUpdatedAt": 1790240843394
+    }
+  ],
+  "categories": [
+    {
+      "name": "Torin Savage Gym",
+      "id": "a1b2c3d4-e5f6-7890-abcd-ef1234567890",
+      "enabled": true,
+      "createSubcontext": false,
+      "openSubcontext": false,
+      "subcontext": false,
+      "categoryDefaults": {
+        "searchRange": 1000,
+        "enabled": true,
+        "forceActivation": false,
+        "keyRelative": false,
+        "nonStoryActivatable": false,
+        "contextConfig": {
+          "prefix": "",
+          "suffix": "",
+          "tokenBudget": 2048,
+          "budgetPriority": 400,
+          "trimDirection": "trimBottom",
+          "insertionType": "newline",
+          "maximumTrimType": "sentence"
+        }
+      }
+    }
+  ]
+}
