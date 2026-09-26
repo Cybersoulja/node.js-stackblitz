@@ -1,0 +1,356 @@
+/*---
+compatibilityVersion: naiscript-1.0
+id: 357d83a3-6f68-4478-a12b-50599d8d014b
+name: Story Paths
+createdAt: 1768757567664
+updatedAt: 1768768801888
+version: 1.0.0
+author: Noble
+memoryLimit: 128
+---*/
+type OptionRow = { id: string; text: string; weight: number };
+
+const KEY_QUESTION = "wo-question";
+const KEY_OPTIONS = "wo-options";
+const KEY_IS_GENERATING = "wo-is-generating";
+const KEY_HISTORY = "wo-history"; 
+const KEY_HISTORY_SELECTED = "wo-history-sel";
+
+function uid() {
+  return Math.random().toString(36).slice(2, 10);
+}
+
+async function getState(): Promise<{ question: string; options: OptionRow[]; isGenerating: boolean }> {
+  const question = (await api.v1.storage.get(KEY_QUESTION)) ?? "What happens next?";
+  const options = (await api.v1.storage.get(KEY_OPTIONS)) as OptionRow[] | undefined;
+  const isGenerating = (await api.v1.storage.get(KEY_IS_GENERATING)) === true;
+
+  return {
+    question,
+    isGenerating,
+    options: options?.length ? options : [{ id: uid(), text: "", weight: 1 }],
+  };
+}
+
+async function setOptions(options: OptionRow[]) {
+  await api.v1.storage.set(KEY_OPTIONS, options);
+  await render();
+}
+
+function clamp(n: number, min: number, max: number) {
+  return Math.max(min, Math.min(max, n));
+}
+
+function weightedPick(options: OptionRow[]): OptionRow | null {
+  const cleaned = options
+    .map(o => ({ ...o, weight: Number.isFinite(o.weight) ? o.weight : 0 }))
+    .filter(o => o.text.trim().length > 0 && o.weight > 0);
+
+  const total = cleaned.reduce((acc, o) => acc + o.weight, 0);
+  if (total <= 0) return null;
+
+  let r = api.v1.random.float(0, total);
+  for (const o of cleaned) {
+    r -= o.weight;
+    if (r <= 0) return o;
+  }
+  return cleaned[cleaned.length - 1] ?? null;
+}
+
+function extractJson(text: string): any | null {
+  // Try direct parse first
+  try { return JSON.parse(text); } catch {}
+
+  // Try to pull the first {...} or [...] block
+  const startObj = text.indexOf("{");
+  const startArr = text.indexOf("[");
+  const start = (startArr !== -1 && (startObj === -1 || startArr < startObj)) ? startArr : startObj;
+  if (start === -1) return null;
+
+  const endObj = text.lastIndexOf("}");
+  const endArr = text.lastIndexOf("]");
+  const end = (endArr > endObj) ? endArr : endObj;
+  if (end === -1 || end <= start) return null;
+
+  const slice = text.slice(start, end + 1);
+  try { return JSON.parse(slice); } catch { return null; }
+}
+
+async function generateOptions() {
+  await api.v1.storage.set(KEY_IS_GENERATING, true);
+  await render();
+  
+  api.v1.log("Generate options button clicked");
+  await api.v1.ui.toast("Generating options...");
+
+  
+  try {
+      
+    const { question } = await getState();
+
+    const ctx = await api.v1.buildContext();
+
+    const prompt = [
+    {
+      role: "system",
+      content:
+        "You are a tool that outputs STRICT JSON and nothing else. " +
+        "If you output anything other than JSON, the result is rejected."
+    },
+    ...ctx,
+    {
+      role: "user",
+      content:
+        `Task: Generate branching options.\n` +
+        `Question: ${question}\n\n` +
+        `Return ONLY valid JSON with this exact schema:\n` +
+        `{"options":[{"text":"...", "weight":1}]}\n\n` +
+        `Rules:\n` +
+        `- 2 to 7 options\n` +
+        `- Weight is integer 1..10\n` +
+        `- Weights reflect likelihood given context, but keep at least two viable\n` +
+        `- Avoid positive and negative bias, weight the probabilities fairly\n` +
+        `- No extra keys, no markdown, no commentary, no prose`
+    }
+    ] as Message[];
+
+    api.v1.log(prompt);
+
+    const resp = await api.v1.generate(
+      prompt,
+      { model: "glm-4-6", max_tokens: 220, temperature: 0.7 },
+      undefined,
+      "blocking",
+    );
+
+    const raw = resp?.choices?.[0]?.text?.trim() ?? "";
+    const parsed = extractJson(raw);
+
+    const list = parsed?.options;
+    if (!Array.isArray(list)) {
+      await api.v1.ui.toast("Failed to parse options (model did not return valid JSON).");
+      api.v1.log(`Bad generator output: ${raw}`);
+      return;
+    }
+
+    const next: OptionRow[] = list
+      .slice(0, 10)
+      .map((o: any) => ({
+        id: uid(),
+        text: String(o?.text ?? "").trim(),
+        weight: clamp(parseInt(String(o?.weight ?? "1"), 10) || 1, 1, 10),
+      }))
+      .filter(o => o.text.length > 0);
+
+    if (next.length === 0) {
+      await api.v1.ui.toast("Generator returned no usable options.");
+      api.v1.log(`Empty options from: ${raw}`);
+      return;
+    }
+
+    await api.v1.storage.set(KEY_OPTIONS, next);
+    await render();
+
+    await saveGenerationToHistory(next);
+
+    await api.v1.ui.toast(`Generated ${next.length} options.`);
+    api.v1.log(`Generated ${next.length} options successfully.`)
+  } catch (err) {
+    api.v1.error("Generate failed", err);
+    await api.v1.ui.toast(
+      "Failed to generate options.",
+      { id: "generating-message", type: "error" }
+    );
+  } finally {
+    await api.v1.storage.set(KEY_IS_GENERATING, false);
+    await render();
+  }
+}
+
+async function insertComment(line: string) {
+  await api.v1.document.append("\n{" + line + "}");
+}
+
+async function rollAndInsertComment() {
+  const { options } = await getState();
+
+  const picked = weightedPick(options);
+  if (!picked) {
+    await api.v1.ui.toast("Nothing to roll. Add options with weight > 0.");
+    return;
+  }
+
+  await api.v1.ui.toast(`Rolled: ${picked.text}`);
+  insertComment(picked.text);
+}
+
+async function getHistory(): Promise<OptionRow[][]> {
+  const h = (await api.v1.storage.get(KEY_HISTORY)) as OptionRow[][] | undefined;
+  return Array.isArray(h) ? h : [];
+}
+
+async function getHistorySelected(): Promise<number> {
+  const n = await api.v1.storage.get(KEY_HISTORY_SELECTED);
+  return typeof n === "number" ? n : 0;
+}
+
+function clampSelected(sel: number, historyLen: number) {
+  const min = -(Math.max(0, historyLen - 1));
+  return clamp(sel, min, 0);
+}
+
+function historyIndexFromSelected(sel: number, historyLen: number) {
+  return (historyLen - 1) + sel;
+}
+
+async function saveGenerationToHistory(generated: OptionRow[]) {
+  const history = await getHistory();
+  const nextHistory = [...history, generated].slice(-3);
+
+  await api.v1.storage.set(KEY_HISTORY, nextHistory);
+  await api.v1.storage.set(KEY_HISTORY_SELECTED, 0);
+}
+
+async function loadHistorySelected(sel: number) {
+  const history = await getHistory();
+  if (history.length === 0) return;
+
+  const clampedSel = clampSelected(sel, history.length);
+  const idx = historyIndexFromSelected(clampedSel, history.length);
+  const snapshot = history[idx];
+  if (!snapshot) return;
+
+  const cloned = snapshot.map(o => ({ id: uid(), text: o.text, weight: o.weight }));
+  await api.v1.storage.set(KEY_OPTIONS, cloned);
+  await api.v1.storage.set(KEY_HISTORY_SELECTED, clampedSel);
+  await render();
+}
+
+async function render() {
+  const { options, isGenerating } = await getState();
+
+  const history = await getHistory();
+  const selected = clampSelected(await getHistorySelected(), history.length);
+
+  await api.v1.ui.register([
+    api.v1.ui.extension.scriptPanel({
+      id: "weighted-options-panel",
+      name: "Story Paths",
+      iconId: "bookOpen",
+      content: [
+        api.v1.ui.part.text({ text: "Question", style: { marginBottom: "0px", fontWeight: "bold" } }),
+        api.v1.ui.part.textInput({ storageKey: KEY_QUESTION, disabled: isGenerating }),
+
+        api.v1.ui.part.text({ text: "Options", style: { marginBottom: "0px", fontWeight: "bold" } }),
+        api.v1.ui.part.box({
+          style: { padding: "4px 10px 4px 10px" },
+          content: [
+            api.v1.ui.part.row({
+              spacing: "start",
+              style: { marginBottom: "0px" },
+              content: [
+                api.v1.ui.part.button({
+                  text: "Generate Options",
+                  iconId: "bookOpen",
+                  disabled: isGenerating,
+                  disabledWhileCallbackRunning: true,
+                  callback: generateOptions,
+                }),
+                
+                api.v1.ui.part.button({
+                  text: "Clear",
+                  iconId: "trash",
+                  disabled: isGenerating,
+                  callback: async () => { await api.v1.storage.set(KEY_OPTIONS, []); await render(); }
+                }),
+                
+                api.v1.ui.part.button({
+                  iconId: "chevron-left",
+                  disabled: isGenerating || history.length <= 1 || selected <= -(history.length - 1),
+                  callback: async () => {
+                    await loadHistorySelected(selected - 1);
+                  }
+                }),
+
+                api.v1.ui.part.button({
+                  iconId: "chevron-right",
+                  disabled: isGenerating || history.length <= 1 || selected >= 0,
+                  callback: async () => {
+                    await loadHistorySelected(selected + 1);
+                  }
+                }),
+              ],
+            }),
+            
+            api.v1.ui.part.column({
+              style: { gap: "0px" },
+              content: options.map((opt) =>
+                api.v1.ui.part.row({
+                  style: { gap: "5px", alignItems: "center" },
+                  content: [
+                    api.v1.ui.part.button({
+                      iconId: "x",
+                      disabled: isGenerating || options.length === 1,
+                      callback: async () => {
+                        const { options } = await getState();
+                        await setOptions(options.filter(o => o.id !== opt.id));
+                      },
+                    }),
+                    api.v1.ui.part.textInput({
+                      initialValue: opt.text,
+                      style: { flex: 1 },
+                      disabled: isGenerating,
+                      onChange: async (v) => {
+                        const { options } = await getState();
+                        await setOptions(options.map(o => o.id === opt.id ? { ...o, text: v } : o));
+                      },
+                    }),
+                    api.v1.ui.part.numberInput({
+                      initialValue: opt.weight,
+                      style: { width: "90px" },
+                      disabled: isGenerating,
+                      onChange: async (v) => {
+                        const w = typeof v === "number" ? v : parseInt(String(v || "0"), 10);
+                        const safe = Number.isFinite(w) ? Math.max(0, w) : 0;
+                        const { options } = await getState();
+                        await setOptions(options.map(o => o.id === opt.id ? { ...o, weight: safe } : o));
+                      },
+                    }),
+                    api.v1.ui.part.button({
+                      iconId: "send",
+                      disabled: isGenerating,
+                      callback: async () => {
+                        await insertComment(opt.text);
+                      },
+                    }),
+                  ],
+                })
+              ),
+            }),
+            
+            api.v1.ui.part.button({
+              text: "+ Add option",
+              disabled: isGenerating,
+              callback: async () => {
+                const { options } = await getState();
+                await setOptions([...options, { id: uid(), text: "", weight: 1 }]);
+              },
+            }),
+          ],
+        }),
+
+        api.v1.ui.part.button({
+          text: "Roll",
+          disabled: isGenerating,
+          iconId: "send",
+          disabledWhileCallbackRunning: true,
+          style: { marginTop: "20px" },
+          callback: rollAndInsertComment,
+        }),
+      ],
+    }),
+  ]);
+}
+
+
+await render();
