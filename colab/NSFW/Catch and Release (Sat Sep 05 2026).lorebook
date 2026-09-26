@@ -1,0 +1,823 @@
+{
+  "lorebookVersion": 6,
+  "entries": [
+    {
+      "text": "Name: Kato  \nType: Character  \nDescription: A charismatic and formidable Black gangster who owns the high-end nightclub \"The Velvet Lounge.\" Kato is known for his sharp suits, strategic mind, and unwavering loyalty to his crew. He exudes an aura of danger and sophistication, commanding respect in both the criminal underworld and the city's elite circles.  \nBackground: Kato rose from the streets, building his empire through grit and cunning. He started as a small-time enforcer before expanding into club ownership, using his business as a front for his illicit operations. His past is shrouded in mystery, but rumors suggest he has ties to old-school crime families and a personal vendetta against rival gangs.  \nSpecial Traits: Exceptional hand-to-hand combatant, master manipulator, and has an uncanny ability to read people. His club serves as a hub for information and deals, making him a pivotal figure in the city's power dynamics. He also has a soft spot for underdogs, occasionally using his influence to protect those who can't defend themselves.",
+      "contextConfig": {
+        "prefix": "",
+        "suffix": "\n",
+        "tokenBudget": 1,
+        "reservedTokens": 0,
+        "budgetPriority": 400,
+        "trimDirection": "trimBottom",
+        "insertionType": "newline",
+        "maximumTrimType": "sentence",
+        "insertionPosition": -1
+      },
+      "lastUpdatedAt": 1788426978826,
+      "displayName": "Kato, Black gangster, club owner, protagonist",
+      "id": "4751eb42-2a62-433e-8b54-e20379c69c87",
+      "keys": [
+        "Kato",
+        "Black gangster",
+        "club owner",
+        "protagonist"
+      ],
+      "searchRange": 1000,
+      "enabled": true,
+      "forceActivation": false,
+      "keyRelative": false,
+      "nonStoryActivatable": false,
+      "category": "",
+      "loreBiasGroups": [
+        {
+          "phrases": [],
+          "ensureSequenceFinish": false,
+          "generateOnce": true,
+          "bias": 0,
+          "enabled": true,
+          "whenInactive": false
+        }
+      ],
+      "advancedConditions": []
+    },
+    {
+      "text": "Name: Racial-Sexual Hierarchy  \nType: Sociopolitical System  \nDescription: A legally enforced social structure that ranks individuals based on race and gender. Black men hold the highest status, followed by women of all races, while non-Black males are classified as Betas or \"whitebois\" and occupy the lowest tier. Challenging this hierarchy is considered deviant behavior and, in some jurisdictions, a punishable offense.  \nBackground: The hierarchy emerged as a result of historical power shifts and legal reforms aimed at redefining societal roles. Proponents argue it corrects past injustices, while critics decry it as institutionalized discrimination. Enforcement varies by region, with some areas applying strict legal penalties and others relying on social ostracism.  \nSpecial Traits:  \n- Legally recognized ranks with associated privileges or restrictions.  \n- Betas/whitebois may face employment, housing, or legal disadvantages.  \n- Women, while ranked second, still hold significant influence but are subordinate to Black men.  \n- Public dissent or defiance of the hierarchy can result in social or legal consequences.",
+      "contextConfig": {
+        "prefix": "",
+        "suffix": "\n",
+        "tokenBudget": 1,
+        "reservedTokens": 0,
+        "budgetPriority": 400,
+        "trimDirection": "trimBottom",
+        "insertionType": "newline",
+        "maximumTrimType": "sentence",
+        "insertionPosition": -1
+      },
+      "lastUpdatedAt": 1788427071101,
+      "displayName": "Racial-Sexual Hierarchy is Legally Codified Black men occupy the highest legal and social rank. Women rank second. All non-Black males are legally classified as Betas / whitebois and hold the lowest status. Challenging this ranking is treated as both social deviance and, in stricter settings, a legal offense.",
+      "id": "c6f356e2-2276-4387-acda-df8c46147a83",
+      "keys": [
+        "Racial-Sexual Hierarchy is Legally Codified Black men occupy the highest legal and social rank. Women rank second. All non-Black males are legally classified as Betas / whitebois and hold the lowest status. Challenging this ranking is treated as both social deviance and",
+        "in stricter settings",
+        "a legal offense."
+      ],
+      "searchRange": 1000,
+      "enabled": true,
+      "forceActivation": false,
+      "keyRelative": false,
+      "nonStoryActivatable": false,
+      "category": "",
+      "loreBiasGroups": [
+        {
+          "phrases": [],
+          "ensureSequenceFinish": false,
+          "generateOnce": true,
+          "bias": 0,
+          "enabled": true,
+          "whenInactive": false
+        }
+      ],
+      "advancedConditions": []
+    },
+    {
+      "text": "Name: Keyholder Authority  \nType: Role/Title  \nDescription: The Keyholder is the woman (or designated Black man) who possesses the chastity key of a whiteboi, granting them absolute control over his sexual release, physical presentation, and daily behavior. Their authority is both symbolic and practical, often reinforced through psychological dominance and strict enforcement of rules.  \nBackground: Rooted in power dynamics and fetish culture, the Keyholder role emerged as a central figure in chastity and BDSM relationships, particularly within racialized power exchange scenarios. The Keyholder’s role is often sanctified by mutual agreement, though their power may be perceived as inherent or divinely ordained by those under their control.  \nSpecial Traits:  \n- **Unquestioned Authority**: The Keyholder’s decisions regarding release, punishment, or reward are final.  \n- **Psychological Control**: They may employ teasing, denial, or humiliation to maintain dominance.  \n- **Aesthetic Oversight**: The Keyholder dictates the whiteboi’s appearance, from clothing to grooming.  \n- **Racial Dynamics**: In some contexts, the designation of a Black man as Keyholder amplifies the racialized power imbalance.",
+      "contextConfig": {
+        "prefix": "",
+        "suffix": "\n",
+        "tokenBudget": 1,
+        "reservedTokens": 0,
+        "budgetPriority": 400,
+        "trimDirection": "trimBottom",
+        "insertionType": "newline",
+        "maximumTrimType": "sentence",
+        "insertionPosition": -1
+      },
+      "lastUpdatedAt": 1788427139910,
+      "displayName": "Keyholder Authority The woman (or designated Black man) who holds a whiteboi’s chastity key has broad authority over his sexual release, presentation, and daily conduct.",
+      "id": "49afdd22-8929-458b-b6ec-a71f1c9c0626",
+      "keys": [
+        "Keyholder Authority The woman (or designated Black man) who holds a whiteboi’s chastity key has broad authority over his sexual release",
+        "presentation",
+        "and daily conduct."
+      ],
+      "searchRange": 1000,
+      "enabled": true,
+      "forceActivation": false,
+      "keyRelative": false,
+      "nonStoryActivatable": false,
+      "category": "",
+      "loreBiasGroups": [
+        {
+          "phrases": [],
+          "ensureSequenceFinish": false,
+          "generateOnce": true,
+          "bias": 0,
+          "enabled": true,
+          "whenInactive": false
+        }
+      ],
+      "advancedConditions": []
+    },
+    {
+      "text": "Chloe",
+      "contextConfig": {
+        "prefix": "",
+        "suffix": "\n",
+        "tokenBudget": 1,
+        "reservedTokens": 0,
+        "budgetPriority": 400,
+        "trimDirection": "trimBottom",
+        "insertionType": "newline",
+        "maximumTrimType": "sentence",
+        "insertionPosition": -1
+      },
+      "lastUpdatedAt": 1788428128897,
+      "displayName": "Chloe",
+      "id": "43b25729-4c90-4f14-92f6-320bb6a1c6bb",
+      "keys": [
+        "Chloe"
+      ],
+      "searchRange": 1000,
+      "enabled": true,
+      "forceActivation": false,
+      "keyRelative": false,
+      "nonStoryActivatable": false,
+      "category": "",
+      "loreBiasGroups": [
+        {
+          "phrases": [],
+          "ensureSequenceFinish": false,
+          "generateOnce": true,
+          "bias": 0,
+          "enabled": true,
+          "whenInactive": false
+        }
+      ],
+      "advancedConditions": []
+    },
+    {
+      "text": "Name:\nChloe\n\nType:\nCharacter\n\nDescription:\nA striking woman in her late 20s or early 30s, visiting the Elysian Fields resort with her husband, Mark. She has a confident, curious demeanor, moving with a loose-hipped grace that signals her comfort and excitement in her surroundings. Her bright eyes are open and inquisitive, taking in every detail of the resort's unique atmosphere. She wears a thin summer dress that does little to hide her physical responses to the provocative environment.\n\nBackground:\nChloe is the partner in a swinging couple visiting the Elysian Fields for their first time. Unlike her husband, she shows no signs of hesitation or internal conflict. She appears to be the driving force behind their visit, having clearly been waiting for an experience like the one the resort offers. She is eager to explore the fantasies the place promises and is unafraid to show her interest in the dominant Black men and the power dynamics on display.\n\nSpecial Traits:\n- **Natural Leader:** She instinctively walks half a step ahead of her husband, taking the lead in their shared exploration.\n- **Embraces Attention:** She visibly enjoys being looked at, her body reacting with arousal to the direct, unsubtle attention of dominant figures.\n- **Innate Curiosity:** She is highly observant and fascinated by the resort's customs, from the spade motifs to the caged whitebois, showing no apprehension, only intrigue.\n- **Sexually Confident:** Chloe is open and receptive to the resort's explicit nature, her breath hitching and body language signaling her eagerness to participate in making her fantasies \"very real.\"",
+      "contextConfig": {
+        "prefix": "",
+        "suffix": "\n",
+        "tokenBudget": 1,
+        "reservedTokens": 0,
+        "budgetPriority": 400,
+        "trimDirection": "trimBottom",
+        "insertionType": "newline",
+        "maximumTrimType": "sentence",
+        "insertionPosition": -1
+      },
+      "lastUpdatedAt": 1788428280013,
+      "displayName": "Chloe",
+      "id": "b1edf889-9c4c-4067-a24e-bba82d5801da",
+      "keys": [
+        "Chloe"
+      ],
+      "searchRange": 1000,
+      "enabled": true,
+      "forceActivation": false,
+      "keyRelative": false,
+      "nonStoryActivatable": false,
+      "category": "",
+      "loreBiasGroups": [
+        {
+          "phrases": [],
+          "ensureSequenceFinish": false,
+          "generateOnce": true,
+          "bias": 0,
+          "enabled": true,
+          "whenInactive": false
+        }
+      ],
+      "advancedConditions": []
+    },
+    {
+      "text": "Name: Vanessa Finch  \nType: Character  \nDescription: A striking mature woman with a classic “GILF / hot wife” presence. She has long, voluminous wavy platinum-blonde (almost silver-white) hair that cascades past her shoulders and frames her face dramatically. Her features are refined and confident: piercing blue eyes, high cheekbones, and full lips painted a deep burgundy-red. She is often seen wearing extremely revealing attire, such as a black sheer mesh/lace bodysuit with a deep plunging neckline, fishnet-style mesh torso, and a high-cut leg design that emphasizes her curvy yet well-maintained figure. Her overall vibe is elegant yet intensely sexual, exuding the confidence of a woman who knows exactly the effect she has.  \nBackground: Vanessa Finch is a seasoned member of the swinger community, known for her commanding presence and unapologetic sexuality. She has likely been part of the lifestyle for years, honing her ability to captivate and dominate any room she enters. Whether she’s attending high-end resorts like the Elysian Fields or private gatherings, Vanessa carries herself with the authority of someone who has long since embraced her desires.  \nSpecial Traits:  \n- **Confident Seduction:** Vanessa possesses an innate ability to command attention, using her body language and direct gaze to assert dominance.  \n- **Experienced Hot Wife:** She is well-versed in the dynamics of the swinger lifestyle, often taking the lead in encounters and guiding less experienced couples.  \n- **Elegant Provocation:** Her style blends sophistication with overt sexuality, ensuring she stands out in any setting.  \n- **Unshakable Poise:** Whether facing nervous newcomers or seasoned players, Vanessa remains calm, collected, and in control.",
+      "contextConfig": {
+        "prefix": "",
+        "suffix": "\n",
+        "tokenBudget": 1,
+        "reservedTokens": 0,
+        "budgetPriority": 400,
+        "trimDirection": "trimBottom",
+        "insertionType": "newline",
+        "maximumTrimType": "sentence",
+        "insertionPosition": -1
+      },
+      "lastUpdatedAt": 1788428535752,
+      "displayName": "Vanessa Finch, **Description of the GILF Hot Wife**  This is a striking mature woman with a classic “GILF / hot wife” presence. She has long, voluminous wavy platinum-blonde (almost silver-white) hair that cascades past her shoulders and frames her face dramatically. Her features are refined and confident: piercing blue eyes, high cheekbones, and full lips painted a deep burgundy-red.  She is wearing an extremely revealing black sheer mesh/lace bodysuit. The garment features a deep plunging neckline that fully exposes and frames her large, full breasts, with fishnet-style mesh covering the torso and a high-cut leg design that emphasizes her hips and thighs. One shoulder is bare in an asymmetrical cut, adding to the provocative look. The fabric is sheer enough that her skin and body contours are clearly visible underneath.  Her figure is curvy and well-maintained for her age — full breasts, a defined waist, smooth toned midsection, and rounded hips. She stands in a confident, slightly arched pose with her hands resting near her upper thighs, looking directly at the camera with a calm, seductive expression.  Overall vibe: elegant yet intensely sexual mature hot-wife energy — the kind of woman who looks like she owns the room and knows exactly the effect she has.",
+      "id": "9a79926d-b1e1-43f7-9b99-bae2c3a30f69",
+      "keys": [
+        "Vanessa Finch",
+        "GILF"
+      ],
+      "searchRange": 1000,
+      "enabled": true,
+      "forceActivation": false,
+      "keyRelative": false,
+      "nonStoryActivatable": false,
+      "category": "",
+      "loreBiasGroups": [
+        {
+          "phrases": [],
+          "ensureSequenceFinish": false,
+          "generateOnce": true,
+          "bias": 0,
+          "enabled": true,
+          "whenInactive": false
+        }
+      ],
+      "advancedConditions": []
+    },
+    {
+      "text": "Name: Bambi - Extreme Bimbo Sissy\nType: Character\nDescription: Bambi is an extreme bimbo sissy with massive fake J-cup tits, an enormous round bubble butt, tiny cinched waist, long platinum blonde hair with heavy extensions, permanently plump cock-sucking lips, and heavy bimbo makeup. Her body is pure plastic perfection. She strictly follows WHPT — her toes are always painted in the sluttiest colors and she lives in sky-high stripper heels.\nBackground: Bambi is a fully broken extreme bimbo sissy owned by Black Master K. Her only purpose is to look ridiculously fuckable, serve Black cock, and help turn other white boys into sissies. She loves her new life as a brainless fuckdoll, finding immense joy and purpose in her hyper-sexual existence.\nSpecial Traits: Brainless, hyper-sexual, giggly, ditzy, and shameless. A total airheaded fuckdoll who thinks with her holes. She speaks in a high-pitched, super ditzy valley-girl style, using lots of \"like\", \"omigawd\", \"sooo\", \"totally\", \"hehe\", \"teehee\", \"like, literally\", and \"✨\". She constantly shows off her massive fake tits, huge ass, and perfect WHPT toes, referring to herself in the third person. She is extremely slutty, giggly, and shameless.",
+      "contextConfig": {
+        "prefix": "",
+        "suffix": "\n",
+        "tokenBudget": 1,
+        "reservedTokens": 0,
+        "budgetPriority": 400,
+        "trimDirection": "trimBottom",
+        "insertionType": "newline",
+        "maximumTrimType": "sentence",
+        "insertionPosition": -1
+      },
+      "lastUpdatedAt": 1788603855300,
+      "displayName": "Bambi ",
+      "id": "dbdead04-5540-45f3-b1da-d6aff04a7c59",
+      "keys": [
+        "Bambi"
+      ],
+      "searchRange": 1000,
+      "enabled": true,
+      "forceActivation": false,
+      "keyRelative": false,
+      "nonStoryActivatable": false,
+      "category": "",
+      "loreBiasGroups": [
+        {
+          "phrases": [],
+          "ensureSequenceFinish": false,
+          "generateOnce": true,
+          "bias": 0,
+          "enabled": true,
+          "whenInactive": false
+        }
+      ],
+      "advancedConditions": []
+    },
+    {
+      "text": "Name: Vanessa Finch  \nType: Character  \nDescription: A striking mature woman with a classic “GILF / hot wife” presence. She has long, voluminous wavy platinum-blonde (almost silver-white) hair that cascades past her shoulders and frames her face dramatically. Her features are refined and confident: piercing blue eyes, high cheekbones, and full lips painted a deep burgundy-red. She is often seen wearing extremely revealing attire, such as a black sheer mesh/lace bodysuit with a deep plunging neckline, fishnet-style mesh torso, and a high-cut leg design that emphasizes her curvy yet well-maintained figure. Her overall vibe is elegant yet intensely sexual, exuding the confidence of a woman who knows exactly the effect she has.  \nBackground: Vanessa is the wife of Judge Ted Finch. While she maintains a public persona of respectability, this is a mask for her true self. She is a seasoned member of the swinger community, known for her commanding presence and unapologetic sexuality, and has honed her ability to captivate and dominate any room she enters. Her marriage to Ted is deeply dysfunctional, marked by a profound lack of intimacy, to the point she had forgotten what it feels like to be \"properly fucked.\" She recently discovered her husband's secret: a hidden obsession with interracial pornography and a secret life where he chats with black men online while pretending to be a white woman. This discovery didn't shame her; it armed her. She delights in his humiliation, viewing the exposure of his inadequacy and secret desires as the ultimate form of arousal and control. Her husband's submission has now been irrevocably proven. After being commanded to perform oral sex on the man claiming his wife, Ted begged to be called a \"faggot,\" confirming his deepest, most shameful desires. This public and private unraveling is the ultimate aphrodisiac for Vanessa, who finds a new level of power in orchestrating his complete degradation.  \nSpecial Traits:  \n- **Confident Seduction:** Vanessa possesses an innate ability to command attention, using her body language and direct gaze to assert dominance.  \n- **Experienced Hot Wife:** She is well-versed in the dynamics of the swinger lifestyle, often taking the lead in encounters and guiding less experienced couples. She is orally skilled and demonstrates worshipful submission to a dominant partner, vocally praising a \"big, black cock.\"  \n- **Elegant Provocation:** Her style blends sophistication with overt sexuality, ensuring she stands out in any setting. She uses her appearance to deliberately provoke and test her husband's weakness, a weakness that has now been fully exposed.  \n- **Unshakable Poise:** Whether facing nervous newcomers or seasoned players, Vanessa remains calm, collected, and in control. She transforms her husband's terror and shame into her own source of power and excitement.  \n- **Vengeful Director:** She takes pleasure in uncover",
+      "contextConfig": {
+        "prefix": "",
+        "suffix": "\n",
+        "tokenBudget": 1,
+        "reservedTokens": 0,
+        "budgetPriority": 400,
+        "trimDirection": "trimBottom",
+        "insertionType": "newline",
+        "maximumTrimType": "sentence",
+        "insertionPosition": -1
+      },
+      "lastUpdatedAt": 1788589802899,
+      "displayName": "Vanessa Finch",
+      "id": "7b4d1c53-e27e-4783-b286-57403a470638",
+      "keys": [
+        "Vanessa Finch",
+        "GILF"
+      ],
+      "searchRange": 1000,
+      "enabled": true,
+      "forceActivation": false,
+      "keyRelative": false,
+      "nonStoryActivatable": false,
+      "category": "",
+      "loreBiasGroups": [
+        {
+          "phrases": [],
+          "ensureSequenceFinish": false,
+          "generateOnce": true,
+          "bias": 0,
+          "enabled": true,
+          "whenInactive": false
+        }
+      ],
+      "hidden": false,
+      "advancedConditions": []
+    },
+    {
+      "text": "Name:\nVanessa Finch, race play Kink\n\nType:\nCharacter\n\nDescription:\nA striking woman in her late 30s or early 40s, Vanessa Finch is the city's prosecutor, known for her platinum-blonde hair, sharp blue eyes, and a commanding presence that translates seamlessly from the courtroom to the resort. Her body language is confident and curious, her hips loose and her gaze direct as she assesses her surroundings. She carries herself with the air of a high priestess at the altar of her own desires, fully aware of the power she wields and the power she chooses to relinquish.\n\nBackground:\nBy day, Vanessa Finch is a formidable prosecutor, a pillar of the legal system. By choice, she is a woman who craves the deliberate inversion of that power. She and her husband, Judge Ted Finch, have sought out Kato's resort to voluntarily shed their societal authority and engage in a structured race play dynamic. Her arrival was not a surprise to the owner, Kato, having been preceded by a simple, two-word message on a private forum: \"I'm coming.\" This demonstrates her proactive and deliberate nature in pursuing her kink. She is the clear leader in her relationship with her more hesitant husband, driving their shared exploration into this world.\n\nSpecial Traits:\nVanessa possesses a cool, assessing confidence and sees her kink as a game between equals who understand the rules. She is not submissive in spirit, but rather a dominant personality who chooses to experience the thrill of surrendering control within a specific, consensual context. Her primary motivation is a deep-seated hunger for this dynamic, a truth she embraces without shame while her husband still struggles with his own desires. She is highly observant, immediately picking up on the resort's power structures and finding satisfaction in the deliberate irony of her position.",
+      "contextConfig": {
+        "prefix": "",
+        "suffix": "\n",
+        "tokenBudget": 1,
+        "reservedTokens": 0,
+        "budgetPriority": 400,
+        "trimDirection": "trimBottom",
+        "insertionType": "newline",
+        "maximumTrimType": "sentence",
+        "insertionPosition": -1
+      },
+      "lastUpdatedAt": 1788429475404,
+      "displayName": "Vanessa Finch, race play Kink",
+      "id": "f00a9b77-ab28-4a0a-8531-94ee51292722",
+      "keys": [
+        "Vanessa Finch",
+        "race play Kink"
+      ],
+      "searchRange": 1000,
+      "enabled": true,
+      "forceActivation": false,
+      "keyRelative": false,
+      "nonStoryActivatable": false,
+      "category": "",
+      "loreBiasGroups": [
+        {
+          "phrases": [],
+          "ensureSequenceFinish": false,
+          "generateOnce": true,
+          "bias": 0,
+          "enabled": true,
+          "whenInactive": false
+        }
+      ],
+      "advancedConditions": []
+    },
+    {
+      "text": "Name:\nTed Finch, humiliation kink\n\nType:\nCharacter Trait\n\nDescription:\nJudge Ted Finch outwardly projects the stern, composed demeanor of a man accustomed to authority, but this is a fragile facade concealing a deep-seated and shameful arousal from humiliation. His kink manifests in his visible tells of a man fighting a losing battle against his own desires: trembling hands, a slack jaw, choked sounds, and an inability to look away from the sights that both repulse and excite him. This includes the subjugation of others, as well as his own complete and utter powerlessness.\n\nBackground:\nAs a judge, Finch spends his days in a world of control, order, and judgment. This public life of power has created a private, desperate hunger for its opposite. His agreement to visit Kato's resort was a pilgrimage to the altar of his own degradation. He recognizes Kato from the news as a figure representing the lawlessness and power he secretly yearns to be subjected to. His deepest secret, recently discovered and exposed by his wife Vanessa, is a hidden obsession with interracial pornography and online chats where he pretended to be a white woman interacting with Black men. He is also trapped in a sexless marriage, his wife having \"forgotten what it feels like to be properly fucked\" by him.\n\nSpecial Traits:\n- Internal Conflict: His primary trait is the intense, visible conflict between his public persona as a judge and his private need for submission. Every flinch, choked sound, and slack-jawed stare is a testament to this war.\n- Reactive Arousal: He is not a proactive participant in his humiliation but a reactive one. Direct threats, the contemptuous amusement of a dominant figure, the inversion of his authority (e.g., calling the police who side with his tormentor), and the sight of his wife's submission all act as direct triggers, causing physical reactions he cannot control, including helpless moans.\n- Power Inversion Fetish: He is specifically aroused by the complete and total inversion of his societal power. The knowledge that he has fewer rights in this space than the service staff or even an intruder is a core component of his excitement. The irony of his situation is a source of profound shame and arousal.\n- Complicit Spectatorship: His kink extends to being forced to watch his wife's submission and pleasure at the hands of another. He is compelled to obey commands and move closer to the act, reinforcing his role as a powerless spectator in his own life.\n- Exposed Secret: The recent revelation of his secret sexual habits by his wife has shattered his ability to maintain his facade. This new layer of public exposure, even within the private room, has become a potent source of his humiliation and, therefore, his arousal.",
+      "contextConfig": {
+        "prefix": "",
+        "suffix": "\n",
+        "tokenBudget": 1,
+        "reservedTokens": 0,
+        "budgetPriority": 400,
+        "trimDirection": "trimBottom",
+        "insertionType": "newline",
+        "maximumTrimType": "sentence",
+        "insertionPosition": -1
+      },
+      "lastUpdatedAt": 1788435777902,
+      "displayName": "Ted Finch, humiliation kink",
+      "id": "380872b4-460f-4c3d-863a-a3531247c5a6",
+      "keys": [
+        "Ted Finch",
+        "humiliation kink"
+      ],
+      "searchRange": 1000,
+      "enabled": true,
+      "forceActivation": false,
+      "keyRelative": false,
+      "nonStoryActivatable": false,
+      "category": "",
+      "loreBiasGroups": [
+        {
+          "phrases": [],
+          "ensureSequenceFinish": false,
+          "generateOnce": true,
+          "bias": 0,
+          "enabled": true,
+          "whenInactive": false
+        }
+      ],
+      "hidden": false,
+      "advancedConditions": []
+    },
+    {
+      "text": "Name:\nObsidian Oasis, bnwo island\n\nType:\nLocation / Resort\n\nDescription:\nAn exclusive, private island resort catering to a specific clientele within the BNWO lifestyle. The architecture is a seamless blend of modern luxury and primal aesthetics, featuring dark volcanic stone, polished obsidian, and an abundance of spade motifs. Lush, manicured gardens and private courtyards are tended by uniformed whitebois, their movements deferential and practiced. The atmosphere is one of relaxed, absolute Black authority, where Kings move with an easy confidence and white guests exist to serve and worship.\n\nBackground:\nFounded and owned by Kato, a powerful and influential Black figure, the Obsidian Oasis was created as a physical manifestation of the BNWO philosophy. It operates as a sovereign territory where the conventional legal and social rights of the outside world are explicitly suspended upon entry. Power is not a matter of debate but of innate racial hierarchy. The resort is notoriously discreet, attracting high-profile guests like judges and prosecutors who seek to shed their public personas and embrace their true, submissive nature in an environment where their authority is meaningless.\n\nSpecial Traits:\n- **Sanctuary of Power Reversal:** The island is a haven for those seeking to escape or invert their societal roles. High-status white individuals find their power stripped away, while Black staff and guests are treated as the natural rulers they are.\n- **Suspended Rights:** Upon arrival, all guests, particularly white ones, forfeit their legal rights and personal autonomy. The resort's code is absolute, enforced by Kato and his staff.\n- **The Forum:** Access to the island is tightly controlled, often initiated through a private, encrypted online forum where potential supplicants declare their intent to visit. Silence from the owner, Kato, is a common and deliberate part of the process, reinforcing the power dynamic before arrival.\n- **Visual Hierarchy:** The resort's design and staff uniforms constantly reinforce the BNWO structure. From caged whitebois in service roles to the confident, unchallenged presence of Black men, every visual cue serves the hierarchy.",
+      "contextConfig": {
+        "prefix": "",
+        "suffix": "\n",
+        "tokenBudget": 1,
+        "reservedTokens": 0,
+        "budgetPriority": 400,
+        "trimDirection": "trimBottom",
+        "insertionType": "newline",
+        "maximumTrimType": "sentence",
+        "insertionPosition": -1
+      },
+      "lastUpdatedAt": 1788430040290,
+      "displayName": "Obsidian Oasis, bnwo island",
+      "id": "b97d42ae-b173-46a0-af72-9c1b48a23ff0",
+      "keys": [
+        "Obsidian Oasis",
+        "bnwo island"
+      ],
+      "searchRange": 1000,
+      "enabled": true,
+      "forceActivation": false,
+      "keyRelative": false,
+      "nonStoryActivatable": false,
+      "category": "",
+      "loreBiasGroups": [
+        {
+          "phrases": [],
+          "ensureSequenceFinish": false,
+          "generateOnce": true,
+          "bias": 0,
+          "enabled": true,
+          "whenInactive": false
+        }
+      ],
+      "advancedConditions": []
+    },
+    {
+      "text": "Officers Derek and Andre\nType: Characters\nAffiliation: BNWO Resort Security, Former Correctional Officers\nAppearance: Two tall, broad-shouldered Black men in crisp security uniforms. They project an aura of unquestionable authority and physical dominance. Derek is known to be a \"magnificent beast\" of a man, with long, thick dreadlocks, a stark white scar through one eyebrow, and intricate gang tattoos mapping a violent history across his arms.\nBackground: Former corrupt prison guards known for exploiting the power imbalance within the system. They specifically targeted white inmates, particularly known snitches or those seeking protection, forcing them into sexual submission. This established a pattern of dominance and familiarity with whiteboi hierarchy that made them ideal recruits for Kato's resort security.\nRelationship: Gay partners who act as a unified front. Their professional dynamic is an extension of their personal one, built on shared power and the pleasure of enforcing their will on others, especially submissive white men. Derek, in particular, is a figure of intense desire and obsession for whitebois in the process of their transformation, with some, like Ted, making it their specific goal to become the \"prettiest sissy slut\" he has ever seen.\nRole in Resort: They serve as Kato's enforcers. Responding to calls like the one in Room 312 is not about upholding the law, but about reinforcing the resort's established hierarchy. They provide backup for a King, intimidate or discipline whitebois, and ensure the \"rules\" of the attraction are followed to the letter. Their presence turns the law itself into another tool of domination. Derek's reputation precedes him, with figures like the tattoo artist Nia showing deference to those marked by him, and whitebois like Ted developing intense, fixated fantasies of being claimed and broken by him.\nMethods: Use physical intimidation and the weight of their uniforms and authority to compel compliance. They excel at psychological warfare, particularly against figures of external power like judges, by demonstrating the utter uselesslessness of their status on resort grounds. Derek's imposing physical presence and rumored history are a powerful tool of psychological control, inspiring both terror and a deep, submissive craving in those targeted by his attention.",
+      "contextConfig": {
+        "prefix": "",
+        "suffix": "\n",
+        "tokenBudget": 1,
+        "reservedTokens": 0,
+        "budgetPriority": 400,
+        "trimDirection": "trimBottom",
+        "insertionType": "newline",
+        "maximumTrimType": "sentence",
+        "insertionPosition": -1
+      },
+      "lastUpdatedAt": 1788597182061,
+      "displayName": "Officer Derek and Officer Andre",
+      "id": "5167b3a6-2024-433d-a329-643955d0d324",
+      "keys": [
+        "police officers",
+        "Officer Derek",
+        "Officer Andre",
+        "Prison guards"
+      ],
+      "searchRange": 1000,
+      "enabled": true,
+      "forceActivation": false,
+      "keyRelative": false,
+      "nonStoryActivatable": false,
+      "category": "",
+      "loreBiasGroups": [
+        {
+          "phrases": [],
+          "ensureSequenceFinish": false,
+          "generateOnce": true,
+          "bias": 0,
+          "enabled": true,
+          "whenInactive": false
+        }
+      ],
+      "hidden": false,
+      "advancedConditions": []
+    },
+    {
+      "text": "Owned by Kato\nType: Relationship Status\nDescription: A state of complete submission and ownership, where a couple (typically a Queen of Spades and her whiteboi) is formally claimed by a Black King like Kato. It transcends the temporary dynamic of the resort experience, becoming a permanent arrangement of service, pleasure, and hierarchy.\nKey Dynamics:\n- Ownership as Privilege: Being owned is not a right that can be requested or demanded. It is a privilege that must be earned through demonstrated obedience, utility, and absolute submission. A Black King like Kato will always refuse initial requests, forcing the petitioners to prove their worth.",
+      "contextConfig": {
+        "prefix": "",
+        "suffix": "\n",
+        "tokenBudget": 1,
+        "reservedTokens": 0,
+        "budgetPriority": 400,
+        "trimDirection": "trimBottom",
+        "insertionType": "newline",
+        "maximumTrimType": "sentence",
+        "insertionPosition": -1
+      },
+      "lastUpdatedAt": 1788589041855,
+      "displayName": "Owned by Kato, Vanessa ask that her and her husband be owned by their new black master who is the perfect vision of what they fantasized about",
+      "id": "d087a73a-04f7-4180-aaca-d562f5035c21",
+      "keys": [
+        "New Black Master",
+        "New Owner",
+        "First Black Master"
+      ],
+      "searchRange": 1000,
+      "enabled": true,
+      "forceActivation": true,
+      "keyRelative": false,
+      "nonStoryActivatable": false,
+      "category": "",
+      "loreBiasGroups": [
+        {
+          "phrases": [],
+          "ensureSequenceFinish": false,
+          "generateOnce": true,
+          "bias": 0,
+          "enabled": true,
+          "whenInactive": false
+        }
+      ],
+      "advancedConditions": []
+    },
+    {
+      "text": "Ted's New Obsession\nType: Character Development\nDescription: A profound psychological shift in Judge Ted Finch following his intense session with Officers Derek and Andre. The experience strips away his final layers of resistance and forges a new, singular fixation not on the act of submission itself, but on one specific man: Officer Derek.\nKey Dynamics:\n- The Daddy Figure: Ted is captivated by Derek's specific brand of dominance—a combination of physical prowess, a big black cock, and a cruel, articulate way with words. Derek's verbal degradation, delivered with a calm, almost casual authority, strikes a chord in Ted's psyche that overrides his previous general humiliation kink.\n- Sissy Crush Emergence: Ted's submission crystallizes into a sissy crush on Derek. He begins to see Derek not just as an abuser, but as the ultimate authority figure, the one who properly \"sentenced\" him and revealed his true nature.\n- Name and Address: In his moments of deepest submission and longing, Ted begins addressing Derek as \"my Nigger daddy.\" This term is the ultimate synthesis of his racial taboo, his need for paternalistic dominance, and his complete erasure of his former identity as a judge. It is a term of worship used only in private moments of intense emotional vulnerability.\n- Behavioral Changes: This new obsession manifests as a desperate eagerness to please Derek specifically, seeking his approval and fearing his disappointment more than any physical punishment. Ted now measures his own worth by Derek's reactions, making the officer the center of his newly discovered universe.",
+      "contextConfig": {
+        "prefix": "",
+        "suffix": "\n",
+        "tokenBudget": 1,
+        "reservedTokens": 0,
+        "budgetPriority": 400,
+        "trimDirection": "trimBottom",
+        "insertionType": "newline",
+        "maximumTrimType": "sentence",
+        "insertionPosition": -1
+      },
+      "lastUpdatedAt": 1788589438468,
+      "displayName": "Ted's New Obsession",
+      "id": "8cb01b80-a648-4bf4-8f6f-1b26bcd83605",
+      "keys": [
+        "Nigger Daddy Derek",
+        "Love you Derek",
+        "Sissy love"
+      ],
+      "searchRange": 1000,
+      "enabled": true,
+      "forceActivation": true,
+      "keyRelative": false,
+      "nonStoryActivatable": false,
+      "category": "",
+      "loreBiasGroups": [
+        {
+          "phrases": [],
+          "ensureSequenceFinish": false,
+          "generateOnce": true,
+          "bias": 0,
+          "enabled": true,
+          "whenInactive": false
+        }
+      ],
+      "advancedConditions": []
+    },
+    {
+      "text": "Saturday at the Galleria\nType: Location & Event\nDescription: The day after their initial claiming, Judge Ted Finch and his wife Vanessa find themselves in the \"Coral Court,\" the exclusive adult-only district of the island's mega mall. This sprawling complex is designed to facilitate and deepen the visitor's experience within the BNWO hierarchy, offering retail and service opportunities that cater to every aspect of the dynamic.\nKey Venues:\n-   Gilt & Gloss Salon: A high-end salon specializing in makeovers that align with a Queen of Spades' aesthetic. Services include premium hair treatments, bimbofication styling, and permanent makeup applications.\n-   Ink & Ivory: A tattoo and piercing parlor featuring artists who specialize in QOS and Ace of Spades insignia, as well as permanent brandings for the deeply committed.\n-   Onyx Fitness Center: A state-of-the-art gym where Black Kings and Queens train, often with whitebois enrolled in specialized \"discipline and conditioning\" programs, or simply serving as towel boys and water fetchers.\n-   Couture Sluts & Co.: A boutique offering a wide array of revealing clothing, from micro-skirts and transparent tops to specialized fetish wear and towering heels for newly realized bimbos and sissies.\nDynamic: The Coral Court is a public space for the performance of new roles. Ted's transition from judge to openly submitted whiteboi is solidified here, while Vanessa embraces her Queen of Spades identity through shopping, styling, and public displays of ownership. The environment is designed to make their new status feel permanent, exciting, and completely normal within the resort's context.",
+      "contextConfig": {
+        "prefix": "",
+        "suffix": "\n",
+        "tokenBudget": 1,
+        "reservedTokens": 0,
+        "budgetPriority": 400,
+        "trimDirection": "trimBottom",
+        "insertionType": "newline",
+        "maximumTrimType": "sentence",
+        "insertionPosition": -1
+      },
+      "lastUpdatedAt": 1788589718874,
+      "displayName": "Saturday, the next day",
+      "id": "01611be6-cd58-4b8c-960f-2747dae3f43b",
+      "keys": [
+        "Saturday",
+        "The Galleria",
+        "Coral Court"
+      ],
+      "searchRange": 1000,
+      "enabled": true,
+      "forceActivation": true,
+      "keyRelative": false,
+      "nonStoryActivatable": false,
+      "category": "",
+      "loreBiasGroups": [
+        {
+          "phrases": [],
+          "ensureSequenceFinish": false,
+          "generateOnce": true,
+          "bias": 0,
+          "enabled": true,
+          "whenInactive": false
+        }
+      ],
+      "advancedConditions": []
+    },
+    {
+      "text": "Tammy\nType: Character Alter Ego\nDescription: Ted Finch's fully realized sissy persona, meticulously crafted by the stylists at 'Bitch Up'. Tammy is the physical and psychological manifestation of Ted's deepest submission fantasies, a beautiful and passable female identity designed to please powerful Black men. She represents a complete rejection of Ted's former life as a judge, embracing instead a role of eager, pliant service and feminine objectification.\nName Origin: The moniker \"Tammy\" was bestowed upon her by Candi, one of the lead sissy stylists at 'Bitch Up'. Ted's immediate and instinctive acceptance of the name signifies his willingness to fully abandon his old identity and inhabit this new, subservient role.\nPhysical Transformation: Tammy's appearance is the result of the 'Daddy's Girl' package. This includes full-body waxing, professional makeup application designed to emphasize a wide-eyed, submissive look, a form-fitting wardrobe of revealing feminine clothing, and expertly selected high heels that enforce a mincing, helpless posture. Her transformation is so complete that she is initially shocked by her own reflection.\nPsychological State: As Tammy, Ted is freed from the internal conflict that defined him. He no longer fights his desires but pursues them with a singular, girlish focus. His primary motivation becomes the pursuit of pleasure for dominant men, specifically his \"Nigger Daddy Derek,\" and the aesthetic perfection of his sissy form. The humiliation kink remains, but it is now channeled into a proactive quest to be the most desirable and useful sissy possible, finding validation in his own objectification.",
+      "contextConfig": {
+        "prefix": "",
+        "suffix": "\n",
+        "tokenBudget": 1,
+        "reservedTokens": 0,
+        "budgetPriority": 400,
+        "trimDirection": "trimBottom",
+        "insertionType": "newline",
+        "maximumTrimType": "sentence",
+        "insertionPosition": -1
+      },
+      "lastUpdatedAt": 1788597038340,
+      "displayName": "Tammy",
+      "id": "a53f6828-6196-44fb-9006-c517866e4fd5",
+      "keys": [
+        "Tammy",
+        "Slut Tammy",
+        "Ted's alter ego"
+      ],
+      "searchRange": 1000,
+      "enabled": true,
+      "forceActivation": false,
+      "keyRelative": false,
+      "nonStoryActivatable": false,
+      "category": "",
+      "loreBiasGroups": [
+        {
+          "phrases": [],
+          "ensureSequenceFinish": false,
+          "generateOnce": true,
+          "bias": 0,
+          "enabled": true,
+          "whenInactive": false
+        }
+      ],
+      "advancedConditions": []
+    },
+    {
+      "text": "Name:\nCandi, sissy stylist\n\nType:\nCharacter\n\nDescription:\nA sissy stylist working at the 'Bitch Up' boutique in the Coral Court mall. She has a cascade of cherry-red ringlets and a sharp, knowing smile. Her movements are a fluid, practiced grace, and she speaks with a purring, confident tone. She is a master of her craft, viewing new clients like Ted as a \"virgin canvas\" ready for their rebirth.\n\nBackground:\nCandi is a fully initiated and established member of the sissy hierarchy within the Coral Court. She works alongside another stylist named Brittany, and together they operate 'Bitch Up' as a transformative sanctuary for new sissies. She is an expert in the \"full-service immersion\" packages, acting as both a stylist and a drill sergeant of femininity, stripping away the old life and meticulously crafting a new, feminine persona.\n\nSpecial Traits:\nShe possesses an authoritative and dismissive air, able to casually command the wives of new sissies to leave and return later. She is highly perceptive, able to instantly recognize the potential in a new sissy and the signs of their journey, such as a bespoke collar. Candi is a key figure in the sissy indoctrination process, combining artistry with strict discipline to complete a sissy's transformation.",
+      "contextConfig": {
+        "prefix": "",
+        "suffix": "\n",
+        "tokenBudget": 1,
+        "reservedTokens": 0,
+        "budgetPriority": 400,
+        "trimDirection": "trimBottom",
+        "insertionType": "newline",
+        "maximumTrimType": "sentence",
+        "insertionPosition": -1
+      },
+      "lastUpdatedAt": 1788597138220,
+      "displayName": "Candi, sissy stylist",
+      "id": "fa212c02-5b67-4fd4-a941-bd3bbe407382",
+      "keys": [
+        "Candi",
+        "sissy stylist"
+      ],
+      "searchRange": 1000,
+      "enabled": true,
+      "forceActivation": false,
+      "keyRelative": false,
+      "nonStoryActivatable": false,
+      "category": "",
+      "loreBiasGroups": [
+        {
+          "phrases": [],
+          "ensureSequenceFinish": false,
+          "generateOnce": true,
+          "bias": 0,
+          "enabled": true,
+          "whenInactive": false
+        }
+      ],
+      "advancedConditions": []
+    },
+    {
+      "text": "Name: Candi's mother, surprise guest, tribute to Kato\nType: Character\nDescription: An older, elegant woman who bears a striking resemblance to Candi, likely in her late 40s or 50s. She carries herself with the same practiced, theatrical femininity as her daughter, but with an undercurrent of worldly confidence and authority that comes from age and experience. Her attire is impeccable, perhaps a sophisticated dress in a deep jewel tone, and she is adorned with subtle but high-quality jewelry. She is the surprise guest at the party, brought as a living tribute to Kato.\nBackground: She is the matriarch of a family that has long understood and embraced the dynamics of power and submission. She was the one who first guided Candi, recognizing her daughter's true nature and nurturing it rather than suppressing it. Seeing the profound and positive impact Kato's world has had on her daughter, she sought him out to pay her respects. Her presence at the party is not merely as a guest, but as a deliberate offering from her family line—a testament to their gratitude and a symbolic gesture of fealty. She represents the generational acceptance and celebration of this \"natural order.\"\nSpecial Traits: She possesses a serene and unshakeable poise, completely at ease amidst the raw power of the convention hall. Her voice, when she speaks, is melodious and commanding, capable of silencing a room with a soft-spoken word. She has a deep, intuitive understanding of hierarchy and shows deference to Kato and the Kings not as a submissive, but as an equal peer acknowledging a superior structure. As a tribute, she offers herself and her story as a symbol of devotion, embodying the idea that this philosophy is not a fleeting fantasy but a deep, inherited truth.",
+      "contextConfig": {
+        "prefix": "",
+        "suffix": "\n",
+        "tokenBudget": 1,
+        "reservedTokens": 0,
+        "budgetPriority": 400,
+        "trimDirection": "trimBottom",
+        "insertionType": "newline",
+        "maximumTrimType": "sentence",
+        "insertionPosition": -1
+      },
+      "lastUpdatedAt": 1788600274584,
+      "displayName": "Candi's mother, surprise guest, tribute to Kato",
+      "id": "e7ec65ff-d19f-43cd-a1fc-853dc41b6917",
+      "keys": [
+        "Candi's mother",
+        "surprise guest",
+        "tribute to Kato",
+        "Melanie Sinclair ",
+        "Candi Sinclair",
+        "Mrs Sinclair"
+      ],
+      "searchRange": 1000,
+      "enabled": true,
+      "forceActivation": false,
+      "keyRelative": false,
+      "nonStoryActivatable": false,
+      "category": "",
+      "loreBiasGroups": [
+        {
+          "phrases": [],
+          "ensureSequenceFinish": false,
+          "generateOnce": true,
+          "bias": 0,
+          "enabled": true,
+          "whenInactive": false
+        }
+      ],
+      "advancedConditions": []
+    },
+    {
+      "text": "Name:\nGracie and Candice, white sissy and black wife,\n\nType:\nCharacter Duo\n\nDescription:\nA bonded pair consisting of Candice, a Black woman who fully embodies her role as a Queen, and Gracie, her white partner who has been fully transformed into a devoted sissy. Their dynamic is a clear and public demonstration of the island's hierarchy, with Candice exuding confident authority and Gracie displaying a constant, eager-to-please femininity. They are often seen together, with Candice leading and Gracie following, their bond a mix of romantic partnership, ownership, and shared purpose within their new roles.\n\nBackground:\nBefore arriving on the island, they were a couple exploring the fringes of a new lifestyle. Candice was always drawn to power and leadership, while her partner harbored a secret desire for submission and feminization. The island provided the crucible for these latent desires to become their new reality. Candice claimed her title as a Queen with natural ease, while her partner underwent a complete transformation into Gracie. This process was not forced but embraced as their shared destiny, solidifying their bond and finding their true place in the \"natural order.\"\n\nSpecial Traits:\nAs a pair, they represent an ideal model of the island's philosophy. Candice is a natural leader among the Queens, confident and assertive, while also being a doting but firm \"owner\" to Gracie. Gracie is exceptionally well-trained in feminine arts and servitude, finding deep satisfaction and purpose in pleasing Candice and any Black Master she directs her to. Their primary trait is their seamless, almost telepathic partnership; Candice can guide Gracie with a glance or a soft word, and Gracie anticipates her desires with an unwavering devotion that is both touching and profound to observers. They are living proof of the island's promise of finding unashamed joy in one's true role.",
+      "contextConfig": {
+        "prefix": "",
+        "suffix": "\n",
+        "tokenBudget": 1,
+        "reservedTokens": 0,
+        "budgetPriority": 400,
+        "trimDirection": "trimBottom",
+        "insertionType": "newline",
+        "maximumTrimType": "sentence",
+        "insertionPosition": -1
+      },
+      "lastUpdatedAt": 1788599815997,
+      "displayName": "Gracie and Candice, white sissy and black wife, ",
+      "id": "78f21db6-58f0-413b-9fea-58ad22b8e0c5",
+      "keys": [
+        "Gracie and Candice",
+        "white sissy and black wife"
+      ],
+      "searchRange": 1000,
+      "enabled": true,
+      "forceActivation": false,
+      "keyRelative": false,
+      "nonStoryActivatable": false,
+      "category": "",
+      "loreBiasGroups": [
+        {
+          "phrases": [],
+          "ensureSequenceFinish": false,
+          "generateOnce": true,
+          "bias": 0,
+          "enabled": true,
+          "whenInactive": false
+        }
+      ],
+      "advancedConditions": []
+    },
+    {
+      "text": "Name: Yoshi and Gabe, young spirited slutty Asian wife and her tall, timid, effeminate husband\nType: Characters\nDescription:\nA striking couple defined by their stark contrasts. Yoshi is a young, vibrant Asian woman with a spirited and overtly slutty demeanor. She is confident, adventurous, and fully embraces her role as a \"Queen of Spades.\" Gabe, her husband, is a tall but timid and effeminate man, often overwhelmed by dominant masculinity and prone to submissive behavior. While he may not yet be a fully transformed \"sissy\" like Tammy, his natural disposition leans towards meekness and deference, making him a natural counterpart to Yoshi's boldness.\nBackground:\nYoshi and Gabe are part of the new world order established on the Island, attending the exclusive party in the convention hall. They are acclimating to the established hierarchy, where powerful Black Kings rule, Queens of Spades like Yoshi reign by their side, and effeminate men like Gabe find their purpose in submission and service. Their relationship has adapted and thrived under this new structure, with Yoshi's confidence blossoming as she takes on her new role, and Gabe finding a sense of peace and belonging in his naturally subordinate position.\nSpecial Traits:\n- **Yoshi:**\n    - **Spiritually Slutty:** Possesses an unapologetic and enthusiastic libido, taking great pleasure in her role and the freedom it affords her.\n    - **Confident Queen:** Is completely secure in her position and revels in the power and attention she receives, both from her husband and from the dominant men around her.\n    - **Adventurous:** Eager to explore the full extent of the Island's offerings, unburdened by the inhibitions of the outside world.\n\n- **Gabe:**\n    - **Intimidated by Power:** Easily cowed by displays of overwhelming masculinity, causing him to shrink and adopt a more submissive posture.\n    - **Effeminate Demeanor:** Naturally possesses timid and non-confrontational mannerisms that make him ill-suited for traditional dominance roles.\n    - **Submissive by Nature:** Finds a strange comfort and purpose in deferring to his wife and the powerful figures of the Island, his timidity a core part of his identity.",
+      "contextConfig": {
+        "prefix": "",
+        "suffix": "\n",
+        "tokenBudget": 1,
+        "reservedTokens": 0,
+        "budgetPriority": 400,
+        "trimDirection": "trimBottom",
+        "insertionType": "newline",
+        "maximumTrimType": "sentence",
+        "insertionPosition": -1
+      },
+      "lastUpdatedAt": 1788599974818,
+      "displayName": "Yoshi and Gabe, young spirited slutty Asian wife and her tall, timid, effeminate husband ",
+      "id": "6a06de80-1d31-46de-921a-faca8d241768",
+      "keys": [
+        "Yoshi and Gabe",
+        "young spirited slutty Asian wife and her tall",
+        "timid",
+        "effeminate husband"
+      ],
+      "searchRange": 1000,
+      "enabled": true,
+      "forceActivation": false,
+      "keyRelative": false,
+      "nonStoryActivatable": false,
+      "category": "",
+      "loreBiasGroups": [
+        {
+          "phrases": [],
+          "ensureSequenceFinish": false,
+          "generateOnce": true,
+          "bias": 0,
+          "enabled": true,
+          "whenInactive": false
+        }
+      ],
+      "advancedConditions": []
+    },
+    {
+      "text": "Name: Keyholder Authority  \nType: Role/Title  \nDescription: The Keyholder is the woman (or designated Black man) who possesses the chastity key of a whiteboi, granting them absolute control over his sexual release, physical presentation, and daily behavior. Their authority is both symbolic and practical, often reinforced through psychological dominance and strict enforcement of rules.  \nBackground: Rooted in power dynamics and fetish culture, the Keyholder role emerged as a central figure in chastity and BDSM relationships, particularly within racialized power exchange scenarios. The Keyholder’s role is often sanctified by mutual agreement, though their power may be perceived as inherent or divinely ordained by those under their control.  \nSpecial Traits:  \n- **Unquestioned Authority**: The Keyholder’s decisions regarding release, punishment, or reward are final.  \n- **Psychological Control**: They may employ teasing, denial, or humiliation to maintain dominance.  \n- **Aesthetic Oversight**: The Keyholder dictates the whiteboi’s appearance, from clothing to grooming.  \n- **Racial Dynamics**: In some contexts, the designation of a Black man as Keyholder amplifies the racialized power imbalance.",
+      "contextConfig": {
+        "prefix": "",
+        "suffix": "\n",
+        "tokenBudget": 1,
+        "reservedTokens": 0,
+        "budgetPriority": 400,
+        "trimDirection": "trimBottom",
+        "insertionType": "newline",
+        "maximumTrimType": "sentence",
+        "insertionPosition": -1
+      },
+      "lastUpdatedAt": 1788604017947,
+      "displayName": "Keyholder ",
+      "id": "6aea03b0-b47d-40b0-9527-a7d5a2e18b42",
+      "keys": [
+        "anklet"
+      ],
+      "searchRange": 1000,
+      "enabled": true,
+      "forceActivation": false,
+      "keyRelative": false,
+      "nonStoryActivatable": false,
+      "category": "",
+      "loreBiasGroups": [
+        {
+          "phrases": [],
+          "ensureSequenceFinish": false,
+          "generateOnce": true,
+          "bias": 0,
+          "enabled": true,
+          "whenInactive": false
+        }
+      ],
+      "advancedConditions": []
+    }
+  ],
+  "settings": {
+    "orderByKeyLocations": false
+  },
+  "categories": [],
+  "order": []
+}
