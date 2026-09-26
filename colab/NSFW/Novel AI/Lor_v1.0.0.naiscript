@@ -1,0 +1,820 @@
+/*---
+compatibilityVersion: naiscript-1.0
+id: d4344ead-67b5-45a0-9bf1-200fe0897586
+name: Lor
+createdAt: 1790176829762
+updatedAt: 1790307916431
+version: 1.0.0
+author: Unknown
+memoryLimit: 8
+---*/
+const SCRIPT_ID = "ward-sisters-lore-v2";
+const PANEL_ID = "ward-lore-panel-v2";
+
+const SELECTED_ENTRY_KEY = "ward-lore-selected-id";
+const NEW_ENTRY_NAME_KEY = "ward-lore-new-name";
+const TEMP_EDIT_TEXT_KEY = "ward-temp-text";
+const TEMP_EDIT_KEYS_KEY = "ward-temp-keys";
+
+const GENERATION_MODEL = "glm-4-6";
+const MAX_CONTEXT_CHARS = 13500;
+
+// ============================================================================
+// TEMPLATE
+// ============================================================================
+
+const CREATE_TEMPLATE = `
+Name:
+Age: 21+
+Appearance:
+Personality & Attitude:
+Speech Style:
+Relationship Dynamics:
+Dynamic Mood Tags:
+Friends & Social Circle:
+Trouble / Conflict Hooks:
+Preferences & Boundaries:
+Current Secrets / Drama:
+Story Hooks:
+`;
+
+// ============================================================================
+// HELPERS
+// ============================================================================
+
+async function safeToast(message, type = "info") {
+  try {
+    return await api.v1.ui.toast(message, { type });
+  } catch {
+    try {
+      return await api.v1.ui.toast(message);
+    } catch {}
+  }
+}
+
+async function getSelectedEntryName() {
+  try {
+    const entryId = await api.v1.tempStorage.get(SELECTED_ENTRY_KEY);
+
+    if (!entryId) {
+      return "(none selected)";
+    }
+
+    const entry = await api.v1.lorebook.entry(entryId);
+
+    if (!entry) {
+      return "(entry unavailable)";
+    }
+
+    return (
+      entry.displayName ||
+      entry.name ||
+      entry.title ||
+      entry.key ||
+      `Entry ${entryId}`
+    );
+  } catch (error) {
+    api.v1.log?.("getSelectedEntryName error:", error);
+    return "(unable to read entry)";
+  }
+}
+
+async function getStoryContext() {
+  try {
+    // Different NovelAI script API builds may expose story text differently.
+    // Try several likely locations before falling back gracefully.
+
+    let text = "";
+
+    if (api.v1.story?.getText) {
+      text = await api.v1.story.getText();
+    } else if (api.v1.story?.text) {
+      text =
+        typeof api.v1.story.text === "function"
+          ? await api.v1.story.text()
+          : api.v1.story.text;
+    } else if (api.v1.context?.getStory) {
+      text = await api.v1.context.getStory();
+    } else if (api.v1.document?.getText) {
+      text = await api.v1.document.getText();
+    }
+
+    if (typeof text !== "string") {
+      text = JSON.stringify(text || "");
+    }
+
+    if (!text.trim()) {
+      return "(No story context available.)";
+    }
+
+    // Prefer the most recent material.
+    return text.slice(-MAX_CONTEXT_CHARS);
+  } catch (error) {
+    api.v1.log?.("getStoryContext error:", error);
+    return "(Story context could not be retrieved.)";
+  }
+}
+
+// ============================================================================
+// LOREBOOK ENUMERATION
+// ============================================================================
+
+async function getLorebookEntries() {
+  try {
+    let entries = [];
+
+    if (api.v1.lorebook?.entries) {
+      entries =
+        typeof api.v1.lorebook.entries === "function"
+          ? await api.v1.lorebook.entries()
+          : api.v1.lorebook.entries;
+    }
+
+    if (!Array.isArray(entries) && api.v1.lorebook?.getEntries) {
+      entries = await api.v1.lorebook.getEntries();
+    }
+
+    if (!Array.isArray(entries) && api.v1.lorebook?.list) {
+      entries = await api.v1.lorebook.list();
+    }
+
+    if (!Array.isArray(entries)) {
+      entries = [];
+    }
+
+    return entries;
+  } catch (error) {
+    api.v1.log?.("getLorebookEntries error:", error);
+    return [];
+  }
+}
+
+// ============================================================================
+// ENTRY SELECTOR
+// ============================================================================
+
+async function openEntrySelectorModal() {
+  try {
+    const entries = await getLorebookEntries();
+
+    if (!entries.length) {
+      return safeToast(
+        "No Lorebook entries were returned by the current NovelAI API.",
+        "warning"
+      );
+    }
+
+    const options = entries.map((entry, index) => {
+      const id =
+        entry.id ??
+        entry.entryId ??
+        entry.uid ??
+        entry.uuid ??
+        index;
+
+      const name =
+        entry.displayName ||
+        entry.name ||
+        entry.title ||
+        entry.key ||
+        `Lore Entry ${index + 1}`;
+
+      return {
+        label: name,
+        value: String(id)
+      };
+    });
+
+    // Preferred modal API.
+    if (api.v1.ui?.modal) {
+      await api.v1.ui.modal({
+        title: "Select Lorebook Entry",
+        content: [
+          {
+            type: "select",
+            label: "Lorebook Entry",
+            storageKey: TEMP_EDIT_KEYS_KEY,
+            options
+          },
+          {
+            type: "button",
+            text: "Use Selected Entry",
+            callback: async () => {
+              const id = await api.v1.storage.get(TEMP_EDIT_KEYS_KEY);
+
+              if (!id) {
+                return safeToast("Choose an entry first.", "warning");
+              }
+
+              await api.v1.tempStorage.set(SELECTED_ENTRY_KEY, id);
+              await updatePanel();
+
+              if (api.v1.ui?.closeModal) {
+                await api.v1.ui.closeModal();
+              }
+
+              safeToast("Lorebook entry selected.", "success");
+            }
+          }
+        ]
+      });
+
+      return;
+    }
+
+    // Fallback prompt-style API.
+    if (api.v1.ui?.select) {
+      const selected = await api.v1.ui.select(
+        "Select Lorebook Entry",
+        options
+      );
+
+      if (selected) {
+        await api.v1.tempStorage.set(
+          SELECTED_ENTRY_KEY,
+          selected.value ?? selected
+        );
+
+        await updatePanel();
+      }
+
+      return;
+    }
+
+    safeToast(
+      "This NovelAI script build does not expose a supported selector modal.",
+      "error"
+    );
+  } catch (error) {
+    api.v1.log?.("openEntrySelectorModal error:", error);
+    safeToast("Could not open entry selector.", "error");
+  }
+}
+
+// ============================================================================
+// ENTRY WRITING HELPERS
+// ============================================================================
+
+async function updateLoreEntry(entry, newText) {
+  try {
+    const id =
+      entry.id ??
+      entry.entryId ??
+      entry.uid ??
+      entry.uuid ??
+      (await api.v1.tempStorage.get(SELECTED_ENTRY_KEY));
+
+    if (!id) {
+      throw new Error("Missing Lorebook entry ID.");
+    }
+
+    if (api.v1.lorebook?.updateEntry) {
+      return await api.v1.lorebook.updateEntry(id, {
+        ...entry,
+        text: newText
+      });
+    }
+
+    if (api.v1.lorebook?.update) {
+      return await api.v1.lorebook.update(id, {
+        ...entry,
+        text: newText
+      });
+    }
+
+    if (api.v1.lorebook?.entry?.update) {
+      return await api.v1.lorebook.entry.update(id, {
+        text: newText
+      });
+    }
+
+    // Some APIs expose the fetched object as mutable.
+    if (typeof entry === "object") {
+      entry.text = newText;
+
+      if (entry.save && typeof entry.save === "function") {
+        return await entry.save();
+      }
+    }
+
+    throw new Error("No compatible Lorebook update method was found.");
+  } catch (error) {
+    api.v1.log?.("updateLoreEntry error:", error);
+    throw error;
+  }
+}
+
+async function createLoreEntry(name, text) {
+  try {
+    const payload = {
+      displayName: name,
+      name,
+      text,
+      keys: [name],
+      enabled: true
+    };
+
+    if (api.v1.lorebook?.createEntry) {
+      return await api.v1.lorebook.createEntry(payload);
+    }
+
+    if (api.v1.lorebook?.create) {
+      return await api.v1.lorebook.create(payload);
+    }
+
+    if (api.v1.lorebook?.addEntry) {
+      return await api.v1.lorebook.addEntry(payload);
+    }
+
+    throw new Error("No compatible Lorebook create method was found.");
+  } catch (error) {
+    api.v1.log?.("createLoreEntry error:", error);
+    throw error;
+  }
+}
+
+// ============================================================================
+// APPROVAL MODALS
+// ============================================================================
+
+async function openUpdateApprovalModal(entry, generatedText) {
+  await api.v1.storage.set(TEMP_EDIT_TEXT_KEY, generatedText);
+
+  try {
+    if (api.v1.ui?.modal) {
+      await api.v1.ui.modal({
+        title: "Review Lorebook Update",
+        content: [
+          {
+            type: "text",
+            markdown: true,
+            text:
+              "### Generated Update\n" +
+              "Review or edit the generated Lorebook text before saving."
+          },
+          {
+            type: "textArea",
+            label: "Lorebook Text",
+            storageKey: TEMP_EDIT_TEXT_KEY,
+            rows: 18
+          },
+          {
+            type: "row",
+            content: [
+              {
+                type: "button",
+                text: "Save Update",
+                callback: async () => {
+                  const finalText = await api.v1.storage.get(
+                    TEMP_EDIT_TEXT_KEY
+                  );
+
+                  if (!finalText?.trim()) {
+                    return safeToast(
+                      "Lorebook text cannot be empty.",
+                      "warning"
+                    );
+                  }
+
+                  try {
+                    await updateLoreEntry(entry, finalText.trim());
+
+                    safeToast(
+                      "Lorebook entry updated.",
+                      "success"
+                    );
+
+                    if (api.v1.ui?.closeModal) {
+                      await api.v1.ui.closeModal();
+                    }
+
+                    await updatePanel();
+                  } catch (error) {
+                    safeToast(
+                      "NovelAI rejected the Lorebook update.",
+                      "error"
+                    );
+                  }
+                }
+              },
+              {
+                type: "button",
+                text: "Cancel",
+                callback: async () => {
+                  if (api.v1.ui?.closeModal) {
+                    await api.v1.ui.closeModal();
+                  }
+                }
+              }
+            ]
+          }
+        ]
+      });
+
+      return;
+    }
+
+    safeToast(
+      "Generated text is ready, but this API build does not expose the expected modal interface.",
+      "warning"
+    );
+  } catch (error) {
+    api.v1.log?.("openUpdateApprovalModal error:", error);
+    safeToast("Could not open review window.", "error");
+  }
+}
+
+async function openCreationApprovalModal(name, generatedText) {
+  await api.v1.storage.set(TEMP_EDIT_TEXT_KEY, generatedText);
+
+  try {
+    if (api.v1.ui?.modal) {
+      await api.v1.ui.modal({
+        title: `Create Lore Entry: ${name}`,
+        content: [
+          {
+            type: "text",
+            markdown: true,
+            text:
+              "### New Lorebook Entry\n" +
+              "Review or edit the generated character sheet."
+          },
+          {
+            type: "textArea",
+            label: "Lorebook Text",
+            storageKey: TEMP_EDIT_TEXT_KEY,
+            rows: 18
+          },
+          {
+            type: "row",
+            content: [
+              {
+                type: "button",
+                text: "Create Entry",
+                callback: async () => {
+                  const finalText = await api.v1.storage.get(
+                    TEMP_EDIT_TEXT_KEY
+                  );
+
+                  if (!finalText?.trim()) {
+                    return safeToast(
+                      "Lorebook text cannot be empty.",
+                      "warning"
+                    );
+                  }
+
+                  try {
+                    const created = await createLoreEntry(
+                      name,
+                      finalText.trim()
+                    );
+
+                    const createdId =
+                      created?.id ??
+                      created?.entryId ??
+                      created?.uid ??
+                      created?.uuid;
+
+                    if (createdId) {
+                      await api.v1.tempStorage.set(
+                        SELECTED_ENTRY_KEY,
+                        String(createdId)
+                      );
+                    }
+
+                    await api.v1.storage.set(
+                      NEW_ENTRY_NAME_KEY,
+                      ""
+                    );
+
+                    safeToast(
+                      "New Lorebook entry created.",
+                      "success"
+                    );
+
+                    if (api.v1.ui?.closeModal) {
+                      await api.v1.ui.closeModal();
+                    }
+
+                    await updatePanel();
+                  } catch (error) {
+                    safeToast(
+                      "NovelAI rejected the new Lorebook entry.",
+                      "error"
+                    );
+                  }
+                }
+              },
+              {
+                type: "button",
+                text: "Cancel",
+                callback: async () => {
+                  if (api.v1.ui?.closeModal) {
+                    await api.v1.ui.closeModal();
+                  }
+                }
+              }
+            ]
+          }
+        ]
+      });
+
+      return;
+    }
+
+    safeToast(
+      "Generated text is ready, but this API build does not expose the expected modal interface.",
+      "warning"
+    );
+  } catch (error) {
+    api.v1.log?.("openCreationApprovalModal error:", error);
+    safeToast("Could not open creation review.", "error");
+  }
+}
+
+// ============================================================================
+// GENERATION
+// ============================================================================
+
+async function runUpdateAnalysis() {
+  const entryId = await api.v1.tempStorage.get(SELECTED_ENTRY_KEY);
+
+  if (!entryId) {
+    return safeToast("Select an entry first.", "warning");
+  }
+
+  let entry;
+
+  try {
+    entry = await api.v1.lorebook.entry(entryId);
+  } catch (error) {
+    api.v1.log?.("Lorebook fetch error:", error);
+  }
+
+  if (!entry) {
+    return safeToast("Lorebook entry not found.", "error");
+  }
+
+  const storyText = await getStoryContext();
+
+  const prompt = `
+You are updating a fictional Lorebook entry for an adult-only dramatic roleplay story.
+
+IMPORTANT:
+- Every sexual or romantic character is an adult age 21 or older.
+- Never sexualize minors.
+- Never infer an underage age.
+- Preserve continuity with the existing character.
+- Improve personality, conflict hooks, motivations, relationships, secrets,
+  mood tags, speech style, and story utility.
+- Keep the output structured enough to work well as an AI Lorebook entry.
+
+CURRENT ENTRY:
+
+${entry.text || ""}
+
+RECENT STORY CONTEXT:
+
+${storyText}
+
+Rewrite the entry with richer characterization and stronger continuity.
+Return only the updated Lorebook entry.
+`;
+
+  try {
+    const response = await api.v1.generate(
+      [
+        {
+          role: "user",
+          content: prompt
+        }
+      ],
+      {
+        model: GENERATION_MODEL,
+        max_tokens: 1000,
+        temperature: 0.82
+      }
+    );
+
+    const newText =
+      response?.choices?.[0]?.text?.trim() ||
+      response?.choices?.[0]?.message?.content?.trim();
+
+    if (!newText) {
+      return safeToast(
+        "Generation returned no text.",
+        "warning"
+      );
+    }
+
+    await openUpdateApprovalModal(entry, newText);
+  } catch (error) {
+    api.v1.log?.("runUpdateAnalysis error:", error);
+
+    safeToast(
+      "Lorebook update generation failed.",
+      "error"
+    );
+  }
+}
+
+async function runCreationAnalysis() {
+  const name = await api.v1.storage.get(NEW_ENTRY_NAME_KEY);
+
+  if (!name?.trim()) {
+    return safeToast("Enter a character name.", "warning");
+  }
+
+  const storyText = await getStoryContext();
+
+  const prompt = `
+Create a detailed Lorebook entry for a fictional adult character.
+
+IMPORTANT:
+- The character must be age 21 or older.
+- Never sexualize minors.
+- Keep the character appropriate for an adult-only fictional roleplay setting.
+- Focus on character consistency, personality, relationships, conflict,
+  speech patterns, secrets, motivations, story hooks, and dynamic behavior.
+
+Character name:
+
+${name.trim()}
+
+Use this template:
+
+${CREATE_TEMPLATE}
+
+RECENT STORY CONTEXT:
+
+${storyText}
+
+Return only the completed Lorebook entry.
+`;
+
+  try {
+    const response = await api.v1.generate(
+      [
+        {
+          role: "user",
+          content: prompt
+        }
+      ],
+      {
+        model: GENERATION_MODEL,
+        max_tokens: 1100,
+        temperature: 0.86
+      }
+    );
+
+    const text =
+      response?.choices?.[0]?.text?.trim() ||
+      response?.choices?.[0]?.message?.content?.trim();
+
+    if (!text) {
+      return safeToast(
+        "Generation returned no text.",
+        "warning"
+      );
+    }
+
+    await openCreationApprovalModal(
+      name.trim(),
+      text
+    );
+  } catch (error) {
+    api.v1.log?.("runCreationAnalysis error:", error);
+
+    safeToast(
+      "Lorebook creation failed.",
+      "error"
+    );
+  }
+}
+
+// ============================================================================
+// PANEL
+// ============================================================================
+
+async function updatePanel() {
+  try {
+    const selected = await getSelectedEntryName();
+
+    await api.v1.ui.update([
+      {
+        id: PANEL_ID,
+        name: "Ward Sisters Lore",
+        type: "scriptPanel",
+        iconId: "book",
+
+        content: [
+          {
+            type: "text",
+            markdown: true,
+            text:
+              "## 🔥 Ward Sisters Lore Manager v2\n" +
+              "Generate, review, and maintain adult-character Lorebook entries."
+          },
+
+          {
+            type: "container",
+            style: {
+              border: "1px solid bg3",
+              padding: "12px",
+              marginBottom: "12px",
+              borderRadius: "6px"
+            },
+
+            content: [
+              {
+                type: "text",
+                markdown: true,
+                text: "### 🔄 Update Existing Entry"
+              },
+
+              {
+                type: "text",
+                text: `Selected: ${selected}`
+              },
+
+              {
+                type: "row",
+                content: [
+                  {
+                    type: "button",
+                    text: "Select Entry",
+                    callback: openEntrySelectorModal
+                  },
+
+                  {
+                    type: "button",
+                    text: "Generate Update",
+                    callback: runUpdateAnalysis,
+                    disabled:
+                      !selected ||
+                      selected.startsWith("(")
+                  }
+                ]
+              }
+            ]
+          },
+
+          {
+            type: "container",
+            style: {
+              border: "1px solid bg3",
+              padding: "12px",
+              borderRadius: "6px"
+            },
+
+            content: [
+              {
+                type: "text",
+                markdown: true,
+                text: "### ✨ Create New Entry"
+              },
+
+              {
+                type: "textInput",
+                label: "Character Name",
+                placeholder:
+                  "Example: Nia, Jazmine, Raven...",
+                storageKey: NEW_ENTRY_NAME_KEY
+              },
+
+              {
+                type: "button",
+                text: "Generate Character Sheet",
+                callback: runCreationAnalysis
+              }
+            ]
+          }
+        ]
+      }
+    ]);
+  } catch (error) {
+    api.v1.log?.("updatePanel error:", error);
+
+    safeToast(
+      "Lore Manager panel failed to render.",
+      "error"
+    );
+  }
+}
+
+// ============================================================================
+// STARTUP
+// ============================================================================
+
+api.v1.hooks.register(
+  "onScriptsLoaded",
+  async () => {
+    await updatePanel();
+  }
+);
+
+updatePanel();
+
+api.v1.log(
+  "Ward Sisters Lore Manager v2.0 loaded"
+);
