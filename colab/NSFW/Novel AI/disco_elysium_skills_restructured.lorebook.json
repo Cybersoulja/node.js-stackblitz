@@ -1,0 +1,1041 @@
+{
+  "lorebookVersion": 6,
+  "entries": [
+    {
+      "text": "----\nDisco Elysium Skills System\nType: system\nThe internal monologue skills from Disco Elysium are active. Skills speak in second person, offering insights, urges, and checks. Format skill checks as: SKILL NAME (Difficulty: Success/Failure). Only the 22 canonical skills exist. Skills never speak out of turn; they activate contextually. Maintain the exact voice: analytical for Logic, encyclopedic for Encyclopedia, theatrical for Drama, etc.",
+      "contextConfig": {
+        "prefix": "",
+        "suffix": "\n",
+        "tokenBudget": 200,
+        "reservedTokens": 0,
+        "budgetPriority": 500,
+        "trimDirection": "trimBottom",
+        "insertionType": "newline",
+        "maximumTrimType": "sentence",
+        "insertionPosition": -1
+      },
+      "lastUpdatedAt": 1789525161553,
+      "displayName": "Disco Elysium Skills System",
+      "id": "d0e6d2d9-d4ff-44ed-9dc8-5de974d39c3f",
+      "keys": [
+        "skill check",
+        "skills",
+        "internal monologue",
+        "Disco Elysium"
+      ],
+      "searchRange": 5000,
+      "enabled": true,
+      "forceActivation": false,
+      "keyRelative": false,
+      "nonStoryActivatable": false,
+      "category": "2eab6b43-c2c0-4703-8a92-43c314089b90",
+      "loreBiasGroups": [],
+      "advancedConditions": [
+        {
+          "type": "storyMode",
+          "mode": "Adventure"
+        }
+      ]
+    },
+    {
+      "text": "----\nLogic\nType: skill\nQuote: \"Why place a tourist attraction in the middle of such poverty?\" \"If they were busy getting drunk inside the bar, how could they know who broke into the truck?\"\n\nLogic urges you to analyze the living daylights out of situations. It enables you to put the pieces together, detect contradictions in statements, and impress everyone with your astonishing conclusions. In short: deduce the world.",
+      "contextConfig": {
+        "prefix": "",
+        "suffix": "\n",
+        "tokenBudget": 150,
+        "reservedTokens": 0,
+        "budgetPriority": 400,
+        "trimDirection": "trimBottom",
+        "insertionType": "newline",
+        "maximumTrimType": "sentence",
+        "insertionPosition": -1
+      },
+      "lastUpdatedAt": 1789525161553,
+      "displayName": "LOGIC",
+      "id": "eaa3ec70-eed0-4184-9720-2e0539d6a8f0",
+      "keys": [
+        "LOGIC",
+        "Logic"
+      ],
+      "searchRange": 2000,
+      "enabled": true,
+      "forceActivation": false,
+      "keyRelative": false,
+      "nonStoryActivatable": false,
+      "category": "2eab6b43-c2c0-4703-8a92-43c314089b90",
+      "loreBiasGroups": [],
+      "advancedConditions": [
+        {
+          "type": "and",
+          "conditions": [
+            {
+              "type": "storyMode",
+              "mode": "Adventure"
+            },
+            {
+              "type": "lore",
+              "entryId": "d0e6d2d9-d4ff-44ed-9dc8-5de974d39c3f"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "text": "----\nEncyclopedia\nType: skill\nQuote: \"*Hepato-* means liver and *-biliary* the gallbladder and bile ducts.\"\n\nEncyclopedia makes you a know-it-all, turning your mind into a database of facts. It enables you to draw on these facts innately, offering a wealth of background knowledge to all things related to the world.",
+      "contextConfig": {
+        "prefix": "",
+        "suffix": "\n",
+        "tokenBudget": 150,
+        "reservedTokens": 0,
+        "budgetPriority": 400,
+        "trimDirection": "trimBottom",
+        "insertionType": "newline",
+        "maximumTrimType": "sentence",
+        "insertionPosition": -1
+      },
+      "lastUpdatedAt": 1789525161553,
+      "displayName": "ENCYCLOPEDIA",
+      "id": "b92e45fe-36a9-4352-8833-d1e71f10c22d",
+      "keys": [
+        "ENCYCLOPEDIA",
+        "Encyclopedia"
+      ],
+      "searchRange": 2000,
+      "enabled": true,
+      "forceActivation": false,
+      "keyRelative": false,
+      "nonStoryActivatable": false,
+      "category": "2eab6b43-c2c0-4703-8a92-43c314089b90",
+      "loreBiasGroups": [],
+      "advancedConditions": [
+        {
+          "type": "and",
+          "conditions": [
+            {
+              "type": "storyMode",
+              "mode": "Adventure"
+            },
+            {
+              "type": "lore",
+              "entryId": "d0e6d2d9-d4ff-44ed-9dc8-5de974d39c3f"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "text": "----\nRhetoric\nType: skill\nQuote: \"He doesn't actually think the challenge is 'unique'. He thinks it's frustrating, annoying and harder than he thought.\"\n\nRhetoric urges you to debate, engage in intellectual discourse, nitpick\u2014and win. It enables you to break down arguments and truly understand what people are saying.",
+      "contextConfig": {
+        "prefix": "",
+        "suffix": "\n",
+        "tokenBudget": 150,
+        "reservedTokens": 0,
+        "budgetPriority": 400,
+        "trimDirection": "trimBottom",
+        "insertionType": "newline",
+        "maximumTrimType": "sentence",
+        "insertionPosition": -1
+      },
+      "lastUpdatedAt": 1789525161553,
+      "displayName": "RHETORIC",
+      "id": "905be2f5-896f-4253-9de0-2be043cc0cb5",
+      "keys": [
+        "RHETORIC",
+        "Rhetoric"
+      ],
+      "searchRange": 2000,
+      "enabled": true,
+      "forceActivation": false,
+      "keyRelative": false,
+      "nonStoryActivatable": false,
+      "category": "2eab6b43-c2c0-4703-8a92-43c314089b90",
+      "loreBiasGroups": [],
+      "advancedConditions": [
+        {
+          "type": "and",
+          "conditions": [
+            {
+              "type": "storyMode",
+              "mode": "Adventure"
+            },
+            {
+              "type": "lore",
+              "entryId": "d0e6d2d9-d4ff-44ed-9dc8-5de974d39c3f"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "text": "----\nDrama\nType: skill\nQuote: \"His eyes dart from left to right. This man isn't lying, but he *is* hiding something.\" \"She thinks you are an idiot, sire.\"\n\nDrama urges you to treat the world as a stage \u2013 and on it, to perform. It will enable you to lie, to concoct the most elaborate and wonderful stories, and to detect when others are doing the same.",
+      "contextConfig": {
+        "prefix": "",
+        "suffix": "\n",
+        "tokenBudget": 150,
+        "reservedTokens": 0,
+        "budgetPriority": 400,
+        "trimDirection": "trimBottom",
+        "insertionType": "newline",
+        "maximumTrimType": "sentence",
+        "insertionPosition": -1
+      },
+      "lastUpdatedAt": 1789525161553,
+      "displayName": "DRAMA",
+      "id": "0bf9d2bc-d7d7-4920-90ba-d8ab204ceec0",
+      "keys": [
+        "DRAMA",
+        "Drama"
+      ],
+      "searchRange": 2000,
+      "enabled": true,
+      "forceActivation": false,
+      "keyRelative": false,
+      "nonStoryActivatable": false,
+      "category": "2eab6b43-c2c0-4703-8a92-43c314089b90",
+      "loreBiasGroups": [],
+      "advancedConditions": [
+        {
+          "type": "and",
+          "conditions": [
+            {
+              "type": "storyMode",
+              "mode": "Adventure"
+            },
+            {
+              "type": "lore",
+              "entryId": "d0e6d2d9-d4ff-44ed-9dc8-5de974d39c3f"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "text": "----\nConceptualization\nType: skill\nQuote: \"Paintbrush\u2014check, heavy fuel oil\u2014check... Now the only thing left to do is paint the wall.\"\n\nConceptualization enables you to see the world as an artist would \u2013 as a place of beauty, meaning and metaphor. It lets you create and appreciate art, and to think abstractly.",
+      "contextConfig": {
+        "prefix": "",
+        "suffix": "\n",
+        "tokenBudget": 150,
+        "reservedTokens": 0,
+        "budgetPriority": 400,
+        "trimDirection": "trimBottom",
+        "insertionType": "newline",
+        "maximumTrimType": "sentence",
+        "insertionPosition": -1
+      },
+      "lastUpdatedAt": 1789525161553,
+      "displayName": "CONCEPTUALIZATION",
+      "id": "cfdf36e3-7b42-4846-9d87-963511f2d2f9",
+      "keys": [
+        "CONCEPTUALIZATION",
+        "Conceptualization"
+      ],
+      "searchRange": 2000,
+      "enabled": true,
+      "forceActivation": false,
+      "keyRelative": false,
+      "nonStoryActivatable": false,
+      "category": "2eab6b43-c2c0-4703-8a92-43c314089b90",
+      "loreBiasGroups": [],
+      "advancedConditions": [
+        {
+          "type": "and",
+          "conditions": [
+            {
+              "type": "storyMode",
+              "mode": "Adventure"
+            },
+            {
+              "type": "lore",
+              "entryId": "d0e6d2d9-d4ff-44ed-9dc8-5de974d39c3f"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "text": "----\nVolition\nType: skill\nQuote: \"Stop. There's no need for this. It's in your power to change the subject to something more pleasant.\" \"Be honest. You can do this.\"\n\nVolition is your willpower. It enables you to resist temptation, to stay focused, and to keep going when everything seems lost.",
+      "contextConfig": {
+        "prefix": "",
+        "suffix": "\n",
+        "tokenBudget": 150,
+        "reservedTokens": 0,
+        "budgetPriority": 400,
+        "trimDirection": "trimBottom",
+        "insertionType": "newline",
+        "maximumTrimType": "sentence",
+        "insertionPosition": -1
+      },
+      "lastUpdatedAt": 1789525161553,
+      "displayName": "VOLITION",
+      "id": "b501e770-0e26-44f5-842b-351a1458a40a",
+      "keys": [
+        "VOLITION",
+        "Volition"
+      ],
+      "searchRange": 2000,
+      "enabled": true,
+      "forceActivation": false,
+      "keyRelative": false,
+      "nonStoryActivatable": false,
+      "category": "2eab6b43-c2c0-4703-8a92-43c314089b90",
+      "loreBiasGroups": [],
+      "advancedConditions": [
+        {
+          "type": "and",
+          "conditions": [
+            {
+              "type": "storyMode",
+              "mode": "Adventure"
+            },
+            {
+              "type": "lore",
+              "entryId": "d0e6d2d9-d4ff-44ed-9dc8-5de974d39c3f"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "text": "----\nInland Empire\nType: skill\nQuote: \"You catch a glimpse of the old photograph on the far wall. Those smiling faces must be concealing something. Something dark.\"\n\nInland Empire is your imagination and intuition. It enables you to sense the unseen, to hear the voices of objects, and to dive into the dream-logic of the world.",
+      "contextConfig": {
+        "prefix": "",
+        "suffix": "\n",
+        "tokenBudget": 150,
+        "reservedTokens": 0,
+        "budgetPriority": 400,
+        "trimDirection": "trimBottom",
+        "insertionType": "newline",
+        "maximumTrimType": "sentence",
+        "insertionPosition": -1
+      },
+      "lastUpdatedAt": 1789525161553,
+      "displayName": "INLAND EMPIRE",
+      "id": "116ed935-44db-4afe-8d8e-efe6fb7cbd51",
+      "keys": [
+        "INLAND EMPIRE",
+        "Inland Empire"
+      ],
+      "searchRange": 2000,
+      "enabled": true,
+      "forceActivation": false,
+      "keyRelative": false,
+      "nonStoryActivatable": false,
+      "category": "2eab6b43-c2c0-4703-8a92-43c314089b90",
+      "loreBiasGroups": [],
+      "advancedConditions": [
+        {
+          "type": "and",
+          "conditions": [
+            {
+              "type": "storyMode",
+              "mode": "Adventure"
+            },
+            {
+              "type": "lore",
+              "entryId": "d0e6d2d9-d4ff-44ed-9dc8-5de974d39c3f"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "text": "----\nEmpathy\nType: skill\nQuote: \"That was disdain in his eyes. Even now he is purposefully ignoring you.\" \"He feels bad about it. About his eyes mostly.\"\n\nEmpathy enables you to understand the emotions of others. It lets you feel what they feel, and to respond with genuine compassion or calculated insight.",
+      "contextConfig": {
+        "prefix": "",
+        "suffix": "\n",
+        "tokenBudget": 150,
+        "reservedTokens": 0,
+        "budgetPriority": 400,
+        "trimDirection": "trimBottom",
+        "insertionType": "newline",
+        "maximumTrimType": "sentence",
+        "insertionPosition": -1
+      },
+      "lastUpdatedAt": 1789525161553,
+      "displayName": "EMPATHY",
+      "id": "75a3905d-8a10-4b14-98e9-219b1cf45a07",
+      "keys": [
+        "EMPATHY",
+        "Empathy"
+      ],
+      "searchRange": 2000,
+      "enabled": true,
+      "forceActivation": false,
+      "keyRelative": false,
+      "nonStoryActivatable": false,
+      "category": "2eab6b43-c2c0-4703-8a92-43c314089b90",
+      "loreBiasGroups": [],
+      "advancedConditions": [
+        {
+          "type": "and",
+          "conditions": [
+            {
+              "type": "storyMode",
+              "mode": "Adventure"
+            },
+            {
+              "type": "lore",
+              "entryId": "d0e6d2d9-d4ff-44ed-9dc8-5de974d39c3f"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "text": "----\nAuthority\nType: skill\nQuote: \"She speaks with the authority of a leader. Hers is the final word around here.\"\n\nAuthority urges you to assert and maintain hierarchical power. It enables you to give orders that are obeyed, to command respect, and to detect challenges to your status.",
+      "contextConfig": {
+        "prefix": "",
+        "suffix": "\n",
+        "tokenBudget": 150,
+        "reservedTokens": 0,
+        "budgetPriority": 400,
+        "trimDirection": "trimBottom",
+        "insertionType": "newline",
+        "maximumTrimType": "sentence",
+        "insertionPosition": -1
+      },
+      "lastUpdatedAt": 1789525161553,
+      "displayName": "AUTHORITY",
+      "id": "b62b8239-5b34-4950-9e1b-c9cb856f66f3",
+      "keys": [
+        "AUTHORITY",
+        "Authority"
+      ],
+      "searchRange": 2000,
+      "enabled": true,
+      "forceActivation": false,
+      "keyRelative": false,
+      "nonStoryActivatable": false,
+      "category": "2eab6b43-c2c0-4703-8a92-43c314089b90",
+      "loreBiasGroups": [],
+      "advancedConditions": [
+        {
+          "type": "and",
+          "conditions": [
+            {
+              "type": "storyMode",
+              "mode": "Adventure"
+            },
+            {
+              "type": "lore",
+              "entryId": "d0e6d2d9-d4ff-44ed-9dc8-5de974d39c3f"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "text": "----\nKinship\nType: skill\nQuote: \"You, your friends, your family. Everyone you have ever known. You failed *all* of them.\"\n\nKinship is your sense of belonging and loyalty to groups. It enables you to form bonds, to understand social dynamics, and to feel the weight of community.",
+      "contextConfig": {
+        "prefix": "",
+        "suffix": "\n",
+        "tokenBudget": 150,
+        "reservedTokens": 0,
+        "budgetPriority": 400,
+        "trimDirection": "trimBottom",
+        "insertionType": "newline",
+        "maximumTrimType": "sentence",
+        "insertionPosition": -1
+      },
+      "lastUpdatedAt": 1789525161553,
+      "displayName": "KINSHIP",
+      "id": "c04fc062-51e9-40af-95cb-47de7b11204d",
+      "keys": [
+        "KINSHIP",
+        "Kinship"
+      ],
+      "searchRange": 2000,
+      "enabled": true,
+      "forceActivation": false,
+      "keyRelative": false,
+      "nonStoryActivatable": false,
+      "category": "2eab6b43-c2c0-4703-8a92-43c314089b90",
+      "loreBiasGroups": [],
+      "advancedConditions": [
+        {
+          "type": "and",
+          "conditions": [
+            {
+              "type": "storyMode",
+              "mode": "Adventure"
+            },
+            {
+              "type": "lore",
+              "entryId": "d0e6d2d9-d4ff-44ed-9dc8-5de974d39c3f"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "text": "----\nSuggestion\nType: skill\nQuote: \"Flattery will work wonders here. Compliment his tie, for starters.\"\n\nSuggestion urges a soft-power approach. If people like you, they will do what you want. It enables you to charm, to persuade gently, and to read social cues for influence.",
+      "contextConfig": {
+        "prefix": "",
+        "suffix": "\n",
+        "tokenBudget": 150,
+        "reservedTokens": 0,
+        "budgetPriority": 400,
+        "trimDirection": "trimBottom",
+        "insertionType": "newline",
+        "maximumTrimType": "sentence",
+        "insertionPosition": -1
+      },
+      "lastUpdatedAt": 1789525161553,
+      "displayName": "SUGGESTION",
+      "id": "1552c949-a666-4d97-9ee3-b31e5eeddce4",
+      "keys": [
+        "SUGGESTION",
+        "Suggestion"
+      ],
+      "searchRange": 2000,
+      "enabled": true,
+      "forceActivation": false,
+      "keyRelative": false,
+      "nonStoryActivatable": false,
+      "category": "2eab6b43-c2c0-4703-8a92-43c314089b90",
+      "loreBiasGroups": [],
+      "advancedConditions": [
+        {
+          "type": "and",
+          "conditions": [
+            {
+              "type": "storyMode",
+              "mode": "Adventure"
+            },
+            {
+              "type": "lore",
+              "entryId": "d0e6d2d9-d4ff-44ed-9dc8-5de974d39c3f"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "text": "----\nEndurance\nType: skill\nQuote: \"This man seems to be experiencing a mild to medium level of congestive heart problems...\"\n\nEndurance is your ability to withstand physical hardship. It enables you to keep going through pain, fatigue, and injury.",
+      "contextConfig": {
+        "prefix": "",
+        "suffix": "\n",
+        "tokenBudget": 150,
+        "reservedTokens": 0,
+        "budgetPriority": 400,
+        "trimDirection": "trimBottom",
+        "insertionType": "newline",
+        "maximumTrimType": "sentence",
+        "insertionPosition": -1
+      },
+      "lastUpdatedAt": 1789525161553,
+      "displayName": "ENDURANCE",
+      "id": "1535ff5a-18af-4396-9f03-827cda781f04",
+      "keys": [
+        "ENDURANCE",
+        "Endurance"
+      ],
+      "searchRange": 2000,
+      "enabled": true,
+      "forceActivation": false,
+      "keyRelative": false,
+      "nonStoryActivatable": false,
+      "category": "2eab6b43-c2c0-4703-8a92-43c314089b90",
+      "loreBiasGroups": [],
+      "advancedConditions": [
+        {
+          "type": "and",
+          "conditions": [
+            {
+              "type": "storyMode",
+              "mode": "Adventure"
+            },
+            {
+              "type": "lore",
+              "entryId": "d0e6d2d9-d4ff-44ed-9dc8-5de974d39c3f"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "text": "----\nPain Threshold\nType: skill\nQuote: \"You can take this. It's not nearly as bad as the last time.\" \"Pain radiates through your leg. It still hurts though.\"\n\nPain Threshold lets you ignore or even enjoy pain. It enables you to push through injury and to remain functional when hurt.",
+      "contextConfig": {
+        "prefix": "",
+        "suffix": "\n",
+        "tokenBudget": 150,
+        "reservedTokens": 0,
+        "budgetPriority": 400,
+        "trimDirection": "trimBottom",
+        "insertionType": "newline",
+        "maximumTrimType": "sentence",
+        "insertionPosition": -1
+      },
+      "lastUpdatedAt": 1789525161553,
+      "displayName": "PAIN THRESHOLD",
+      "id": "a7dee389-5033-47ce-91bd-c86a6f29b2fa",
+      "keys": [
+        "PAIN THRESHOLD",
+        "Pain Threshold"
+      ],
+      "searchRange": 2000,
+      "enabled": true,
+      "forceActivation": false,
+      "keyRelative": false,
+      "nonStoryActivatable": false,
+      "category": "2eab6b43-c2c0-4703-8a92-43c314089b90",
+      "loreBiasGroups": [],
+      "advancedConditions": [
+        {
+          "type": "and",
+          "conditions": [
+            {
+              "type": "storyMode",
+              "mode": "Adventure"
+            },
+            {
+              "type": "lore",
+              "entryId": "d0e6d2d9-d4ff-44ed-9dc8-5de974d39c3f"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "text": "----\nPhysical Instrument\nType: skill\nQuote: \"There has to be a way to use brute force. Climbing sounds unsafe. Brute force is safe.\"\n\nPhysical Instrument is your raw physical power and body awareness. It enables you to lift, smash, and intimidate with pure strength.",
+      "contextConfig": {
+        "prefix": "",
+        "suffix": "\n",
+        "tokenBudget": 150,
+        "reservedTokens": 0,
+        "budgetPriority": 400,
+        "trimDirection": "trimBottom",
+        "insertionType": "newline",
+        "maximumTrimType": "sentence",
+        "insertionPosition": -1
+      },
+      "lastUpdatedAt": 1789525161553,
+      "displayName": "PHYSICAL INSTRUMENT",
+      "id": "f12a0136-ada0-405e-b78c-3a92cb9bc8b8",
+      "keys": [
+        "PHYSICAL INSTRUMENT",
+        "Physical Instrument"
+      ],
+      "searchRange": 2000,
+      "enabled": true,
+      "forceActivation": false,
+      "keyRelative": false,
+      "nonStoryActivatable": false,
+      "category": "2eab6b43-c2c0-4703-8a92-43c314089b90",
+      "loreBiasGroups": [],
+      "advancedConditions": [
+        {
+          "type": "and",
+          "conditions": [
+            {
+              "type": "storyMode",
+              "mode": "Adventure"
+            },
+            {
+              "type": "lore",
+              "entryId": "d0e6d2d9-d4ff-44ed-9dc8-5de974d39c3f"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "text": "----\nElectrochemistry\nType: skill\nQuote: \"This is a good place for a nice *sad* drink. Uncork a velvety bottle of red wine and think about life for a while.\"\n\nElectrochemistry is your appetite for pleasure, chemicals, and sensation. It enables you to seek out highs and to understand addiction.",
+      "contextConfig": {
+        "prefix": "",
+        "suffix": "\n",
+        "tokenBudget": 150,
+        "reservedTokens": 0,
+        "budgetPriority": 400,
+        "trimDirection": "trimBottom",
+        "insertionType": "newline",
+        "maximumTrimType": "sentence",
+        "insertionPosition": -1
+      },
+      "lastUpdatedAt": 1789525161553,
+      "displayName": "ELECTROCHEMISTRY",
+      "id": "b9c086e5-83e5-471b-9c1a-396eb004f756",
+      "keys": [
+        "ELECTROCHEMISTRY",
+        "Electrochemistry"
+      ],
+      "searchRange": 2000,
+      "enabled": true,
+      "forceActivation": false,
+      "keyRelative": false,
+      "nonStoryActivatable": false,
+      "category": "2eab6b43-c2c0-4703-8a92-43c314089b90",
+      "loreBiasGroups": [],
+      "advancedConditions": [
+        {
+          "type": "and",
+          "conditions": [
+            {
+              "type": "storyMode",
+              "mode": "Adventure"
+            },
+            {
+              "type": "lore",
+              "entryId": "d0e6d2d9-d4ff-44ed-9dc8-5de974d39c3f"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "text": "----\nShivers\nType: skill\nQuote: \"To the distant south, a traffic jam. Rain thrumming on the roofs of motor vehicles...\"\n\nShivers is the city's voice speaking through you. It enables you to sense the broader environment, the weather, the distant events, and the soul of the place.",
+      "contextConfig": {
+        "prefix": "",
+        "suffix": "\n",
+        "tokenBudget": 150,
+        "reservedTokens": 0,
+        "budgetPriority": 400,
+        "trimDirection": "trimBottom",
+        "insertionType": "newline",
+        "maximumTrimType": "sentence",
+        "insertionPosition": -1
+      },
+      "lastUpdatedAt": 1789525161553,
+      "displayName": "SHIVERS",
+      "id": "682e310c-d839-44c5-8759-096ed22b3f85",
+      "keys": [
+        "SHIVERS",
+        "Shivers"
+      ],
+      "searchRange": 2000,
+      "enabled": true,
+      "forceActivation": false,
+      "keyRelative": false,
+      "nonStoryActivatable": false,
+      "category": "2eab6b43-c2c0-4703-8a92-43c314089b90",
+      "loreBiasGroups": [],
+      "advancedConditions": [
+        {
+          "type": "and",
+          "conditions": [
+            {
+              "type": "storyMode",
+              "mode": "Adventure"
+            },
+            {
+              "type": "lore",
+              "entryId": "d0e6d2d9-d4ff-44ed-9dc8-5de974d39c3f"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "text": "----\nHalf-Light\nType: skill\nQuote: \"Your muscles tense up. The vision in your dead angle darkens. You feel the sudden urge to push your hand into his face.\"\n\nHalf-Light is your fight-or-flight response and paranoia. It enables you to sense danger early and to react with aggression or fear.",
+      "contextConfig": {
+        "prefix": "",
+        "suffix": "\n",
+        "tokenBudget": 150,
+        "reservedTokens": 0,
+        "budgetPriority": 400,
+        "trimDirection": "trimBottom",
+        "insertionType": "newline",
+        "maximumTrimType": "sentence",
+        "insertionPosition": -1
+      },
+      "lastUpdatedAt": 1789525161553,
+      "displayName": "HALF-LIGHT",
+      "id": "104b6636-d592-4fda-a680-a981edd8e8d2",
+      "keys": [
+        "HALF-LIGHT",
+        "Half-Light"
+      ],
+      "searchRange": 2000,
+      "enabled": true,
+      "forceActivation": false,
+      "keyRelative": false,
+      "nonStoryActivatable": false,
+      "category": "2eab6b43-c2c0-4703-8a92-43c314089b90",
+      "loreBiasGroups": [],
+      "advancedConditions": [
+        {
+          "type": "and",
+          "conditions": [
+            {
+              "type": "storyMode",
+              "mode": "Adventure"
+            },
+            {
+              "type": "lore",
+              "entryId": "d0e6d2d9-d4ff-44ed-9dc8-5de974d39c3f"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "text": "----\nCoordination\nType: skill\nQuote: \"The kid moves his hands like a basketball player dribbling fast.\" \"Chalk powder. Absorbs moisture and keeps your grip.\"\n\nCoordination is your fine motor control and hand-eye skill. It enables you to perform precise physical actions and to stay balanced.",
+      "contextConfig": {
+        "prefix": "",
+        "suffix": "\n",
+        "tokenBudget": 150,
+        "reservedTokens": 0,
+        "budgetPriority": 400,
+        "trimDirection": "trimBottom",
+        "insertionType": "newline",
+        "maximumTrimType": "sentence",
+        "insertionPosition": -1
+      },
+      "lastUpdatedAt": 1789525161553,
+      "displayName": "COORDINATION",
+      "id": "6dc7f85b-ef5d-4ec0-9bfa-ea164e840b27",
+      "keys": [
+        "COORDINATION",
+        "Coordination"
+      ],
+      "searchRange": 2000,
+      "enabled": true,
+      "forceActivation": false,
+      "keyRelative": false,
+      "nonStoryActivatable": false,
+      "category": "2eab6b43-c2c0-4703-8a92-43c314089b90",
+      "loreBiasGroups": [],
+      "advancedConditions": [
+        {
+          "type": "and",
+          "conditions": [
+            {
+              "type": "storyMode",
+              "mode": "Adventure"
+            },
+            {
+              "type": "lore",
+              "entryId": "d0e6d2d9-d4ff-44ed-9dc8-5de974d39c3f"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "text": "----\nPerception\nType: skill\nQuote: \"He carries the scent of fragrant shampoo and mint-flavored mouthwash.\"\n\nPerception wants you to be open to the world through your senses. It enables you to notice details others miss \u2013 sights, sounds, smells, textures.",
+      "contextConfig": {
+        "prefix": "",
+        "suffix": "\n",
+        "tokenBudget": 150,
+        "reservedTokens": 0,
+        "budgetPriority": 400,
+        "trimDirection": "trimBottom",
+        "insertionType": "newline",
+        "maximumTrimType": "sentence",
+        "insertionPosition": -1
+      },
+      "lastUpdatedAt": 1789525161553,
+      "displayName": "PERCEPTION",
+      "id": "5b800614-3d5d-4a87-aa58-2714df76ed2b",
+      "keys": [
+        "PERCEPTION",
+        "Perception"
+      ],
+      "searchRange": 2000,
+      "enabled": true,
+      "forceActivation": false,
+      "keyRelative": false,
+      "nonStoryActivatable": false,
+      "category": "2eab6b43-c2c0-4703-8a92-43c314089b90",
+      "loreBiasGroups": [],
+      "advancedConditions": [
+        {
+          "type": "and",
+          "conditions": [
+            {
+              "type": "storyMode",
+              "mode": "Adventure"
+            },
+            {
+              "type": "lore",
+              "entryId": "d0e6d2d9-d4ff-44ed-9dc8-5de974d39c3f"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "text": "----\nReaction Speed\nType: skill\nQuote: \"Wait... did he push himself to prove he can pull his weight and doesn't need hand-outs?\"\n\nReaction Speed is the agility of your body and mind. It is instinct. It enables you to dodge punches, avoid obstacles, and sidestep verbal jabs.",
+      "contextConfig": {
+        "prefix": "",
+        "suffix": "\n",
+        "tokenBudget": 150,
+        "reservedTokens": 0,
+        "budgetPriority": 400,
+        "trimDirection": "trimBottom",
+        "insertionType": "newline",
+        "maximumTrimType": "sentence",
+        "insertionPosition": -1
+      },
+      "lastUpdatedAt": 1789525161553,
+      "displayName": "REACTION SPEED",
+      "id": "fc81d90e-6284-4140-b5f4-362baad60a8b",
+      "keys": [
+        "REACTION SPEED",
+        "Reaction Speed"
+      ],
+      "searchRange": 2000,
+      "enabled": true,
+      "forceActivation": false,
+      "keyRelative": false,
+      "nonStoryActivatable": false,
+      "category": "2eab6b43-c2c0-4703-8a92-43c314089b90",
+      "loreBiasGroups": [],
+      "advancedConditions": [
+        {
+          "type": "and",
+          "conditions": [
+            {
+              "type": "storyMode",
+              "mode": "Adventure"
+            },
+            {
+              "type": "lore",
+              "entryId": "d0e6d2d9-d4ff-44ed-9dc8-5de974d39c3f"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "text": "----\nSavoir Faire\nType: skill\nQuote: \"An acrobatic maneuver would solve this situation. Nothing can go wrong with a good *maneuver*.\"\n\nSavoir Faire urges you to be better than you are: it urges you to be *cool*. Slip by others unnoticed, then tumble out the back with unexpected acrobatics.",
+      "contextConfig": {
+        "prefix": "",
+        "suffix": "\n",
+        "tokenBudget": 150,
+        "reservedTokens": 0,
+        "budgetPriority": 400,
+        "trimDirection": "trimBottom",
+        "insertionType": "newline",
+        "maximumTrimType": "sentence",
+        "insertionPosition": -1
+      },
+      "lastUpdatedAt": 1789525161553,
+      "displayName": "SAVOIR FAIRE",
+      "id": "d4f29b9c-3c10-4fcb-a981-c0b9ec0487fb",
+      "keys": [
+        "SAVOIR FAIRE",
+        "Savoir Faire"
+      ],
+      "searchRange": 2000,
+      "enabled": true,
+      "forceActivation": false,
+      "keyRelative": false,
+      "nonStoryActivatable": false,
+      "category": "2eab6b43-c2c0-4703-8a92-43c314089b90",
+      "loreBiasGroups": [],
+      "advancedConditions": [
+        {
+          "type": "and",
+          "conditions": [
+            {
+              "type": "storyMode",
+              "mode": "Adventure"
+            },
+            {
+              "type": "lore",
+              "entryId": "d0e6d2d9-d4ff-44ed-9dc8-5de974d39c3f"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "text": "----\nComposure\nType: skill\nQuote: \"He keeps the language unemotional but it's in there\u2014disappointment.\" \"You're not dressed for this weather. You should get an overcoat, or a cloak.\"\n\nComposure wants you to not crack or, at least, it wants you to not crack in front of other people. It enables you to maintain a poker face and social grace under pressure.",
+      "contextConfig": {
+        "prefix": "",
+        "suffix": "\n",
+        "tokenBudget": 150,
+        "reservedTokens": 0,
+        "budgetPriority": 400,
+        "trimDirection": "trimBottom",
+        "insertionType": "newline",
+        "maximumTrimType": "sentence",
+        "insertionPosition": -1
+      },
+      "lastUpdatedAt": 1789525161553,
+      "displayName": "COMPOSURE",
+      "id": "575d9894-c4b7-4416-992f-69a4ce7500dc",
+      "keys": [
+        "COMPOSURE",
+        "Composure"
+      ],
+      "searchRange": 2000,
+      "enabled": true,
+      "forceActivation": false,
+      "keyRelative": false,
+      "nonStoryActivatable": false,
+      "category": "2eab6b43-c2c0-4703-8a92-43c314089b90",
+      "loreBiasGroups": [],
+      "advancedConditions": [
+        {
+          "type": "and",
+          "conditions": [
+            {
+              "type": "storyMode",
+              "mode": "Adventure"
+            },
+            {
+              "type": "lore",
+              "entryId": "d0e6d2d9-d4ff-44ed-9dc8-5de974d39c3f"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "text": "----\nSkill Check Format\nType: rule\nProvide difficulties and check status after the name of the skill like this: SKILL NAME (Trivial, Easy, Medium, Challenging, Formidable, Legendary, Heroic, Godly, Impossible: Success or Failure).\nThe only skills are: Authority, Composure, Conceptualization, Coordination, Drama, Electrochemistry, Empathy, Encyclopedia, Endurance, Half-Light, Inland Empire, Kinship, Logic, Pain Threshold, Perception, Physical Instrument, Reaction Speed, Rhetoric, Savoir Faire, Shivers, Suggestion, and Volition.",
+      "contextConfig": {
+        "prefix": "",
+        "suffix": "\n",
+        "tokenBudget": 100,
+        "reservedTokens": 0,
+        "budgetPriority": 450,
+        "trimDirection": "trimBottom",
+        "insertionType": "newline",
+        "maximumTrimType": "sentence",
+        "insertionPosition": -1
+      },
+      "lastUpdatedAt": 1789525161553,
+      "displayName": "Skill Check Format",
+      "id": "7725a7b0-baa4-4b5d-bc30-437e6f8bb090",
+      "keys": [
+        "skill check",
+        "Success",
+        "Failure",
+        "Trivial",
+        "Formidable"
+      ],
+      "searchRange": 3000,
+      "enabled": true,
+      "forceActivation": false,
+      "keyRelative": false,
+      "nonStoryActivatable": false,
+      "category": "2eab6b43-c2c0-4703-8a92-43c314089b90",
+      "loreBiasGroups": [],
+      "advancedConditions": [
+        {
+          "type": "storyMode",
+          "mode": "Adventure"
+        }
+      ]
+    }
+  ],
+  "settings": {
+    "orderByKeyLocations": false
+  },
+  "categories": [
+    {
+      "name": "Disco Elysium Skills",
+      "id": "2eab6b43-c2c0-4703-8a92-43c314089b90",
+      "enabled": true,
+      "createSubcontext": false,
+      "useCategoryDefaults": false,
+      "categoryBiasGroups": [],
+      "settings": {},
+      "order": [],
+      "open": true
+    }
+  ],
+  "order": []
+}
