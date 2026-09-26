@@ -1,0 +1,91 @@
+API For Webmasters - EPORNER: HD Porn Tube
+
+/api/v2/video/search/ method parameters	
+query	String
+Search query, for example teens or anal milf.	
+	
+Special value all can be used to query for all videos	
+	
+Default value: all	
+	
+per_page	Integer
+Limits the number of results per page. Valid range is ( 1, 1000 ).	
+	
+Default value: 30	
+	
+page	Integer
+Results page number. Valid range is ( 1, 1000000 ) but no more than total_pages received in response.	
+	
+Default value: 1	
+	
+thumbsize	String
+Thumbnails size. Valid values:	
+	
+small thumbnail size 190x152	
+medium thumbnail size 427x240	
+big thumbnail size 640x360	
+Default value: medium	
+	
+order	String
+How results should be sorted. Valid values:	
+	
+latest newest videos first	
+longest longest videos first	
+shortest shortest videos first	
+top-rated top rated videos first	
+most-popular most popular all time videos first	
+top-weekly most popular this week videos first	
+top-monthly most popular this month videos first	
+Default value: latest	
+	
+gay	Integer
+Should results include gay content ? Valid values:	
+	
+0 gay content not included	
+1 gay content included	
+2 only gay content	
+Default value: 0	
+	
+lq	Integer
+Should results include content marked as low quality ? Valid values:	
+	
+0 low quality content not included	
+1 low quality content included	
+2 only low quality	
+Default value: 1	
+	
+format	String
+How results should be formatted ? Valid values:	
+	
+json output will be in JSON format	
+xml output will be in XML format	
+Default value: json	
+
+R
+count	Integer
+Number of videos returned on current result page	
+	
+start	Integer
+First video number in current result page. Calculated as: per_page * ( page - 1 )	
+	
+per_page	Integer
+Number of videos displayed per page. The same as specified in per_page parameter.	
+	
+page	Integer
+Current result page number.	
+	
+time_ms	Integer
+Execution time in ms. This field is not guaranteed to be always included in results!	
+	
+total_count	Integer
+Total Number of all videos found matching your criteria.	
+	
+total_pages	Integer
+Total number of pages with all results matching your criteria assuming current per_page value.	
+	
+videos	array
+List of videos for current page - no more than per_page and exactly count number.	
+	
+Detailed information about fields in each entry you can find in Results of ID Method	
+	
+	◦	favehotelblacktran
