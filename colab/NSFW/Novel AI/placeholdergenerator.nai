@@ -1,0 +1,307 @@
+/**
+ * Placeholder Generator
+ * NovelAI User Script – TypeScript
+ *
+ * Generates contextual placeholders (names, locations, items, scene hooks, etc.)
+ * and inserts them into the document.
+ *
+ * Permissions required:
+ *   - documentEdit (to insert text)
+ */
+
+const MODEL = "glm-4-6";
+const STORAGE_KEY_CATEGORY = "placeholder-gen-last-category";
+const STORAGE_KEY_CUSTOM = "placeholder-gen-last-custom";
+const STORAGE_KEY_COUNT = "placeholder-gen-count";
+
+type Category = |
+	"character-name" |
+	"location" |
+	"item" |
+	"scene-hook" |
+	"dialogue" |
+	"custom";
+
+const CATEGORY_LABELS: Record < Category, string > = {
+	"character-name": "Character Name",
+	location: "Location / Place",
+	item: "Item / Artifact",
+	"scene-hook": "Scene Hook / Event",
+	dialogue: "Dialogue Snippet",
+	custom: "Custom Prompt",
+};
+
+const SYSTEM_PROMPTS: Record < Exclude < Category, "custom" > , string > = {
+	"character-name": "You are a creative naming assistant for fiction. Generate distinctive, memorable character names suitable for the given genre/context. Output only the names, one per line, no numbering or extra commentary.",
+	location: "You are a world-building assistant. Generate evocative location names or short place descriptions. Output only the results, one per line.",
+	item: "You are a fantasy/sci-fi item designer. Generate interesting item or artifact names with a very short flavor description (max 12 words). Output one item per line in the format: Name — short description.",
+	"scene-hook": "You are a narrative prompt engineer. Generate short, punchy scene hooks or story events that can be dropped into fiction. Output only the hooks, one per line.",
+	dialogue: "You are a dialogue writer. Generate short, natural-sounding dialogue lines or exchanges (1–3 lines). Output only the dialogue, one block per line.",
+};
+
+async function getStoredCategory(): Promise < Category > {
+	try {
+		const val = await api.v1.storage.get(STORAGE_KEY_CATEGORY);
+		if (val && typeof val === "string" && val in CATEGORY_LABELS) {
+			return val as Category;
+		}
+	} catch (_) {}
+	return "character-name";
+}
+
+async function getStoredCustom(): Promise < string > {
+	try {
+		const val = await api.v1.storage.get(STORAGE_KEY_CUSTOM);
+		return typeof val === "string" ? val : "";
+	} catch (_) {
+		return "";
+	}
+}
+
+async function getStoredCount(): Promise < number > {
+	try {
+		const val = await api.v1.storage.get(STORAGE_KEY_COUNT);
+		const n = Number(val);
+		if (n >= 1 && n <= 5) return n;
+	} catch (_) {}
+	return 3;
+}
+
+function buildUserPrompt(
+	category: Category,
+	extra: string,
+	count: number
+): string {
+	const base =
+		category === "custom" ?
+		extra.trim() || "Generate interesting fictional placeholders." :
+		`Generate exactly ${count} unique results.\nContext / extra instructions: ${extra.trim() || "None – keep it general and high quality."}`;
+
+	return `${base}\n\nRespond with only the requested items, one per line. No introductions, no numbering, no extra text.`;
+}
+
+async function generatePlaceholders(
+	category: Category,
+	extra: string,
+	count: number
+): Promise < string[] > {
+	const system =
+		category === "custom" ?
+		"You are a helpful creative writing assistant. Follow the user's instructions precisely and output only the requested content, one item per line." :
+		SYSTEM_PROMPTS[category];
+
+	const messages = [{
+			role: "system"
+			as
+			const,
+			content: system
+		},
+		{
+			role: "user"
+			as
+			const,
+			content: buildUserPrompt(category, extra, count)
+		},
+	];
+
+	const response = await api.v1.generate(messages, {
+		model: MODEL,
+		temperature: 0.85,
+		max_tokens: 400,
+		top_p: 0.9,
+	});
+
+	const text = response.choices?.[0]?.text ?? "";
+	return text
+		.split("\n")
+		.map((l) => l.trim())
+		.filter((l) => l.length > 0)
+		.slice(0, count);
+}
+
+async function insertText(text: string): Promise < void > {
+	try {
+		// Append as a new paragraph for clean insertion
+		await api.v1.document.appendParagraph(text);
+		api.v1.log(`Inserted: ${text.substring(0, 60)}…`);
+	} catch (err) {
+		api.v1.log(`Document insert failed: ${String(err)}`);
+		throw err;
+	}
+}
+
+async function openGeneratorModal(): Promise < void > {
+	let currentCategory = await getStoredCategory();
+	let currentExtra = await getStoredCustom();
+	let currentCount = await getStoredCount();
+	let results: string[] = [];
+	let isGenerating = false;
+
+	const modal = api.v1.ui.modal.open({
+		title: "Placeholder Generator",
+		size: "medium",
+		content: buildModalContent(),
+	});
+
+	function buildModalContent() {
+		return [{
+				type: "text",
+				markdown: true,
+				text: "Generate high-quality placeholders and insert them into your story.",
+			},
+			{
+				type: "row",
+				spacing: "start",
+				content: [{
+						type: "text",
+						text: "Category:",
+						style: { minWidth: "90px", alignSelf: "center" },
+					},
+					// Simple category selector via buttons for reliability
+					{
+						type: "button",
+						text: CATEGORY_LABELS[currentCategory],
+						callback: async () => {
+							// Cycle categories for simplicity & robustness
+							const keys = Object.keys(CATEGORY_LABELS) as Category[];
+							const idx = keys.indexOf(currentCategory);
+							currentCategory = keys[(idx + 1) % keys.length];
+							await api.v1.storage.set(STORAGE_KEY_CATEGORY, currentCategory);
+							modal.update({ content: buildModalContent() });
+						},
+					},
+				],
+			},
+			{
+				type: "text",
+				text: "Extra instructions / context (optional):",
+				style: { marginTop: "12px" },
+			},
+			{
+				type: "multilineTextInput",
+				id: "extra-input",
+				storageKey: STORAGE_KEY_CUSTOM,
+				placeholder: "e.g. dark fantasy, elven names, cyberpunk city, romantic tension…",
+				onChange: (v: string) => {
+					currentExtra = v;
+				},
+			},
+			{
+				type: "row",
+				spacing: "start",
+				content: [{
+						type: "text",
+						text: "How many:",
+						style: { alignSelf: "center" },
+					},
+					{
+						type: "button",
+						text: String(currentCount),
+						callback: async () => {
+							currentCount = currentCount >= 5 ? 1 : currentCount + 1;
+							await api.v1.storage.set(STORAGE_KEY_COUNT, currentCount);
+							modal.update({ content: buildModalContent() });
+						},
+					},
+				],
+			},
+			{
+				type: "row",
+				spacing: "start",
+				content: [{
+						type: "button",
+						text: isGenerating ? "Generating…" : "Generate",
+						disabled: isGenerating,
+						disableWhileCallbackRunning: true,
+						callback: async () => {
+							if (isGenerating) return;
+							isGenerating = true;
+							modal.update({ content: buildModalContent() });
+
+							try {
+								results = await generatePlaceholders(
+									currentCategory,
+									currentExtra,
+									currentCount
+								);
+								api.v1.log(`Generated ${results.length} placeholders`);
+							} catch (err) {
+								api.v1.log(`Generation error: ${String(err)}`);
+								results = [`[Error] ${String(err)}`];
+							} finally {
+								isGenerating = false;
+								modal.update({ content: buildModalContent() });
+							}
+						},
+					},
+					{
+						type: "button",
+						text: "Insert All",
+						disabled: results.length === 0 || isGenerating,
+						callback: async () => {
+							try {
+								for (const r of results) {
+									await insertText(r);
+								}
+								modal.close();
+							} catch (err) {
+								api.v1.log(`Insert all failed: ${String(err)}`);
+							}
+						},
+					},
+				],
+			},
+			// Results section
+			...(results.length > 0 ? [{
+					type: "text",
+					markdown: true,
+					text: "### Results",
+					style: { marginTop: "16px" },
+				},
+				...results.map((r, i) => ({
+					type: "row"
+					as
+					const,
+					spacing: "start"
+					as
+					const,
+					content: [{
+							type: "text"
+							as
+							const,
+							text: r,
+							style: { flex: 1, wordBreak: "break-word" },
+						},
+						{
+							type: "button"
+							as
+							const,
+							text: "Insert",
+							callback: async () => {
+								try {
+									await insertText(r);
+									modal.close();
+								} catch (err) {
+									api.v1.log(`Insert failed: ${String(err)}`);
+								}
+							},
+						},
+					],
+				})),
+			] : []),
+		];
+	}
+}
+
+// Register UI
+api.v1.ui.register([{
+	type: "toolbarButton",
+	text: "Placeholders",
+	callback: () => {
+		openGeneratorModal().catch((err) => {
+			api.v1.log(`Failed to open Placeholder Generator: ${String(err)}`);
+		});
+	},
+}, ]);
+
+api.v1.log("Placeholder Generator loaded.");
