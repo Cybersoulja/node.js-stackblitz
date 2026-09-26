@@ -1,0 +1,493 @@
+/*---
+compatibilityVersion: naiscript-1.0
+id: oneseco-lore-engine-v2-1-sidebar
+name: Lore Engine
+createdAt: 1790330000000
+updatedAt: 1790331000000
+version: 2.1.0
+author: Oneseco Media
+memoryLimit: 16
+---*/
+
+const APP = {
+  panelId: "oneseco-lore-engine-sidebar",
+  selectedId: "lore-engine-selected-id",
+  newName: "lore-engine-new-name",
+  newLore: "lore-engine-new-lore",
+  newKeys: "lore-engine-new-keys",
+  reviewText: "lore-engine-review-text",
+  pickerValue: "lore-engine-picker-value",
+  autoDecorate: "lore-engine-auto-decorate",
+  model: "glm-4-6",
+  maxContextChars: 13500,
+  version: "2.1.0"
+};
+
+const CHARACTER_TEMPLATE = `
+Name:
+Age: 21+
+Appearance:
+Personality & Attitude:
+Speech Style:
+Relationship Dynamics:
+Dynamic Mood Tags:
+Friends & Social Circle:
+Trouble / Conflict Hooks:
+Preferences & Boundaries:
+Current Secrets / Drama:
+Story Hooks:
+`;
+
+function log(message, data) {
+  try {
+    const suffix = data === undefined ? "" : ` ${JSON.stringify(data)}`;
+    api?.v1?.log?.(`[LoreEngine] ${message}${suffix}`);
+  } catch (_) {}
+}
+
+async function toast(message, type = "info") {
+  try { return await api.v1.ui.toast(message, { type }); }
+  catch (_) {
+    try { return await api.v1.ui.toast(message); }
+    catch (_) {}
+  }
+}
+
+function entryId(entry, fallback = null) {
+  return entry?.id ?? entry?.entryId ?? entry?.uid ?? entry?.uuid ?? fallback;
+}
+
+function entryName(entry, fallback = "Untitled Entry") {
+  return entry?.displayName || entry?.name || entry?.title || entry?.key || fallback;
+}
+
+async function getLorebookEntries() {
+  try {
+    const lb = api?.v1?.lorebook;
+    if (!lb) return [];
+    let entries = null;
+    if (typeof lb.entries === "function") entries = await lb.entries();
+    else if (Array.isArray(lb.entries)) entries = lb.entries;
+    if (!Array.isArray(entries) && typeof lb.getEntries === "function") entries = await lb.getEntries();
+    if (!Array.isArray(entries) && typeof lb.list === "function") entries = await lb.list();
+    return Array.isArray(entries) ? entries : [];
+  } catch (err) {
+    log("Lorebook enumeration failed", { message: err?.message || String(err) });
+    return [];
+  }
+}
+
+async function getEntryById(id) {
+  if (id === null || id === undefined || id === "") return null;
+  const lb = api?.v1?.lorebook;
+  try {
+    if (typeof lb?.entry === "function") {
+      const result = await lb.entry(id);
+      if (result) return result;
+    }
+    if (typeof lb?.getEntry === "function") {
+      const result = await lb.getEntry(id);
+      if (result) return result;
+    }
+    const entries = await getLorebookEntries();
+    return entries.find((e, i) => String(entryId(e, i)) === String(id)) || null;
+  } catch (err) {
+    log("Entry lookup failed", { message: err?.message || String(err) });
+    return null;
+  }
+}
+
+async function getSelectedEntry() {
+  try {
+    return await getEntryById(await api.v1.tempStorage.get(APP.selectedId));
+  } catch (_) { return null; }
+}
+
+async function updateEntry(entry, patch) {
+  const lb = api?.v1?.lorebook;
+  const id = entryId(entry, await api.v1.tempStorage.get(APP.selectedId));
+  if (id === null || id === undefined) throw new Error("Missing Lorebook entry ID.");
+  if (typeof lb?.updateEntry === "function") return lb.updateEntry(id, patch);
+  if (typeof lb?.update === "function") return lb.update(id, patch);
+  if (lb?.entry?.update && typeof lb.entry.update === "function") return lb.entry.update(id, patch);
+  if (entry && typeof entry === "object") {
+    Object.assign(entry, patch);
+    if (typeof entry.save === "function") return entry.save();
+  }
+  throw new Error("No compatible Lorebook update method found.");
+}
+
+async function createEntry(name, text, keys = [name]) {
+  const lb = api?.v1?.lorebook;
+  const payload = { displayName: name, name, text, keys, enabled: true };
+  if (typeof lb?.createEntry === "function") return lb.createEntry(payload);
+  if (typeof lb?.create === "function") return lb.create(payload);
+  if (typeof lb?.addEntry === "function") return lb.addEntry(payload);
+  throw new Error("No compatible Lorebook create method found.");
+}
+
+async function getStoryText() {
+  try {
+    let text = "";
+    if (typeof api?.v1?.story?.getText === "function") text = await api.v1.story.getText();
+    else if (api?.v1?.story?.text !== undefined) text = typeof api.v1.story.text === "function" ? await api.v1.story.text() : api.v1.story.text;
+    else if (typeof api?.v1?.context?.getStory === "function") text = await api.v1.context.getStory();
+    else if (typeof api?.v1?.document?.getText === "function") text = await api.v1.document.getText();
+    if (typeof text !== "string") text = JSON.stringify(text || "");
+    return text.slice(-APP.maxContextChars) || "(No story context available.)";
+  } catch (err) {
+    log("Story context unavailable", { message: err?.message || String(err) });
+    return "(Story context unavailable.)";
+  }
+}
+
+async function getSelectedEditorText(payload = null) {
+  try {
+    if (typeof payload === "string" && payload.trim()) return payload.trim();
+    if (payload && typeof payload === "object") {
+      const direct = typeof payload.text === "string" ? payload.text : typeof payload.selectedText === "string" ? payload.selectedText : "";
+      if (direct.trim()) return direct.trim();
+    }
+    const doc = api?.v1?.document;
+    if (!doc || typeof doc.getSelection !== "function") return "";
+    const sel = await doc.getSelection();
+    if (!sel) return "";
+    if (typeof sel === "string") return sel.trim();
+    if (typeof sel !== "object" || Array.isArray(sel)) return "";
+    if (typeof sel.text === "string" && sel.text.trim()) return sel.text.trim();
+    if (typeof sel.selectedText === "string" && sel.selectedText.trim()) return sel.selectedText.trim();
+    if (!Number.isFinite(sel.start) || !Number.isFinite(sel.end) || typeof doc.getText !== "function") return "";
+    const full = await doc.getText();
+    if (typeof full !== "string") return "";
+    const start = Math.max(0, Math.min(sel.start, sel.end));
+    const end = Math.min(full.length, Math.max(sel.start, sel.end));
+    return start === end ? "" : full.slice(start, end).trim();
+  } catch (err) {
+    log("Selection unavailable", { message: err?.message || String(err) });
+    return "";
+  }
+}
+
+function extractKeys(text) {
+  const stop = new Set("the and that have for not with you this but his from they she her him will would there their what about which when make can like time just know take people into year your good some could them see other than then now look only come its over think also back after use two how our work first well way even new want because any these give day most us".split(" "));
+  const words = String(text || "").match(/\b[A-Za-z][A-Za-z0-9'-]*\b/g) || [];
+  const result = [];
+  for (const word of words) {
+    const lower = word.toLowerCase();
+    if (word.length > 3 && !stop.has(lower) && !result.some(k => k.toLowerCase() === lower)) result.push(word);
+  }
+  return result.slice(0, 12);
+}
+
+async function generateText(prompt, options = {}) {
+  const response = await api.v1.generate([{ role: "user", content: prompt }], {
+    model: APP.model,
+    max_tokens: options.max_tokens || 900,
+    temperature: options.temperature ?? 0.8
+  });
+  return response?.choices?.[0]?.text?.trim() || response?.choices?.[0]?.message?.content?.trim() || "";
+}
+
+async function refreshDecorations() {
+  try {
+    const enabled = await api.v1.storage.get(APP.autoDecorate);
+    const deco = api?.v1?.decorations || api?.v1?.editor?.decorations;
+    if (!deco) return;
+    if (!enabled) {
+      if (typeof deco.clear === "function") await deco.clear("lore-engine-active-keys");
+      return;
+    }
+    const entry = await getSelectedEntry();
+    const keys = Array.isArray(entry?.keys) ? entry.keys.filter(k => typeof k === "string" && k.trim()) : [];
+    if (!keys.length) {
+      if (typeof deco.clear === "function") await deco.clear("lore-engine-active-keys");
+      return;
+    }
+    const escaped = keys.map(k => k.replace(/[.*+?^${}()|[\]\\]/g, "\\$&"));
+    if (typeof deco.set === "function") {
+      await deco.set("lore-engine-active-keys", {
+        match: new RegExp(`\\b(${escaped.join("|")})\\b`, "gi"),
+        style: { backgroundColor: "rgba(100,150,255,.25)", borderBottom: "2px solid #5a8eff", borderRadius: "2px" }
+      });
+    }
+  } catch (err) { log("Decoration refresh skipped", { message: err?.message || String(err) }); }
+}
+
+async function selectEntry() {
+  const entries = await getLorebookEntries();
+  if (!entries.length) return toast("No Lorebook entries found.", "warning");
+  const options = entries.map((e, i) => ({ label: entryName(e, `Lore Entry ${i + 1}`), value: String(entryId(e, i)) }));
+  try {
+    if (typeof api?.v1?.ui?.select === "function") {
+      const picked = await api.v1.ui.select("Select Lorebook Entry", options);
+      const value = picked?.value ?? picked;
+      if (value !== undefined && value !== null && value !== "") await api.v1.tempStorage.set(APP.selectedId, value);
+    } else if (typeof api?.v1?.ui?.modal === "function") {
+      await api.v1.ui.modal({
+        title: "Select Lorebook Entry",
+        content: [
+          { type: "select", label: "Lorebook Entry", storageKey: APP.pickerValue, options },
+          { type: "button", text: "Use Selected Entry", callback: async () => {
+            const value = await api.v1.storage.get(APP.pickerValue);
+            if (!value) return toast("Choose an entry first.", "warning");
+            await api.v1.tempStorage.set(APP.selectedId, value);
+            try { await api.v1.ui.closeModal?.(); } catch (_) {}
+            await renderUI(); await refreshDecorations();
+          }}
+        ]
+      });
+      return;
+    } else if (typeof api?.v1?.ui?.openModal === "function") {
+      const buttons = options.map(o => ({ type: "button", text: o.label, callback: async () => {
+        await api.v1.tempStorage.set(APP.selectedId, o.value);
+        try { await api.v1.ui.closeModal?.("lore-engine-picker"); } catch (_) {}
+        await renderUI(); await refreshDecorations();
+      }}));
+      await api.v1.ui.openModal({ id: "lore-engine-picker", title: "Select Lorebook Entry", content: buttons });
+      return;
+    } else return toast("No compatible entry picker is available in this NovelAI build.", "warning");
+    await renderUI(); await refreshDecorations();
+  } catch (err) {
+    log("Entry picker failed", { message: err?.message || String(err) });
+    await toast("Could not open the Lorebook picker.", "error");
+  }
+}
+
+async function appendLore(rawLore) {
+  const entry = await getSelectedEntry();
+  if (!entry) return toast("Select a Lorebook entry first.", "warning");
+  const lore = String(rawLore || "").trim();
+  if (!lore) return toast("No lore provided.", "warning");
+  const existing = Array.isArray(entry.keys) ? entry.keys.filter(k => typeof k === "string") : [];
+  const seen = new Set(existing.map(k => k.toLowerCase()));
+  const added = extractKeys(lore).filter(k => !seen.has(k.toLowerCase()));
+  const text = entry.text?.trim() ? `${entry.text.trim()}\n\n${lore}` : lore;
+  await updateEntry(entry, { text, keys: [...existing, ...added] });
+  await api.v1.tempStorage.set(APP.newLore, "");
+  await toast(`Lore updated; ${added.length} new key(s) linked.`, "success");
+  await refreshDecorations(); await renderUI();
+}
+
+async function addKeysAndGenerate(rawKeys) {
+  const entry = await getSelectedEntry();
+  if (!entry) return toast("Select a Lorebook entry first.", "warning");
+  const keys = String(rawKeys || "").split(/[,;\n]+/).map(k => k.trim()).filter(Boolean);
+  if (!keys.length) return toast("No valid keys found.", "warning");
+  const existing = Array.isArray(entry.keys) ? entry.keys.filter(k => typeof k === "string") : [];
+  const seen = new Set(existing.map(k => k.toLowerCase()));
+  const added = keys.filter(k => !seen.has(k.toLowerCase()));
+  await toast("Generating lore for the new keys...");
+  let generated = "";
+  try {
+    generated = await generateText(`Write a concise 1-2 sentence fictional lore addition for "${entryName(entry)}" using these activation terms: ${keys.join(", ")}. Preserve continuity with this existing entry:\n\n${entry.text || "(New entry)"}\n\nReturn only the lore addition.`, { max_tokens: 180, temperature: 0.72 });
+  } catch (err) { log("Key-to-lore generation failed", { message: err?.message || String(err) }); }
+  if (!generated) generated = `Associated terms: ${keys.join(", ")}.`;
+  const text = entry.text?.trim() ? `${entry.text.trim()}\n\n${generated}` : generated;
+  await updateEntry(entry, { text, keys: [...existing, ...added] });
+  await api.v1.tempStorage.set(APP.newKeys, "");
+  await toast(`Added ${added.length} key(s) and updated lore.`, "success");
+  await refreshDecorations(); await renderUI();
+}
+
+async function insertLoreIntoStory() {
+  const entry = await getSelectedEntry();
+  if (!entry?.text) return toast("No selected lore content to insert.", "warning");
+  const doc = api?.v1?.document;
+  if (typeof doc?.getText !== "function" || typeof doc?.setText !== "function") return toast("Document editing is unavailable in this NovelAI build.", "warning");
+  try {
+    const full = await doc.getText();
+    let point = typeof full === "string" ? full.length : 0;
+    if (typeof doc.getSelection === "function") {
+      const sel = await doc.getSelection();
+      if (sel && Number.isFinite(sel.start)) point = sel.start;
+    }
+    const before = String(full || "").slice(0, point), after = String(full || "").slice(point);
+    await doc.setText(`${before}\n${entry.text.trim()}\n${after}`);
+    await toast(`Inserted lore for "${entryName(entry)}".`, "success");
+  } catch (err) {
+    log("Story insertion failed", { message: err?.message || String(err) });
+    await toast("Failed to insert lore into the story.", "error");
+  }
+}
+
+async function reviewGenerated(title, entry, generated, onSave) {
+  await api.v1.storage.set(APP.reviewText, generated);
+  if (typeof api?.v1?.ui?.modal === "function") {
+    return api.v1.ui.modal({ title, content: [
+      { type: "textArea", label: "Review / Edit", storageKey: APP.reviewText, rows: 18 },
+      { type: "button", text: "Save", callback: async () => {
+        const finalText = String(await api.v1.storage.get(APP.reviewText) || "").trim();
+        if (!finalText) return toast("Lore text cannot be empty.", "warning");
+        await onSave(finalText);
+        try { await api.v1.ui.closeModal?.(); } catch (_) {}
+        await renderUI(); await refreshDecorations();
+      }}
+    ]});
+  }
+  await onSave(generated);
+  await toast("Saved generated lore. Review modal is unavailable in this build.", "success");
+  await renderUI(); await refreshDecorations();
+}
+
+async function generateEntryUpdate() {
+  const entry = await getSelectedEntry();
+  if (!entry) return toast("Select an entry first.", "warning");
+  await toast("Analyzing recent story context...");
+  try {
+    const story = await getStoryText();
+    const generated = await generateText(`Update this fictional Lorebook entry using the recent story context. Preserve established continuity. Improve personality, motivations, relationships, conflicts, secrets, speech style, mood tags, and useful story hooks. Any romantic or sexual character must be an adult age 21 or older. Return only the revised Lorebook entry.\n\nCURRENT ENTRY:\n${entry.text || ""}\n\nRECENT STORY:\n${story}`, { max_tokens: 1100, temperature: 0.82 });
+    if (!generated) return toast("Generation returned no text.", "warning");
+    await reviewGenerated("Review Lorebook Update", entry, generated, async finalText => {
+      await updateEntry(entry, { text: finalText });
+      await toast("Lorebook entry updated.", "success");
+    });
+  } catch (err) {
+    log("Entry update generation failed", { message: err?.message || String(err) });
+    await toast("Lorebook update generation failed.", "error");
+  }
+}
+
+async function generateNewEntry() {
+  const name = String(await api.v1.storage.get(APP.newName) || "").trim();
+  if (!name) return toast("Enter a character name first.", "warning");
+  await toast("Generating character lore...");
+  try {
+    const story = await getStoryText();
+    const generated = await generateText(`Create a detailed Lorebook entry for a fictional adult character named ${name}. The character must be age 21 or older. Focus on continuity, personality, relationships, conflict, speech patterns, secrets, motivations, dynamic behavior, and story hooks. Use this structure:\n${CHARACTER_TEMPLATE}\nRECENT STORY CONTEXT:\n${story}\n\nReturn only the completed Lorebook entry.`, { max_tokens: 1100, temperature: 0.86 });
+    if (!generated) return toast("Generation returned no text.", "warning");
+    await reviewGenerated("Review New Lorebook Entry", null, generated, async finalText => {
+      const created = await createEntry(name, finalText, [name]);
+      const id = entryId(created);
+      if (id !== null && id !== undefined) await api.v1.tempStorage.set(APP.selectedId, id);
+      await api.v1.storage.set(APP.newName, "");
+      await toast(`Created "${name}".`, "success");
+    });
+  } catch (err) {
+    log("New entry generation failed", { message: err?.message || String(err) });
+    await toast("Lorebook creation failed.", "error");
+  }
+}
+
+async function exportLorebook(format = "json") {
+  try {
+    const entries = await getLorebookEntries();
+    const payload = { version: 2, exported_at: new Date().toISOString(), entries: entries.map((e, i) => ({
+      name: entryName(e, `Lore Entry ${i + 1}`), category: e.category || "General", keys: e.keys || [], secondary_keys: e.secondaryKeys || [], content: e.text || e.content || "", enabled: e.enabled ?? true
+    })) };
+    let content, mime, ext;
+    if (format === "yaml") {
+      const q = s => String(s ?? "").replace(/\\/g, "\\\\").replace(/"/g, '\\"');
+      content = `version: ${payload.version}\nexported_at: "${payload.exported_at}"\nentries:\n` + payload.entries.map(e => `  - name: "${q(e.name)}"\n    category: "${q(e.category)}"\n    keys: [${e.keys.map(k => `"${q(k)}"`).join(", ")}]\n    enabled: ${e.enabled}\n    content: |\n      ${String(e.content).split("\n").join("\n      ")}`).join("\n");
+      mime = "text/yaml"; ext = "yaml";
+    } else { content = JSON.stringify(payload, null, 2); mime = "application/json"; ext = "json"; }
+    if (typeof Blob === "undefined" || typeof document === "undefined" || typeof URL === "undefined") return toast("Browser download APIs are unavailable in this script environment.", "warning");
+    const url = URL.createObjectURL(new Blob([content], { type: mime }));
+    const a = document.createElement("a"); a.href = url; a.download = `lore-engine-export-${Date.now()}.${ext}`; document.body.appendChild(a); a.click(); a.remove(); URL.revokeObjectURL(url);
+    await toast(`Lorebook exported as ${ext.toUpperCase()}.`, "success");
+  } catch (err) { log("Export failed", { message: err?.message || String(err) }); await toast("Lorebook export failed.", "error"); }
+}
+
+async function renderUI() {
+  try {
+    const entry = await getSelectedEntry();
+    const keys = Array.isArray(entry?.keys) && entry.keys.length ? entry.keys.join(", ") : "(No keys set)";
+    const auto = !!(await api.v1.storage.get(APP.autoDecorate));
+    await api.v1.ui.update([{ id: APP.panelId, name: "Lore Engine", type: "sidebarPanel", iconId: "book", content: [
+      { type: "text", markdown: true, text: `## 📚 Lore Engine v${APP.version}\nCreate, update, link, and reuse Lorebook content from one panel.` },
+      { type: "text", markdown: true, text: `**Selected:** ${entry ? entryName(entry) : "(None)"}\n\n**Keys:** ${keys}` },
+      { type: "text", markdown: true, text: entry ? "*Synced to the Lorebook entry you selected.*" : "*Open Lorebook and select an entry to work on it here.*" },
+      { type: "row", content: [
+        { type: "button", text: "AI Update", callback: generateEntryUpdate, disabled: !entry },
+        { type: "button", text: "Insert in Story", callback: insertLoreIntoStory, disabled: !entry }
+      ]},
+      { type: "checkbox", label: "Highlight selected entry keys", value: auto, callback: async value => { await api.v1.storage.set(APP.autoDecorate, !!value); await refreshDecorations(); } },
+      { type: "text", markdown: true, text: "---\n### ✨ Create Character" },
+      { type: "textInput", label: "Character Name", placeholder: "Character name...", storageKey: APP.newName },
+      { type: "button", text: "Generate New Lore Entry", callback: generateNewEntry },
+      { type: "text", markdown: true, text: "---\n### 📝 Lore → Keys" },
+      { type: "row", content: [
+        { type: "button", text: "Use Selected Story Text", callback: async () => { const text = await getSelectedEditorText(); if (!text) return toast("Highlight story text first.", "warning"); await appendLore(text); }, disabled: !entry },
+        { type: "button", text: "Paste Selection to Box", callback: async () => { const text = await getSelectedEditorText(); if (!text) return toast("No story text is selected.", "warning"); await api.v1.tempStorage.set(APP.newLore, text); await renderUI(); } }
+      ]},
+      { type: "textArea", label: "Lore Content", placeholder: "Write or paste lore...", rows: 4, storageKey: APP.newLore },
+      { type: "button", text: "Append Lore + Extract Keys", callback: async () => appendLore(await api.v1.tempStorage.get(APP.newLore)), disabled: !entry },
+      { type: "text", markdown: true, text: "---\n### 🔑 Keys → Lore" },
+      { type: "row", content: [
+        { type: "button", text: "Use Selected Story Text as Keys", callback: async () => { const text = await getSelectedEditorText(); if (!text) return toast("Highlight story text first.", "warning"); await addKeysAndGenerate(text); }, disabled: !entry },
+        { type: "button", text: "Paste Selection to Keys", callback: async () => { const text = await getSelectedEditorText(); if (!text) return toast("No story text is selected.", "warning"); await api.v1.tempStorage.set(APP.newKeys, text); await renderUI(); } }
+      ]},
+      { type: "textInput", label: "Activation Keys", placeholder: "name, place, object, phrase...", storageKey: APP.newKeys },
+      { type: "button", text: "Add Keys + Generate Lore", callback: async () => addKeysAndGenerate(await api.v1.tempStorage.get(APP.newKeys)), disabled: !entry },
+      { type: "text", markdown: true, text: "---\n### 📦 Export" },
+      { type: "row", content: [
+        { type: "button", text: "Export JSON", callback: async () => exportLorebook("json") },
+        { type: "button", text: "Export YAML", callback: async () => exportLorebook("yaml") }
+      ]}
+    ] }]);
+  } catch (err) {
+    log("Panel render failed", { message: err?.message || String(err) });
+    await toast("Lore Engine panel failed to render.", "error");
+  }
+}
+
+async function registerUI() {
+  const extensions = [
+    api.v1.ui.extension?.sidebarPanel
+      ? api.v1.ui.extension.sidebarPanel({
+          id: APP.panelId,
+          name: "Lore Engine",
+          iconId: "book",
+          content: [{ type: "text", text: "Loading Lore Engine…" }]
+        })
+      : { type: "sidebarPanel", id: APP.panelId, name: "Lore Engine", iconId: "book", content: [{ type: "text", text: "Loading Lore Engine…" }] },
+    api.v1.ui.extension?.contextMenuButton
+      ? api.v1.ui.extension.contextMenuButton({
+          id: "lore-engine-link-lore",
+          text: "📚 Add Selection to Lore",
+          callback: async ({ selection }) => appendLore(await getSelectedEditorText(selection))
+        })
+      : { type: "contextMenuButton", id: "lore-engine-link-lore", text: "📚 Add Selection to Lore", callback: async ({ selection }) => appendLore(await getSelectedEditorText(selection)) },
+    api.v1.ui.extension?.contextMenuButton
+      ? api.v1.ui.extension.contextMenuButton({
+          id: "lore-engine-link-keys",
+          text: "🔑 Use Selection as Lore Keys",
+          callback: async ({ selection }) => addKeysAndGenerate(await getSelectedEditorText(selection))
+        })
+      : { type: "contextMenuButton", id: "lore-engine-link-keys", text: "🔑 Use Selection as Lore Keys", callback: async ({ selection }) => addKeysAndGenerate(await getSelectedEditorText(selection)) }
+  ];
+
+  await api.v1.ui.register(extensions);
+}
+
+async function syncLorebookSelection({ entryId: selectedEntryId } = {}) {
+  if (selectedEntryId) {
+    await api.v1.tempStorage.set(APP.selectedId, selectedEntryId);
+    await renderUI();
+    await refreshDecorations();
+  }
+}
+
+let initialized = false;
+async function initialize() {
+  if (initialized) return;
+  initialized = true;
+  try {
+    await registerUI();
+    await renderUI();
+    await refreshDecorations();
+    log(`Lore Engine v${APP.version} sidebar loaded`);
+  } catch (err) {
+    initialized = false;
+    log("Initialization failed", { message: err?.message || String(err) });
+    await toast("Lore Engine failed to initialize.", "error");
+  }
+}
+
+try {
+  if (typeof api?.v1?.hooks?.register === "function") {
+    api.v1.hooks.register("onScriptsLoaded", initialize);
+    api.v1.hooks.register("onLorebookEntrySelected", syncLorebookSelection);
+  }
+} catch (err) {
+  log("Hook registration failed", { message: err?.message || String(err) });
+}
