@@ -1,0 +1,799 @@
+/*---
+compatibilityVersion: naiscript-1.0
+id: 9b3f692f-15ab-4dd7-9992-e732bf178da3
+name: Story Paths v3 — Lore Intelligence
+createdAt: 1790317161953
+updatedAt: 1790317282777
+version: 1.0.0
+author: Kevo
+description: "description: Current-API rewrite of the Bi-Directional Lore & Key Linker. Links selected story text to lore, generates lore from keys, highlights active keys, safely inserts lore into the document, and provides a clean foundation for Story Paths."
+memoryLimit: 8
+---*/
+/*---
+compatibilityVersion: naiscript-1.0
+id: oneseco-story-paths-lore-intelligence-v3
+name: Story Paths v3 — Lore Intelligence
+version: 3.0.0
+author: Oneseco Media
+description: Current-API rewrite of the Bi-Directional Lore & Key Linker. Links selected story text to lore, generates lore from keys, highlights active keys, safely inserts lore into the document, and provides a clean foundation for Story Paths.
+permissions:
+  - lorebookEdit
+  - documentEdit
+  - editorDecorations
+memoryLimit: 16
+---*/
+
+const MODEL_ID = "glm-4-6";
+
+const PANEL_ID = "story-paths-lore-intelligence-panel";
+const CONTEXT_LORE_ID = "story-paths-link-as-lore";
+const CONTEXT_KEYS_ID = "story-paths-link-as-keys";
+const DECORATION_RULE_ID = "story-paths-active-lore-keys";
+
+const TEMP_SELECTED_ID = "story_paths_selected_entry_id";
+const TEMP_NEW_KEYS = "story_paths_new_keys";
+const TEMP_NEW_LORE = "story_paths_new_lore";
+
+const STORAGE_AUTO_DECORATE = "story_paths_auto_decorate";
+const STORAGE_RUN_COUNT = "story_paths_run_count";
+
+function safeLog(message, data) {
+	try {
+		const suffix =
+			data === undefined ?
+			"" :
+			` ${typeof data === "string" ? data : JSON.stringify(data)}`;
+		api.v1.log(`[StoryPathsV3] ${message}${suffix}`);
+	} catch (_) {}
+}
+
+async function toast(message, type = "info") {
+	try {
+		await api.v1.ui.toast(message, { type });
+	} catch (_) {}
+}
+
+function normalizeKeys(keys) {
+	const seen = new Set();
+	const result = [];
+
+	for (const value of Array.isArray(keys) ? keys : []) {
+		if (typeof value !== "string") continue;
+		const key = value.trim();
+		if (!key) continue;
+
+		const normalized = key.toLowerCase();
+		if (seen.has(normalized)) continue;
+
+		seen.add(normalized);
+		result.push(key);
+	}
+
+	return result;
+}
+
+function mergeKeys(existingKeys, incomingKeys) {
+	return normalizeKeys([...(existingKeys || []), ...(incomingKeys || [])]);
+}
+
+function escapeRegex(value) {
+	return String(value).replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+}
+
+function extractPotentialKeys(text) {
+	const source = typeof text === "string" ? text.trim() : "";
+	if (!source) return [];
+
+	const stopWords = new Set([
+		"the", "and", "that", "have", "for", "not", "with", "you", "this", "but",
+		"his", "from", "they", "she", "her", "him", "will", "would", "there",
+		"their", "what", "about", "which", "when", "make", "can", "like", "time",
+		"just", "know", "take", "people", "into", "year", "your", "good", "some",
+		"could", "them", "see", "other", "than", "then", "now", "look", "only",
+		"come", "its", "over", "think", "also", "back", "after", "use", "two",
+		"how", "our", "work", "first", "well", "way", "even", "new", "want",
+		"because", "any", "these", "give", "day", "most", "was", "were", "are",
+		"been", "being", "has", "had", "did", "does", "done", "who", "why", "where"
+	]);
+
+	const candidates = [];
+
+	// Prefer likely entity phrases first: "Marcus Vale", "East Docks", etc.
+	const properPhrases =
+		source.match(/\b[A-Z][A-Za-z0-9'-]*(?:\s+[A-Z][A-Za-z0-9'-]*){0,2}\b/g) || [];
+
+	for (const phrase of properPhrases) {
+		const cleaned = phrase.trim();
+		const words = cleaned.split(/\s+/);
+		if (
+			cleaned.length >= 4 &&
+			!words.every(word => stopWords.has(word.toLowerCase()))
+		) {
+			candidates.push(cleaned);
+		}
+	}
+
+	const words = source.match(/\b[A-Za-z][A-Za-z0-9'-]*\b/g) || [];
+	for (const rawWord of words) {
+		const word = rawWord.trim();
+		const lower = word.toLowerCase();
+
+		if (word.length > 3 && !stopWords.has(lower)) {
+			candidates.push(word);
+		}
+	}
+
+	return normalizeKeys(candidates).slice(0, 12);
+}
+
+async function getSelectedEntryId() {
+	return await api.v1.tempStorage.get(TEMP_SELECTED_ID);
+}
+
+async function setSelectedEntryId(entryId) {
+	if (entryId) {
+		await api.v1.tempStorage.set(TEMP_SELECTED_ID, entryId);
+	} else {
+		await api.v1.tempStorage.remove(TEMP_SELECTED_ID);
+	}
+}
+
+async function getSelectedEntry() {
+	try {
+		const entryId = await getSelectedEntryId();
+		if (!entryId) return null;
+
+		const entry = await api.v1.lorebook.entry(entryId);
+		if (!entry) {
+			await setSelectedEntryId(null);
+			return null;
+		}
+
+		return entry;
+	} catch (err) {
+		safeLog("Failed to resolve selected lorebook entry", err);
+		return null;
+	}
+}
+
+async function getSelectedEditorText(selectionOverride) {
+	try {
+		const selection =
+			selectionOverride || (await api.v1.editor.selection.get());
+
+		if (!selection?.from || !selection?.to) return "";
+
+		const text = await api.v1.document.textFromSelection({
+			from: selection.from,
+			to: selection.to
+		});
+
+		return typeof text === "string" ? text.trim() : "";
+	} catch (err) {
+		safeLog("Failed to read editor selection", err);
+		return "";
+	}
+}
+
+async function findDocumentSection(sectionId) {
+	let found = null;
+
+	await api.v1.document.scan((id, section) => {
+		if (id === sectionId) {
+			found = { id, section };
+		}
+	});
+
+	return found;
+}
+
+// ============================================================================
+// DECORATIONS
+// ============================================================================
+
+async function refreshKeyDecorations() {
+	try {
+		const enabled = await api.v1.storage.getOrDefault(
+			STORAGE_AUTO_DECORATE,
+			false
+		);
+
+		api.v1.editor.decorations.removeRules([DECORATION_RULE_ID]);
+
+		if (!enabled) return;
+
+		const entry = await getSelectedEntry();
+		const keys = normalizeKeys(entry?.keys || []);
+
+		if (!entry || keys.length === 0) return;
+
+		const escaped = keys
+			.sort((a, b) => b.length - a.length)
+			.map(escapeRegex);
+
+		await api.v1.editor.decorations.registerRules([{
+			id: DECORATION_RULE_ID,
+			type: "inline",
+			match: `\\b(?:${escaped.join("|")})\\b`,
+			flags: "gi",
+			style: {
+				backgroundColor: "rgba(100, 150, 255, 0.25)",
+				borderBottom: "2px solid #5a8eff",
+				borderRadius: "2px"
+			}
+		}]);
+	} catch (err) {
+		safeLog("Decoration refresh failed", err);
+	}
+}
+
+// ============================================================================
+// DOCUMENT MUTATION
+// ============================================================================
+
+async function insertLoreAtCursor() {
+	try {
+		const entry = await getSelectedEntry();
+
+		if (!entry?.text?.trim()) {
+			await toast("Select a lore entry with text first.", "warning");
+			return;
+		}
+
+		const loreText = entry.text.trim();
+		const selection = await api.v1.editor.selection.get();
+
+		// If a normal cursor/selection exists inside one paragraph, insert exactly
+		// at the start of that selection without rebuilding the entire document.
+		if (
+			selection?.from &&
+			selection?.to &&
+			selection.from.sectionId === selection.to.sectionId
+		) {
+			const current = await findDocumentSection(selection.from.sectionId);
+
+			if (current?.section) {
+				const original = current.section.text || "";
+				const offset = Math.max(
+					0,
+					Math.min(selection.from.offset ?? original.length, original.length)
+				);
+
+				const before = original.slice(0, offset);
+				const after = original.slice(offset);
+
+				const prefix =
+					before.length > 0 && !/\s$/.test(before) ? "\n" : "";
+				const suffix =
+					after.length > 0 && !/^\s/.test(after) ? "\n" : "";
+
+				await api.v1.document.updateParagraph(current.id, {
+					text: `${before}${prefix}${loreText}${suffix}${after}`
+				});
+
+				await toast(
+					`Inserted lore for "${entry.displayName || "entry"}" at the cursor.`,
+					"success"
+				);
+				return;
+			}
+		}
+
+		// Safer fallback for complex/multi-paragraph selections.
+		if (selection?.from?.sectionId !== undefined) {
+			await api.v1.document.insertParagraphAfter(selection.from.sectionId, {
+				text: loreText
+			});
+
+			await toast(
+				`Inserted lore for "${entry.displayName || "entry"}" after the selected paragraph.`,
+				"success"
+			);
+			return;
+		}
+
+		// Final fallback: append as a new paragraph.
+		await api.v1.document.appendParagraph({ text: loreText });
+		await toast(
+			`Appended lore for "${entry.displayName || "entry"}" to the story.`,
+			"success"
+		);
+	} catch (err) {
+		safeLog("Lore insertion failed", err);
+		await toast("Failed to insert lore into the story.", "error");
+	}
+}
+
+async function appendLoreToStory() {
+	try {
+		const entry = await getSelectedEntry();
+
+		if (!entry?.text?.trim()) {
+			await toast("Select a lore entry with text first.", "warning");
+			return;
+		}
+
+		await api.v1.document.appendParagraph({ text: entry.text.trim() });
+		await toast(
+			`Appended lore for "${entry.displayName || "entry"}" to the story.`,
+			"success"
+		);
+	} catch (err) {
+		safeLog("Append lore failed", err);
+		await toast("Failed to append lore to the story.", "error");
+	}
+}
+
+// ============================================================================
+// LORE MUTATIONS
+// ============================================================================
+
+async function applyLoreAndExtract(rawLore) {
+	try {
+		const entry = await getSelectedEntry();
+
+		if (!entry) {
+			await toast("Select a target Lorebook entry first.", "warning");
+			return;
+		}
+
+		const lore = typeof rawLore === "string" ? rawLore.trim() : "";
+		if (!lore) {
+			await toast("No lore text was provided.", "warning");
+			return;
+		}
+
+		const extractedKeys = extractPotentialKeys(lore);
+		const existingKeys = normalizeKeys(entry.keys || []);
+		const finalKeys = mergeKeys(existingKeys, extractedKeys);
+
+		const existingLower = new Set(existingKeys.map(key => key.toLowerCase()));
+		const newKeys = finalKeys.filter(
+			key => !existingLower.has(key.toLowerCase())
+		);
+
+		const updatedText = entry.text?.trim() ?
+			`${entry.text.trim()}\n\n${lore}` :
+			lore;
+
+		await api.v1.lorebook.updateEntry(entry.id, {
+			text: updatedText,
+			keys: finalKeys
+		});
+
+		await api.v1.tempStorage.set(TEMP_NEW_LORE, "");
+		await refreshKeyDecorations();
+		await renderUI();
+
+		await toast(
+			`Lore updated. ${newKeys.length} new activation key(s) linked.`,
+			"success"
+		);
+	} catch (err) {
+		safeLog("applyLoreAndExtract failed", err);
+		await toast("Failed to update the Lorebook entry.", "error");
+	}
+}
+
+async function applyKeysAndGenerateLore(rawKeys) {
+	try {
+		const entry = await getSelectedEntry();
+
+		if (!entry) {
+			await toast("Select a target Lorebook entry first.", "warning");
+			return;
+		}
+
+		const parsedKeys = normalizeKeys(
+			(typeof rawKeys === "string" ? rawKeys : "")
+			.split(/[,;\n]+/)
+			.map(value => value.trim())
+			.filter(Boolean)
+		);
+
+		if (parsedKeys.length === 0) {
+			await toast("No valid activation keys were found.", "warning");
+			return;
+		}
+
+		const existingKeys = normalizeKeys(entry.keys || []);
+		const finalKeys = mergeKeys(existingKeys, parsedKeys);
+		const existingLower = new Set(existingKeys.map(key => key.toLowerCase()));
+		const keysToAdd = finalKeys.filter(
+			key => !existingLower.has(key.toLowerCase())
+		);
+
+		await toast("Generating lore context for the new keys…", "info");
+
+		const prompt = [
+			`Write concise lore for "${entry.displayName || "this subject"}".`,
+			`Naturally incorporate these activation concepts: ${parsedKeys.join(", ")}.`,
+			"Write 1–2 sentences. Preserve established facts. Do not invent major contradictions.",
+			"",
+			"Existing lore:",
+			entry.text?.trim() || "(No existing lore yet.)",
+			"",
+			"New lore:"
+		].join("\n");
+
+		const response = await api.v1.generate(
+			[{ role: "user", content: prompt }], {
+				model: MODEL_ID,
+				max_tokens: 140,
+				temperature: 0.72
+			}
+		);
+
+		const generated =
+			response?.choices?.[0]?.text?.trim() ||
+			`Associated terms: ${parsedKeys.join(", ")}.`;
+
+		const updatedText = entry.text?.trim() ?
+			`${entry.text.trim()}\n\n${generated}` :
+			generated;
+
+		await api.v1.lorebook.updateEntry(entry.id, {
+			text: updatedText,
+			keys: finalKeys
+		});
+
+		await api.v1.tempStorage.set(TEMP_NEW_KEYS, "");
+		await refreshKeyDecorations();
+		await renderUI();
+
+		await toast(
+			`Added ${keysToAdd.length} new key(s) and generated supporting lore.`,
+			"success"
+		);
+	} catch (err) {
+		safeLog("applyKeysAndGenerateLore failed", err);
+		await toast("Failed to synthesize lore from those keys.", "error");
+	}
+}
+
+// ============================================================================
+// ENTRY PICKER
+// ============================================================================
+
+async function openEntryPickerModal() {
+	try {
+		const entries = await api.v1.lorebook.entries();
+
+		if (!entries?.length) {
+			await toast("No Lorebook entries were found.", "warning");
+			return;
+		}
+
+		const sortedEntries = [...entries].sort((a, b) =>
+			(a.displayName || "").localeCompare(b.displayName || "")
+		);
+
+		let modalHandle = null;
+
+		const content = [{
+				type: "text",
+				markdown: true,
+				text: "Choose the Lorebook entry that Story Paths should treat as the active target."
+			},
+			...sortedEntries.map(entry => ({
+				type: "button",
+				text: entry.displayName ||
+					entry.text?.slice(0, 40) ||
+					`Untitled (${entry.id.slice(0, 8)})`,
+				callback: async () => {
+					await setSelectedEntryId(entry.id);
+					await refreshKeyDecorations();
+					await renderUI();
+					if (modalHandle) {
+						await modalHandle.close();
+					}
+				}
+			}))
+		];
+
+		modalHandle = await api.v1.ui.modal.open({
+			id: "story-paths-entry-picker-modal",
+			title: "Choose Target Lorebook Entry",
+			size: "medium",
+			content
+		});
+	} catch (err) {
+		safeLog("Entry picker failed", err);
+		await toast("Could not open the Lorebook entry picker.", "error");
+	}
+}
+
+// ============================================================================
+// UI
+// ============================================================================
+
+async function buildPanelContent() {
+	const entry = await getSelectedEntry();
+	const autoDecorate = await api.v1.storage.getOrDefault(
+		STORAGE_AUTO_DECORATE,
+		false
+	);
+
+	const selectedName =
+		entry?.displayName ||
+		entry?.text?.slice(0, 32) ||
+		"(None selected)";
+
+	const currentKeys = normalizeKeys(entry?.keys || []);
+	const keyPreview =
+		currentKeys.length > 0 ? currentKeys.join(", ") : "(No keys set)";
+
+	return [{
+			type: "text",
+			markdown: true,
+			text: "## ⚡ Story Paths v3 — Lore Intelligence"
+		},
+		{
+			type: "text",
+			markdown: true,
+			text: `**Target:** \`${selectedName}\`\n\n**Keys:** ${keyPreview}`
+		},
+
+		{
+			type: "row",
+			content: [{
+					type: "button",
+					text: "Select Entry",
+					callback: openEntryPickerModal
+				},
+				{
+					type: "button",
+					text: "Insert at Cursor",
+					callback: insertLoreAtCursor,
+					disabled: !entry,
+					disabledWhileCallbackRunning: true
+				},
+				{
+					type: "button",
+					text: "Append to Story",
+					callback: appendLoreToStory,
+					disabled: !entry,
+					disabledWhileCallbackRunning: true
+				}
+			]
+		},
+
+		{
+			type: "checkboxInput",
+			label: "Highlight active keys in the editor",
+			initialValue: !!autoDecorate,
+			onChange: async value => {
+				await api.v1.storage.set(STORAGE_AUTO_DECORATE, !!value);
+				await refreshKeyDecorations();
+			}
+		},
+
+		{
+			type: "text",
+			markdown: true,
+			text: "---\n### 📝 Story → Lore"
+		},
+
+		{
+			type: "row",
+			content: [{
+					type: "button",
+					text: "Link Selection as Lore",
+					disabled: !entry,
+					disabledWhileCallbackRunning: true,
+					callback: async () => {
+						const text = await getSelectedEditorText();
+						if (!text) {
+							await toast("Highlight story text first.", "warning");
+							return;
+						}
+						await applyLoreAndExtract(text);
+					}
+				},
+				{
+					type: "button",
+					text: "Copy Selection to Box",
+					callback: async () => {
+						const text = await getSelectedEditorText();
+						if (!text) {
+							await toast("No story text is selected.", "warning");
+							return;
+						}
+						await api.v1.tempStorage.set(TEMP_NEW_LORE, text);
+					}
+				}
+			]
+		},
+
+		{
+			type: "multilineTextInput",
+			label: "Lore content",
+			placeholder: "Paste or write lore to append to the active entry…",
+			storageKey: TEMP_NEW_LORE
+		},
+
+		{
+			type: "button",
+			text: "Append Box Lore + Extract Keys",
+			disabled: !entry,
+			disabledWhileCallbackRunning: true,
+			callback: async () => {
+				const value = await api.v1.tempStorage.get(TEMP_NEW_LORE);
+				await applyLoreAndExtract(value || "");
+			}
+		},
+
+		{
+			type: "text",
+			markdown: true,
+			text: "---\n### 🔑 Keys → Lore"
+		},
+
+		{
+			type: "row",
+			content: [{
+					type: "button",
+					text: "Link Selection as Keys",
+					disabled: !entry,
+					disabledWhileCallbackRunning: true,
+					callback: async () => {
+						const text = await getSelectedEditorText();
+						if (!text) {
+							await toast("Highlight key text first.", "warning");
+							return;
+						}
+						await applyKeysAndGenerateLore(text);
+					}
+				},
+				{
+					type: "button",
+					text: "Copy Selection to Key Box",
+					callback: async () => {
+						const text = await getSelectedEditorText();
+						if (!text) {
+							await toast("No story text is selected.", "warning");
+							return;
+						}
+						await api.v1.tempStorage.set(TEMP_NEW_KEYS, text);
+					}
+				}
+			]
+		},
+
+		{
+			type: "textInput",
+			label: "Activation keys",
+			placeholder: "dragon claw, ancient talisman, East Docks",
+			storageKey: TEMP_NEW_KEYS
+		},
+
+		{
+			type: "button",
+			text: "Add Box Keys + Generate Lore",
+			disabled: !entry,
+			disabledWhileCallbackRunning: true,
+			callback: async () => {
+				const value = await api.v1.tempStorage.get(TEMP_NEW_KEYS);
+				await applyKeysAndGenerateLore(value || "");
+			}
+		}
+	];
+}
+
+async function renderUI() {
+	try {
+		await api.v1.ui.update([{
+			id: PANEL_ID,
+			content: await buildPanelContent()
+		}]);
+	} catch (err) {
+		safeLog("Panel update failed", err);
+	}
+}
+
+async function registerUI() {
+	await api.v1.ui.register([{
+			id: PANEL_ID,
+			name: "Story Paths — Lore Intelligence",
+			type: "scriptPanel",
+			iconId: "book",
+			content: await buildPanelContent()
+		},
+
+		{
+			id: CONTEXT_LORE_ID,
+			type: "contextMenuButton",
+			text: "🔗 Story Paths: Link Selection as Lore",
+			callback: async ({ selection }) => {
+				const text = await getSelectedEditorText(selection);
+				if (!text) {
+					await toast("No story text is selected.", "warning");
+					return;
+				}
+				await applyLoreAndExtract(text);
+			}
+		},
+
+		{
+			id: CONTEXT_KEYS_ID,
+			type: "contextMenuButton",
+			text: "🔑 Story Paths: Link Selection as Keys",
+			callback: async ({ selection }) => {
+				const text = await getSelectedEditorText(selection);
+				if (!text) {
+					await toast("No story text is selected.", "warning");
+					return;
+				}
+				await applyKeysAndGenerateLore(text);
+			}
+		}
+	]);
+}
+
+// ============================================================================
+// HOOK ROUTER
+// ============================================================================
+
+async function handleGenerationRequested(event) {
+	safeLog("Generation requested", {
+		model: event?.model || "unknown"
+	});
+
+	// Story Paths generation-time logic belongs here in future versions.
+	// Keeping one router prevents separate callbacks from replacing each other.
+}
+
+api.v1.hooks.register("onGenerationRequested", async event => {
+	try {
+		await handleGenerationRequested(event);
+	} catch (err) {
+		safeLog("Generation hook failed", err);
+	}
+});
+
+api.v1.hooks.register(
+	"onLorebookEntrySelected",
+	async ({ entryId }) => {
+		try {
+			if (!entryId) return;
+
+			await setSelectedEntryId(entryId);
+			await refreshKeyDecorations();
+			await renderUI();
+		} catch (err) {
+			safeLog("Lorebook selection hook failed", err);
+		}
+	}
+);
+
+api.v1.hooks.register("onScriptsLoaded", async () => {
+	try {
+		await registerUI();
+
+		const runCount = await api.v1.storage.getOrDefault(STORAGE_RUN_COUNT, 0);
+		await api.v1.storage.set(STORAGE_RUN_COUNT, runCount + 1);
+
+		await refreshKeyDecorations();
+		await renderUI();
+
+		safeLog(`Initialized "${api.v1.script.name}"`, {
+			runCount: runCount + 1,
+			model: MODEL_ID
+		});
+	} catch (err) {
+		safeLog("Initialization failed", err);
+		await toast("Story Paths v3 failed to initialize.", "error");
+	}
+});
+
+
+// Hooks let you intercept generation events
+api.v1.hooks.register("onGenerationRequested", ({ model }) => {
+  api.v1.log(`Generation starting with model: ${model}`);
+});
+
+// Scripts can persist data across sessions
+const runCount = await api.v1.storage.getOrDefault("runCount", 0);
+await api.v1.storage.set("runCount", runCount + 1);
+
+api.v1.log(`Script "${api.v1.script.name}" initialized!`);
