@@ -1,0 +1,1128 @@
+/*---
+compatibilityVersion: naiscript-1.0
+id: ce000001-0000-0000-0000-000000000001
+name: Character Engine
+createdAt: 1776400000000
+updatedAt: 1776900000000
+version: 0.5.2
+author: Character Engine
+description: Character Engine v0.5.2 — Prompt Refinements, Arc/Rel Scope, Late Block Position
+memoryLimit: 32
+---*/
+
+// ============================================================================
+// TYPES
+// ============================================================================
+
+interface ArcMilestone { id: string; description: string; achieved: boolean; achievedAt?: number; }
+interface EventRecord { id: string; summary: string; timestamp: number; }
+interface PrimaryRelationship { targetName: string; archetype: string; howItStarted: string; threads: string[]; currentStatus: string; trajectory: string; summary: string; milestones: ArcMilestone[]; }
+interface UnresolvedHook { id: string; targetName: string; description: string; pressureLevel: number; developmentNotes: string[]; resolved: boolean; }
+interface EphemeralSnapshot { eventAnchor: string; emotionalResponse: string; immediateDesire: string; compressedLine: string; generatedAtTokens: number; }
+interface MidRangeState { emotionalBaseline: string; currentStance: string; recentFocus: string; updatedAtTokens: number; }
+interface ActiveCondition { id: string; label: string; note?: string; }
+interface EquipmentItem { id: string; name: string; description: string; }
+interface CustomFieldDef { id: string; label: string; placeholder?: string; instructions: string; }
+interface CharacterRecord {
+    id: string; name: string; conceptDump?: string; nicknames: string[];
+    species?: string; age?: string; occupationRole?: string; briefDescription?: string; portraitKey?: string;
+    scenePresent: boolean; active: boolean; lorebookEntryId?: string; featuredForEphemeral: boolean;
+    physicalDescription?: string; voiceAndMannerisms?: string; personalityCore?: string; background?: string;
+    customFieldValues: Record<string, string>;
+    coreValues: string[]; storyRole?: string;
+    arcEnabled: boolean; arcType: string; developingAspects: string[]; arcCurrentState: string; arcTrajectory: string; arcEndState: string; arcMilestones: ArcMilestone[];
+    primaryRelationship: PrimaryRelationship; eventHistory: EventRecord[]; hooks: UnresolvedHook[];
+    ephemeral: EphemeralSnapshot | null; ephemeralHistory: EphemeralSnapshot[]; lastEphemeralTokens: number;
+    midRange: MidRangeState | null; lastMidrangeTokens: number; lastArcTokens: number; lastHookTokens: number;
+    conditions: ActiveCondition[]; wardrobe: EquipmentItem[]; equippedItems: string[]; sheetValues: Record<string, string>;
+    budgetCap: number; autoUpdateEnabled: boolean; autoThoughtsEnabled: boolean; lastTokenEstimate: number; createdAt: number; updatedAt: number;
+}
+interface CharacterMeta { id: string; name: string; scenePresent: boolean; active: boolean; portraitKey?: string; briefDescription?: string; species?: string; age?: string; occupationRole?: string; currentStance?: string; conditionLabels?: string[]; lastThought?: string; lastTokenEstimate?: number; }
+interface SheetField { id: string; name: string; }
+interface SheetCategory { id: string; name: string; fieldType: 'text'|'number'|'enum'; enumValues: string[]; fields: SheetField[]; }
+interface GlobalConfig {
+    thoughtIntervalTokens: number; dynamicIntervalTokens: number; arcIntervalTokens: number; hookIntervalTokens: number;
+    defaultBudgetCap: number; ephemeralCap: number;
+    storyRolePresets: string[]; sheetCategories: SheetCategory[]; autoUpdateDefault: boolean; autoThoughtsDefault: boolean; showFieldHeaders: boolean; generalStyle: string;
+    fieldLabels: Record<string, string>; fieldInstructions: Record<string, string>; fieldBudgets: Record<string, number>;
+    customStaticFields: CustomFieldDef[];
+    conditionPresets: string[]; relationshipArchetypes: string[]; arcTypePresets: string[];
+}
+
+// ============================================================================
+// CONSTANTS
+// ============================================================================
+
+const STORAGE_INDEX    = 'ce_index';
+const STORAGE_CONFIG   = 'ce_config';
+const STORAGE_CHAR_PFX = 'ce_char_';
+const STORAGE_LORE_IDS = 'ce_active_lore';
+const STORAGE_TOKENS   = 'ce_last_tokens';
+const CHARS_PER_TOKEN  = 4;
+
+const DEFAULT_STORY_ROLES = ['Love Interest','Antagonist','Ally','Mentor','Rival','Wild Card','Protagonist','Custom'];
+const DEFAULT_CONDITIONS  = ['Drunk', 'Exhausted', 'Injured', 'Guarded', 'Angry', 'Distracted'];
+const DEFAULT_REL_ARCHETYPES = ['Enemies to Lovers', 'Slow Burn', 'Reluctant Allies', 'Rivals', 'Childhood Friends', 'Strained Familial', 'Custom'];
+const DEFAULT_ARC_TYPES = ['Redemption', 'Coming of Age', 'Fall from Grace', 'Healing', 'Hardening', 'Opening Up', 'Self-Discovery', 'Corruption', 'Custom'];
+const DEFAULT_GENERAL_STYLE = 'Use punchy, direct, and efficient narrative language. Focus on actionable character details. Omit flowery adjectives. Write as a concise psychological dossier.';
+
+// CHANGE 1: Physical description scoped to body only, no clothes/costume.
+// CHANGE 2: Voice adds accent/dialect/ESL guidance with variation cap.
+const STATIC_FIELD_DEFS: { key: string; label: string; injectionHeader: string; defaultInstructions: string; placeholder: string; defaultBudget: number }[] = [
+    {
+        key: 'physicalDescription', label: 'Physical Description', injectionHeader: 'Appearance',
+        placeholder: 'Distinctive features...',
+        defaultInstructions: 'Describe the physical body only: face, skin, hair, build, posture, and one or two distinctive physical features. Lead with the single most striking feature. Do not describe clothing, costumes, or outfits — even for recognizable fictional characters, describe the canonical physical body, not what they wear. Concrete details only. Fragments acceptable.',
+        defaultBudget: 200
+    },
+    {
+        key: 'voiceAndMannerisms', label: 'Voice & Mannerisms', injectionHeader: 'Voice',
+        placeholder: 'Speech patterns...',
+        defaultInstructions: 'Name the speech rhythm. If the character has a regional accent, dialect, or speaks English as a second language, name it and note one specific feature it produces (e.g. dropped articles, inverted syntax, clipped vowels). Then one signature physical habit. Do not over-specify vocabulary or cadence — describe the pattern, not every instance. Leave room for natural variation.',
+        defaultBudget: 150
+    },
+    {
+        key: 'personalityCore', label: 'Personality Core', injectionHeader: 'Personality',
+        placeholder: 'Fundamental nature...',
+        defaultInstructions: 'State their core psychological driver. Then the wound or contradiction beneath it. Tight and declarative. Avoid abstractions like "complex" or "layered." Write the mechanism, not the label.',
+        defaultBudget: 200
+    },
+    {
+        key: 'background', label: 'Background', injectionHeader: 'Background',
+        placeholder: 'Formative history...',
+        defaultInstructions: 'One or two formative events, past tense, no flourish. Focus on what broke or shaped them. Skip backstory summaries. Specific events only, not broad life arcs.',
+        defaultBudget: 150
+    }
+];
+
+function npcPressureLabel(p: number): string { if (p < 25) return 'Latent'; if (p < 60) return 'Building'; if (p < 85) return 'Urgent'; return 'Critical'; }
+
+function makeDefaultConfig(): GlobalConfig {
+    const fi: Record<string,string> = {}; const fl: Record<string,string> = {}; const fb: Record<string,number> = {};
+    for (const f of STATIC_FIELD_DEFS) { fi[f.key] = f.defaultInstructions; fl[f.key] = f.label; fb[f.key] = f.defaultBudget; }
+    return { thoughtIntervalTokens: 350, dynamicIntervalTokens: 2500, arcIntervalTokens: 6000, hookIntervalTokens: 4000, defaultBudgetCap: 600, ephemeralCap: 1, storyRolePresets: [...DEFAULT_STORY_ROLES], sheetCategories: [], autoUpdateDefault: true, autoThoughtsDefault: true, showFieldHeaders: false, generalStyle: DEFAULT_GENERAL_STYLE, fieldLabels: fl, fieldInstructions: fi, fieldBudgets: fb, customStaticFields: [], conditionPresets: [...DEFAULT_CONDITIONS], relationshipArchetypes: [...DEFAULT_REL_ARCHETYPES], arcTypePresets: [...DEFAULT_ARC_TYPES] };
+}
+
+function migrateConfig(cfg: GlobalConfig): GlobalConfig {
+    cfg.sheetCategories = (cfg.sheetCategories || []).filter(Boolean); cfg.storyRolePresets = (cfg.storyRolePresets || []).filter(Boolean);
+    if (cfg.showFieldHeaders === undefined) cfg.showFieldHeaders = false;
+    if (!cfg.conditionPresets) cfg.conditionPresets = [...DEFAULT_CONDITIONS]; if (!cfg.relationshipArchetypes) cfg.relationshipArchetypes = [...DEFAULT_REL_ARCHETYPES]; if (!cfg.arcTypePresets) cfg.arcTypePresets = [...DEFAULT_ARC_TYPES]; if (!cfg.arcIntervalTokens) cfg.arcIntervalTokens = 6000; if (!cfg.hookIntervalTokens) cfg.hookIntervalTokens = 4000;
+    if (!cfg.fieldBudgets) cfg.fieldBudgets = {}; if (!cfg.customStaticFields) cfg.customStaticFields = [];
+    for (const f of STATIC_FIELD_DEFS) { if (!cfg.fieldBudgets[f.key]) cfg.fieldBudgets[f.key] = f.defaultBudget; }
+    return cfg;
+}
+
+function makeDefaultPrimaryRel(): PrimaryRelationship { return { targetName: '', archetype: '', howItStarted: '', threads: [], currentStatus: '', trajectory: '', summary: '', milestones: [] }; }
+
+function makeDefaultCharacter(name: string, cfg: GlobalConfig): CharacterRecord {
+    return { id: api.v1.uuid(), name, nicknames: [], scenePresent: true, active: true, featuredForEphemeral: false, coreValues: [], customFieldValues: {}, arcEnabled: false, arcType: '', developingAspects: [], arcCurrentState: '', arcTrajectory: '', arcEndState: '', arcMilestones: [], primaryRelationship: makeDefaultPrimaryRel(), eventHistory: [], ephemeral: null, ephemeralHistory: [], lastEphemeralTokens: 0, midRange: null, lastMidrangeTokens: 0, lastArcTokens: 0, lastHookTokens: 0, conditions: [], hooks: [], equippedItems: [], wardrobe: [], sheetValues: {}, budgetCap: cfg.defaultBudgetCap, autoUpdateEnabled: cfg.autoUpdateDefault, autoThoughtsEnabled: cfg.autoThoughtsDefault, lastTokenEstimate: 0, createdAt: Date.now(), updatedAt: Date.now() };
+}
+
+function migrateCharacter(c: any): CharacterRecord {
+    if (!c.customFieldValues) c.customFieldValues = {};
+    if (c.wardrobe && c.wardrobe.length > 0 && typeof c.wardrobe[0] === 'string') {
+        const oldW = c.wardrobe as string[];
+        c.wardrobe = oldW.map(function(n){ return { id: api.v1.uuid(), name: n, description: '' }; });
+    } else { c.wardrobe = (c.wardrobe || []).filter(Boolean); }
+    if (c.equippedItems && c.equippedItems.length > 0 && typeof c.equippedItems[0] === 'string' && c.wardrobe.length > 0 && c.equippedItems.every(function(i:any){return !i.match(/^[0-9a-f]{8}-/);})) {
+        const oldEq = c.equippedItems as string[]; const newEqIds: string[] = [];
+        for (const name of oldEq) { const found = c.wardrobe.find(function(w:any){return w.name === name;}); if (found) newEqIds.push(found.id); }
+        c.equippedItems = newEqIds;
+    } else { c.equippedItems = (c.equippedItems || []).filter(Boolean); }
+    if (!c.primaryRelationship) c.primaryRelationship = makeDefaultPrimaryRel();
+    if (c.primaryRelationship.targetName === undefined) c.primaryRelationship.targetName = '';
+    if (c.primaryRelationship.howItStarted === undefined) c.primaryRelationship.howItStarted = c.primaryRelationship.startingState || '';
+    if (!c.primaryRelationship.threads) c.primaryRelationship.threads = [];
+    c.primaryRelationship.milestones = (c.primaryRelationship.milestones || []).filter(Boolean);
+    c.hooks = (c.hooks || []).filter(Boolean);
+    if (c.name) { c.hooks = c.hooks.filter(function(h: any) { return typeof h.targetName !== 'string' || h.targetName.toLowerCase() !== c.name.toLowerCase(); }); }
+    c.coreValues = (c.coreValues || []).filter(Boolean); c.arcMilestones = (c.arcMilestones || []).filter(Boolean);
+    if (!c.developingAspects) c.developingAspects = []; if (!c.eventHistory) c.eventHistory = [];
+    c.nicknames = (c.nicknames || []).filter(Boolean); c.ephemeralHistory = (c.ephemeralHistory || []).filter(Boolean); c.conditions = (c.conditions || []).filter(Boolean);
+    if (c.ephemeral === undefined) c.ephemeral = null; if (!c.lastEphemeralTokens) c.lastEphemeralTokens = 0;
+    if (c.midRange === undefined) c.midRange = null; if (!c.lastMidrangeTokens) c.lastMidrangeTokens = 0;
+    if (!c.lastArcTokens) c.lastArcTokens = 0; if (!c.lastHookTokens) c.lastHookTokens = 0;
+    if (c.featuredForEphemeral === undefined) c.featuredForEphemeral = false;
+    return c as CharacterRecord;
+}
+
+// ============================================================================
+// STORAGE & LOREBOOK
+// ============================================================================
+
+async function loadIndex(): Promise<CharacterMeta[]> { return await api.v1.storyStorage.getOrDefault(STORAGE_INDEX, []) as CharacterMeta[]; }
+async function saveIndex(idx: CharacterMeta[]): Promise<void> { await api.v1.storyStorage.set(STORAGE_INDEX, idx.filter(Boolean)); }
+async function loadCharacter(id: string): Promise<CharacterRecord | null> { const raw = await api.v1.storyStorage.getOrDefault(STORAGE_CHAR_PFX + id, null); return raw ? migrateCharacter(raw) : null; }
+async function saveCharacter(char: CharacterRecord): Promise<void> {
+    char.updatedAt = Date.now();
+    const cfg = await loadConfig(); const activeEntryIds = new Set<string>();
+    char.lastTokenEstimate = estimateCharTokens(char, activeEntryIds, cfg);
+    await api.v1.storyStorage.set(STORAGE_CHAR_PFX + char.id, char);
+    const idx = await loadIndex();
+    const meta: CharacterMeta = { id: char.id, name: char.name, scenePresent: char.scenePresent, active: char.active, portraitKey: char.portraitKey, briefDescription: char.briefDescription, species: char.species, age: char.age, occupationRole: char.occupationRole, currentStance: char.midRange?.currentStance, conditionLabels: char.conditions.filter(Boolean).map(function(c){ return c.label; }), lastThought: char.ephemeral?.compressedLine, lastTokenEstimate: char.lastTokenEstimate };
+    const i = idx.findIndex(function(m){ return m.id === char.id; }); if (i >= 0) idx[i] = meta; else idx.push(meta);
+    await saveIndex(idx);
+}
+async function deleteCharacter(id: string): Promise<void> { await api.v1.storyStorage.remove(STORAGE_CHAR_PFX + id); const idx = await loadIndex(); await saveIndex(idx.filter(function(m){ return m.id !== id; })); }
+async function loadConfig(): Promise<GlobalConfig> { const raw = await api.v1.storyStorage.getOrDefault(STORAGE_CONFIG, null); return raw ? migrateConfig({ ...makeDefaultConfig(), ...(raw as GlobalConfig) }) : makeDefaultConfig(); }
+async function saveConfig(cfg: GlobalConfig): Promise<void> { await api.v1.storyStorage.set(STORAGE_CONFIG, cfg); }
+async function loadAllCharacters(): Promise<CharacterRecord[]> { const idx = await loadIndex(); const out: CharacterRecord[] = []; for (const m of idx) { const c = await loadCharacter(m.id); if (c) out.push(c); } return out; }
+
+function buildLorebookContent(char: CharacterRecord): string {
+    const lines: string[] = []; const idParts = [char.species?.trim(), char.age?.trim(), char.occupationRole?.trim()].filter(Boolean);
+    if (idParts.length > 0) lines.push(idParts.join(', ')); if (char.briefDescription?.trim()) lines.push(char.briefDescription.trim());
+    for (const def of STATIC_FIELD_DEFS) { const val = (char as any)[def.key]; if (val?.trim()) lines.push(val.trim()); }
+    for (const [, v] of Object.entries(char.customFieldValues)) { if (v?.trim()) lines.push(v.trim()); }
+    if (char.coreValues.length > 0) lines.push(char.coreValues.join('; '));
+    return lines.join('\n\n');
+}
+function getLorebookKeys(char: CharacterRecord): string[] { return [char.name, ...char.nicknames].filter(Boolean).filter(function(v, i, a){ return a.indexOf(v) === i; }); }
+async function createLinkedLorebookEntry(charId: string): Promise<void> {
+    const char = await loadCharacter(charId); if (!char) return;
+    try { const content = buildLorebookContent(char); const keys = getLorebookKeys(char); const entryId = await api.v1.lorebook.createEntry({ displayName: char.name, text: content, keys, enabled: true }); char.lorebookEntryId = entryId; await saveCharacter(char); api.v1.ui.toast(`Lorebook entry created for ${char.name}.`, { type: 'success' }); } catch (e) { api.v1.ui.toast('Failed to create lorebook entry.', { type: 'error' }); }
+}
+async function syncLorebookEntry(charId: string): Promise<void> {
+    const char = await loadCharacter(charId); if (!char?.lorebookEntryId) return;
+    try { await api.v1.lorebook.updateEntry(char.lorebookEntryId, { text: buildLorebookContent(char), keys: getLorebookKeys(char), displayName: char.name }); api.v1.ui.toast('Lorebook entry synced.', { type: 'success' }); } catch (e) { api.v1.ui.toast('Failed to sync lorebook entry.', { type: 'error' }); }
+}
+
+// ============================================================================
+// GENERATION HELPERS
+// ============================================================================
+
+function extractJSON(text: string): any {
+    try { return JSON.parse(text.trim()); } catch {}
+    try { const stripped = text.replace(/```json\s*/gi, '').replace(/```\s*/gi, '').trim(); return JSON.parse(stripped); } catch {}
+    try { const s = text.indexOf('{'); const e = text.lastIndexOf('}'); if (s !== -1 && e !== -1 && e > s) return JSON.parse(text.substring(s, e + 1)); } catch (e) { api.v1.log('[CE] extractJSON failed:', e); api.v1.log('[CE] Raw Output:', text); }
+    return null;
+}
+
+function extractJSONArray(text: string): any[] | null {
+    try { const s = text.indexOf('['); const e = text.lastIndexOf(']'); if (s !== -1 && e !== -1 && e > s) return JSON.parse(text.substring(s, e + 1)); } catch (e) { api.v1.log('[CE] extractJSONArray failed:', e); }
+    return null;
+}
+
+async function getRecentStoryText(maxTokens: number): Promise<string> {
+    try {
+        const ids = await api.v1.document.sectionIds(); if (ids.length === 0) return '';
+        const si = Math.max(0, ids.length - Math.ceil(maxTokens / 10) - 20);
+        const sections = await api.v1.document.scan(undefined, { from: ids[si] });
+        let text = ''; let used = 0;
+        for (let i = sections.length - 1; i >= 0; i--) {
+            const t = sections[i].section?.text || ''; if (!t.trim()) continue;
+            const enc = await api.v1.tokenizer.encode(t, 'glm-4-6');
+            if (used + enc.length > maxTokens) break;
+            text = t + '\n\n' + text; used += enc.length;
+        }
+        return text.trim();
+    } catch { return ''; }
+}
+
+// CHANGE 3: Constraint names the failure mode explicitly. conceptDump included here (static field use only).
+async function generateFieldContent(char: CharacterRecord, fieldLabel: string, instructions: string, generalStyle: string, hint: string, maxTokens: number): Promise<string> {
+    const recentText = await getRecentStoryText(2000);
+    const targetWords = Math.max(20, Math.floor(maxTokens * 0.75));
+    const sys = [
+        generalStyle,
+        instructions,
+        `CONSTRAINT: Strictly under ~${targetWords} words. Finish your thought completely. Your output must be the content itself — do not begin with a label, header, or category name. Outputs that begin with words like "Voice:", "Appearance:", "Core Drive:", or any descriptor of what follows are invalid. Your first word must be content.`
+    ].join('\n\n');
+    const usr = [
+        `Character: ${char.name}`,
+        char.storyRole ? `Role: ${char.storyRole}` : '',
+        // conceptDump is included here — static field generation only
+        char.conceptDump?.trim() ? `Character notes: ${char.conceptDump.trim()}` : '',
+        char.briefDescription ? `Anchor: ${char.briefDescription}` : '',
+        hint ? `Focus: ${hint}` : '',
+        recentText ? `\nRecent story:\n${recentText}` : '',
+        `\nGenerate the ${fieldLabel} now.`
+    ].filter(Boolean).join('\n');
+    await api.v1.script.waitForAllowedOutput(300);
+    const resp = await api.v1.generate([{ role: 'system', content: sys }, { role: 'user', content: usr }], { model: 'glm-4-6', max_tokens: maxTokens + 30, temperature: 0.8 });
+    return (resp.choices[0]?.text || '').trim();
+}
+
+async function generateMilestonesJSON(char: CharacterRecord, type: 'arc'|'relationship', cfg: GlobalConfig): Promise<string[]> {
+    const recentText = await getRecentStoryText(2000); const contextLines = [];
+    if (type === 'arc') { contextLines.push(`Arc Type: ${char.arcType}`, `Developing Aspects: ${char.developingAspects.join(', ')}`, `Current State: ${char.arcCurrentState}`, `Trajectory: ${char.arcTrajectory}`); }
+    else { contextLines.push(`Relationship Target: ${char.primaryRelationship.targetName}`, `Archetype: ${char.primaryRelationship.archetype}`, `Threads: ${char.primaryRelationship.threads.join(', ')}`, `Current Status: ${char.primaryRelationship.currentStatus}`, `Trajectory: ${char.primaryRelationship.trajectory}`); }
+    const sys = `${cfg.generalStyle}\n\nGenerate 3 to 5 universal narrative milestones for this character's ${type}.\nThese should be broad narrative beats, not hyper-specific scene actions.\nCONSTRAINT: Each milestone 8-12 words max. Action-oriented phrasing only.\nRespond ONLY with a valid JSON array of strings. Do not wrap in markdown.\ne.g. ["Refuses to take the easy way out", "Apologizes to someone they wronged"]`;
+    const usr = `${char.name}'s Setup:\n${contextLines.join('\n')}\n\nRecent Story:\n${recentText}\n\nGenerate JSON array now:\n\`\`\`json\n[`;
+    await api.v1.script.waitForAllowedOutput(200);
+    const resp = await api.v1.generate([{ role: 'system', content: sys }, { role: 'user', content: usr }], { model: 'glm-4-6', max_tokens: 200, temperature: 0.8 });
+    const parsed = extractJSONArray(resp.choices[0]?.text || '');
+    return parsed ? (parsed as string[]) : [];
+}
+
+async function generateEventSummary(char: CharacterRecord, cfg: GlobalConfig): Promise<string> {
+    const recentText = await getRecentStoryText(2500);
+    const sys = `Summarize the most significant recent event involving ${char.name}.\nCONSTRAINT: 1-2 sentences max. Factual and impactful. Focus on what changed for them.`;
+    const usr = `Recent Story:\n${recentText}\n\nGenerate event summary for ${char.name}:`;
+    await api.v1.script.waitForAllowedOutput(150);
+    const resp = await api.v1.generate([{ role: 'system', content: sys }, { role: 'user', content: usr }], { model: 'glm-4-6', max_tokens: 150, temperature: 0.5 });
+    return (resp.choices[0]?.text || '').trim();
+}
+
+// CHANGE 6a: Arc field scope walls — each field has an explicit boundary.
+async function generateArcState(char: CharacterRecord, cfg: GlobalConfig, tokenCount: number): Promise<boolean> {
+    const recentText = await getRecentStoryText(4000);
+    const achieved = char.arcMilestones.filter(function(m){ return m.achieved; }).map(function(m){ return m.description; }).join(', ');
+    const pending = char.arcMilestones.filter(function(m){ return !m.achieved; }).map(function(m){ return m.description; }).join(', ');
+    const sys = `${cfg.generalStyle}\n\nUpdate two fields for ${char.name}'s character arc based on recent story events.\n\ncurrentState: Where they are RIGHT NOW on their arc. A present-tense internal snapshot. Do NOT describe direction of change — only current position. 20-30 words max.\n\ntrajectory: The direction of movement — the vector of change between where they are and where they are going. One phrase. Do NOT restate currentState. Do NOT name the destination. 10-15 words max.\n\nReturn ONLY valid JSON with no other text:\n{"currentState":"...","trajectory":"..."}`;
+    const usr = [
+        `Character: ${char.name}`, `Arc Type: ${char.arcType}`,
+        `Developing Aspects: ${char.developingAspects.join(', ')}`,
+        char.ephemeral ? `Immediate Mindset: ${char.ephemeral.compressedLine}` : '',
+        char.midRange ? `Emotional Baseline: ${char.midRange.emotionalBaseline}` : '',
+        `Milestones Achieved: ${achieved || 'None yet'}`,
+        `Milestones Pending: ${pending || 'None'}`,
+        `\nRecent Story:\n${recentText}`,
+        `\nGenerate Arc JSON:\n\`\`\`json\n{`
+    ].filter(Boolean).join('\n');
+    try {
+        await api.v1.script.waitForAllowedOutput(200);
+        const resp = await api.v1.generate([{ role: 'system', content: sys }, { role: 'user', content: usr }], { model: 'glm-4-6', max_tokens: 200, temperature: 0.7 });
+        const parsed = extractJSON(resp.choices[0]?.text || ''); if (!parsed) return false;
+        const f = await loadCharacter(char.id); if (!f) return false;
+        f.arcCurrentState = String(parsed.currentState || parsed.current_state || parsed.CurrentState || f.arcCurrentState || '').substring(0, 400);
+        f.arcTrajectory = String(parsed.trajectory || parsed.Trajectory || parsed.arcTrajectory || f.arcTrajectory || '').substring(0, 200);
+        f.lastArcTokens = tokenCount; await saveCharacter(f); return true;
+    } catch (e) { api.v1.log('[CE] Error in generateArcState', e); return false; }
+}
+
+// CHANGE 6b: Relationship field scope walls — status/trajectory/summary each scoped explicitly.
+async function generateRelState(char: CharacterRecord, cfg: GlobalConfig, tokenCount: number): Promise<boolean> {
+    const rel = char.primaryRelationship; if (!rel.targetName) return false;
+    const recentText = await getRecentStoryText(4000);
+    const achieved = rel.milestones.filter(function(m){ return m.achieved; }).map(function(m){ return m.description; }).join(', ');
+    const pending = rel.milestones.filter(function(m){ return !m.achieved; }).map(function(m){ return m.description; }).join(', ');
+    const sys = `${cfg.generalStyle}\n\nUpdate three fields for ${char.name}'s relationship with ${rel.targetName} based on recent story events.\n\nstatus: The current dynamic as it looks from the outside. Concrete behavioral terms — how they actually treat each other RIGHT NOW. No history, no projection. 20-30 words max.\n\ntrajectory: The direction the relationship is moving. The vector, not the destination, not the current state. One phrase only. 10-15 words max.\n\nsummary: The only field that may look backward AND forward. Where it started, what changed, what the underlying tension is. Must NOT repeat status or trajectory verbatim — synthesize, don't restate. 40-50 words max.\n\nReturn ONLY valid JSON with no other text:\n{"status":"...","trajectory":"...","summary":"..."}`;
+    const usr = [
+        `Target: ${rel.targetName}`, `Archetype: ${rel.archetype}`,
+        `Threads: ${rel.threads.join(', ')}`,
+        char.ephemeral ? `Immediate Mindset: ${char.ephemeral.compressedLine}` : '',
+        char.midRange ? `Stance: ${char.midRange.currentStance}` : '',
+        `Milestones Achieved: ${achieved || 'None yet'}`,
+        `Milestones Pending: ${pending || 'None'}`,
+        `\nRecent Story:\n${recentText}`,
+        `\nGenerate Relationship JSON:\n\`\`\`json\n{`
+    ].filter(Boolean).join('\n');
+    try {
+        await api.v1.script.waitForAllowedOutput(250);
+        const resp = await api.v1.generate([{ role: 'system', content: sys }, { role: 'user', content: usr }], { model: 'glm-4-6', max_tokens: 250, temperature: 0.7 });
+        const parsed = extractJSON(resp.choices[0]?.text || ''); if (!parsed) return false;
+        const f = await loadCharacter(char.id); if (!f) return false;
+        f.primaryRelationship.currentStatus = String(parsed.status || parsed.currentStatus || parsed.current_status || f.primaryRelationship.currentStatus || '').substring(0, 300);
+        f.primaryRelationship.trajectory = String(parsed.trajectory || parsed.Trajectory || f.primaryRelationship.trajectory || '').substring(0, 200);
+        f.primaryRelationship.summary = String(parsed.summary || parsed.Summary || f.primaryRelationship.summary || '').substring(0, 600);
+        f.lastArcTokens = tokenCount; await saveCharacter(f); return true;
+    } catch (e) { api.v1.log('[CE] Error in generateRelState', e); return false; }
+}
+
+async function generateHookUpdates(char: CharacterRecord, cfg: GlobalConfig, tokenCount: number): Promise<boolean> {
+    const recentText = await getRecentStoryText(4000);
+    const activeHooks = char.hooks.filter(function(h){ return !h.resolved; });
+    const hooksContext = activeHooks.map(function(h){ return `ID: ${h.id} | Target: ${h.targetName} | Desc: ${h.description} | Pressure: ${h.pressureLevel}`; }).join('\n');
+    const idx = await loadIndex();
+    const validTargets = idx.filter(function(m){ return m.name.toLowerCase() !== char.name.toLowerCase(); }).map(function(m){ return m.name; });
+    validTargets.push('Protagonist', 'Player');
+    const sys = `${cfg.generalStyle}\n\nA Hook is a tension BETWEEN ${char.name} and ANOTHER person. It is NEVER a self-reflection or internal conflict.\nReview the story for unresolved tensions, secrets, or dramatic complications.\n1. For existing hooks, output a brief 'newNote' (how it evolved, 10-15 words max) and an updated 'pressureLevel' (0-100).\n2. If a MAJOR NEW external tension emerged, create ONE new hook. The target MUST be one of: ${validTargets.join(', ')}.\n\nA hook targeting ${char.name} themselves is INVALID and will be rejected. Only target another person.\n\nCONSTRAINT: newNote 10-15 words max. description 20-30 words max.\nRespond ONLY in valid JSON:\n{"updatedHooks": [{"id":"...","newNote":"...","pressureLevel":50}], "newHooks": [{"targetName":"...","description":"...","pressureLevel":25}]}`;
+    const usr = `Character: ${char.name}\n\nExisting Hooks:\n${hooksContext || 'None'}\n\nRecent Story:\n${recentText}\n\nGenerate JSON:\n\`\`\`json\n{`;
+    try {
+        await api.v1.script.waitForAllowedOutput(300);
+        const resp = await api.v1.generate([{ role: 'system', content: sys }, { role: 'user', content: usr }], { model: 'glm-4-6', max_tokens: 350, temperature: 0.7 });
+        const parsed = extractJSON(resp.choices[0]?.text || ''); if (!parsed) return false;
+        const f = await loadCharacter(char.id); if (!f) return false;
+        if (parsed.updatedHooks && Array.isArray(parsed.updatedHooks)) {
+            for (const uh of parsed.updatedHooks) {
+                const hk = f.hooks.find(function(h){ return h.id === uh.id; });
+                if (hk && hk.targetName.toLowerCase() !== f.name.toLowerCase()) {
+                    hk.pressureLevel = typeof uh.pressureLevel === 'number' ? uh.pressureLevel : hk.pressureLevel;
+                    if (uh.newNote) hk.developmentNotes.push(String(uh.newNote));
+                }
+            }
+        }
+        if (parsed.newHooks && Array.isArray(parsed.newHooks)) {
+            for (const nh of parsed.newHooks.slice(0, 1)) {
+                if (nh.targetName && nh.description && nh.targetName.toLowerCase() !== f.name.toLowerCase()) {
+                    f.hooks.push({ id: api.v1.uuid(), targetName: String(nh.targetName), description: String(nh.description), pressureLevel: typeof nh.pressureLevel === 'number' ? nh.pressureLevel : 50, developmentNotes: [], resolved: false });
+                }
+            }
+        }
+        f.lastHookTokens = tokenCount; await saveCharacter(f); return true;
+    } catch (e) { api.v1.log('[CE] Error in generateHookUpdates', e); return false; }
+}
+
+// CHANGE 4: conceptDump removed. CHANGE 5: drive phrased as active directive.
+async function generateEphemeral(char: CharacterRecord, cfg: GlobalConfig, tokenCount: number): Promise<boolean> {
+    const recentText = await getRecentStoryText(3000);
+    const histCtx = char.ephemeralHistory.slice(0, 3).map(function(h){ return h.compressedLine; }).join('\n');
+    const sys = `You are capturing the immediate internal state of ${char.name} in a narrative fiction story.\n${cfg.generalStyle}\n\nGenerate their internal state as three precise elements. Be specific, concrete, present-tense. Not flowery. Not a summary.\nCONSTRAINT: Each field is 1 brief phrase (5-10 words max). No full sentences. Fragments preferred.\nReturn ONLY valid JSON with no other text:\n{"event":"...","feeling":"...","drive":"..."}\n\nevent: The specific thing that just happened that matters to them\nfeeling: Their immediate emotional response\ndrive: What they are actively driven toward right now — must begin with "wants to", "needs to", or "determined to". Not a bare infinitive. Not abstract.`;
+    const usr = [
+        // conceptDump intentionally omitted — not relevant to live state
+        char.midRange?.emotionalBaseline ? `Emotional baseline: ${char.midRange.emotionalBaseline}` : '',
+        histCtx ? `Recent state history:\n${histCtx}` : '',
+        recentText ? `Recent story:\n${recentText}` : '(No story text yet)',
+        `\nGenerate ${char.name}'s immediate internal state:\n\`\`\`json\n{`
+    ].filter(Boolean).join('\n');
+    try {
+        await api.v1.script.waitForAllowedOutput(150);
+        const resp = await api.v1.generate([{ role: 'system', content: sys }, { role: 'user', content: usr }], { model: 'glm-4-6', max_tokens: 150, temperature: 0.75 });
+        const parsed = extractJSON(resp.choices[0]?.text || ''); if (!parsed) return false;
+        const event = String(parsed.event || '').trim(); const feeling = String(parsed.feeling || '').trim(); const drive = String(parsed.drive || '').trim();
+        if (!event && !feeling && !drive) return false;
+        const compressed = [event, feeling, drive].filter(Boolean).join(' — ');
+        const snapshot: EphemeralSnapshot = { eventAnchor: event, emotionalResponse: feeling, immediateDesire: drive, compressedLine: compressed, generatedAtTokens: tokenCount };
+        const f = await loadCharacter(char.id); if (!f) return false;
+        if (f.ephemeral) f.ephemeralHistory = [f.ephemeral, ...f.ephemeralHistory].slice(0, 3);
+        f.ephemeral = snapshot; f.lastEphemeralTokens = tokenCount; await saveCharacter(f); return true;
+    } catch (e) { api.v1.log('[CE] Error in generateEphemeral', e); return false; }
+}
+
+// CHANGE 4: conceptDump removed from mid-range generator.
+async function generateMidRange(char: CharacterRecord, cfg: GlobalConfig, tokenCount: number): Promise<boolean> {
+    const recentText = await getRecentStoryText(5000);
+    const histCtx = char.ephemeralHistory.map(function(h){ return h.compressedLine; }).join('\n');
+    const sys = `You are updating the mid-range emotional state of ${char.name} in a narrative fiction story.\n${cfg.generalStyle}\n\nUpdate three fields based on recent events. Write tight, declarative, present-tense. Not flowery.\nCONSTRAINT: baseline 1 sentence max. stance 1 short phrase max (e.g. "wary but curious"). focus 1 sentence max.\nReturn ONLY valid JSON with no other text:\n{"baseline":"...","stance":"...","focus":"..."}`;
+    const current = char.midRange;
+    const usr = [
+        // conceptDump intentionally omitted — mid-range tracks current state, not character concept
+        current ? `Current state — baseline: ${current.emotionalBaseline} / stance: ${current.currentStance} / focus: ${current.recentFocus}` : '',
+        char.ephemeral?.compressedLine ? `Most recent ephemeral state: ${char.ephemeral.compressedLine}` : '',
+        histCtx ? `Ephemeral history:\n${histCtx}` : '',
+        recentText ? `Recent story:\n${recentText}` : '(No story text yet)',
+        `\nUpdate ${char.name}'s mid-range state:\n\`\`\`json\n{`
+    ].filter(Boolean).join('\n');
+    try {
+        await api.v1.script.waitForAllowedOutput(200);
+        const resp = await api.v1.generate([{ role: 'system', content: sys }, { role: 'user', content: usr }], { model: 'glm-4-6', max_tokens: 200, temperature: 0.7 });
+        const parsed = extractJSON(resp.choices[0]?.text || ''); if (!parsed) return false;
+        const f = await loadCharacter(char.id); if (!f) return false;
+        f.midRange = { emotionalBaseline: String(parsed.baseline || parsed.emotionalBaseline || f.midRange?.emotionalBaseline || '').substring(0, 400), currentStance: String(parsed.stance || parsed.currentStance || f.midRange?.currentStance || '').substring(0, 120), recentFocus: String(parsed.focus || parsed.recentFocus || f.midRange?.recentFocus || '').substring(0, 400), updatedAtTokens: tokenCount };
+        f.lastMidrangeTokens = tokenCount; await saveCharacter(f); return true;
+    } catch (e) { api.v1.log('[CE] Error in generateMidRange', e); return false; }
+}
+
+async function runDynamicEngine(): Promise<void> {
+    const tokenCount = await api.v1.tempStorage.get(STORAGE_TOKENS) as number || 0; if (tokenCount === 0) return;
+    const index = await loadIndex(); const cfg = await loadConfig();
+    const raw = await api.v1.tempStorage.get(STORAGE_LORE_IDS) as string | undefined;
+    const activeEntryIds = new Set<string>(raw ? JSON.parse(raw) as string[] : []);
+    const chars: CharacterRecord[] = [];
+    for (const m of index.filter(function(i){ return i.active; })) { const c = await loadCharacter(m.id); if (c) chars.push(c); }
+    if (chars.length === 0) return;
+    if (cfg.autoThoughtsDefault) {
+        const eligible = chars.filter(function(c){ return charIsRelevant(c, activeEntryIds) && (tokenCount - c.lastEphemeralTokens) >= cfg.thoughtIntervalTokens; });
+        if (eligible.length > 0) { eligible.sort(function(a, b){ return charScore(b, activeEntryIds) - charScore(a, activeEntryIds) || a.lastEphemeralTokens - b.lastEphemeralTokens; }); await generateEphemeral(eligible[0], cfg, tokenCount); await refreshSidebar(); return; }
+    }
+    if (cfg.autoUpdateDefault) {
+        const eligible = chars.filter(function(c){ return charIsRelevant(c, activeEntryIds) && (tokenCount - c.lastMidrangeTokens) >= cfg.dynamicIntervalTokens; });
+        if (eligible.length > 0) { eligible.sort(function(a, b){ return charScore(b, activeEntryIds) - charScore(a, activeEntryIds) || a.lastMidrangeTokens - b.lastMidrangeTokens; }); await generateMidRange(eligible[0], cfg, tokenCount); await refreshSidebar(); return; }
+    }
+    if (cfg.autoUpdateDefault) {
+        const eligible = chars.filter(function(c){ return charIsRelevant(c, activeEntryIds) && (tokenCount - c.lastArcTokens) >= cfg.arcIntervalTokens; });
+        if (eligible.length > 0) {
+            eligible.sort(function(a, b){ return charScore(b, activeEntryIds) - charScore(a, activeEntryIds) || a.lastArcTokens - b.lastArcTokens; });
+            if (eligible[0].arcEnabled) await generateArcState(eligible[0], cfg, tokenCount);
+            if (eligible[0].primaryRelationship.targetName) await generateRelState(eligible[0], cfg, tokenCount);
+            await refreshSidebar(); return;
+        }
+    }
+    if (cfg.autoUpdateDefault) {
+        const eligible = chars.filter(function(c){ return charIsRelevant(c, activeEntryIds) && (tokenCount - c.lastHookTokens) >= cfg.hookIntervalTokens; });
+        if (eligible.length > 0) { eligible.sort(function(a, b){ return charScore(b, activeEntryIds) - charScore(a, activeEntryIds) || a.lastHookTokens - b.lastHookTokens; }); await generateHookUpdates(eligible[0], cfg, tokenCount); await refreshSidebar(); return; }
+    }
+}
+
+// ============================================================================
+// RELEVANCE / PRIORITY HELPERS
+// ============================================================================
+
+function charIsRelevant(c: CharacterRecord, activeEntryIds: Set<string>): boolean { return c.scenePresent || !!(c.lorebookEntryId && activeEntryIds.has(c.lorebookEntryId)); }
+function charScore(c: CharacterRecord, activeEntryIds: Set<string>): number { let s = 0; if (c.lorebookEntryId && activeEntryIds.has(c.lorebookEntryId)) s += 4; if (c.featuredForEphemeral) s += 2; if (c.scenePresent) s += 1; return s; }
+function estChars(text: string): number { return text.length + 1; }
+
+// ============================================================================
+// CONTEXT INJECTION BUILDERS
+// ============================================================================
+
+function buildDramatisPersonae(index: CharacterMeta[]): string {
+    const active = index.filter(function(m){ return m.active; }); if (active.length === 0) return '';
+    const lines = ['[ Dramatis Personae ]'];
+    for (const m of active) {
+        const idParts = [m.species?.trim(), m.age?.trim(), m.occupationRole?.trim()].filter(Boolean);
+        const header = idParts.length > 0 ? `${m.name} (${idParts.join(', ')})` : m.name;
+        const brief = m.briefDescription?.trim() ? ` — ${m.briefDescription.trim()}` : '';
+        lines.push(`${header}${m.scenePresent ? '' : ' [offstage]'}${brief}`);
+    }
+    return lines.join('\n');
+}
+
+function buildCharInjection(char: CharacterRecord, activeEntryIds: Set<string>, showHeaders: boolean, fieldLabels: Record<string, string>): string {
+    if (!char.active) return '';
+    const lorebookActive = !!(char.lorebookEntryId && activeEntryIds.has(char.lorebookEntryId));
+    if (!char.scenePresent && !lorebookActive) return '';
+    const budget = char.budgetCap * CHARS_PER_TOKEN; let used = 0; const lines: string[] = [];
+    function tryAdd(line: string): boolean {
+        if (!line?.trim()) return true;
+        const cost = estChars(line); if (used + cost > budget) return false;
+        lines.push(line); used += cost; return true;
+    }
+    tryAdd(`[ ${char.name} ]`);
+    if (!lorebookActive) {
+        if (char.storyRole?.trim()) tryAdd(showHeaders ? `Role: ${char.storyRole.trim()}` : char.storyRole.trim());
+        if (char.physicalDescription) tryAdd(showHeaders ? `Appearance: ${char.physicalDescription}` : char.physicalDescription);
+        if (char.voiceAndMannerisms) tryAdd(showHeaders ? `Voice: ${char.voiceAndMannerisms}` : char.voiceAndMannerisms);
+        if (char.personalityCore) tryAdd(showHeaders ? `Personality: ${char.personalityCore}` : char.personalityCore);
+        if (char.background) tryAdd(showHeaders ? `Background: ${char.background}` : char.background);
+        if (char.coreValues.length > 0) tryAdd(showHeaders ? `Values: ${char.coreValues.join('; ')}` : `${char.name} values ${char.coreValues.join(', ')}.`);
+        for (const [k, v] of Object.entries(char.customFieldValues)) { if (v && v.trim()) tryAdd(showHeaders ? `${k}: ${v.trim()}` : v.trim()); }
+    }
+    if (char.arcEnabled && char.arcTrajectory?.trim()) tryAdd(showHeaders ? `Arc Trajectory: ${char.arcTrajectory.trim()}` : `${char.name}'s development is heading toward: ${char.arcTrajectory.trim()}`);
+    const rel = char.primaryRelationship;
+    if (rel && rel.targetName) { const parts = [rel.archetype, rel.currentStatus].filter(Boolean).join(' - '); if (parts) tryAdd(showHeaders ? `Relationship with ${rel.targetName}: ${parts}` : `${char.name}'s relationship with ${rel.targetName} is ${parts}.`); }
+    // CHANGE 7: "equipped with" → "wearing"
+    const eqItems = char.equippedItems.map(function(id) { const w = char.wardrobe.find(function(w2){ return w2.id === id; }); return w ? (w.description ? w.description : w.name) : ''; }).filter(Boolean);
+    if (eqItems.length > 0) tryAdd(showHeaders ? `Wearing: ${eqItems.join(', ')}` : `${char.name} is wearing ${eqItems.join(', ')}.`);
+    return lines.length > 1 ? lines.join('\n') : '';
+}
+
+function buildMidRangeInjection(char: CharacterRecord): string {
+    const mid = char.midRange; if (!mid) return '';
+    const parts = [mid.emotionalBaseline, mid.currentStance ? `stance: ${mid.currentStance}` : '', mid.recentFocus].filter(Boolean);
+    return parts.length > 0 ? `${char.name} — ${parts.join(' / ')}` : '';
+}
+
+function buildEphemeralInjection(char: CharacterRecord): string {
+    const lines = [];
+    const eph = char.ephemeral; if (eph) lines.push(`${char.name} — ${eph.compressedLine}`);
+    for (const cond of char.conditions.filter(Boolean)) { lines.push(`Condition: ${cond.label}${cond.note ? ` — ${cond.note}` : ''}`); }
+    return lines.join('\n');
+}
+
+function estimateCharTokens(char: CharacterRecord, activeEntryIds: Set<string>, cfg: GlobalConfig): number {
+    const b1 = buildCharInjection(char, activeEntryIds, cfg.showFieldHeaders, cfg.fieldLabels);
+    const b2 = buildMidRangeInjection(char); const b3 = buildEphemeralInjection(char);
+    let est = 0;
+    if (b1) est += Math.ceil(b1.length / CHARS_PER_TOKEN);
+    if (b2) est += Math.ceil(b2.length / CHARS_PER_TOKEN);
+    if (b3) est += Math.ceil(b3.length / CHARS_PER_TOKEN);
+    return est;
+}
+
+// ============================================================================
+// MODAL HANDLES
+// ============================================================================
+
+let charEditModalHandle: any = null;
+let configModalHandle: any = null;
+let editingCharId: string | null = null;
+
+// ============================================================================
+// SIDEBAR
+// ============================================================================
+
+async function refreshSidebar(): Promise<void> {
+    await api.v1.ui.update([{ type: 'sidebarPanel', id: 'ce-panel', name: '👥 Characters', iconId: 'users', content: await buildSidebar() } as any]);
+}
+
+async function buildSidebar(): Promise<UIPart[]> {
+    const index = await loadIndex(); const cfg = await loadConfig(); const parts: UIPart[] = [];
+    parts.push({ type: 'row', spacing: 'space-between', alignment: 'center', style: { marginBottom: '12px' }, content: [{ type: 'text', text: '⚙ Character Engine', style: { fontWeight: 'bold', fontSize: '14px' } }, { type: 'button', iconId: 'settings', style: { margin: 0 }, callback: async function() { await openConfigModal(); } }] });
+    if (index.length === 0) parts.push({ type: 'text', text: 'No characters yet. Add one to begin.', style: { fontSize: '12px', opacity: '0.6', marginBottom: '8px' } });
+    for (const meta of index.filter(Boolean)) { parts.push(buildCharCard(meta, cfg)); }
+    parts.push({ type: 'button', text: '+ Add Character', iconId: 'plus', style: { marginTop: '8px', width: '100%' }, disabledWhileCallbackRunning: true, callback: async function() { const c = makeDefaultCharacter('New Character', cfg); await saveCharacter(c); await openCharEditModal(c.id); await refreshSidebar(); } });
+    parts.push({ type: 'row', style: { marginTop: '8px', gap: '4px' }, content: [{ type: 'button', text: 'Export All', iconId: 'download', style: { flex: '1 1 0', margin: 0, fontSize: '11px' }, disabledWhileCallbackRunning: true, callback: async function() { await exportAll(); } }, { type: 'button', text: 'Import', iconId: 'upload', style: { flex: '1 1 0', margin: 0, fontSize: '11px' }, disabledWhileCallbackRunning: true, callback: async function() { await importData(); } }] });
+    return parts;
+}
+
+function buildCharCard(meta: CharacterMeta, cfg: GlobalConfig): UIPart {
+    const isScene = meta.scenePresent;
+    const presenceColor = isScene ? '#7ec8a0' : '#888';
+    const presenceBorder = isScene ? '2px solid #7ec8a0' : '2px solid #444';
+
+    const avatarCol: UIPart = {
+        type: 'column',
+        style: { alignItems: 'center', width: '68px', flexShrink: '0', gap: '0' },
+        content: [
+            {
+                type: 'box',
+                style: {
+                    width: '64px', height: '64px',
+                    borderRadius: '6px 6px 0 0',
+                    border: presenceBorder, borderBottom: 'none',
+                    overflow: 'hidden', backgroundColor: 'bg1',
+                    display: 'flex', alignItems: 'center', justifyContent: 'center',
+                    boxShadow: isScene ? '0 0 10px rgba(126,200,160,0.35)' : 'none',
+                    flexShrink: '0'
+                },
+                content: meta.portraitKey
+                    ? [{ type: 'image', src: `{{story:${meta.portraitKey}}}`, width: 64, height: 64, style: { objectFit: 'cover', display: 'block' } }]
+                    : [{ type: 'text', text: (meta.name || '?').charAt(0).toUpperCase(), style: { fontSize: '26px', fontWeight: 'bold', opacity: '0.45' } }]
+            },
+            {
+                type: 'button',
+                text: isScene ? '● Scene' : '○ Away',
+                style: {
+                    fontSize: '11px', fontWeight: 'bold', color: presenceColor,
+                    margin: 0, padding: '5px 0', width: '64px',
+                    // Center the text+bullet within the border width
+                    textAlign: 'center', display: 'block',
+                    borderRadius: '0 0 6px 6px',
+                    border: presenceBorder, borderTop: 'none'
+                },
+                callback: (function(id) {
+                    return async function() {
+                        const c = await loadCharacter(id); if (!c) return;
+                        c.scenePresent = !c.scenePresent; await saveCharacter(c); await refreshSidebar();
+                    };
+                })(meta.id)
+            }
+        ]
+    };
+
+    // Text fields sit directly under the name — no intervening condition row
+    const nameRow: UIPart = {
+        type: 'row', spacing: 'space-between', alignment: 'center',
+        style: { marginBottom: '2px' },
+        content: [
+            { type: 'text', text: meta.name || 'Unnamed', style: { fontWeight: 'bold', fontSize: '14px', color: meta.active ? undefined : '#777' } },
+            { type: 'text', text: `~${meta.lastTokenEstimate || 0} tokens`, style: { fontSize: '11px', opacity: '0.4' } }
+        ]
+    };
+
+    const infoLines: UIPart[] = [nameRow];
+
+    const idParts = [meta.species, meta.age, meta.occupationRole].filter(function(s){ return s?.trim(); });
+    if (idParts.length > 0) infoLines.push({ type: 'text', text: idParts.join(' · '), style: { fontSize: '12px', opacity: '0.55' } });
+    if (meta.currentStance?.trim()) infoLines.push({ type: 'text', text: meta.currentStance.trim(), style: { fontSize: '12px', color: '#4ecdc4', fontStyle: 'italic' } });
+    if (meta.lastThought) infoLines.push({ type: 'text', text: `"${meta.lastThought}"`, style: { fontStyle: 'italic', opacity: '0.55', fontSize: '10px' } });
+
+    // Single action row: On/Off | Condition (stretches to fill) | Edit | Trash
+    const actionRow: UIPart = {
+        type: 'row', alignment: 'center', style: { gap: '4px', marginTop: '6px' },
+        content: [
+            {
+                type: 'button', text: meta.active ? 'On' : 'Off',
+                style: { fontSize: '12px', padding: '5px 10px', margin: 0, color: meta.active ? '#7ec8a0' : '#666' },
+                callback: (function(id) { return async function() { const c = await loadCharacter(id); if (!c) return; c.active = !c.active; await saveCharacter(c); await refreshSidebar(); }; })(meta.id)
+            },
+            {
+                type: 'button',
+                text: meta.conditionLabels && meta.conditionLabels.length ? `✦ ${meta.conditionLabels[0]}` : 'Condition',
+                style: {
+                    fontSize: '12px', padding: '5px 4px', margin: 0, flex: '1 1 0', textAlign: 'center',
+                    color: meta.conditionLabels && meta.conditionLabels.length ? '#ffb432' : undefined
+                },
+                callback: (function(id) {
+                    return async function() {
+                        const pm = await api.v1.ui.modal.open({
+                            title: 'Set Condition', size: 'small',
+                            content: [
+                                { type: 'button', text: '✕ Clear', style: { margin: '2px', display: 'block', width: '100%' }, callback: async function() { const c = await loadCharacter(id); if (c) { c.conditions = []; await saveCharacter(c); } pm.close(); await refreshSidebar(); } },
+                                ...cfg.conditionPresets.filter(Boolean).map(function(p) {
+                                    return { type: 'button', text: p, style: { margin: '2px', display: 'block', width: '100%' }, callback: async function() { const c = await loadCharacter(id); if (c) { c.conditions = [{ id: api.v1.uuid(), label: p }]; await saveCharacter(c); } pm.close(); await refreshSidebar(); } } as UIPart;
+                                })
+                            ]
+                        });
+                    };
+                })(meta.id)
+            },
+            {
+                type: 'button', iconId: 'edit', style: { margin: 0, padding: '5px 10px' },
+                callback: (function(id) { return async function() { await openCharEditModal(id); }; })(meta.id)
+            },
+            {
+                type: 'button', iconId: 'trash', style: { margin: 0, padding: '5px 8px' },
+                callback: (function(id, n) { return async function() { await confirmDeleteChar(id, n); }; })(meta.id, meta.name)
+            }
+        ]
+    };
+
+    infoLines.push(actionRow);
+
+    return {
+        type: 'box',
+        style: {
+            padding: '10px', marginBottom: '8px', backgroundColor: 'bg2', borderRadius: '8px',
+            border: '1px solid var(--border-color, rgba(255,255,255,0.1))',
+            borderLeft: `4px solid ${isScene ? '#7ec8a0' : 'rgba(255,255,255,0.12)'}`,
+            opacity: meta.active ? '1' : '0.6'
+        },
+        content: [{
+            // alignment: 'center' vertically centers the avatar unit against the info column
+            type: 'row', alignment: 'center', style: { gap: '12px' }, content: [
+                avatarCol,
+                { type: 'column', style: { flex: '1 1 0', minWidth: 0, gap: '0' }, content: infoLines }
+            ]
+        }]
+    };
+}
+
+// ============================================================================
+// CONFIG MODAL
+// ============================================================================
+
+async function mutConfig(fn: (c: GlobalConfig) => void): Promise<void> { const c = await loadConfig(); fn(c); await saveConfig(c); }
+async function refreshConfigModal(): Promise<void> { if (!configModalHandle || configModalHandle.isClosed()) return; await configModalHandle.update({ content: await buildConfigContent() }); }
+async function openConfigModal(): Promise<void> {
+    if (configModalHandle && !configModalHandle.isClosed()) configModalHandle.close();
+    configModalHandle = await api.v1.ui.modal.open({ id: 'ce-config', size: 'full', fillWidth: true, title: '⚙ Character Engine Settings', content: await buildConfigContent() });
+}
+
+async function buildConfigContent(): Promise<UIPart[]> {
+    const cfg = await loadConfig(); const parts: UIPart[] = [];
+    parts.push({ type: 'collapsibleSection', title: '⏱ Engine Timing', initialCollapsed: false, storageKey: 'temp:ce_cfg_timing', content: [
+        { type: 'text', text: 'How many context tokens must pass before each update type fires.', style: { fontSize: '11px', opacity: '0.6', marginBottom: '10px' } },
+        { type: 'sliderInput', label: 'Ephemeral (Thoughts) Interval', min: 100, max: 2000, step: 50, initialValue: cfg.thoughtIntervalTokens, suffix: ' tokens', defaultValue: 350, onChange: async function(v: number) { await mutConfig(function(c) { c.thoughtIntervalTokens = v; }); } },
+        { type: 'sliderInput', label: 'Mid-Range State Interval', min: 500, max: 10000, step: 250, initialValue: cfg.dynamicIntervalTokens, suffix: ' tokens', defaultValue: 2500, onChange: async function(v: number) { await mutConfig(function(c) { c.dynamicIntervalTokens = v; }); } },
+        { type: 'sliderInput', label: 'Arc & Relationship Interval', min: 2000, max: 20000, step: 500, initialValue: cfg.arcIntervalTokens, suffix: ' tokens', defaultValue: 6000, onChange: async function(v: number) { await mutConfig(function(c) { c.arcIntervalTokens = v; }); } },
+        { type: 'sliderInput', label: 'Hook Scan Interval', min: 2000, max: 20000, step: 500, initialValue: cfg.hookIntervalTokens, suffix: ' tokens', defaultValue: 4000, onChange: async function(v: number) { await mutConfig(function(c) { c.hookIntervalTokens = v; }); } },
+        { type: 'sliderInput', label: 'Max Ephemeral Injections per Generation', min: 1, max: 5, step: 1, initialValue: cfg.ephemeralCap, defaultValue: 1, onChange: async function(v: number) { await mutConfig(function(c) { c.ephemeralCap = v; }); } },
+        { type: 'sliderInput', label: 'Default Context Budget Cap', min: 100, max: 2000, step: 50, initialValue: cfg.defaultBudgetCap, suffix: ' tokens', defaultValue: 600, onChange: async function(v: number) { await mutConfig(function(c) { c.defaultBudgetCap = v; }); } },
+    ] });
+    parts.push({ type: 'collapsibleSection', title: '🔧 Defaults & Behavior', initialCollapsed: true, storageKey: 'temp:ce_cfg_def', content: [
+        { type: 'checkboxInput', label: 'Auto-update mid-range & arc states', initialValue: cfg.autoUpdateDefault, onChange: async function(v: boolean) { await mutConfig(function(c) { c.autoUpdateDefault = v; }); } },
+        { type: 'checkboxInput', label: 'Auto-generate ephemeral thoughts', initialValue: cfg.autoThoughtsDefault, onChange: async function(v: boolean) { await mutConfig(function(c) { c.autoThoughtsDefault = v; }); } },
+        { type: 'checkboxInput', label: 'Show field headers in context injection', initialValue: cfg.showFieldHeaders, onChange: async function(v: boolean) { await mutConfig(function(c) { c.showFieldHeaders = v; }); } },
+    ] });
+    parts.push({ type: 'collapsibleSection', title: '✍ Generation Style', initialCollapsed: true, storageKey: 'temp:ce_cfg_style', content: [
+        { type: 'text', text: 'Injected at the top of every generation prompt. Controls overall tone and register.', style: { fontSize: '11px', opacity: '0.6', marginBottom: '8px' } },
+        { type: 'multilineTextInput', initialValue: cfg.generalStyle, style: { minHeight: '100px' }, onChange: async function(v: string) { await mutConfig(function(c) { c.generalStyle = v; }); } },
+        { type: 'button', text: 'Reset to Default', style: { fontSize: '11px', marginTop: '6px' }, callback: async function() { await mutConfig(function(c) { c.generalStyle = DEFAULT_GENERAL_STYLE; }); await refreshConfigModal(); } }
+    ] });
+    const fieldSections: UIPart[] = STATIC_FIELD_DEFS.map(function(def) {
+        return { type: 'collapsibleSection', title: cfg.fieldLabels[def.key] || def.label, initialCollapsed: true, storageKey: `temp:ce_cfg_f_${def.key}`, content: [
+            { type: 'textInput', label: 'Display Label', initialValue: cfg.fieldLabels[def.key] || def.label, onChange: async function(v: string) { await mutConfig(function(c) { c.fieldLabels[def.key] = v; }); } },
+            { type: 'multilineTextInput', label: 'Generation Instructions', initialValue: cfg.fieldInstructions[def.key] || def.defaultInstructions, style: { minHeight: '80px' }, onChange: async function(v: string) { await mutConfig(function(c) { c.fieldInstructions[def.key] = v; }); } },
+            { type: 'sliderInput', label: 'Generation Token Budget', min: 50, max: 500, step: 25, initialValue: cfg.fieldBudgets[def.key] || def.defaultBudget, suffix: ' tokens', defaultValue: def.defaultBudget, onChange: async function(v: number) { await mutConfig(function(c) { c.fieldBudgets[def.key] = v; }); } },
+            { type: 'button', text: 'Reset Instructions', style: { fontSize: '11px', marginTop: '4px' }, callback: async function() { await mutConfig(function(c) { c.fieldInstructions[def.key] = def.defaultInstructions; }); await refreshConfigModal(); } }
+        ] } as UIPart;
+    });
+    parts.push({ type: 'collapsibleSection', title: '📝 Static Field Settings', initialCollapsed: true, storageKey: 'temp:ce_cfg_fields', content: fieldSections });
+    const customFieldRows: UIPart[] = cfg.customStaticFields.map(function(cf, i) {
+        return { type: 'collapsibleSection', title: cf.label || `Custom Field ${i+1}`, initialCollapsed: true, storageKey: `temp:ce_cfg_cuf_${cf.id}`, content: [
+            { type: 'textInput', label: 'Label', initialValue: cf.label, onChange: async function(v: string) { await mutConfig(function(c) { c.customStaticFields[i].label = v; }); } },
+            { type: 'textInput', label: 'Placeholder', initialValue: cf.placeholder || '', onChange: async function(v: string) { await mutConfig(function(c) { c.customStaticFields[i].placeholder = v; }); } },
+            { type: 'multilineTextInput', label: 'Generation Instructions', initialValue: cf.instructions, style: { minHeight: '70px' }, onChange: async function(v: string) { await mutConfig(function(c) { c.customStaticFields[i].instructions = v; }); } },
+            { type: 'sliderInput', label: 'Generation Token Budget', min: 50, max: 500, step: 25, initialValue: cfg.fieldBudgets[cf.id] || 150, suffix: ' tokens', defaultValue: 150, onChange: async function(v: number) { await mutConfig(function(c) { c.fieldBudgets[cf.id] = v; }); } },
+            { type: 'button', text: '🗑 Remove Field', style: { fontSize: '11px', marginTop: '6px', color: '#ff6b6b' }, callback: async function() { await mutConfig(function(c) { c.customStaticFields.splice(i, 1); }); await refreshConfigModal(); } }
+        ] } as UIPart;
+    });
+    customFieldRows.push({ type: 'button', text: '+ Add Custom Field', iconId: 'plus', style: { marginTop: '8px' }, callback: async function() { await mutConfig(function(c) { c.customStaticFields.push({ id: api.v1.uuid(), label: 'Custom Field', placeholder: '', instructions: 'Provide relevant information for this field.' }); }); await refreshConfigModal(); } });
+    parts.push({ type: 'collapsibleSection', title: '🔧 Custom Static Fields', initialCollapsed: true, storageKey: 'temp:ce_cfg_custom', content: customFieldRows });
+    function buildPresetSection(title: string, items: string[], storageKey: string, addKey: string, onAdd: (v: string) => void, onRemove: (i: number) => void): UIPart {
+        const rows: UIPart[] = items.filter(Boolean).map(function(item, i) { return { type: 'row', alignment: 'center', style: { gap: '4px', marginBottom: '2px' }, content: [{ type: 'text', text: item, style: { flex: '1 1 0', fontSize: '12px' } }, { type: 'button', iconId: 'x', style: { margin: 0 }, callback: async function() { await mutConfig(function(c) { onRemove.call({ c }, i); }); await refreshConfigModal(); } }] } as UIPart; });
+        rows.push({ type: 'row', style: { gap: '4px', marginTop: '4px' }, content: [{ type: 'textInput', placeholder: `Add ${title}...`, storageKey: `temp:${addKey}`, style: { flex: '1 1 0' } }, { type: 'button', iconId: 'plus', style: { margin: 0 }, callback: async function() { const v = await api.v1.tempStorage.get(addKey) as string || ''; if (!v.trim()) return; await mutConfig(function(c) { onAdd.call({ c }, v.trim()); }); await api.v1.tempStorage.remove(addKey); await refreshConfigModal(); } }] } as UIPart);
+        return { type: 'collapsibleSection', title, initialCollapsed: true, storageKey: `temp:${storageKey}`, content: rows };
+    }
+    parts.push({ type: 'collapsibleSection', title: '📋 Presets', initialCollapsed: true, storageKey: 'temp:ce_cfg_presets', content: [
+        buildPresetSection('Conditions', cfg.conditionPresets, 'ce_cfg_cond', 'ce_cfg_add_cond', function(v) { (this as any).c.conditionPresets.push(v); }, function(i) { (this as any).c.conditionPresets.splice(i, 1); }),
+        buildPresetSection('Story Roles', cfg.storyRolePresets, 'ce_cfg_roles', 'ce_cfg_add_role', function(v) { (this as any).c.storyRolePresets.push(v); }, function(i) { (this as any).c.storyRolePresets.splice(i, 1); }),
+        buildPresetSection('Relationship Archetypes', cfg.relationshipArchetypes, 'ce_cfg_rels', 'ce_cfg_add_rel', function(v) { (this as any).c.relationshipArchetypes.push(v); }, function(i) { (this as any).c.relationshipArchetypes.splice(i, 1); }),
+        buildPresetSection('Arc Types', cfg.arcTypePresets, 'ce_cfg_arcs', 'ce_cfg_add_arc', function(v) { (this as any).c.arcTypePresets.push(v); }, function(i) { (this as any).c.arcTypePresets.splice(i, 1); }),
+    ] });
+    const catItems: UIPart[] = cfg.sheetCategories.filter(Boolean).map(function(cat, ci) {
+        const fieldRows: UIPart[] = cat.fields.filter(Boolean).map(function(field, fi) { return { type: 'row', alignment: 'center', style: { gap: '4px', marginBottom: '2px' }, content: [{ type: 'textInput', initialValue: field.name, placeholder: 'Field name', style: { flex: '1 1 0' }, onChange: async function(v: string) { await mutConfig(function(c) { c.sheetCategories[ci].fields[fi].name = v; }); } }, { type: 'button', iconId: 'x', style: { margin: 0 }, callback: async function() { await mutConfig(function(c) { c.sheetCategories[ci].fields.splice(fi, 1); }); await refreshConfigModal(); } }] } as UIPart; });
+        const addFk = `ce_cfg_cat_af_${cat.id}`;
+        const enumRows: UIPart[] = cat.fieldType === 'enum' ? cat.enumValues.filter(Boolean).map(function(v, vi) { return { type: 'row', alignment: 'center', style: { gap: '4px', marginBottom: '2px' }, content: [{ type: 'text', text: v, style: { flex: '1 1 0', fontSize: '12px' } }, { type: 'button', iconId: 'x', style: { margin: 0 }, callback: async function() { await mutConfig(function(c) { c.sheetCategories[ci].enumValues.splice(vi, 1); }); await refreshConfigModal(); } }] } as UIPart; }) : [];
+        const addEk = `ce_cfg_cat_ae_${cat.id}`;
+        const catContent: UIPart[] = [
+            { type: 'textInput', label: 'Category Name', initialValue: cat.name, onChange: async function(v: string) { await mutConfig(function(c) { c.sheetCategories[ci].name = v; }); } },
+            { type: 'row', style: { gap: '4px', marginTop: '6px', marginBottom: '4px' }, content: [{ type: 'button', text: 'Text', style: { flex: '1 1 0', margin: 0, fontSize: '11px', backgroundColor: cat.fieldType === 'text' ? 'bg3' : undefined }, callback: async function() { await mutConfig(function(c) { c.sheetCategories[ci].fieldType = 'text'; }); await refreshConfigModal(); } }, { type: 'button', text: 'Number', style: { flex: '1 1 0', margin: 0, fontSize: '11px', backgroundColor: cat.fieldType === 'number' ? 'bg3' : undefined }, callback: async function() { await mutConfig(function(c) { c.sheetCategories[ci].fieldType = 'number'; }); await refreshConfigModal(); } }, { type: 'button', text: 'Enum', style: { flex: '1 1 0', margin: 0, fontSize: '11px', backgroundColor: cat.fieldType === 'enum' ? 'bg3' : undefined }, callback: async function() { await mutConfig(function(c) { c.sheetCategories[ci].fieldType = 'enum'; }); await refreshConfigModal(); } }] },
+            { type: 'text', text: 'Fields:', style: { fontSize: '11px', opacity: '0.6', marginBottom: '2px' } },
+            ...fieldRows,
+            { type: 'row', style: { gap: '4px', marginTop: '4px' }, content: [{ type: 'textInput', placeholder: 'Add field...', storageKey: `temp:${addFk}`, style: { flex: '1 1 0' } }, { type: 'button', iconId: 'plus', style: { margin: 0 }, callback: async function() { const v = await api.v1.tempStorage.get(addFk) as string || ''; if (!v.trim()) return; await mutConfig(function(c) { c.sheetCategories[ci].fields.push({ id: api.v1.uuid(), name: v.trim() }); }); await api.v1.tempStorage.remove(addFk); await refreshConfigModal(); } }] },
+        ];
+        if (cat.fieldType === 'enum') {
+            catContent.push({ type: 'text', text: 'Enum Values:', style: { fontSize: '11px', opacity: '0.6', marginTop: '8px', marginBottom: '2px' } });
+            catContent.push(...enumRows);
+            catContent.push({ type: 'row', style: { gap: '4px', marginTop: '4px' }, content: [{ type: 'textInput', placeholder: 'Add value...', storageKey: `temp:${addEk}`, style: { flex: '1 1 0' } }, { type: 'button', iconId: 'plus', style: { margin: 0 }, callback: async function() { const v = await api.v1.tempStorage.get(addEk) as string || ''; if (!v.trim()) return; await mutConfig(function(c) { c.sheetCategories[ci].enumValues.push(v.trim()); }); await api.v1.tempStorage.remove(addEk); await refreshConfigModal(); } }] } as UIPart);
+        }
+        catContent.push({ type: 'button', text: '🗑 Remove Category', style: { fontSize: '11px', marginTop: '10px', color: '#ff6b6b' }, callback: async function() { await mutConfig(function(c) { c.sheetCategories.splice(ci, 1); }); await refreshConfigModal(); } } as UIPart);
+        return { type: 'collapsibleSection', title: cat.name || 'Category', initialCollapsed: true, storageKey: `temp:ce_cfg_cat_${cat.id}`, content: catContent } as UIPart;
+    });
+    catItems.push({ type: 'button', text: '+ Add Category', iconId: 'plus', style: { marginTop: '8px' }, callback: async function() { await mutConfig(function(c) { c.sheetCategories.push({ id: api.v1.uuid(), name: 'New Category', fieldType: 'text', enumValues: [], fields: [] }); }); await refreshConfigModal(); } } as UIPart);
+    parts.push({ type: 'collapsibleSection', title: '📊 Character Sheet Categories', initialCollapsed: true, storageKey: 'temp:ce_cfg_sheet', content: catItems });
+    parts.push({ type: 'text', text: ' ', style: { marginBottom: '48px' } });
+    return parts;
+}
+
+// ============================================================================
+// EXPORT / IMPORT / DELETE
+// ============================================================================
+
+async function confirmDeleteChar(id: string, name: string): Promise<void> {
+    const m = await api.v1.ui.modal.open({ title: 'Confirm Delete', size: 'small', content: [
+        { type: 'text', text: `Delete "${name}"? This cannot be undone.`, style: { marginBottom: '16px' } },
+        { type: 'row', style: { gap: '8px' }, content: [
+            { type: 'button', text: 'Delete', style: { flex: '1 1 0', margin: 0, color: '#ff6b6b' }, callback: async function() { await deleteCharacter(id); m.close(); await refreshSidebar(); } },
+            { type: 'button', text: 'Cancel', style: { flex: '1 1 0', margin: 0 }, callback: function() { m.close(); } }
+        ] }
+    ] });
+}
+
+async function exportCharacter(char: CharacterRecord): Promise<void> {
+    try { const safe = char.name.replace(/[^a-z0-9]/gi, '_'); await api.v1.file.save(`${safe}_ce.json`, JSON.stringify(char, null, 2)); api.v1.ui.toast('Character exported.', { type: 'success' }); }
+    catch (e) { api.v1.ui.toast('Export failed.', { type: 'error' }); }
+}
+
+async function exportAll(): Promise<void> {
+    try { const chars = await loadAllCharacters(); const cfg = await loadConfig(); const data = { version: '0.5.2', exportedAt: Date.now(), config: cfg, characters: chars }; await api.v1.file.save('character_engine_export.json', JSON.stringify(data, null, 2)); api.v1.ui.toast(`Exported ${chars.length} characters.`, { type: 'success' }); }
+    catch (e) { api.v1.ui.toast('Export failed.', { type: 'error' }); }
+}
+
+async function importData(): Promise<void> {
+    try {
+        const raw = await api.v1.file.prompt({ accept: '.json', readAs: 'text' });
+        if (!raw || typeof raw !== 'string') return;
+        const data = JSON.parse(raw); let charCount = 0;
+        if (data.characters && Array.isArray(data.characters)) { for (const c of data.characters.filter(Boolean)) { await saveCharacter(migrateCharacter(c)); charCount++; } }
+        else if (data.id && data.name) { await saveCharacter(migrateCharacter(data)); charCount = 1; }
+        if (data.config) { await saveConfig(migrateConfig({ ...makeDefaultConfig(), ...data.config })); }
+        api.v1.ui.toast(`Imported ${charCount} character(s).`, { type: 'success' });
+        await refreshSidebar();
+    } catch (e) { api.v1.ui.toast('Import failed. Check file format.', { type: 'error' }); }
+}
+
+// ============================================================================
+// CHARACTER EDIT MODAL
+// ============================================================================
+
+async function openCharEditModal(charId: string): Promise<void> {
+    if (charEditModalHandle && !charEditModalHandle.isClosed()) charEditModalHandle.close();
+    editingCharId = charId;
+    charEditModalHandle = await api.v1.ui.modal.open({ id: 'ce-char-edit', size: 'full', fillWidth: true, title: 'Edit Character', content: await buildCharEditContent(charId) });
+}
+async function refreshCharEditModal(): Promise<void> { if (!charEditModalHandle || charEditModalHandle.isClosed() || !editingCharId) return; await charEditModalHandle.update({ content: await buildCharEditContent(editingCharId) }); }
+
+function buildEventHistorySection(char: CharacterRecord, cfg: GlobalConfig): UIPart {
+    const events: UIPart[] = char.eventHistory.map(function(ev, i) { return { type: 'row', style: { marginBottom: '6px', gap: '4px' }, content: [{ type: 'multilineTextInput', initialValue: ev.summary, style: { flex: '1 1 0', minHeight: '40px' }, onChange: async function(v: string) { const f = await loadCharacter(char.id); if (f) { f.eventHistory[i].summary = v; await saveCharacter(f); } } }, { type: 'button', iconId: 'trash', style: { margin: 0 }, callback: async function() { const f = await loadCharacter(char.id); if (f) { f.eventHistory.splice(i, 1); await saveCharacter(f); await refreshCharEditModal(); } } }] } as UIPart; });
+    return { type: 'collapsibleSection', title: `📜 Event History (${char.eventHistory.length})`, initialCollapsed: true, storageKey: `temp:ce_evts_${char.id}`, content: [
+        { type: 'text', text: 'Major character-shaping events. Used as background context by the engine.', style: { fontSize: '11px', opacity: '0.6', marginBottom: '8px' } },
+        ...events,
+        { type: 'row', style: { gap: '4px', marginTop: '8px' }, content: [
+            { type: 'button', text: '+ Add Blank', style: { flex: '1 1 0', margin: 0, fontSize: '11px' }, callback: async function() { const f = await loadCharacter(char.id); if (f) { f.eventHistory.push({ id: api.v1.uuid(), summary: '', timestamp: Date.now() }); await saveCharacter(f); await refreshCharEditModal(); } } },
+            { type: 'button', text: '⚡ Generate from Context', style: { flex: '1 1 0', margin: 0, fontSize: '11px' }, disabledWhileCallbackRunning: true, callback: async function() { api.v1.ui.toast('Generating summary...', { id: 'gen-ev', type: 'info', autoClose: false }); const summ = await generateEventSummary(char, cfg); if (summ) { const f = await loadCharacter(char.id); if (f) { f.eventHistory.push({ id: api.v1.uuid(), summary: summ, timestamp: Date.now() }); await saveCharacter(f); api.v1.ui.toast('Added.', { id: 'gen-ev', type: 'success', autoClose: 1000 }); await refreshCharEditModal(); } } else api.v1.ui.toast('Failed to generate.', { id: 'gen-ev', type: 'error', autoClose: 2000 }); } }
+        ] }
+    ] };
+}
+
+function buildArcSection(char: CharacterRecord, cfg: GlobalConfig): UIPart {
+    if (!char.arcEnabled) return { type: 'collapsibleSection', title: '📈 Character Arc', initialCollapsed: true, storageKey: `temp:ce_arc_${char.id}`, content: [{ type: 'checkboxInput', label: 'Enable Arc Tracking', initialValue: false, onChange: async function(v: boolean) { const f = await loadCharacter(char.id); if (f) { f.arcEnabled = v; await saveCharacter(f); await refreshCharEditModal(); } } }] };
+    const tkAs = `ce_tmp_as_${char.id}`;
+    const aspectItems: UIPart[] = char.developingAspects.map(function(asp, i) { return { type: 'row', alignment: 'center', style: { gap: '4px', marginBottom: '2px' }, content: [{ type: 'text', text: `• ${asp}`, style: { flex: '1 1 0', fontSize: '12px' } }, { type: 'button', iconId: 'x', style: { margin: 0, fontSize: '10px' }, callback: async function() { const f = await loadCharacter(char.id); if (f) { f.developingAspects.splice(i, 1); await saveCharacter(f); await refreshCharEditModal(); } } }] } as UIPart; });
+    const msItems: UIPart[] = char.arcMilestones.map(function(m, i) { return { type: 'row', alignment: 'center', style: { gap: '4px', marginBottom: '4px' }, content: [{ type: 'button', text: m.achieved ? '✓' : '○', style: { margin: 0, fontSize: '11px', color: m.achieved ? '#7ec8a0' : '#888' }, callback: async function() { const f = await loadCharacter(char.id); if (f) { f.arcMilestones[i].achieved = !f.arcMilestones[i].achieved; await saveCharacter(f); await refreshCharEditModal(); } } }, { type: 'multilineTextInput', initialValue: m.description, style: { flex: '1 1 0', fontSize: '12px', minHeight: '30px', opacity: m.achieved ? '0.45' : '1' }, onChange: async function(v: string) { const f = await loadCharacter(char.id); if (f) { f.arcMilestones[i].description = v; await saveCharacter(f); } } }, { type: 'button', iconId: 'trash', style: { margin: 0, fontSize: '10px' }, callback: async function() { const f = await loadCharacter(char.id); if (f) { f.arcMilestones.splice(i, 1); await saveCharacter(f); await refreshCharEditModal(); } } }] } as UIPart; });
+    return { type: 'collapsibleSection', title: '📈 Character Arc', initialCollapsed: true, storageKey: `temp:ce_arc_${char.id}`, content: [
+        { type: 'checkboxInput', label: 'Enable Arc Tracking', initialValue: true, onChange: async function(v: boolean) { const f = await loadCharacter(char.id); if (f) { f.arcEnabled = v; await saveCharacter(f); await refreshCharEditModal(); } } },
+        { type: 'textInput', label: 'Arc Type', placeholder: 'e.g. Redemption, Corruption...', initialValue: char.arcType, onChange: async function(v: string) { const f = await loadCharacter(char.id); if (f) { f.arcType = v; await saveCharacter(f); } } },
+        { type: 'text', text: 'Developing Aspects:', style: { fontSize: '11px', opacity: '0.6', marginTop: '8px', marginBottom: '2px' } },
+        ...aspectItems,
+        { type: 'row', style: { gap: '4px' }, content: [{ type: 'textInput', placeholder: 'e.g. Trust, Courage...', storageKey: `temp:${tkAs}`, style: { flex: '1 1 0' } }, { type: 'button', iconId: 'plus', style: { margin: 0 }, callback: async function() { const v = await api.v1.tempStorage.get(tkAs) as string || ''; if (!v.trim()) return; const f = await loadCharacter(char.id); if (f) { f.developingAspects.push(v.trim()); await saveCharacter(f); await api.v1.tempStorage.remove(tkAs); await refreshCharEditModal(); } } }] },
+        { type: 'multilineTextInput', label: 'Current State (internal position right now)', initialValue: char.arcCurrentState, style: { minHeight: '60px', marginTop: '8px' }, onChange: async function(v: string) { const f = await loadCharacter(char.id); if (f) { f.arcCurrentState = v; await saveCharacter(f); } } },
+        { type: 'multilineTextInput', label: 'Trajectory (vector of change — not destination)', initialValue: char.arcTrajectory, style: { minHeight: '60px' }, onChange: async function(v: string) { const f = await loadCharacter(char.id); if (f) { f.arcTrajectory = v; await saveCharacter(f); } } },
+        { type: 'button', text: '↺ Regenerate Arc State & Trajectory', style: { fontSize: '11px', marginTop: '4px' }, disabledWhileCallbackRunning: true, callback: async function() { const f = await loadCharacter(char.id); if (!f) return; const tc = await api.v1.tempStorage.get(STORAGE_TOKENS) as number || 0; api.v1.ui.toast('Generating Arc Update…', { id: 'ce-arc', autoClose: false, type: 'info' }); const success = await generateArcState(f, cfg, tc); if (success) { api.v1.ui.toast('Updated.', { id: 'ce-arc', type: 'success', autoClose: 2000 }); await refreshCharEditModal(); } else { api.v1.ui.toast('Generation failed — check console for AI output.', { id: 'ce-arc', type: 'error', autoClose: 3000 }); } } },
+        { type: 'textInput', label: 'End State (destination — optional)', initialValue: char.arcEndState, onChange: async function(v: string) { const f = await loadCharacter(char.id); if (f) { f.arcEndState = v; await saveCharacter(f); } } },
+        { type: 'text', text: 'Milestones', style: { fontSize: '12px', opacity: '0.7', marginTop: '12px', marginBottom: '4px' } },
+        ...msItems,
+        { type: 'row', style: { gap: '4px' }, content: [
+            { type: 'button', text: '+ Add Blank', style: { flex: '1 1 0', margin: 0, fontSize: '11px' }, callback: async function() { const f = await loadCharacter(char.id); if (f) { f.arcMilestones.push({ id: api.v1.uuid(), description: '', achieved: false }); await saveCharacter(f); await refreshCharEditModal(); } } },
+            { type: 'button', text: '⚡ Generate Suggestions', style: { flex: '1 1 0', margin: 0, fontSize: '11px' }, disabledWhileCallbackRunning: true, callback: async function() { api.v1.ui.toast('Generating milestones...', { id: 'gen-ms', type: 'info', autoClose: false }); const ms = await generateMilestonesJSON(char, 'arc', cfg); if (ms.length > 0) { const f = await loadCharacter(char.id); if (f) { ms.forEach(function(m) { f.arcMilestones.push({ id: api.v1.uuid(), description: m, achieved: false }); }); await saveCharacter(f); api.v1.ui.toast('Added.', { id: 'gen-ms', type: 'success', autoClose: 1000 }); await refreshCharEditModal(); } } else api.v1.ui.toast('Failed to parse output.', { id: 'gen-ms', type: 'error', autoClose: 2000 }); } }
+        ] }
+    ] };
+}
+
+function buildPrimaryRelSection(char: CharacterRecord, cfg: GlobalConfig): UIPart {
+    const rel = char.primaryRelationship; const tkTh = `ce_tmp_th_${char.id}`;
+    const thItems: UIPart[] = rel.threads.map(function(th, i) { return { type: 'row', alignment: 'center', style: { gap: '4px', marginBottom: '2px' }, content: [{ type: 'text', text: `• ${th}`, style: { flex: '1 1 0', fontSize: '12px' } }, { type: 'button', iconId: 'x', style: { margin: 0, fontSize: '10px' }, callback: async function() { const f = await loadCharacter(char.id); if (f) { f.primaryRelationship.threads.splice(i, 1); await saveCharacter(f); await refreshCharEditModal(); } } }] } as UIPart; });
+    const msItems: UIPart[] = rel.milestones.map(function(m, i) { return { type: 'row', alignment: 'center', style: { gap: '4px', marginBottom: '4px' }, content: [{ type: 'button', text: m.achieved ? '✓' : '○', style: { margin: 0, fontSize: '11px', color: m.achieved ? '#7ec8a0' : '#888' }, callback: async function() { const f = await loadCharacter(char.id); if (f) { f.primaryRelationship.milestones[i].achieved = !f.primaryRelationship.milestones[i].achieved; await saveCharacter(f); await refreshCharEditModal(); } } }, { type: 'multilineTextInput', initialValue: m.description, style: { flex: '1 1 0', fontSize: '12px', minHeight: '30px', opacity: m.achieved ? '0.45' : '1' }, onChange: async function(v: string) { const f = await loadCharacter(char.id); if (f) { f.primaryRelationship.milestones[i].description = v; await saveCharacter(f); } } }, { type: 'button', iconId: 'trash', style: { margin: 0, fontSize: '10px' }, callback: async function() { const f = await loadCharacter(char.id); if (f) { f.primaryRelationship.milestones.splice(i, 1); await saveCharacter(f); await refreshCharEditModal(); } } }] } as UIPart; });
+    return { type: 'collapsibleSection', title: '🔗 Primary Relationship', initialCollapsed: true, storageKey: `temp:ce_prel_${char.id}`, content: [
+        { type: 'textInput', label: 'Target Name', initialValue: rel.targetName, onChange: async function(v: string) { const f = await loadCharacter(char.id); if (f) { f.primaryRelationship.targetName = v; await saveCharacter(f); } } },
+        { type: 'textInput', label: 'Archetype', placeholder: 'e.g. Enemies to Lovers...', initialValue: rel.archetype, onChange: async function(v: string) { const f = await loadCharacter(char.id); if (f) { f.primaryRelationship.archetype = v; await saveCharacter(f); } } },
+        { type: 'textInput', label: 'How It Started', initialValue: rel.howItStarted, onChange: async function(v: string) { const f = await loadCharacter(char.id); if (f) { f.primaryRelationship.howItStarted = v; await saveCharacter(f); } } },
+        { type: 'text', text: 'Relationship Threads:', style: { fontSize: '11px', opacity: '0.6', marginTop: '8px', marginBottom: '2px' } },
+        ...thItems,
+        { type: 'row', style: { gap: '4px' }, content: [{ type: 'textInput', placeholder: 'e.g. Undeniable attraction...', storageKey: `temp:${tkTh}`, style: { flex: '1 1 0' } }, { type: 'button', iconId: 'plus', style: { margin: 0 }, callback: async function() { const v = await api.v1.tempStorage.get(tkTh) as string || ''; if (!v.trim()) return; const f = await loadCharacter(char.id); if (f) { f.primaryRelationship.threads.push(v.trim()); await saveCharacter(f); await api.v1.tempStorage.remove(tkTh); await refreshCharEditModal(); } } }] },
+        { type: 'multilineTextInput', label: 'Current Status (how they treat each other right now — behavioral, no history)', initialValue: rel.currentStatus, style: { minHeight: '60px', marginTop: '8px' }, onChange: async function(v: string) { const f = await loadCharacter(char.id); if (f) { f.primaryRelationship.currentStatus = v; await saveCharacter(f); } } },
+        { type: 'multilineTextInput', label: 'Trajectory (direction of movement — not current state, not destination)', initialValue: rel.trajectory, style: { minHeight: '50px' }, onChange: async function(v: string) { const f = await loadCharacter(char.id); if (f) { f.primaryRelationship.trajectory = v; await saveCharacter(f); } } },
+        { type: 'multilineTextInput', label: 'Summary (synthesis — origin, change, underlying tension)', initialValue: rel.summary, style: { minHeight: '60px' }, onChange: async function(v: string) { const f = await loadCharacter(char.id); if (f) { f.primaryRelationship.summary = v; await saveCharacter(f); } } },
+        { type: 'button', text: '↺ Regenerate Relationship State', style: { fontSize: '11px', marginTop: '4px' }, disabledWhileCallbackRunning: true, callback: async function() { const f = await loadCharacter(char.id); if (!f) return; const tc = await api.v1.tempStorage.get(STORAGE_TOKENS) as number || 0; api.v1.ui.toast('Generating Rel Update…', { id: 'ce-rel', autoClose: false, type: 'info' }); const success = await generateRelState(f, cfg, tc); if (success) { api.v1.ui.toast('Updated.', { id: 'ce-rel', type: 'success', autoClose: 2000 }); await refreshCharEditModal(); } else { api.v1.ui.toast('Generation failed — check console for AI output.', { id: 'ce-rel', type: 'error', autoClose: 3000 }); } } },
+        { type: 'text', text: 'Relationship Milestones', style: { fontSize: '12px', opacity: '0.7', marginTop: '8px', marginBottom: '4px' } },
+        ...msItems,
+        { type: 'row', style: { gap: '4px' }, content: [
+            { type: 'button', text: '+ Add Blank', style: { flex: '1 1 0', margin: 0, fontSize: '11px' }, callback: async function() { const f = await loadCharacter(char.id); if (f) { f.primaryRelationship.milestones.push({ id: api.v1.uuid(), description: '', achieved: false }); await saveCharacter(f); await refreshCharEditModal(); } } },
+            { type: 'button', text: '⚡ Generate Suggestions', style: { flex: '1 1 0', margin: 0, fontSize: '11px' }, disabledWhileCallbackRunning: true, callback: async function() { api.v1.ui.toast('Generating milestones...', { id: 'gen-rms', type: 'info', autoClose: false }); const ms = await generateMilestonesJSON(char, 'relationship', cfg); if (ms.length > 0) { const f = await loadCharacter(char.id); if (f) { ms.forEach(function(m) { f.primaryRelationship.milestones.push({ id: api.v1.uuid(), description: m, achieved: false }); }); await saveCharacter(f); api.v1.ui.toast('Added.', { id: 'gen-rms', type: 'success', autoClose: 1000 }); await refreshCharEditModal(); } } else api.v1.ui.toast('Failed to parse output.', { id: 'gen-rms', type: 'error', autoClose: 2000 }); } }
+        ] }
+    ] };
+}
+
+function buildDynamicStateSection(char: CharacterRecord, cfg: GlobalConfig): UIPart {
+    const eph = char.ephemeral; const mid = char.midRange;
+    const ephContent: UIPart[] = [];
+    if (eph) {
+        ephContent.push(
+            { type: 'box', style: { backgroundColor: 'bg1', padding: '8px', borderRadius: '4px', marginBottom: '8px' }, content: [{ type: 'text', text: `Event: "${eph.eventAnchor}"`, style: { fontSize: '11px', marginBottom: '2px' } }, { type: 'text', text: `Feeling: "${eph.emotionalResponse}"`, style: { fontSize: '11px', marginBottom: '2px' } }, { type: 'text', text: `Drive: "${eph.immediateDesire}"`, style: { fontSize: '11px', marginBottom: '6px' } }, { type: 'multilineTextInput', initialValue: eph.compressedLine, style: { fontSize: '11px', minHeight: '40px' }, onChange: async function(v: string) { const f = await loadCharacter(char.id); if (f && f.ephemeral) { f.ephemeral.compressedLine = v; await saveCharacter(f); } } }] },
+            { type: 'row', style: { gap: '4px' }, content: [{ type: 'button', text: '↺ Regenerate', style: { flex: '1 1 0', margin: 0, fontSize: '11px' }, disabledWhileCallbackRunning: true, callback: async function() { const f = await loadCharacter(char.id); if (!f) return; const tc = await api.v1.tempStorage.get(STORAGE_TOKENS) as number || 0; api.v1.ui.toast('Generating…', { id: 'ce-eph', autoClose: false, type: 'info' }); const success = await generateEphemeral(f, cfg, tc); if (success) { api.v1.ui.toast('Updated.', { id: 'ce-eph', type: 'success', autoClose: 2000 }); await refreshCharEditModal(); } else { api.v1.ui.toast('Failed to parse AI format.', { id: 'ce-eph', type: 'error', autoClose: 3000 }); } } }, { type: 'button', text: 'Clear', style: { margin: 0, fontSize: '11px' }, callback: async function() { const f = await loadCharacter(char.id); if (!f) return; f.ephemeral = null; await saveCharacter(f); await refreshCharEditModal(); } }] }
+        );
+        if (char.ephemeralHistory.filter(Boolean).length > 0) {
+            ephContent.push({ type: 'text', text: 'History:', style: { fontSize: '10px', opacity: '0.5', marginTop: '8px' } });
+            for (const h of char.ephemeralHistory.filter(Boolean)) { ephContent.push({ type: 'text', text: `  ${h.compressedLine}`, style: { fontSize: '10px', opacity: '0.4' } }); }
+        }
+    } else {
+        ephContent.push({ type: 'text', text: 'No snapshot yet. Generates automatically on generation end.', style: { fontSize: '11px', opacity: '0.5', marginBottom: '6px' } }, { type: 'button', text: '⚡ Force Generate', style: { fontSize: '11px' }, disabledWhileCallbackRunning: true, callback: async function() { const f = await loadCharacter(char.id); if (!f) return; const tc = await api.v1.tempStorage.get(STORAGE_TOKENS) as number || 0; api.v1.ui.toast('Generating…', { id: 'ce-eph', autoClose: false, type: 'info' }); const success = await generateEphemeral(f, cfg, tc); if (success) { api.v1.ui.toast('Updated.', { id: 'ce-eph', type: 'success', autoClose: 2000 }); await refreshCharEditModal(); } else { api.v1.ui.toast('Failed to parse AI format.', { id: 'ce-eph', type: 'error', autoClose: 3000 }); } } });
+    }
+    const midContent: UIPart[] = [];
+    if (mid) {
+        midContent.push({ type: 'multilineTextInput', label: 'Emotional Baseline', initialValue: mid.emotionalBaseline, style: { minHeight: '40px' }, onChange: async function(v) { const f = await loadCharacter(char.id); if (f?.midRange) { f.midRange.emotionalBaseline = v; await saveCharacter(f); } } }, { type: 'multilineTextInput', label: 'Current Stance', initialValue: mid.currentStance, style: { minHeight: '40px' }, onChange: async function(v) { const f = await loadCharacter(char.id); if (f?.midRange) { f.midRange.currentStance = v; await saveCharacter(f); } } }, { type: 'multilineTextInput', label: 'Recent Focus', initialValue: mid.recentFocus, style: { minHeight: '40px' }, onChange: async function(v) { const f = await loadCharacter(char.id); if (f?.midRange) { f.midRange.recentFocus = v; await saveCharacter(f); } } }, { type: 'button', text: '↺ Regenerate', style: { fontSize: '11px', marginTop: '4px' }, disabledWhileCallbackRunning: true, callback: async function() { const f = await loadCharacter(char.id); if (!f) return; const tc = await api.v1.tempStorage.get(STORAGE_TOKENS) as number || 0; api.v1.ui.toast('Generating…', { id: 'ce-mid', autoClose: false, type: 'info' }); const success = await generateMidRange(f, cfg, tc); if (success) { api.v1.ui.toast('Updated.', { id: 'ce-mid', type: 'success', autoClose: 2000 }); await refreshCharEditModal(); } else { api.v1.ui.toast('Failed to parse AI format.', { id: 'ce-mid', type: 'error', autoClose: 3000 }); } } });
+    } else {
+        midContent.push({ type: 'text', text: 'No mid-range state yet. Generates after several generations.', style: { fontSize: '11px', opacity: '0.5', marginBottom: '6px' } }, { type: 'button', text: '⚡ Force Generate', style: { fontSize: '11px' }, disabledWhileCallbackRunning: true, callback: async function() { const f = await loadCharacter(char.id); if (!f) return; const tc = await api.v1.tempStorage.get(STORAGE_TOKENS) as number || 0; api.v1.ui.toast('Generating…', { id: 'ce-mid', autoClose: false, type: 'info' }); const success = await generateMidRange(f, cfg, tc); if (success) { api.v1.ui.toast('Updated.', { id: 'ce-mid', type: 'success', autoClose: 2000 }); await refreshCharEditModal(); } else { api.v1.ui.toast('Failed to parse AI format.', { id: 'ce-mid', type: 'error', autoClose: 3000 }); } } });
+    }
+    return { type: 'collapsibleSection', title: '⚡ Dynamic State', initialCollapsed: false, storageKey: `temp:ce_dyn_${char.id}`, content: [{ type: 'collapsibleSection', title: 'Ephemeral Snapshot', initialCollapsed: false, storageKey: `temp:ce_eph_${char.id}`, content: ephContent }, { type: 'collapsibleSection', title: 'Mid-Range State', initialCollapsed: false, storageKey: `temp:ce_mid_${char.id}`, content: midContent }] };
+}
+
+function buildConditionsSection(char: CharacterRecord, cfg: GlobalConfig): UIPart {
+    const tmpNoteKey = `ce_tmp_cn_${char.id}`;
+    const condRows: UIPart[] = char.conditions.filter(Boolean).map(function(cond, i) { return { type: 'row', alignment: 'center', style: { gap: '6px', marginBottom: '4px' }, content: [{ type: 'text', text: cond.label || 'Unnamed', style: { fontWeight: 'bold', fontSize: '12px', flex: '0 0 auto', color: '#ffb432' } }, cond.note ? { type: 'text', text: cond.note, style: { flex: '1 1 0', fontSize: '11px', opacity: '0.65' } } : { type: 'container', content: [], style: { flex: '1 1 0' } }, { type: 'button', iconId: 'x', style: { margin: 0, fontSize: '10px' }, callback: async function() { const f = await loadCharacter(char.id); if (!f) return; f.conditions.splice(i, 1); await saveCharacter(f); await refreshCharEditModal(); } }] } as UIPart; });
+    return { type: 'collapsibleSection', title: `🌡 Conditions${char.conditions.length > 0 ? ` (${char.conditions.length} active)` : ''}`, initialCollapsed: false, storageKey: `temp:ce_cond_${char.id}`, content: [
+        { type: 'text', text: 'Temporary states that affect behavior and appear on character cards.', style: { fontSize: '11px', opacity: '0.6', marginBottom: '8px' } },
+        ...(condRows.length > 0 ? condRows : [{ type: 'text', text: 'No active conditions.', style: { fontSize: '11px', opacity: '0.4' } } as UIPart]),
+        { type: 'row', style: { gap: '4px', marginTop: '8px' }, content: [{ type: 'button', text: '(Select Preset...)', style: { margin: 0, fontSize: '11px', flex: '1 1 0' }, callback: async function() { const pm = await api.v1.ui.modal.open({ title: 'Condition Presets', size: 'small', content: [{ type: 'button', text: '✕ None (Clear)', style: { margin: '2px', display: 'block', width: '100%' }, callback: async function() { const c = await loadCharacter(char.id); if (c) { c.conditions = []; await saveCharacter(c); } pm.close(); await refreshCharEditModal(); } }, ...cfg.conditionPresets.filter(Boolean).map(function(p) { return { type: 'button', text: p, style: { margin: '2px', display: 'block', width: '100%' }, callback: async function() { const f = await loadCharacter(char.id); if (!f) return; const note = await api.v1.tempStorage.get(tmpNoteKey) as string || ''; f.conditions.push({ id: api.v1.uuid(), label: p, note: note.trim() || undefined }); await saveCharacter(f); await api.v1.tempStorage.remove(tmpNoteKey); pm.close(); await refreshCharEditModal(); } } as UIPart; })] }); } }, { type: 'textInput', placeholder: 'Note (optional)', storageKey: `temp:${tmpNoteKey}`, style: { flex: '1 1 0' } }] }
+    ] };
+}
+
+function buildHooksSection(char: CharacterRecord, cfg: GlobalConfig): UIPart {
+    const items: UIPart[] = char.hooks.filter(Boolean).map(function(hk, i) {
+        const imperative = npcPressureLabel(hk.pressureLevel);
+        return { type: 'collapsibleSection', title: `${hk.targetName || 'Unknown'} — ${imperative} (${hk.pressureLevel})`, initialCollapsed: true, storageKey: `temp:ce_hk_${char.id}_${hk.id}`, content: [
+            { type: 'textInput', label: 'Target (another character, NOT self)', initialValue: hk.targetName, onChange: async function(v: string) { const f = await loadCharacter(char.id); if (f) { f.hooks[i].targetName = v; await saveCharacter(f); } } },
+            { type: 'multilineTextInput', label: 'Hook Description (the core tension)', initialValue: hk.description, style: { minHeight: '50px' }, onChange: async function(v: string) { const f = await loadCharacter(char.id); if (f) { f.hooks[i].description = v; await saveCharacter(f); } } },
+            { type: 'sliderInput', label: `Pressure Level — ${imperative}`, min: 0, max: 100, step: 5, initialValue: hk.pressureLevel, onChange: async function(v: number) { const f = await loadCharacter(char.id); if (f) { f.hooks[i].pressureLevel = v; await saveCharacter(f); } } },
+            { type: 'text', text: 'Pressure 60+: injects as Active Tension (global cap: 2). Pressure 85+: injects as a DIRECTIVE (global cap: 1).', style: { fontSize: '10px', opacity: '0.5', marginBottom: '4px' } },
+            { type: 'multilineTextInput', label: 'Development Notes', initialValue: hk.developmentNotes.join('\n'), style: { minHeight: '80px' }, onChange: async function(v: string) { const f = await loadCharacter(char.id); if (f) { f.hooks[i].developmentNotes = v.split('\n').filter(Boolean); await saveCharacter(f); } } },
+            { type: 'row', style: { gap: '6px', marginTop: '8px' }, content: [{ type: 'button', text: hk.resolved ? '★ Resolved' : '☆ Mark Resolved', style: { flex: '1 1 0', margin: 0, fontSize: '11px', color: hk.resolved ? '#7ec8a0' : '#888' }, callback: async function() { const f = await loadCharacter(char.id); if (f) { f.hooks[i].resolved = !f.hooks[i].resolved; await saveCharacter(f); } await refreshCharEditModal(); } }, { type: 'button', iconId: 'trash', style: { margin: 0 }, callback: async function() { const f = await loadCharacter(char.id); if (!f) return; f.hooks.splice(i, 1); await saveCharacter(f); await refreshCharEditModal(); } }] }
+        ] } as UIPart;
+    });
+    return { type: 'collapsibleSection', title: '🪝 Unresolved Hooks & Tensions', initialCollapsed: true, storageKey: `temp:ce_hooks_${char.id}`, content: [
+        { type: 'text', text: 'External tensions between this character and others. Self-targeted hooks are stripped on load.', style: { fontSize: '11px', opacity: '0.6', marginBottom: '8px' } },
+        ...items,
+        { type: 'row', style: { gap: '4px' }, content: [
+            { type: 'button', text: '+ Add Blank', style: { flex: '1 1 0', margin: 0, fontSize: '11px' }, callback: async function() { const f = await loadCharacter(char.id); if (!f) return; f.hooks.push({ id: api.v1.uuid(), targetName: '', description: '', pressureLevel: 25, developmentNotes: [], resolved: false }); await saveCharacter(f); await refreshCharEditModal(); } },
+            { type: 'button', text: '⚡ Scan Context for Updates', style: { flex: '1 1 0', margin: 0, fontSize: '11px' }, disabledWhileCallbackRunning: true, callback: async function() { const f = await loadCharacter(char.id); if (!f) return; const tc = await api.v1.tempStorage.get(STORAGE_TOKENS) as number || 0; api.v1.ui.toast('Scanning hooks...', { id: 'ce-hk', autoClose: false, type: 'info' }); const success = await generateHookUpdates(f, cfg, tc); if (success) { api.v1.ui.toast('Hooks Updated.', { id: 'ce-hk', type: 'success', autoClose: 2000 }); await refreshCharEditModal(); } else { api.v1.ui.toast('Failed to parse AI output.', { id: 'ce-hk', type: 'error', autoClose: 3000 }); } } }
+        ] }
+    ] };
+}
+
+function buildEquipmentSection(char: CharacterRecord): UIPart {
+    const tk = `ce_tmp_ward_${char.id}`;
+    const equipped = new Set<string>(char.equippedItems);
+    const rows: UIPart[] = char.wardrobe.filter(Boolean).map(function(item, i) {
+        const isEq = equipped.has(item.id);
+        return { type: 'box', style: { marginBottom: '4px', backgroundColor: 'bg1', padding: '6px', borderRadius: '4px', borderLeft: `3px solid ${isEq ? '#7ec8a0' : 'transparent'}` }, content: [
+            { type: 'row', alignment: 'center', style: { gap: '6px' }, content: [{ type: 'text', text: isEq ? '●' : '○', style: { fontSize: '12px', color: isEq ? '#7ec8a0' : '#555', flexShrink: '0' } }, { type: 'textInput', initialValue: item.name, placeholder: 'Item name', style: { flex: '1 1 0' }, onChange: async function(v: string) { const f = await loadCharacter(char.id); if (!f) return; f.wardrobe[i].name = v; await saveCharacter(f); } }, { type: 'button', text: isEq ? 'Unequip' : 'Equip', style: { margin: 0, fontSize: '11px', color: isEq ? '#888' : '#7ec8a0' }, callback: (function(itId) { return async function() { const f = await loadCharacter(char.id); if (!f) return; const eq = new Set<string>(f.equippedItems); if (eq.has(itId)) eq.delete(itId); else eq.add(itId); f.equippedItems = Array.from(eq); await saveCharacter(f); await refreshCharEditModal(); }; })(item.id) }, { type: 'button', iconId: 'trash', style: { margin: 0, fontSize: '10px' }, callback: (function(idx, itId) { return async function() { const f = await loadCharacter(char.id); if (!f) return; f.wardrobe.splice(idx, 1); f.equippedItems = f.equippedItems.filter(function(x) { return x !== itId; }); await saveCharacter(f); await refreshCharEditModal(); }; })(i, item.id) }] },
+            { type: 'multilineTextInput', initialValue: item.description, placeholder: 'Description — this text is injected into context when worn...', style: { minHeight: '40px', marginTop: '4px' }, onChange: async function(v: string) { const f = await loadCharacter(char.id); if (!f) return; f.wardrobe[i].description = v; await saveCharacter(f); } }
+        ] } as UIPart;
+    });
+    return { type: 'collapsibleSection', title: '🎒 Equipment & Wardrobe', initialCollapsed: true, storageKey: `temp:ce_equip_${char.id}`, content: [
+        { type: 'text', text: 'Name is for reference. Description is injected into context when the item is worn.', style: { fontSize: '11px', opacity: '0.6', marginBottom: '8px' } },
+        ...(rows.length > 0 ? rows : [{ type: 'text', text: 'No items.', style: { fontSize: '11px', opacity: '0.4', marginBottom: '6px' } } as UIPart]),
+        { type: 'row', style: { gap: '4px', marginTop: '8px' }, content: [{ type: 'textInput', placeholder: 'Add item name...', storageKey: `temp:${tk}`, style: { flex: '1 1 0' } }, { type: 'button', iconId: 'plus', style: { margin: 0 }, callback: async function() { const v = await api.v1.tempStorage.get(tk) as string || ''; if (!v.trim()) return; const f = await loadCharacter(char.id); if (!f) return; f.wardrobe.push({ id: api.v1.uuid(), name: v.trim(), description: '' }); await saveCharacter(f); await api.v1.tempStorage.remove(tk); await refreshCharEditModal(); } }] }
+    ] };
+}
+
+function buildSheetSection(char: CharacterRecord, cfg: GlobalConfig): UIPart {
+    if (cfg.sheetCategories.filter(Boolean).length === 0) return { type: 'collapsibleSection', title: '📊 Character Sheet', initialCollapsed: true, storageKey: `temp:ce_sheet_${char.id}`, content: [{ type: 'text', text: 'No categories defined. Add them in ⚙ Settings.', style: { fontSize: '11px', opacity: '0.5' } }] };
+    const cats: UIPart[] = cfg.sheetCategories.filter(Boolean).map(function(cat) {
+        const fields: UIPart[] = cat.fields.filter(Boolean).map(function(field) {
+            const key = `${cat.id}.${field.id}`; const cur = char.sheetValues[key] || '';
+            if (cat.fieldType === 'enum' && cat.enumValues.filter(Boolean).length > 0) { return { type: 'column', style: { marginBottom: '8px' }, content: [{ type: 'text', text: field.name || 'Field', style: { fontSize: '11px', opacity: '0.6', marginBottom: '2px' } }, { type: 'button', text: cur || '(Select...)', style: { margin: 0, textAlign: 'left', fontSize: '12px' }, callback: async function() { const p = await api.v1.ui.modal.open({ title: field.name || 'Field', size: 'small', content: cat.enumValues.filter(Boolean).map(function(v) { return { type: 'button', text: v, style: { margin: '2px', backgroundColor: v === cur ? 'bg3' : undefined }, callback: async function() { const f = await loadCharacter(char.id); if (!f) return; f.sheetValues[key] = v; await saveCharacter(f); p.close(); await refreshCharEditModal(); } } as UIPart; }) }); } }] } as UIPart; }
+            return { type: 'textInput', label: field.name || 'Field', initialValue: cur, style: { marginBottom: '4px' }, onChange: async function(v: string) { const f = await loadCharacter(char.id); if (!f) return; f.sheetValues[key] = v; await saveCharacter(f); } } as UIPart;
+        });
+        return { type: 'collapsibleSection', title: cat.name || 'Category', initialCollapsed: false, storageKey: `temp:ce_shcat_${char.id}_${cat.id}`, content: fields } as UIPart;
+    });
+    return { type: 'collapsibleSection', title: '📊 Character Sheet', initialCollapsed: true, storageKey: `temp:ce_sheet_${char.id}`, content: cats };
+}
+
+function buildLorebookSection(char: CharacterRecord): UIPart {
+    const tmpNickKey = `ce_tmp_nick_${char.id}`;
+    const nickItems: UIPart[] = char.nicknames.filter(Boolean).map(function(nick, i) { return { type: 'row', alignment: 'center', style: { gap: '4px', marginBottom: '2px' }, content: [{ type: 'text', text: nick, style: { flex: '1 1 0', fontSize: '12px' } }, { type: 'button', iconId: 'x', style: { margin: 0, fontSize: '10px' }, callback: async function() { const f = await loadCharacter(char.id); if (!f) return; f.nicknames.splice(i, 1); await saveCharacter(f); await refreshCharEditModal(); } }] } as UIPart; });
+    const lbContent: UIPart[] = [];
+    if (char.lorebookEntryId) {
+        lbContent.push({ type: 'row', alignment: 'center', style: { gap: '6px', marginBottom: '6px' }, content: [{ type: 'text', text: '✓ Lorebook entry linked', style: { fontSize: '12px', color: '#7ec8a0', flex: '1 1 0' } }] }, { type: 'text', text: `Keys: ${getLorebookKeys(char).join(', ')}`, style: { fontSize: '11px', opacity: '0.55', marginBottom: '8px' } }, { type: 'row', style: { gap: '6px' }, content: [{ type: 'button', text: 'Sync Static Core', style: { flex: '1 1 0', margin: 0, fontSize: '11px' }, disabledWhileCallbackRunning: true, callback: async function() { await syncLorebookEntry(char.id); } }, { type: 'button', text: 'Unlink', style: { margin: 0, fontSize: '11px' }, callback: async function() { const f = await loadCharacter(char.id); if (!f) return; f.lorebookEntryId = undefined; await saveCharacter(f); await refreshCharEditModal(); } }] });
+    } else {
+        lbContent.push({ type: 'text', text: "No lorebook entry. Creating one lets NAI inject this character's static profile when their name appears in story text.", style: { fontSize: '11px', opacity: '0.6', marginBottom: '8px' } }, { type: 'button', text: '+ Create & Link Lorebook Entry', style: { width: '100%', marginBottom: '8px' }, disabledWhileCallbackRunning: true, callback: async function() { await createLinkedLorebookEntry(char.id); await refreshCharEditModal(); } });
+    }
+    lbContent.push({ type: 'checkboxInput', label: 'Featured — always gets ephemeral injection (overrides lorebook priority)', initialValue: char.featuredForEphemeral, onChange: async function(v) { const f = await loadCharacter(char.id); if (!f) return; f.featuredForEphemeral = v; await saveCharacter(f); } });
+    lbContent.push({ type: 'text', text: 'Nicknames / Aliases (added as lorebook keys):', style: { fontSize: '11px', opacity: '0.6', marginTop: '12px', marginBottom: '4px' } }, ...nickItems, { type: 'row', style: { gap: '4px' }, content: [{ type: 'textInput', placeholder: 'Add nickname or alias...', storageKey: `temp:${tmpNickKey}`, style: { flex: '1 1 0' } }, { type: 'button', iconId: 'plus', style: { margin: 0 }, callback: async function() { const v = await api.v1.tempStorage.get(tmpNickKey) as string || ''; if (!v.trim()) return; const f = await loadCharacter(char.id); if (!f) return; if (!f.nicknames.includes(v.trim())) f.nicknames.push(v.trim()); await saveCharacter(f); await api.v1.tempStorage.remove(tmpNickKey); await refreshCharEditModal(); } }] });
+    return { type: 'collapsibleSection', title: '📖 Lorebook & Priority', initialCollapsed: true, storageKey: `temp:ce_lore_${char.id}`, content: lbContent };
+}
+
+function buildAIField(c: { charId: string; fieldKey: string; label: string; placeholder?: string; instructions: string; generalStyle: string; initialValue: string; minHeight?: string; maxTokens: number; onSave: (v: string) => Promise<void>; }): UIPart {
+    return { type: 'column', style: { marginBottom: '12px' }, content: [{ type: 'row', alignment: 'center', spacing: 'space-between', style: { marginBottom: '2px' }, content: [{ type: 'text', text: c.label || 'Field', style: { fontSize: '11px', opacity: '0.6' } }, { type: 'button', text: '⚡', style: { margin: 0, fontSize: '11px', padding: '1px 6px' }, callback: async function() { await openFieldGenerateModal(c.charId, c.label, c.instructions, c.generalStyle, c.maxTokens, c.onSave); } }] }, { type: 'multilineTextInput', initialValue: c.initialValue, placeholder: c.placeholder, style: { minHeight: c.minHeight || '80px' }, onChange: c.onSave }] };
+}
+
+async function openFieldGenerateModal(charId: string, fieldLabel: string, instructions: string, generalStyle: string, maxTokens: number, onApply: (v: string) => Promise<void>): Promise<void> {
+    const hk = `ce_fg_h_${charId}_${fieldLabel.replace(/\s/g, '_')}`; const rk = `ce_fg_r_${charId}_${fieldLabel.replace(/\s/g, '_')}`;
+    await api.v1.tempStorage.remove(rk); let gm: any;
+    function buildContent(result: string): UIPart[] {
+        const pts: UIPart[] = [{ type: 'multilineTextInput', label: 'Focus / hint (optional)', placeholder: 'Optional direction...', storageKey: `temp:${hk}`, style: { minHeight: '60px', marginBottom: '8px' } }, { type: 'button', text: '⚡ Generate', disabledWhileCallbackRunning: true, callback: async function() { const char = await loadCharacter(charId); if (!char) return; const hint = await api.v1.tempStorage.get(hk) as string || ''; api.v1.ui.toast('Generating…', { id: 'ce-gen', autoClose: false, type: 'info' }); try { const text = await generateFieldContent(char, fieldLabel, instructions, generalStyle, hint, maxTokens); await api.v1.tempStorage.set(rk, text); api.v1.ui.toast('Done.', { id: 'ce-gen', type: 'success', autoClose: 2000 }); await gm.update({ content: buildContent(text) }); } catch { api.v1.ui.toast('Failed.', { id: 'ce-gen', type: 'error', autoClose: 3000 }); } } }];
+        if (result) { pts.push({ type: 'text', text: 'Result:', style: { fontSize: '11px', opacity: '0.6', marginTop: '12px' } }, { type: 'multilineTextInput', initialValue: result, style: { minHeight: '100px' }, onChange: async function(v) { await api.v1.tempStorage.set(rk, v); } }, { type: 'row', style: { gap: '8px', marginTop: '8px' }, content: [{ type: 'button', text: 'Apply', style: { flex: '1 1 0', margin: 0 }, callback: async function() { const final = await api.v1.tempStorage.get(rk) as string || result; await onApply(final); await api.v1.tempStorage.remove(rk); await api.v1.tempStorage.remove(hk); gm.close(); await refreshCharEditModal(); } }, { type: 'button', text: 'Cancel', style: { margin: 0 }, callback: async function() { gm.close(); } }] }); }
+        return pts;
+    }
+    gm = await api.v1.ui.modal.open({ title: `⚡ Generate: ${fieldLabel}`, size: 'medium', content: buildContent('') });
+}
+
+function buildPortraitPicker(char: CharacterRecord, onSelect: (k: string|undefined) => Promise<void>): UIPart {
+    const img: UIPart = char.portraitKey ? { type: 'image', src: `{{story:${char.portraitKey}}}`, width: 72, height: 72, style: { borderRadius: '8px', objectFit: 'cover', display: 'block' } } : { type: 'box', style: { width: '72px', height: '72px', borderRadius: '8px', backgroundColor: 'bg1', display: 'flex', alignItems: 'center', justifyContent: 'center' }, content: [{ type: 'text', text: (char.name || '?').charAt(0).toUpperCase(), style: { fontSize: '26px', fontWeight: 'bold', opacity: '0.45' } }] };
+    const btns: UIPart[] = [{ type: 'button', text: char.portraitKey ? 'Change' : 'Upload', iconId: 'image', style: { margin: 0, fontSize: '11px' }, disabledWhileCallbackRunning: true, callback: async function() { const f = await api.v1.file.prompt({ accept: 'image/*', readAs: 'dataURL' }); if (!f || typeof f !== 'string') return; const key = `ce_portrait_${char.id}`; await api.v1.storyStorage.set(key, f); await onSelect(key); } }];
+    if (char.portraitKey) btns.push({ type: 'button', iconId: 'x', style: { margin: 0, fontSize: '11px' }, callback: async function() { if (char.portraitKey) await api.v1.storyStorage.remove(char.portraitKey); await onSelect(undefined); } });
+    return { type: 'column', alignment: 'center', style: { gap: '4px' }, content: [img, ...btns] };
+}
+
+function buildStoryRoleSelector(char: CharacterRecord, cfg: GlobalConfig, onSelect: (r: string) => Promise<void>): UIPart {
+    return { type: 'column', content: [{ type: 'text', text: 'Story Role', style: { fontSize: '11px', opacity: '0.6', marginBottom: '2px' } }, { type: 'button', text: char.storyRole || '(Select role...)', style: { margin: 0, textAlign: 'left', fontSize: '12px' }, callback: async function() { const btns: UIPart[] = cfg.storyRolePresets.filter(Boolean).map(function(role) { return { type: 'button', text: role, style: { margin: '2px', backgroundColor: role === char.storyRole ? 'bg3' : undefined }, callback: async function() { await onSelect(role === 'Custom' ? '' : role); rm.close(); } }; }); const rm = await api.v1.ui.modal.open({ title: 'Story Role', size: 'medium', content: [{ type: 'column', style: { gap: '2px' }, content: btns }] }); } }] };
+}
+
+function buildCoreValuesEditor(char: CharacterRecord): UIPart {
+    const tk = `ce_tmp_val_${char.id}`;
+    const items: UIPart[] = char.coreValues.filter(Boolean).map(function(val, i) { return { type: 'row', alignment: 'center', style: { gap: '4px', marginBottom: '2px' }, content: [{ type: 'text', text: `• ${val}`, style: { flex: '1 1 0', fontSize: '12px' } }, { type: 'button', iconId: 'x', style: { margin: 0, fontSize: '10px' }, callback: async function() { const f = await loadCharacter(char.id); if (!f) return; f.coreValues.splice(i, 1); await saveCharacter(f); await refreshSidebar(); await refreshCharEditModal(); } }] } as UIPart; });
+    return { type: 'column', style: { marginBottom: '8px' }, content: [{ type: 'text', text: 'Core Values & Lines in the Sand', style: { fontSize: '12px', opacity: '0.7', marginBottom: '4px' } }, ...items, { type: 'row', style: { gap: '4px' }, content: [{ type: 'textInput', placeholder: 'Add a value or limit...', storageKey: `temp:${tk}`, style: { flex: '1 1 0' } }, { type: 'button', iconId: 'plus', style: { margin: 0 }, callback: async function() { const v = await api.v1.tempStorage.get(tk) as string || ''; if (!v.trim()) return; const f = await loadCharacter(char.id); if (!f) return; f.coreValues.push(v.trim()); await saveCharacter(f); await api.v1.tempStorage.remove(tk); await refreshSidebar(); await refreshCharEditModal(); } }] }] };
+}
+
+async function buildCharEditContent(charId: string): Promise<UIPart[]> {
+    const char = await loadCharacter(charId); if (!char) return [{ type: 'text', text: 'Character not found.' }];
+    const cfg = await loadConfig(); const parts: UIPart[] = [];
+    const activeEntryIds = new Set<string>();
+    const estTokens = estimateCharTokens(char, activeEntryIds, cfg);
+    async function mut(fn: (c: CharacterRecord) => void): Promise<void> { const f = await loadCharacter(charId); if (!f) return; fn(f); await saveCharacter(f); await refreshSidebar(); }
+    parts.push({ type: 'row', alignment: 'center', style: { gap: '12px', marginBottom: '12px' }, content: [buildPortraitPicker(char, async function(key) { await mut(function(c) { c.portraitKey = key; }); await refreshCharEditModal(); }), { type: 'column', style: { flex: '1 1 0', gap: '6px' }, content: [{ type: 'textInput', label: 'Name', initialValue: char.name, onChange: async function(v) { await mut(function(c) { c.name = v; }); } }, buildStoryRoleSelector(char, cfg, async function(r) { await mut(function(c) { c.storyRole = r; }); await refreshCharEditModal(); })] }] });
+    parts.push({ type: 'column', style: { marginBottom: '12px' }, content: [{ type: 'text', text: 'Character Concept', style: { fontWeight: 'bold', fontSize: '13px', marginBottom: '2px' } }, { type: 'text', text: 'Used only for initial static field generation. Not injected into live state updates.', style: { fontSize: '10px', opacity: '0.5', marginBottom: '6px' } }, { type: 'multilineTextInput', initialValue: char.conceptDump || '', placeholder: 'Dump ideas, profiles, references — AI uses this when generating static fields only...', style: { minHeight: '80px' }, onChange: async function(v) { await mut(function(c) { c.conceptDump = v; }); } }] });
+    parts.push({ type: 'collapsibleSection', title: '📋 Dramatis Personae', initialCollapsed: false, storageKey: `temp:ce_dp_${charId}`, content: [{ type: 'textInput', label: 'Species', placeholder: 'Leave blank to omit (human implied)', initialValue: char.species || '', onChange: async function(v) { await mut(function(c) { c.species = v; }); } }, { type: 'textInput', label: 'Age', placeholder: 'e.g. 24, mid-30s, ageless', initialValue: char.age || '', onChange: async function(v) { await mut(function(c) { c.age = v; }); } }, { type: 'textInput', label: 'Occupation / Party Role', placeholder: 'e.g. Court Mage, Knight, Childhood Friend', initialValue: char.occupationRole || '', onChange: async function(v) { await mut(function(c) { c.occupationRole = v; }); } }, { type: 'multilineTextInput', label: 'Brief Description (anchor line)', placeholder: 'One line the AI must never contradict.', initialValue: char.briefDescription || '', style: { minHeight: '60px' }, onChange: async function(v) { await mut(function(c) { c.briefDescription = v; }); } }] });
+    const staticCoreContent: UIPart[] = [...STATIC_FIELD_DEFS.map(function(def) { return buildAIField({ charId, fieldKey: def.key, label: cfg.fieldLabels[def.key] || def.label, placeholder: def.placeholder, instructions: cfg.fieldInstructions[def.key] || def.defaultInstructions, generalStyle: cfg.generalStyle, initialValue: (char as any)[def.key] || '', maxTokens: cfg.fieldBudgets[def.key] || def.defaultBudget, onSave: async function(v: string) { await mut(function(c) { (c as any)[def.key] = v; }); } }); }), buildCoreValuesEditor(char)];
+    for (const cf of cfg.customStaticFields.filter(Boolean)) { staticCoreContent.push(buildAIField({ charId, fieldKey: cf.id, label: cf.label, placeholder: cf.placeholder, instructions: cf.instructions, generalStyle: cfg.generalStyle, initialValue: char.customFieldValues[cf.id] || '', maxTokens: cfg.fieldBudgets[cf.id] || 150, onSave: async function(v: string) { await mut(function(c) { c.customFieldValues[cf.id] = v; }); } })); }
+    parts.push({ type: 'collapsibleSection', title: '🧱 Static Core', initialCollapsed: false, storageKey: `temp:ce_sc_${charId}`, content: staticCoreContent });
+    parts.push(buildDynamicStateSection(char, cfg));
+    parts.push(buildConditionsSection(char, cfg));
+    parts.push(buildHooksSection(char, cfg));
+    parts.push(buildEventHistorySection(char, cfg));
+    parts.push(buildArcSection(char, cfg));
+    parts.push(buildPrimaryRelSection(char, cfg));
+    parts.push(buildEquipmentSection(char));
+    parts.push(buildSheetSection(char, cfg));
+    parts.push(buildLorebookSection(char));
+    parts.push({ type: 'collapsibleSection', title: '⚙ Engine Settings', initialCollapsed: true, storageKey: `temp:ce_eng_${charId}`, content: [{ type: 'text', text: `Context Injection Budget: ~${estTokens} / ${char.budgetCap} tokens`, style: { fontSize: '11px', marginBottom: '4px', color: estTokens > char.budgetCap ? '#ff6b6b' : '#7ec8a0' } }, { type: 'sliderInput', label: 'Budget Cap', min: 100, max: 2000, step: 50, initialValue: char.budgetCap, suffix: ' tokens', defaultValue: cfg.defaultBudgetCap, onChange: async function(v) { await mut(function(c) { c.budgetCap = v; }); } }] });
+    parts.push({ type: 'row', style: { marginTop: '16px', gap: '8px' }, content: [{ type: 'button', text: 'Export', iconId: 'download', style: { flex: '1 1 0', margin: 0 }, disabledWhileCallbackRunning: true, callback: async function() { await exportCharacter(char); } }, { type: 'button', text: 'Delete', iconId: 'trash', style: { margin: 0, color: '#ff6b6b' }, callback: async function() { if (charEditModalHandle && !charEditModalHandle.isClosed()) charEditModalHandle.close(); await confirmDeleteChar(char.id, char.name); } }] });
+    parts.push({ type: 'text', text: ' ', style: { marginBottom: '48px' } });
+    return parts;
+}
+
+// ============================================================================
+// HOOKS
+// ============================================================================
+
+api.v1.hooks.register('onBeforeContextBuild', async function(params) {
+    if (params.dryRun) return;
+    try {
+        const activeIds = params.lorebookEntries
+            .filter(function(e) { return e[1].active; })
+            .map(function(e) { return e[0]; });
+        await api.v1.tempStorage.set(STORAGE_LORE_IDS, JSON.stringify(activeIds));
+    } catch (e) { api.v1.log('[CE] onBeforeContextBuild error:', e); }
+});
+
+api.v1.hooks.register('onContextBuilt', async function(params) {
+    if (params.dryRun) return;
+    try {
+        let estimatedTokens = 0;
+        for (const msg of params.messages) estimatedTokens += Math.ceil((msg.content || '').length / CHARS_PER_TOKEN);
+        await api.v1.tempStorage.set(STORAGE_TOKENS, estimatedTokens);
+
+        const index = await loadIndex(); const cfg = await loadConfig();
+        const raw = await api.v1.tempStorage.get(STORAGE_LORE_IDS) as string | undefined;
+        const activeEntryIds = new Set<string>(raw ? JSON.parse(raw) as string[] : []);
+
+        const allChars: CharacterRecord[] = [];
+        for (const m of index.filter(function(i){ return i.active; })) { const c = await loadCharacter(m.id); if (c) allChars.push(c); }
+
+        const dp = buildDramatisPersonae(index);
+        const earlyBlocks: string[] = [];
+        if (dp) earlyBlocks.push(dp);
+        for (const char of allChars) {
+            if (!charIsRelevant(char, activeEntryIds)) continue;
+            const block = buildCharInjection(char, activeEntryIds, cfg.showFieldHeaders, cfg.fieldLabels);
+            if (block) earlyBlocks.push(block);
+        }
+
+        const midLines: string[] = [];
+        for (const char of allChars) {
+            if (!charIsRelevant(char, activeEntryIds)) continue;
+            const line = buildMidRangeInjection(char); if (line) midLines.push(line);
+        }
+
+        // Global hook injection with caps
+        const hookItems: { char: CharacterRecord; hook: UnresolvedHook }[] = [];
+        for (const char of allChars) {
+            if (!charIsRelevant(char, activeEntryIds)) continue;
+            for (const hk of char.hooks.filter(function(h){ return !h.resolved; })) { if (hk.pressureLevel >= 60) hookItems.push({ char, hook: hk }); }
+        }
+        hookItems.sort(function(a, b){ return b.hook.pressureLevel - a.hook.pressureLevel; });
+
+        const urgentLines: string[] = []; const criticalLines: string[] = [];
+        let criticalCap = 1; let urgentCap = 2;
+        for (const item of hookItems) {
+            const { char, hook } = item;
+            if (hook.pressureLevel >= 85 && criticalCap > 0) { criticalLines.push(`[DIRECTIVE: The tension regarding "${hook.description}" between ${char.name} and ${hook.targetName} has reached a breaking point and MUST manifest in ${char.name}'s immediate actions or dialogue.]`); criticalCap--; }
+            else if (hook.pressureLevel >= 60 && hook.pressureLevel < 85 && urgentCap > 0) { const lastNote = hook.developmentNotes.length > 0 ? ` (${hook.developmentNotes[hook.developmentNotes.length - 1]})` : ''; urgentLines.push(`${char.name} ↔ ${hook.targetName}: ${hook.description}${lastNote}`); urgentCap--; }
+        }
+        if (urgentLines.length > 0) midLines.push(`[ Active Tensions ]\n${urgentLines.join('\n')}`);
+
+        const ephCandidates = allChars.filter(function(c){ return charIsRelevant(c, activeEntryIds) && !!c.ephemeral; });
+        ephCandidates.sort(function(a, b){ return charScore(b, activeEntryIds) - charScore(a, activeEntryIds); });
+        const ephLines: string[] = [];
+        for (const char of ephCandidates.slice(0, cfg.ephemeralCap)) { const line = buildEphemeralInjection(char); if (line) ephLines.push(line); }
+        if (criticalLines.length > 0) ephLines.push(criticalLines[0]);
+
+        const msgs = [...params.messages];
+
+        if (earlyBlocks.length > 0 || midLines.length > 0) {
+            const combined: string[] = [...earlyBlocks];
+            if (midLines.length > 0) combined.push('[ Character Dynamics ]\n' + midLines.join('\n'));
+            const si = msgs.findIndex(function(m){ return m.role === 'system'; });
+            const text = combined.join('\n\n');
+            if (si >= 0) msgs[si] = { ...msgs[si], content: msgs[si].content + '\n\n' + text };
+            else msgs.unshift({ role: 'system', content: text });
+        }
+
+        // CHANGE 8: Late block inserted before final assistant turn (prefill) if present,
+        // so character state appears immediately before generation rather than after prefill.
+        if (ephLines.length > 0) {
+            const lateBlock: Message = { role: 'system', content: '[ Character State — current ]\n' + ephLines.join('\n\n') + '\n***' };
+            const lastIdx = msgs.length - 1;
+            if (lastIdx >= 0 && msgs[lastIdx].role === 'assistant') {
+                msgs.splice(lastIdx, 0, lateBlock);
+            } else {
+                msgs.push(lateBlock);
+            }
+        }
+
+        return { messages: msgs };
+    } catch (e) { api.v1.error('[CE] onContextBuilt:', e); }
+});
+
+api.v1.hooks.register('onGenerationEnd', async function() {
+    try { await runDynamicEngine(); } catch (e) { api.v1.error('[CE] onGenerationEnd:', e); }
+});
+
+// ============================================================================
+// INITIALIZATION
+// ============================================================================
+
+api.v1.hooks.register('onScriptsLoaded', async function() {
+    try {
+        await api.v1.timers.sleep(300);
+        await api.v1.ui.register([{ type: 'sidebarPanel', id: 'ce-panel', name: '👥 Characters', iconId: 'users', content: [{ type: 'text', text: 'Loading...' }] }]);
+        await api.v1.permissions.request(['fileInput', 'fileDownload', 'lorebookEdit', 'storyEdit', 'documentEdit']);
+        await api.v1.timers.sleep(300);
+        await refreshSidebar();
+        api.v1.log('[CE] Character Engine v0.5.2 initialized.');
+    } catch (e) { api.v1.error('[CE] Init error:', e); }
+});
