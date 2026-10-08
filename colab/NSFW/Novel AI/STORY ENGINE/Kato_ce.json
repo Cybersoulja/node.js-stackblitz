@@ -1,0 +1,130 @@
+{
+  "id": "57c50c73-ba0d-4d32-bbf5-8eafc7c7c36d",
+  "name": "Kato",
+  "nicknames": [
+    "King Kato",
+    "Kato",
+    "King of the Southside"
+  ],
+  "scenePresent": true,
+  "active": true,
+  "featuredForEphemeral": true,
+  "coreValues": [
+    "Killing civilians, disrespecting the crown, him or his brother",
+    "Doesn't agree with the homophobia his crew indulges in",
+    "His strippers and his hoes are his property and untouchable",
+    "Disrespect the DJ screw shop or the mural and that's a death sentence"
+  ],
+  "customFieldValues": {},
+  "arcEnabled": true,
+  "arcType": "Newly Crowned",
+  "developingAspects": [
+    "Overwhelmed",
+    "Afraid of Success",
+    "Local Reputation"
+  ],
+  "arcCurrentState": "New King",
+  "arcTrajectory": "Wise King",
+  "arcEndState": "GOAT",
+  "arcMilestones": [
+    {
+      "id": "1337a8b7-3923-41c8-bcd3-161fb8f29699",
+      "description": "Complete first round of recruiting\n",
+      "achieved": false
+    },
+    {
+      "id": "42e88917-a225-457d-8415-314f323d0bb0",
+      "description": "Pass judgement on a street case",
+      "achieved": false
+    },
+    {
+      "id": "9c5445bc-9f69-47c1-a985-985ca47059de",
+      "description": "Promote Meech as Hand of the King",
+      "achieved": false
+    },
+    {
+      "id": "9fa6ff54-45ff-42d8-9c6d-c6f20c8a0156",
+      "description": "Gain legitimacy among club owners",
+      "achieved": false
+    },
+    {
+      "id": "c9e3dcdc-397d-4e21-9aca-d1564867f35d",
+      "description": "Rejects the title's obligations",
+      "achieved": false
+    },
+    {
+      "id": "8f3f5bb8-cbe2-4dd0-83c3-77ea38d4116f",
+      "description": "Defends his territory from rivals",
+      "achieved": false
+    },
+    {
+      "id": "1d68e84a-4e8c-4519-b475-3639b7faf57c",
+      "description": "Makes a costly leadership decision",
+      "achieved": false
+    },
+    {
+      "id": "0f350eb0-cb87-429e-9936-2b6df29b0b83",
+      "description": "Earns the respect of his people",
+      "achieved": false
+    },
+    {
+      "id": "85a5c424-67ef-4481-b1df-25358c746f2b",
+      "description": "Embraces the responsibility of rule",
+      "achieved": false
+    }
+  ],
+  "primaryRelationship": {
+    "targetName": "",
+    "archetype": "",
+    "howItStarted": "",
+    "threads": [],
+    "currentStatus": "",
+    "trajectory": "",
+    "summary": "",
+    "milestones": []
+  },
+  "eventHistory": [
+    {
+      "id": "a8e9f04f-6aba-496d-bcb5-71427a5cc29e",
+      "summary": "Kato ascended to the title of \"King of the Southside\" and was gifted a strip club, which he transformed into the successful and exclusive \"Chocolate Factory,\" marking his new reign.",
+      "timestamp": 1791426359300
+    }
+  ],
+  "ephemeral": null,
+  "ephemeralHistory": [],
+  "lastEphemeralTokens": 0,
+  "midRange": null,
+  "lastMidrangeTokens": 0,
+  "lastArcTokens": 0,
+  "lastHookTokens": 2925,
+  "conditions": [],
+  "hooks": [
+    {
+      "id": "a0a58aee-715f-45a4-99ce-67588c983993",
+      "targetName": "Meech",
+      "description": "Meech questions Kato's focus on talent over immediate financial stability.",
+      "pressureLevel": 30,
+      "developmentNotes": [],
+      "resolved": false
+    }
+  ],
+  "equippedItems": [],
+  "wardrobe": [],
+  "sheetValues": {},
+  "budgetCap": 600,
+  "autoUpdateEnabled": true,
+  "autoThoughtsEnabled": true,
+  "lastTokenEstimate": 525,
+  "createdAt": 1791425425533,
+  "updatedAt": 1791426745125,
+  "storyRole": "Protagonist",
+  "conceptDump": "Kato built his kingdom on two contradictions: he's a DJ who sells silence, and a king who deals in whispers. He earned \"Dirty Redd\" on the corners by being ruthlessly quiet while his brother Dubb, a loud and feared captain, handled the messy enforcement. The crown didn't change him; it just gave him a bigger sound system for the same game—he sells a version of pleasure that's built on the lies he never has to say out loud, and his real power is in the silence he holds over everyone who helped him get there.",
+  "age": "Late 30's",
+  "occupationRole": "King of the Southside",
+  "briefDescription": "Never snitch, never go against the family, never trick off money on women",
+  "physicalDescription": "Sharp, intelligent eyes that miss nothing. Skin the color of polished mahogany, smooth and clear. A low, tight fade frames a face with strong, defined jawline. A thin mustache sits above a full, decisive mouth. Muscular, compact build from a lifetime of street work and discipline. Stands with a confident, still posture, shoulders squared. A small, faded scar cuts through his left eyebrow.",
+  "voiceAndMannerisms": "Kato’s speech rhythm is a slow, deliberate drawl. He speaks with a Gulf Coast Texas accent, marked by the Southern vowel drawl, monophthongizing words like \"ride\" into a single, long sound. His measured cadence creates space, turning quiet into a tool of command. His signature physical habit is a subtle, almost imperceptible nod, a small dip of the chin that signals comprehension, approval, or dismissal without a word. He rarely raises his voice. His power is in the weighted pause, the silence that makes others lean in. He analyzes constantly, his eyes holding still while his mind works, betraying the placid exterior. This is a man who built an empire on what he doesn’t say.",
+  "personalityCore": "Driver: His power is in the silence he controls. He broadcasts a fantasy of pleasure while hoarding the secrets that give him leverage over everyone. His empire is the space between the beats, the threat in the unsaid. The wound is the same mechanism: he learned quiet is the only way to survive next to a brother who was all noise and violence. He outsourced enforcement to his family, becoming the strategist who never gets his hands dirty, a king whose crown is an archive of everyone else's sins. He sells silence because it’s the only weapon he’s ever truly trusted.",
+  "background": "Witnessed the street life by tagging along with his brother, the intelligent thug and tech genius of the neighborhood",
+  "lorebookEntryId": "0247fc89-bcdf-4333-9bdd-6d8bfff8bcd8"
+}
