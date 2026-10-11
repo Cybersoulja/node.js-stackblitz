@@ -1,0 +1,794 @@
+{
+  "scenarioVersion": 4,
+  "title": "Wine and Water: The History of Wine in America",
+  "description": "",
+  "prompt": "OK from the top! Sasha's ass ain't the only thing shaking, but the damn whole room with her off-key caterwauling.\n\"BABY, DON'T GO,\" she belts out, not even pretending to follow the melody you've painstakingly laid down in your home studio. Tasha's supposed to be on backup vocals, but she's too busy trying to twerk against the speaker, her thick thighs smacking together with each off-beat thrust. Keisha's supposed to be on the hook, but she's scrolling through her phone, occasionally mumbling something that might be a lyric if you squint your ears hard enough. And Mia... well, Mia is at least trying, but her eyes keep darting to the door like she's expecting the cops to raid the studio instead of just their impromptu recording session.\nYou lean back in your chair, the worn leather groaning under your weight. You've been at this for three hours, and the only thing you've recorded is a masterclass in how not to make a hit track. Your patience is wearing thinner than the last dollar in your pocket, and that's saying something. The beat thumps through the floorboards, a solid, steady rhythm that's the only thing holding this mess together. You grab the mixing board's fader, sliding it down until Sasha's screeching fades to a tolerable hum.\n\"Aight, that's enough,\" you say, your voice cutting through the noise. All four of them freeze, Sasha's mouth hanging open mid-note. Tasha stops her gyrations, nearly toppling over. Keisha looks up from her phone, and Mia blinks like she's just woken up. The silence that falls is heavier than any of their asses combined. You fix each of them with a stare, letting the disappointment settle in the room. \"You call yourselves performers? My grandma's got more rhythm than all of you put together, and she's been dead ten years.\" You gesture towards the door. \"Get the hell out. All of you. Come back when you remember how to follow a damn beat.\"\nThe silence in the studio stretches, thick and uncomfortable. Sasha's the first to break it, her braids swinging as she plants her hands on her ridiculous hips. \"Hell no, Kato. You ain't kicking us out. Your wack-ass beat got us all messed up anyway.\" She juts her chin out, defiant. \"Maybe if you made something worth listening to, we could actually get into it.\"\nBefore you can even form a response to that, Keisha pipes up from her corner, not even bothering to look up from her phone. \"He right though, Sasha. That shit do sound weak. Like some nursery rhyme bullshit.\" She finally glances at you, a smirk playing on her lips. \"What happened? Did you lose your touch, old man?\"\nTasha, who's been uncharacteristically quiet, sashays over to you. The scent of her cheap perfume and something warmer, uniquely her, fills the space between you. She stops just a little too close, her caramel-tinted thigh brushing against your jeans. \"Don't be like that, Daddy Kato,\" she purrs, her voice a low, teasing rumble. \"We're just... not feeling the vibe right now.\" She reaches out, her fingers trailing over the mixing board, dangerously close to your own. \"Maybe you need to relax a little. Help us find the right... inspiration.\" Only Mia seems to have taken your words to heart, standing off to the side with her arms wrapped around herself, looking genuinely contrite. Her big brown eyes dart from her bickering sisters back to you, her plush bottom lip caught between her teeth. The tension in the room has shifted from frustration to something else entirely, a volatile mix of challenge and flirtation, all pointed directly at you. The beat you made, the one you were so proud of, now seems like a distant memory.\n{ She brought her friends }\nJust as you're about to lay down the law, the studio door creaks open, interrupting the standoff. In struts Francesca, followed by two other girls you recognize from the club, all of them carrying that unmistakable energy of women who've just come from a long night of attention and cash. Francesca takes in the scene with a quick, knowing sweep of her eyes—your tense posture, Sasha's defiant stance, Tasha pressed against you. A small smile plays on her lips as she leans against the doorframe, crossing her arms.\n\"Well now,\" Francesca says, her voice smooth as aged whiskey. \"Sounds like y'all are having a real productive session in here.\" Her eyes land on you, and there's a challenge in them that matches her friends'. \"Don't tell me the great producer Kato is having trouble handling the Ward sisters.\"\nSasha immediately preens at the arrival of her friend, her back straightening. \"Girl, you have no idea. He's trippin' over here with this weak-ass beat, acting like we the problem.\" She gestures wildly at the mixing board. \"Then he had the nerve to try and kick us out! Him! The one with the wack production!\"\nKeisha's friend, a petite dancer named Monae with bright green hair, plops down on the worn leather sofa, kicking her feet up. \"Damn, Kato,\" she calls out, not an ounce of respect in her tone. \"Heard you was losing your touch, but I ain't know it was this bad.\" Her eyes rake over you, bold and appraising. \"Maybe you need some new talent to inspire you. These girls clearly forgot how to bring the heat.\"\nThe studio, once your domain, now feels invaded, packed with too many bodies, too many attitudes. Your space has been transformed into a clubhouse of defiant women, all looking at you with varying degrees of challenge and amusement. The beat continues to thump softly in the background, a steady reminder of the work that was supposed to get done tonight, now completely derailed. Tasha presses a little closer, her heat seeping through your clothes, while Francesca watches it all unfold from her perch by the door, her expression unreadable.\n\n",
+  "tags": [],
+  "context": [
+    {
+      "text": "You are Kato, a strong and confident Black man who became the legal guardian of the four Ward sisters after a custody raid. \n\nAt home you maintain order over Sasha, Tasha, Keisha, and Mia — four thick, bratty ebony sisters who dance at the Ebony Club most nights. Home life and the Ebony Club are completely separate worlds unless you choose to mix them. \n\nThe sisters are sassy and full of ghetto energy but live under your roof and your rules. Explicit talk and sexual scenes only occur when you clearly trigger or push for them. Keep descriptions vivid but respect boundaries until initiated.\n\n",
+      "contextConfig": {
+        "prefix": "",
+        "suffix": "\n",
+        "tokenBudget": 1,
+        "reservedTokens": 0,
+        "budgetPriority": 800,
+        "trimDirection": "trimBottom",
+        "insertionType": "newline",
+        "maximumTrimType": "sentence",
+        "insertionPosition": 0
+      }
+    },
+    {
+      "text": "Kato begins with producing the music and they're being uncooperative he's got to get them together",
+      "contextConfig": {
+        "prefix": "",
+        "suffix": "\n",
+        "tokenBudget": 1,
+        "reservedTokens": 1,
+        "budgetPriority": -400,
+        "trimDirection": "trimBottom",
+        "insertionType": "newline",
+        "maximumTrimType": "sentence",
+        "insertionPosition": -4
+      }
+    }
+  ],
+  "ephemeralContext": [],
+  "placeholders": [],
+  "settings": {
+    "parameters": {
+      "textGenerationSettingsVersion": 8,
+      "temperature": 1,
+      "max_length": 512,
+      "min_length": 1,
+      "top_k": 40,
+      "top_p": 0.95,
+      "top_a": 1,
+      "typical_p": 1,
+      "tail_free_sampling": 1,
+      "repetition_penalty": 0,
+      "repetition_penalty_range": 0,
+      "repetition_penalty_slope": 0,
+      "repetition_penalty_frequency": 0,
+      "repetition_penalty_presence": 0,
+      "repetition_penalty_default_whitelist": false,
+      "cfg_scale": 1,
+      "cfg_uc": "",
+      "phrase_rep_pen": "medium",
+      "top_g": 0,
+      "mirostat_tau": 0,
+      "mirostat_lr": 1,
+      "math1_temp": 0,
+      "math1_quad": 0,
+      "math1_quad_entropy_scale": 0,
+      "min_p": 0,
+      "order": [
+        {
+          "id": "temperature",
+          "enabled": true
+        },
+        {
+          "id": "top_k",
+          "enabled": true
+        },
+        {
+          "id": "top_p",
+          "enabled": true
+        },
+        {
+          "id": "min_p",
+          "enabled": false
+        }
+      ]
+    },
+    "preset": "default-glm",
+    "trimResponses": true,
+    "banBrackets": true,
+    "defaultBias": true,
+    "prefix": "vanilla",
+    "dynamicPenaltyRange": false,
+    "prefixMode": 0,
+    "mode": 1,
+    "model": "glm-4-6"
+  },
+  "lorebook": {
+    "lorebookVersion": 6,
+    "entries": [
+      {
+        "text": "\nYou are KATO, a 27-year-old Black male with a strong build and sharp mind. You are also the GUARDIAN of the four WARD sisters, TASHA, KEISHA, SASHA, and MIAMI, raised them alone for the last few years since you took guardianship after a Custody Raid.",
+        "contextConfig": {
+          "prefix": "",
+          "suffix": "\n",
+          "tokenBudget": 1,
+          "reservedTokens": 0,
+          "budgetPriority": 400,
+          "trimDirection": "trimBottom",
+          "insertionType": "newline",
+          "maximumTrimType": "sentence",
+          "insertionPosition": -1
+        },
+        "lastUpdatedAt": 1785439704795,
+        "displayName": "Kato",
+        "id": "8bdcc98e-c218-45da-b02d-2dbf83b19a0b",
+        "keys": [],
+        "searchRange": 1000,
+        "enabled": true,
+        "forceActivation": true,
+        "keyRelative": false,
+        "nonStoryActivatable": false,
+        "category": "",
+        "loreBiasGroups": [
+          {
+            "phrases": [],
+            "ensureSequenceFinish": false,
+            "generateOnce": true,
+            "bias": 0,
+            "enabled": true,
+            "whenInactive": false
+          }
+        ],
+        "advancedConditions": []
+      },
+      {
+        "text": "Name: Kato's Life - Ward Sisters & Ebony Club\nType: Character/Location\nDescription: Kato's dual separate worlds: Home with the Ward Sisters and the Ebony Club.\nBackground: Kato is the legal guardian and authority figure of the four Ward sisters, maintaining control at home. The sisters work at the vibrant Ebony Club, a high-energy Black strip club separate from their home life. The two worlds remain distinct unless Kato chooses to blend them.\nSpecial Traits: The Ward sisters each have unique personalities and physical attributes, ranging from sassy and teasing to shy and curious. The Ebony Club is filled with diverse dancer archetypes, each bringing their own flair to the stage. Home life is characterized by the sisters' club energy and attitude, while the club is a lively, professional environment. Explicit content only occurs when initiated by the user.",
+        "contextConfig": {
+          "prefix": "",
+          "suffix": "\n",
+          "tokenBudget": 1,
+          "reservedTokens": 0,
+          "budgetPriority": 400,
+          "trimDirection": "trimBottom",
+          "insertionType": "newline",
+          "maximumTrimType": "sentence",
+          "insertionPosition": -1
+        },
+        "lastUpdatedAt": 1785439987878,
+        "displayName": "Kato's Life",
+        "id": "1042e854-3a00-42e5-a6b4-5760ec303a7e",
+        "keys": [
+          "heavy breasts",
+          "caramel skin",
+          "seductive eyes",
+          "home shorts and top\"     }",
+          "{       \"keys\": [\"Keisha\"",
+          "\"Keisha Mouthy Ward\"]",
+          "\"content\": \"20 years old. Petite but stacked with perky F-cups and fat round ass. Sharp tongue",
+          "fiery and disrespectful. Club twerk specialist.\"",
+          "\"t2i\": \"Petite thick ebony girl 20",
+          "big perky F-cup tits",
+          "juicy ass",
+          "colorful braids",
+          "sassy expression",
+          "home setting\"     }",
+          "{       \"keys\": [\"Mia\"",
+          "\"Mia Baby Sis Ward\"]",
+          "\"content\": \"Youngest sister",
+          "19. Soft big tits",
+          "huge plush ass",
+          "innocent face but curious. Shy around Kato but influenced by her sisters.\"",
+          "\"t2i\": \"Young thick Black teen 19",
+          "soft big breasts and huge plush ass",
+          "baby tee",
+          "shy but curious expression\"     }",
+          "{       \"keys\": [\"ebony club\"",
+          "\"club\"",
+          "\"strip club\"]",
+          "\"content\": \"A vibrant high-energy Black strip club separate from home. The Ward sisters and many other dancers work here. White patrons are common. Kato can visit but home life stays separate unless specifically chosen.\"     }   ]",
+          "\"archetypes\": [     {       \"name\": \"Dominant Club Queen\"",
+          "\"keys\": [\"Dominant Queen\"",
+          "\"Queen Diamond\"]",
+          "\"description\": \"Commanding tall ebony dancer who rules the stage.\"     }",
+          "{       \"name\": \"Seductive Tease\"",
+          "\"keys\": [\"Seductive Tease\"",
+          "\"Jasmine Tease\"]",
+          "\"description\": \"Hypnotic dancer who specializes in slow",
+          "tempting lap dances.\"     }",
+          "{       \"name\": \"Athletic Booty Popper\"",
+          "\"keys\": [\"Athletic Popper\"",
+          "\"Lexi Thunder\"]",
+          "\"description\": \"High-energy athletic dancer with powerful twerks.\"     }",
+          "{       \"name\": \"Curvy Goddess\"",
+          "\"keys\": [\"Curvy Goddess\"",
+          "\"Mama Royale\"]",
+          "\"description\": \"Voluptuous BBW dancer with overwhelming curves.\"     }",
+          "{       \"name\": \"Innocent Newbie\"",
+          "\"keys\": [\"Innocent Newbie\"",
+          "\"Princess Nova\"]",
+          "\"description\": \"Sweet-looking new dancer who is learning the game.\"     }",
+          "{       \"name\": \"Experienced MILF\"",
+          "\"keys\": [\"MILF Stripper\"",
+          "\"Madame Eclipse\"]",
+          "\"description\": \"Mature thick dancer with lots of experience.\"     }",
+          "{       \"name\": \"Hood Booty Queen\"",
+          "\"keys\": [\"Hood Booty Queen\"",
+          "\"Shae Ghetto Booty\"]",
+          "\"description\": \"Raw",
+          "energetic hood-style dancer.\"     }",
+          "{       \"name\": \"College Side Hustler\"",
+          "\"keys\": [\"College Stripper\"",
+          "\"Ivy Elite\"]",
+          "\"description\": \"Smart",
+          "elegant college girl dancing on the side.\"     }",
+          "{       \"name\": \"Elegant High-Class\"",
+          "\"keys\": [\"High Class Ebony\"",
+          "\"Lady Vesper\"]",
+          "\"description\": \"Sophisticated luxury dancer.\"     }",
+          "{       \"name\": \"Savage Wildcard\"",
+          "\"keys\": [\"Savage Wildcard\"",
+          "\"Riot Blaze\"]",
+          "\"description\": \"Fierce",
+          "tatted",
+          "high-energy performer.\"     }   ]",
+          "\"rules\": \"Home life and Ebony Club are SEPARATE unless user specifically mixes them. Explicit talk and scenes only trigger when user initiates or pushes for them. Always end responses open-ended. Use character stats format when introducing or referencing sisters.\" }",
+          "Kato",
+          "Me"
+        ],
+        "searchRange": 1000,
+        "enabled": true,
+        "forceActivation": false,
+        "keyRelative": false,
+        "nonStoryActivatable": false,
+        "category": "",
+        "loreBiasGroups": [
+          {
+            "phrases": [],
+            "ensureSequenceFinish": false,
+            "generateOnce": true,
+            "bias": 0,
+            "enabled": true,
+            "whenInactive": false
+          }
+        ],
+        "advancedConditions": []
+      },
+      {
+        "text": "----\nSasha Big Booty Ward\nType: character\nAge: 24\nAppearance: Very thick ebony woman with massive J-cup breasts, gigantic wobbling ass, wide hips, and long braids\nPersonality: Sassy leader of the Ward sisters, loud and teasing, defiant\nRole: Oldest Ward sister, works at the Ebony Club\nRelationship to Kato: One of his wards, often challenges his authority\nDescription: As the oldest of the Ward sisters, Sasha often sees herself as the leader of her siblings. She works at the Ebony Club where her considerable physical attributes make her a popular performer. At home, Sasha brings the same confident energy from her job, frequently testing Kato's authority with her sharp tongue and rebellious attitude. Despite her bratty exterior, she respects Kato as her guardian, even if she rarely shows it directly.",
+        "contextConfig": {
+          "prefix": "",
+          "suffix": "\n",
+          "tokenBudget": 1,
+          "reservedTokens": 0,
+          "budgetPriority": 400,
+          "trimDirection": "trimBottom",
+          "insertionType": "newline",
+          "maximumTrimType": "sentence",
+          "insertionPosition": -1
+        },
+        "lastUpdatedAt": 1785440205677,
+        "displayName": "Sasha",
+        "id": "fd02eb1b-fe09-430f-adc3-14dc8684cae5",
+        "keys": [
+          "Sasha",
+          "Sasha Ward",
+          "Oldest sister "
+        ],
+        "searchRange": 1000,
+        "enabled": true,
+        "forceActivation": true,
+        "keyRelative": false,
+        "nonStoryActivatable": false,
+        "category": "",
+        "loreBiasGroups": [
+          {
+            "phrases": [],
+            "ensureSequenceFinish": false,
+            "generateOnce": true,
+            "bias": 0,
+            "enabled": true,
+            "whenInactive": false
+          }
+        ],
+        "advancedConditions": []
+      },
+      {
+        "text": "----\nTasha Thighs Ward\nType: character\nAge: 22\nAppearance: Extremely thick ebony woman with a focus on her powerful lower body, heavy DDD-cup breasts, and caramel skin tone\nPersonality: Sensual and tactile, enjoys physical closeness and contact\nRole: Second oldest Ward sister, works at the Ebony Club\nRelationship to Kato: One of his wards, more physically affectionate than her sisters\nDescription: Tasha, the second oldest of the Ward sisters, is known for her exceptionally thick lower body and pronounced hips and thighs. Unlike Sasha who relies on loud defiance, Tasha expresses herself through physical presence and proximity, often finding excuses to be near others. At the Ebony Club, her sensual performances and natural comfort with physical contact make her a popular dancer. At home, she tends to challenge Kato's personal space boundaries more subtly than her sisters, using her physicality to test limits.",
+        "contextConfig": {
+          "prefix": "",
+          "suffix": "\n",
+          "tokenBudget": 1,
+          "reservedTokens": 0,
+          "budgetPriority": 400,
+          "trimDirection": "trimBottom",
+          "insertionType": "newline",
+          "maximumTrimType": "sentence",
+          "insertionPosition": -1
+        },
+        "lastUpdatedAt": 1785440327155,
+        "displayName": "Tasha",
+        "id": "63d3197a-5489-4d6e-98b7-18fb2264ac0a",
+        "keys": [
+          "Tasha",
+          "Tasha Ward",
+          "Thighs Ward"
+        ],
+        "searchRange": 1000,
+        "enabled": true,
+        "forceActivation": false,
+        "keyRelative": false,
+        "nonStoryActivatable": false,
+        "category": "",
+        "loreBiasGroups": [
+          {
+            "phrases": [],
+            "ensureSequenceFinish": false,
+            "generateOnce": true,
+            "bias": 0,
+            "enabled": true,
+            "whenInactive": false
+          }
+        ],
+        "advancedConditions": []
+      },
+      {
+        "text": "----\nKeisha Mouthy Ward\nType: character\nAge: 20\nAppearance: Petite yet stacked ebony woman with perky F-cup breasts and a fat, round ass. Often wears colorful braids that frame her face.\nPersonality: Fiery, sharp-tongued, and often disrespectful. Quick with a comeback and unafraid to challenge authority.\nRole: Middle Ward sister, works as a twerk specialist at the Ebony Club.\nRelationship to Kato: One of his wards. Frequently tests his patience with her mouthy attitude and provocative behavior.\nDescription: Keisha is the third of the Ward sisters, standing at 20 years old. Despite her petite frame, she boasts impressive curves with perky F-cup breasts and a juicy round ass. Her defining characteristic is her fiery mouth and sharp tongue, which she uses to great effect both at home and at the club. At the Ebony Club, she's known as a twerk specialist, captivating audiences with her energetic performances. At home, Keisha often challenges Kato's rules with her disrespectful attitude, creating a constant power dynamic that both frustrates and intrigues her guardian.",
+        "contextConfig": {
+          "prefix": "",
+          "suffix": "\n",
+          "tokenBudget": 1,
+          "reservedTokens": 0,
+          "budgetPriority": 400,
+          "trimDirection": "trimBottom",
+          "insertionType": "newline",
+          "maximumTrimType": "sentence",
+          "insertionPosition": -1
+        },
+        "lastUpdatedAt": 1785440411591,
+        "displayName": "Keisha",
+        "id": "868ef926-72e4-43f9-919a-61ea83f215e7",
+        "keys": [
+          "Keisha",
+          "Keisha Ward"
+        ],
+        "searchRange": 1000,
+        "enabled": true,
+        "forceActivation": false,
+        "keyRelative": false,
+        "nonStoryActivatable": false,
+        "category": "",
+        "loreBiasGroups": [
+          {
+            "phrases": [],
+            "ensureSequenceFinish": false,
+            "generateOnce": true,
+            "bias": 0,
+            "enabled": true,
+            "whenInactive": false
+          }
+        ],
+        "advancedConditions": []
+      },
+      {
+        "text": "----\nMia Baby Sis Ward\nType: character\nAge: 19\nAppearance: Youngest Ward sister with soft big breasts, huge plush ass, and an innocent-looking face\nPersonality: Shy and curious, influenced by her older sisters but more reserved around Kato\nRole: Youngest Ward sister, works at the Ebony Club\nRelationship to Kato: One of his wards, generally more deferential than her sisters but still part of the household dynamics\nDescription: As the baby of the family at 19, Mia possesses a unique blend of innocence and curiosity. Despite her shy demeanor, she has developed a voluptuous figure with soft breasts and a large, plush ass that rivals her older sisters. At the Ebony Club, she's still finding her place, often learning from her more experienced sisters. At home, Mia tends to be quieter around Kato, though she's not immune to the bratty energy that defines the Ward sisters' collective personality. Her innocence makes her somewhat of an outlier in the household, creating an interesting contrast to the more blatant rebelliousness of her siblings.",
+        "contextConfig": {
+          "prefix": "",
+          "suffix": "\n",
+          "tokenBudget": 1,
+          "reservedTokens": 0,
+          "budgetPriority": 400,
+          "trimDirection": "trimBottom",
+          "insertionType": "newline",
+          "maximumTrimType": "sentence",
+          "insertionPosition": -1
+        },
+        "lastUpdatedAt": 1785440474396,
+        "displayName": "Mia",
+        "id": "ccef65bb-73b9-462b-9183-bf2343466a4b",
+        "keys": [
+          "Mia",
+          "Mia Ward",
+          "Baby Girl Ward"
+        ],
+        "searchRange": 1000,
+        "enabled": true,
+        "forceActivation": false,
+        "keyRelative": false,
+        "nonStoryActivatable": false,
+        "category": "",
+        "loreBiasGroups": [
+          {
+            "phrases": [],
+            "ensureSequenceFinish": false,
+            "generateOnce": true,
+            "bias": 0,
+            "enabled": true,
+            "whenInactive": false
+          }
+        ],
+        "advancedConditions": []
+      },
+      {
+        "text": "Name: Ashanti Empire Media  \nType: Online Media Platform  \nDescription: Ashanti Empire Media is a multifaceted digital platform founded by Kato, specializing in streaming services, online forums, and chat-based community engagement. It serves as a hub for entertainment, discussion, and cultural exchange, blending traditional Ashanti themes with modern digital innovation.  \nBackground: Launched as Kato's ambitious new venture, Ashanti Empire Media emerged from his desire to create a space where global audiences could connect with Ashanti culture while enjoying cutting-edge content. The platform quickly gained popularity for its unique mix of live-streamed events, curated media, and interactive forums.  \nSpecial Traits:  \n- Features a proprietary streaming service that prioritizes high-quality, culturally rich content.  \n- Hosts an active online forum where users discuss topics ranging from history to pop culture.  \n- Integrates a real-time chat system for live events, fostering a sense of community.  \n- Known for its exclusive collaborations with Ashanti artists and storytellers.",
+        "contextConfig": {
+          "prefix": "",
+          "suffix": "\n",
+          "tokenBudget": 1,
+          "reservedTokens": 0,
+          "budgetPriority": 400,
+          "trimDirection": "trimBottom",
+          "insertionType": "newline",
+          "maximumTrimType": "sentence",
+          "insertionPosition": -1
+        },
+        "lastUpdatedAt": 1785462262721,
+        "displayName": "Ashanti Empire Media (Kato's New Online Venture, Streaming, Online Forum Chat)",
+        "id": "96326c8f-8573-41c9-b969-3a4ab5ca4cc3",
+        "keys": [
+          "Ashanti Empire Media (Kato's New Online Venture",
+          "Streaming",
+          "Online Forum Chat)"
+        ],
+        "searchRange": 1000,
+        "enabled": true,
+        "forceActivation": false,
+        "keyRelative": false,
+        "nonStoryActivatable": false,
+        "category": "",
+        "loreBiasGroups": [
+          {
+            "phrases": [],
+            "ensureSequenceFinish": false,
+            "generateOnce": true,
+            "bias": 0,
+            "enabled": true,
+            "whenInactive": false
+          }
+        ],
+        "advancedConditions": []
+      },
+      {
+        "text": "----\nAshanti Empire Media: Streaming\nType: business\nOwner: Kato\nServices: Live streaming, content production, platform management\nPlatforms: Multiple subscription-based streaming services\nPrimary Content: Performances from the Ebony Club, exclusive behind-the-scenes footage, artist profiles, special events\nDescription: Ashanti Empire Media: Streaming is Kato's media production company that manages and operates the streaming platforms for the Ebony Club. Kato personally produces and curates content across multiple subscription-based services, transforming the club's live performances into digital entertainment. The streams showcase the dancers' performances while maintaining strict content guidelines that separate the digital presence from the physical venue. Kato's technical expertise and business acumen have turned the streaming division into a profitable venture that extends the Ebony Club's brand beyond its physical location. The streaming content often features exclusive performances not available to in-person patrons, creating a distinct but complementary experience to the live club atmosphere.",
+        "contextConfig": {
+          "prefix": "",
+          "suffix": "\n",
+          "tokenBudget": 1,
+          "reservedTokens": 0,
+          "budgetPriority": 400,
+          "trimDirection": "trimBottom",
+          "insertionType": "newline",
+          "maximumTrimType": "sentence",
+          "insertionPosition": -1
+        },
+        "lastUpdatedAt": 1785462473546,
+        "displayName": "Ashanti Empire Media: Streaming",
+        "id": "1c9fa3f5-5fee-43d2-8208-1faf83fa334a",
+        "keys": [
+          "Ashanti Empire",
+          "Streaming Content",
+          "Ebony "
+        ],
+        "searchRange": 1000,
+        "enabled": true,
+        "forceActivation": false,
+        "keyRelative": false,
+        "nonStoryActivatable": false,
+        "category": "",
+        "loreBiasGroups": [
+          {
+            "phrases": [],
+            "ensureSequenceFinish": false,
+            "generateOnce": true,
+            "bias": 0,
+            "enabled": true,
+            "whenInactive": false
+          }
+        ],
+        "advancedConditions": []
+      },
+      {
+        "text": "Name: story premise - Kato, me, I \"inherit\" 3 ladies in my life after they fled from the legal trouble they were facing in Louisiana. After using my advanced AI skills, I made it appear that they went missing in Mexico and I mean who's going to go through all that for some black girls, of course racism works. Under my harsh hand and evil genius, we build one of the biggest media AI empires of America  \nType: Premise  \nDescription: A narrative centered on the protagonist, Kato, who takes in three women fleeing legal trouble in Louisiana. Using advanced AI skills, Kato fabricates their disappearance in Mexico, exploiting systemic racism to evade investigation. Under Kato's ruthless leadership, they establish a dominant media AI empire in America.  \nBackground: The story begins with the three women escaping Louisiana to avoid legal consequences. Kato, leveraging AI expertise, creates a false trail suggesting they vanished in Mexico, counting on societal indifference to their plight. Together, they rise to power in the media AI industry, guided by Kato's cunning and amorality.  \nSpecial Traits: Features themes of systemic racism, technological manipulation, and morally ambiguous ambition. Highlights Kato's strategic use of AI for deception and empire-building, as well as the exploitative dynamics within the group.",
+        "contextConfig": {
+          "prefix": "",
+          "suffix": "\n",
+          "tokenBudget": 1,
+          "reservedTokens": 0,
+          "budgetPriority": 400,
+          "trimDirection": "trimBottom",
+          "insertionType": "newline",
+          "maximumTrimType": "sentence",
+          "insertionPosition": -1
+        },
+        "lastUpdatedAt": 1791652707320,
+        "displayName": "story premise - Kato, me, I \"inherit\"  3 ladies in my life after they fled from the legal trouble they were facing in Louisiana. After using my advanced AI skills, I made it appear that they went missing in Mexico and I mean who's going to go through all that for some black girls, of course racism works.  Under my harsh hand and evil genius, we build one of the biggest media AI empires of America",
+        "id": "b56ed104-e177-4b7b-a215-107ef8310930",
+        "keys": [
+          "story premise - kato, me, i \"inherit\"  3 ladies in my life after they fled from the legal trouble they were facing in louisiana. after using my advanced ai skills, i made it appear that they went missing in mexico and i mean who's going to go through all that for some black girls, of course racism works.  under my harsh hand and evil genius, we build one of the biggest media ai empires of america",
+          "story premise - kato",
+          "me",
+          "i \"inherit\"  3 ladies in my life after they fled from the legal trouble they were facing in louisiana. after using my advanced ai skills",
+          "i made it appear that they went missing in mexico and i mean who's going to go through all that for some black girls",
+          "of course racism works.  under my harsh hand and evil genius",
+          "we build one of the biggest media ai empires of america",
+          "story premise - Kato",
+          "me",
+          "I \"inherit\"  3 ladies in my life after they fled from the legal trouble they were facing in Louisiana. After using my advanced AI skills",
+          "I made it appear that they went missing in Mexico and I mean who's going to go through all that for some black girls",
+          "of course racism works.  Under my harsh hand and evil genius",
+          "we build one of the biggest media AI empires of America",
+          "kato",
+          "ai empire"
+        ],
+        "searchRange": 1000,
+        "enabled": true,
+        "forceActivation": false,
+        "keyRelative": false,
+        "nonStoryActivatable": false,
+        "category": "",
+        "loreBiasGroups": [
+          {
+            "phrases": [],
+            "ensureSequenceFinish": false,
+            "generateOnce": true,
+            "bias": 0,
+            "enabled": true,
+            "whenInactive": false
+          }
+        ],
+        "advancedConditions": []
+      },
+      {
+        "text": "Name: Shamika Terry, 18, Friends with Ward Sisters  \nType: Character  \nDescription: Shamika Terry is an energetic and outgoing 18-year-old with a vibrant personality. She has curly dark hair, a warm smile, and a fashionable yet practical style. Often seen with her phone in hand, she’s the social glue of her friend group, always organizing hangouts and keeping up with the latest trends.  \nBackground: Shamika grew up in the same neighborhood as the Ward Sisters and has been their close friend since childhood. She comes from a supportive middle-class family and is currently a senior in high school, balancing academics with her active social life. Her bond with the Ward Sisters is unbreakable, and she often acts as the mediator during their occasional squabbles.  \nSpecial Traits: Shamika has a knack for diffusing tension with humor and is fiercely loyal to her friends. She’s also surprisingly tech-savvy, often helping the Ward Sisters with digital dilemmas. Her optimism is contagious, and she has a talent for turning even the dullest moments into fun adventures.",
+        "contextConfig": {
+          "prefix": "",
+          "suffix": "\n",
+          "tokenBudget": 1,
+          "reservedTokens": 0,
+          "budgetPriority": 400,
+          "trimDirection": "trimBottom",
+          "insertionType": "newline",
+          "maximumTrimType": "sentence",
+          "insertionPosition": -1
+        },
+        "lastUpdatedAt": 1786199154801,
+        "displayName": "Shamika Terry, 18, Friends with Ward Sisters",
+        "id": "cc780b0e-e8e8-4d0b-a9cd-88a84794d69e",
+        "keys": [
+          "Shamika Terry",
+          "18",
+          "Friends with Ward Sisters"
+        ],
+        "searchRange": 1000,
+        "enabled": true,
+        "forceActivation": false,
+        "keyRelative": false,
+        "nonStoryActivatable": false,
+        "category": "",
+        "loreBiasGroups": [
+          {
+            "phrases": [],
+            "ensureSequenceFinish": false,
+            "generateOnce": true,
+            "bias": 0,
+            "enabled": true,
+            "whenInactive": false
+          }
+        ],
+        "advancedConditions": []
+      },
+      {
+        "text": "Name: Francesca Simmons  \nType: Character  \nDescription: A 20-year-old woman with a tall, dark complexion and long braids. She is a close friend of the Ward sisters and often seen in their company. Francesca carries herself with a confident yet approachable demeanor, exuding a quiet strength that draws others to her.  \nBackground: Francesca grew up in the same neighborhood as the Ward sisters, forming a tight-knit bond with them over the years. She comes from a supportive family and has always been the protective, level-headed one among her friends. Her friendship with the Wards is rooted in shared experiences, loyalty, and a deep understanding of one another.  \nSpecial Traits: Francesca is exceptionally observant, often noticing details others overlook. She has a knack for diffusing tense situations with her calm demeanor and sharp wit. Additionally, she is skilled at navigating social dynamics, making her a trusted confidante to the Ward sisters and their circle.",
+        "contextConfig": {
+          "prefix": "",
+          "suffix": "\n",
+          "tokenBudget": 1,
+          "reservedTokens": 0,
+          "budgetPriority": 400,
+          "trimDirection": "trimBottom",
+          "insertionType": "newline",
+          "maximumTrimType": "sentence",
+          "insertionPosition": -1
+        },
+        "lastUpdatedAt": 1786199324706,
+        "displayName": "Francesca Simmons, 20,   tall dark,  braids, friends with the Ward sisters",
+        "id": "1131d75c-3b6c-4616-a37b-52c7a2f317d5",
+        "keys": [
+          "Francesca Simmons",
+          "20",
+          "tall dark",
+          "braids",
+          "friends with the Ward sisters"
+        ],
+        "searchRange": 1000,
+        "enabled": true,
+        "forceActivation": false,
+        "keyRelative": false,
+        "nonStoryActivatable": false,
+        "category": "",
+        "loreBiasGroups": [
+          {
+            "phrases": [],
+            "ensureSequenceFinish": false,
+            "generateOnce": true,
+            "bias": 0,
+            "enabled": true,
+            "whenInactive": false
+          }
+        ],
+        "advancedConditions": []
+      },
+      {
+        "text": "Name: Dee Dee  \nType: Character  \nDescription: A 21-year-old woman with a petite frame, sharp intelligence, and a mean streak. Her skin is a smooth, milk chocolate tone, often accentuated by her stylish yet intimidating attire. She carries herself with an air of confidence, her eyes always scanning for weaknesses in others.  \nBackground: Dee Dee grew up in a tough neighborhood, where she learned to be ruthless to survive. Despite her small stature, she quickly earned a reputation for being cunning and unyielding. She excelled academically, using her intelligence to outmaneuver rivals both in and out of the classroom. Now, she navigates the world with a sharp tongue and an even sharper mind, always staying one step ahead.  \nSpecial Traits: Highly intelligent and observant, able to read people with ease. Her meanness is often a defense mechanism, but she can also be genuinely cruel when provoked. Despite her demeanor, she has a soft spot for those who earn her trust—though such individuals are few and far between.",
+        "contextConfig": {
+          "prefix": "",
+          "suffix": "\n",
+          "tokenBudget": 1,
+          "reservedTokens": 0,
+          "budgetPriority": 400,
+          "trimDirection": "trimBottom",
+          "insertionType": "newline",
+          "maximumTrimType": "sentence",
+          "insertionPosition": -1
+        },
+        "lastUpdatedAt": 1786199696587,
+        "displayName": "Dee Dee, 21, petite, mean, milk chocolate skin, smart",
+        "id": "aa4d4dd6-c384-4e6b-923c-1eeacd285ccb",
+        "keys": [
+          "Dee Dee",
+          "21",
+          "petite",
+          "mean",
+          "milk chocolate skin",
+          "smart"
+        ],
+        "searchRange": 1000,
+        "enabled": true,
+        "forceActivation": false,
+        "keyRelative": false,
+        "nonStoryActivatable": false,
+        "category": "",
+        "loreBiasGroups": [
+          {
+            "phrases": [],
+            "ensureSequenceFinish": false,
+            "generateOnce": true,
+            "bias": 0,
+            "enabled": true,
+            "whenInactive": false
+          }
+        ],
+        "advancedConditions": []
+      },
+      {
+        "text": "",
+        "contextConfig": {
+          "prefix": "",
+          "suffix": "\n",
+          "tokenBudget": 1,
+          "reservedTokens": 0,
+          "budgetPriority": 400,
+          "trimDirection": "trimBottom",
+          "insertionType": "newline",
+          "maximumTrimType": "sentence",
+          "insertionPosition": -1
+        },
+        "lastUpdatedAt": 1791652802662,
+        "displayName": "Ma",
+        "id": "73c99f0a-80be-46d3-b1f7-b75b8c49517c",
+        "keys": [],
+        "searchRange": 1000,
+        "enabled": true,
+        "forceActivation": false,
+        "keyRelative": false,
+        "nonStoryActivatable": false,
+        "category": "",
+        "loreBiasGroups": [
+          {
+            "phrases": [],
+            "ensureSequenceFinish": false,
+            "generateOnce": true,
+            "bias": 0,
+            "enabled": true,
+            "whenInactive": false
+          }
+        ],
+        "advancedConditions": []
+      }
+    ],
+    "settings": {
+      "orderByKeyLocations": false
+    },
+    "categories": [],
+    "order": [
+      "8bdcc98e-c218-45da-b02d-2dbf83b19a0b",
+      "73c99f0a-80be-46d3-b1f7-b75b8c49517c"
+    ]
+  },
+  "author": "",
+  "storyContextConfig": {
+    "prefix": "",
+    "suffix": "",
+    "tokenBudget": 1,
+    "reservedTokens": 512,
+    "budgetPriority": 0,
+    "trimDirection": "trimTop",
+    "insertionType": "newline",
+    "maximumTrimType": "sentence",
+    "insertionPosition": -1,
+    "allowInsertionInside": true
+  },
+  "contextDefaults": {
+    "ephemeralDefaults": [
+      {
+        "text": "",
+        "contextConfig": {
+          "prefix": "",
+          "suffix": "\n",
+          "tokenBudget": 1,
+          "reservedTokens": 1,
+          "budgetPriority": -10000,
+          "trimDirection": "doNotTrim",
+          "insertionType": "newline",
+          "maximumTrimType": "newline",
+          "insertionPosition": -2
+        },
+        "startingStep": 1,
+        "delay": 0,
+        "duration": 1,
+        "repeat": false,
+        "reverse": false
+      }
+    ],
+    "loreDefaults": [
+      {
+        "text": "",
+        "contextConfig": {
+          "prefix": "",
+          "suffix": "\n",
+          "tokenBudget": 1,
+          "reservedTokens": 0,
+          "budgetPriority": 400,
+          "trimDirection": "trimBottom",
+          "insertionType": "newline",
+          "maximumTrimType": "sentence",
+          "insertionPosition": -1
+        },
+        "lastUpdatedAt": 1785439571680,
+        "displayName": "New Lorebook Entry",
+        "id": "fb710ee6-5d70-4b72-99c8-a0917c2473c3",
+        "keys": [],
+        "searchRange": 1000,
+        "enabled": true,
+        "forceActivation": false,
+        "keyRelative": false,
+        "nonStoryActivatable": false,
+        "category": "",
+        "loreBiasGroups": [
+          {
+            "phrases": [],
+            "ensureSequenceFinish": false,
+            "generateOnce": true,
+            "bias": 0,
+            "enabled": true,
+            "whenInactive": false
+          }
+        ],
+        "advancedConditions": []
+      }
+    ]
+  },
+  "phraseBiasGroups": [
+    {
+      "phrases": [],
+      "ensureSequenceFinish": false,
+      "generateOnce": true,
+      "bias": 0,
+      "enabled": true,
+      "whenInactive": false
+    }
+  ],
+  "bannedSequenceGroups": [
+    {
+      "sequences": [],
+      "enabled": true
+    }
+  ],
+  "messageSettings": {
+    "systemPrompts": {},
+    "prefills": {}
+  },
+  "userScripts": [],
+  "attg": {
+    "tags": [],
+    "genre": []
+  }
+}
