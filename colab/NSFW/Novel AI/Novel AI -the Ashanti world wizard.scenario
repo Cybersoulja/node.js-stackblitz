@@ -1,0 +1,1009 @@
+{
+  "scenarioVersion": 4,
+  "title": "New Story",
+  "description": "",
+  "prompt": "{ Character Name: Kato “Black Master K” Species: Human Male Major Physical Traits: Tall, muscular build, dark skin, intimidating presence Body Details: Well-toned muscles, broad shoulders, narrow waist, firm buttocks Outfit: Wears tight-fitting clothing that accentuates his physique, often choosing dark colors to further emphasize his dominant persona Personality Traits: Domineering, sadistic, arrogant, possessive, confident Behavior & Speech: Speaks in a deep, commanding voice that exudes authority and control.\n----\nPower Words:\n#summon: \"summons a random female person related to the target under charm spell for 24 hours\"\n#Random: \"a random effect happens depending on what color was rolled and the paragraph count\"\n#heal: \"can mend broken bones but not broken hearts\"\n#Savage: \"target loses some inhibition and only follow basic pleasure instincts\"\n#Intense: \"raises the target sensitivity to touch and sound and taste\"\n#corrupt: \"A one cast spell extended through the spirit of Nat Turner. Passive ongoing spell proximity based\"  }\n----\nKato’s eyes open to the same cracked ceiling he’s stared at a hundred times. For half a second everything feels normal—cheap blinds half-drawn, the low growl of traffic outside, the faint smell of last night’s takeout still in the air.\nThen the difference lands.\nHeat sits under his skin, low and steady, like an engine that shouldn’t be running. The dream is still sharp: the old man in the heavy robes, the crystal staff pressed against his forehead, the surge that ripped through him before everything went black. It doesn’t feel like a dream anymore. It feels like something that happened.\nHe sits up. The sheet falls away. His heart is beating harder than it should for a quiet morning. Whatever the ancestor did, it’s still inside him—awake, waiting, unfamiliar.\nKato plants his feet on the cold floor and stays there for a moment, listening to the apartment and to the new quiet weight in his chest. Today, the hustle won’t be the same.\nKato pushed himself up. His joints felt oiled, not stiff. The usual morning ache in his lower back was gone.\nHe rolled his shoulders. The muscles moved smoothly under his skin, a new density to them. He crossed the small room to the window and pulled the blinds.\nThe city was gray, wet pavement slick under a thin layer of grime. A garbage truck rumbled by, its hydraulics hissing. Normal stuff.\nBut the air tasted different. It had a metallic tang, like blood on the back of his tongue.\n*They are sheep,* a voice whispered inside his head. It wasn't a thought. It was deeper, older. *They graze and they wait for the butcher.*\nKato gripped the windowsill. The cheap painted wood groaned under his fingers, a crack splintering out from his thumb. He hadn’t squeezed that hard.\nHe looked at his hand. The skin was darker, richer somehow. The veins stood out, thick and blue.\n*You are the butcher,* the voice said, a low rumble of satisfaction that vibrated in his bones.\nHe let go of the sill and turned from the window. His reflection caught in the darkened screen of the cheap television on the dresser. A stranger looked back.\nSame face, but harder. The eyes were sexier. The set of his jaw was unrecognizable.\n{ Innately making him more attractive is the magical self preservation mechanism }\nThe Ancestor’s presence wasn’t an illness; it was an upgrade. A survival protocol written in blood and fire. A man this dangerous couldn't walk around looking like any other punk on the street. He needed an aura, a promise written in bone and skin that said *trouble walks with me.*\nKato stared at the reflection. The face was the same map he’d always known, but the territory had changed. His jawline was a sharper cliff, his cheekbones higher ridges. The scar through his eyebrow seemed less like a flaw and more like a signature. Even the way the stubble shadowed his chin looked deliberate, artful. It was the kind of face that made people look twice, then look away, a prickle of fear crawling up their spine. The power was dressing him in its own image.\nHe reached for the shirt he’d thrown over a chair. A tight, black ribbed tank top. As he pulled it on, the fabric strained against his shoulders, clinging to the new landscape of his chest. He’d been strong before. This was something else. This was the strength of a thing that did not tire. A predator’s build. He ran a hand over his own stomach, feeling the bricks of muscle there.\n{ Mark this as a decision point }",
+  "tags": [],
+  "context": [
+    {
+      "text": "[ Author: Donald Goines; Title: The Ashanti World Wizard; Tags: urban fantasy, noir, magic, BNWO; Genre: Gritty Fantasy ]",
+      "contextConfig": {
+        "prefix": "",
+        "suffix": "\n",
+        "tokenBudget": 1,
+        "reservedTokens": 0,
+        "budgetPriority": 800,
+        "trimDirection": "trimBottom",
+        "insertionType": "newline",
+        "maximumTrimType": "sentence",
+        "insertionPosition": 0
+      }
+    },
+    {
+      "text": "Donald Goines's raw, street-level immediacy filtered through the stark, existential prose of Cormac McCarthy. The voice is lean and visceral, using simple, declarative sentences to deliver brutal observations. Interiority is a guttural, internal monologue, a constant battle between the man and the ancient king possessing him. Sensory detail is sharp and physical—the taste of blood, the groan of wood—grounding the supernatural in a grimy, tangible reality. Emotion is shown through action and sensation, not reflection, creating a relentless forward momentum toward the point of no return.",
+      "contextConfig": {
+        "prefix": "",
+        "suffix": "\n",
+        "tokenBudget": 1,
+        "reservedTokens": 1,
+        "budgetPriority": -400,
+        "trimDirection": "trimBottom",
+        "insertionType": "newline",
+        "maximumTrimType": "sentence",
+        "insertionPosition": -4
+      }
+    }
+  ],
+  "ephemeralContext": [],
+  "placeholders": [],
+  "settings": {
+    "parameters": {
+      "textGenerationSettingsVersion": 8,
+      "temperature": 1,
+      "max_length": 256,
+      "min_length": 1,
+      "top_k": 40,
+      "top_p": 0.95,
+      "top_a": 1,
+      "typical_p": 1,
+      "tail_free_sampling": 1,
+      "repetition_penalty": 0,
+      "repetition_penalty_range": 0,
+      "repetition_penalty_slope": 0,
+      "repetition_penalty_frequency": 0,
+      "repetition_penalty_presence": 0,
+      "repetition_penalty_default_whitelist": false,
+      "cfg_scale": 1,
+      "cfg_uc": "",
+      "phrase_rep_pen": "medium",
+      "top_g": 0,
+      "mirostat_tau": 0,
+      "mirostat_lr": 1,
+      "math1_temp": 0,
+      "math1_quad": 0,
+      "math1_quad_entropy_scale": 0,
+      "min_p": 0,
+      "order": [
+        {
+          "id": "temperature",
+          "enabled": true
+        },
+        {
+          "id": "top_k",
+          "enabled": true
+        },
+        {
+          "id": "top_p",
+          "enabled": true
+        },
+        {
+          "id": "min_p",
+          "enabled": false
+        }
+      ]
+    },
+    "preset": "default-glm",
+    "trimResponses": true,
+    "banBrackets": true,
+    "defaultBias": true,
+    "prefix": "vanilla",
+    "dynamicPenaltyRange": false,
+    "prefixMode": 0,
+    "mode": 0,
+    "model": "glm-4-6"
+  },
+  "lorebook": {
+    "lorebookVersion": 6,
+    "entries": [
+      {
+        "text": "Ancestor\nType: Character\nSetting: \nAge: Ancient | Gender: Male | Occupation: Wizard King\nAppearance: In Kato's mind, he is a figure of carved obsidian and worn gold, his form outlined in the heat-haze behind Kato's eyes. Up close, his skin has the texture of old parchment mapped with scars that resemble constellations, and his eyes are voids that absorb light. He occupies space with the absolute stillness of a mountain, a weight that makes the air around him feel solid and heavy.\nPersonality: Under pressure, it does not panic but observes, dissecting every fear and weakness as a tool to be used later. It communicates in imperatives and stark observations, treating emotion as a fuel source and lives as currency. \"See how their shoulders tighten when you enter the room. They feel the truth of it, even if their minds cannot name it.\"\nHistory: Once ruled a vast empire with sorcery that bent flesh and stone to his will, forging his legacy in blood and fire. His physical body was destroyed by a rival, but his consciousness was preserved through a ritual that bound it to his own bloodline, passing dormant through generations until awakening in Kato.\nConflict: The drive to reclaim absolute dominion wars with the fragmented memories of his own long-forgotten humanity, a ghost of a life before power was his only language. This schism was born the moment he chose immortality over a natural death.",
+        "contextConfig": {
+          "prefix": "",
+          "suffix": "\n",
+          "tokenBudget": 1,
+          "reservedTokens": 0,
+          "budgetPriority": 400,
+          "trimDirection": "trimBottom",
+          "insertionType": "newline",
+          "maximumTrimType": "sentence",
+          "insertionPosition": -1
+        },
+        "lastUpdatedAt": 1791868514746,
+        "displayName": "Ancestor",
+        "id": "a50686da-08c8-4813-83d8-0f1080a6aa34",
+        "keys": [
+          "ancestor"
+        ],
+        "searchRange": 1000,
+        "enabled": true,
+        "forceActivation": false,
+        "keyRelative": false,
+        "nonStoryActivatable": false,
+        "category": "c6f33282-7e67-4d02-9e5f-bed66e1c2703",
+        "loreBiasGroups": [
+          {
+            "phrases": [],
+            "ensureSequenceFinish": false,
+            "generateOnce": true,
+            "bias": 0,
+            "enabled": true,
+            "whenInactive": false
+          }
+        ],
+        "advancedConditions": []
+      },
+      {
+        "text": "The Ashanti Compact\nType: Faction\nSetting: \nLeader: The Curator | Goal: To ensure the Ancestor's power consolidates under their stewardship, not its host's will.\nDescription: The Compact operates from the city's forgotten underbelly, moving through the old subway tunnels and forgotten basements like a stain. They are scholars and enforcers, possessing a fragmented archive of the Ancestor's history and a collection of brutal tools designed to test or contain a host. Their public face is non-existent; their reality is a patient, predatory watch, seeking to corner Kato and bend him to their purpose before he shatters or ascends on his own terms.\nHistory: The Compact's origins trace back to the Ancestor's first fall, when his disgraced acolytes bound themselves to guard his fractured essence. They have shadowed the bloodline for centuries, a secret society passing down a single, terrible duty through generations, their methods growing more ruthless and desperate as their knowledge decays.\nCulture: Internally, the Compact is structured like a monastic order dedicated to a violent god. They communicate in coded phrases and symbolic gestures, valuing discretion and control above all else. Debate is forbidden; obedience to the Curator's interpretation of their fragmented texts is absolute. They see themselves as shepherds, but their only tool is a flaying knife.",
+        "contextConfig": {
+          "prefix": "",
+          "suffix": "\n",
+          "tokenBudget": 1,
+          "reservedTokens": 0,
+          "budgetPriority": 400,
+          "trimDirection": "trimBottom",
+          "insertionType": "newline",
+          "maximumTrimType": "sentence",
+          "insertionPosition": -1
+        },
+        "lastUpdatedAt": 1791868533419,
+        "displayName": "The Ashanti Compact",
+        "id": "cbfcc7e0-a7d1-4f73-a707-59f8b6e592d6",
+        "keys": [
+          "the ashanti compact"
+        ],
+        "searchRange": 1000,
+        "enabled": true,
+        "forceActivation": false,
+        "keyRelative": false,
+        "nonStoryActivatable": false,
+        "category": "ef5d44ad-04d5-41ac-a0e3-847680a04024",
+        "loreBiasGroups": [
+          {
+            "phrases": [],
+            "ensureSequenceFinish": false,
+            "generateOnce": true,
+            "bias": 0,
+            "enabled": true,
+            "whenInactive": false
+          }
+        ],
+        "advancedConditions": []
+      },
+      {
+        "text": "The Undercross\nType: Location\nSetting: \nRegion: Beneath the city's core\nAtmosphere: The air is thick with the smell of wet stone, ozone, and decay. A constant, low hum vibrates through the soles of your feet, punctuated by the distant groan of stressed metal and the drip of black water into unseen pools.\nDescription: It is a maze of derelict subway lines and service corridors, a place where the city's old infrastructure buckles under the pressure of raw magical Resonance. The desperate and the hunted carve out niches in its forgotten stations, their lives dictated by the unpredictable surges of power that ripple through the bedrock.\nHook: Here, the Ancestor's voice is no longer a whisper but a constant, resonant command that can physically reshape the tunnels and overwhelm a host's will.\nHistory: The original tunnels were abandoned after a series of catastrophic magical events in the early 20th century, events that sealed the passages and scarred the stone. Over decades, these wounds in the city's fabric have festered, becoming a physical conduit for the world's raw, untamed magic.\nCulture: Silence is a currency; loud noises can trigger dangerous Resonance spikes. Territory is marked not by graffiti but by subtle shifts in the ambient energy, and outsiders are judged by how they move through the constant, oppressive pressure of the place's power.",
+        "contextConfig": {
+          "prefix": "",
+          "suffix": "\n",
+          "tokenBudget": 1,
+          "reservedTokens": 0,
+          "budgetPriority": 400,
+          "trimDirection": "trimBottom",
+          "insertionType": "newline",
+          "maximumTrimType": "sentence",
+          "insertionPosition": -1
+        },
+        "lastUpdatedAt": 1791868765729,
+        "displayName": "The Undercross",
+        "id": "a88e57d4-91e9-4f27-b470-2d4e5225043b",
+        "keys": [
+          "the undercross"
+        ],
+        "searchRange": 1000,
+        "enabled": true,
+        "forceActivation": false,
+        "keyRelative": false,
+        "nonStoryActivatable": false,
+        "category": "d44117a1-73e1-49bc-85f3-198f55f498a5",
+        "loreBiasGroups": [
+          {
+            "phrases": [],
+            "ensureSequenceFinish": false,
+            "generateOnce": true,
+            "bias": 0,
+            "enabled": true,
+            "whenInactive": false
+          }
+        ],
+        "advancedConditions": []
+      },
+      {
+        "text": "The Resonance\nType: System\nSetting: \nDomain: Biology\nRules: Power is drawn from the practitioner's own physiological and emotional state, converting raw sensation into magical effect. The intensity of the output is directly proportional to the intensity of the input, but the process always inflicts a corresponding physical toll on the user's body.\nDescription: This is not an art of study but of survival, a force that thrives in the city's violent underbelly. It rewards raw, unfiltered experience—adrenaline, pain, lust, rage—making its most potent practitioners also its most self-destructive. The power is visceral and immediate, bending will and flesh with a guttural scream or a focused burst of agony, leaving the user drained, scarred, or fundamentally altered. This system creates a brutal hierarchy where the most broken and desperate often wield the most terrible strength.",
+        "contextConfig": {
+          "prefix": "",
+          "suffix": "\n",
+          "tokenBudget": 1,
+          "reservedTokens": 0,
+          "budgetPriority": 400,
+          "trimDirection": "trimBottom",
+          "insertionType": "newline",
+          "maximumTrimType": "sentence",
+          "insertionPosition": -1
+        },
+        "lastUpdatedAt": 1791868644434,
+        "displayName": "The Resonance",
+        "id": "ea19113d-e9a8-491b-9e8b-e19a4ea522a6",
+        "keys": [
+          "the resonance"
+        ],
+        "searchRange": 1000,
+        "enabled": true,
+        "forceActivation": false,
+        "keyRelative": false,
+        "nonStoryActivatable": false,
+        "category": "1a973cb4-299f-4d3d-b4da-4dbc454607e6",
+        "loreBiasGroups": [
+          {
+            "phrases": [],
+            "ensureSequenceFinish": false,
+            "generateOnce": true,
+            "bias": 0,
+            "enabled": true,
+            "whenInactive": false
+          }
+        ],
+        "advancedConditions": []
+      },
+      {
+        "text": "The First Command\nType: Dynamic\nSetting: \nScope: Local\nSituation: The Ancestor, a consciousness bound to Kato's blood, has identified Mr. Henderson, the landlord, as the first node of control in the building. It is compelling Kato to magically dominate the man to begin establishing a territory of power.\nComplication: Kato needs to exert this control to understand and survive the force inside him, but doing so means crossing a line from self-preservation to active tyranny, irrevocably aligning his will with the Ancestor's.\nActors:\n- Kato: Needs to assert dominance over the new power coiled in his gut before it consumes him, but cannot do so without becoming the monster the voice wants him to be.\n- Mr. Henderson: Needs to maintain his authority and collect rent to preserve his small kingdom, but is utterly blind to the true nature of the threat standing at his door, making any attempt at resistance meaningless.",
+        "contextConfig": {
+          "prefix": "",
+          "suffix": "\n",
+          "tokenBudget": 1,
+          "reservedTokens": 0,
+          "budgetPriority": 400,
+          "trimDirection": "trimBottom",
+          "insertionType": "newline",
+          "maximumTrimType": "sentence",
+          "insertionPosition": -1
+        },
+        "lastUpdatedAt": 1791868724581,
+        "displayName": "The First Command",
+        "id": "492ff293-58bc-437e-9ddc-65662f94bffc",
+        "keys": [
+          "the first command"
+        ],
+        "searchRange": 1000,
+        "enabled": true,
+        "forceActivation": false,
+        "keyRelative": false,
+        "nonStoryActivatable": false,
+        "category": "18e74281-89d2-49d1-b027-8fe11be8fa61",
+        "loreBiasGroups": [
+          {
+            "phrases": [],
+            "ensureSequenceFinish": false,
+            "generateOnce": true,
+            "bias": 0,
+            "enabled": true,
+            "whenInactive": false
+          }
+        ],
+        "advancedConditions": []
+      },
+      {
+        "text": "The Price of Power\nType: Topic\nSetting: \nScope: Conflict\nActors:\n- Kato: The debate is a physical sensation, a constant tearing. The power in his blood is an ache that demands release, a song of strength that promises safety from the street's casual cruelties. But every time he listens, a piece of his own memory goes quiet, replaced by the Ancestor's cold calculus. He wants the strength to never be a victim again, but he fears waking up one day and not remembering why he ever needed it.\n- The Ancestor: The argument is an absurdity. Humanity is a frail cage, free will a delusion for the weak. Power is the only truth, the only language the world respects. To sacrifice weakness for strength is not a loss but a purification. He needs Kato to accept his destiny so he can finally reclaim his throne and remake the world in his image; what Kato wants is irrelevant, a child's whim before a king's decree.",
+        "contextConfig": {
+          "prefix": "",
+          "suffix": "\n",
+          "tokenBudget": 1,
+          "reservedTokens": 0,
+          "budgetPriority": 400,
+          "trimDirection": "trimBottom",
+          "insertionType": "newline",
+          "maximumTrimType": "sentence",
+          "insertionPosition": -1
+        },
+        "lastUpdatedAt": 1791868746076,
+        "displayName": "The Price of Power",
+        "id": "ce5584f6-d8b7-4963-953b-42a343c86325",
+        "keys": [
+          "the price of power"
+        ],
+        "searchRange": 1000,
+        "enabled": true,
+        "forceActivation": false,
+        "keyRelative": false,
+        "nonStoryActivatable": false,
+        "category": "8558c9d9-a2f3-4fe9-9d0c-07b056f691c7",
+        "loreBiasGroups": [
+          {
+            "phrases": [],
+            "ensureSequenceFinish": false,
+            "generateOnce": true,
+            "bias": 0,
+            "enabled": true,
+            "whenInactive": false
+          }
+        ],
+        "advancedConditions": []
+      },
+      {
+        "text": "Human, 46, Potential WIzard King\n\nI control the power. The power does not control me.\n\nEyes are the first thing you notice—pitch-black, no discernible iris or pupil. They absorb light. Skin is the color of polished obsidian, unblemished. Close-cropped hair frames a strong, square jaw. Muscles are dense and clearly defined, layered over a broad-shouldered, narrow-waisted frame. He stands with a predatory stillness, weight distributed evenly. A thin, pale scar cuts through his left eyebrow, interrupting the dark symmetry of his face. The knuckles on his right hand are enlarged, scarred from repeated impact.\n\nKato speaks in a measured, deliberate cadence. It’s a rhythmic, persuasive flow, reminiscent of African-American Vernacular English (AAVE), often dropping final consonants from words like \"jus'\" for \"just.\" His signature habit is a slow, deliberate blink, holding his eyes shut for a beat longer than normal, as if processing a thought the world isn't ready for. He moves with a contained stillness, power held in reserve.\n\nCore driver is the need to dominate. He believes control is the only defense against powerlessness. The wound is a deep-seated fear of being weak, of being the sheep he despises. This contradiction fuels him: he seeks absolute power, yet is terrified of the power he wields, convinced it is a separate entity that could consume him. He controls the power to prove he is not its slave, even as its voice dictates his actions.",
+        "contextConfig": {
+          "prefix": "",
+          "suffix": "\n",
+          "tokenBudget": 1,
+          "reservedTokens": 0,
+          "budgetPriority": 400,
+          "trimDirection": "trimBottom",
+          "insertionType": "newline",
+          "maximumTrimType": "sentence",
+          "insertionPosition": -1
+        },
+        "lastUpdatedAt": 1791871652555,
+        "displayName": "Kato",
+        "id": "81d22f2f-d236-4627-8b16-4e73bd3f7c57",
+        "keys": [
+          "Kato"
+        ],
+        "searchRange": 1000,
+        "enabled": true,
+        "forceActivation": false,
+        "keyRelative": false,
+        "nonStoryActivatable": false,
+        "category": "",
+        "loreBiasGroups": [
+          {
+            "phrases": [],
+            "ensureSequenceFinish": false,
+            "generateOnce": true,
+            "bias": 0,
+            "enabled": true,
+            "whenInactive": false
+          }
+        ],
+        "advancedConditions": []
+      }
+    ],
+    "settings": {
+      "orderByKeyLocations": false
+    },
+    "categories": [
+      {
+        "name": "SE: Characters",
+        "id": "c6f33282-7e67-4d02-9e5f-bed66e1c2703",
+        "enabled": true,
+        "createSubcontext": false,
+        "subcontextSettings": {
+          "text": "",
+          "contextConfig": {
+            "prefix": "",
+            "suffix": "\n",
+            "tokenBudget": 1,
+            "reservedTokens": 0,
+            "budgetPriority": 400,
+            "trimDirection": "trimBottom",
+            "insertionType": "newline",
+            "maximumTrimType": "sentence",
+            "insertionPosition": -1
+          },
+          "lastUpdatedAt": 1791872018116,
+          "displayName": "New Lorebook Entry",
+          "id": "4482b66b-a529-4dee-b54e-4be20044e245",
+          "keys": [],
+          "searchRange": 1000,
+          "enabled": true,
+          "forceActivation": false,
+          "keyRelative": false,
+          "nonStoryActivatable": false,
+          "category": "",
+          "loreBiasGroups": [
+            {
+              "phrases": [],
+              "ensureSequenceFinish": false,
+              "generateOnce": true,
+              "bias": 0,
+              "enabled": true,
+              "whenInactive": false
+            }
+          ],
+          "advancedConditions": []
+        },
+        "useCategoryDefaults": false,
+        "categoryDefaults": {
+          "text": "",
+          "contextConfig": {
+            "prefix": "",
+            "suffix": "\n",
+            "tokenBudget": 1,
+            "reservedTokens": 0,
+            "budgetPriority": 400,
+            "trimDirection": "trimBottom",
+            "insertionType": "newline",
+            "maximumTrimType": "sentence",
+            "insertionPosition": -1
+          },
+          "lastUpdatedAt": 1791867936003,
+          "displayName": "New Lorebook Entry",
+          "id": "b3c6c72d-4095-4efe-b3cb-b294238c2b03",
+          "keys": [],
+          "searchRange": 1000,
+          "enabled": true,
+          "forceActivation": false,
+          "keyRelative": false,
+          "nonStoryActivatable": false,
+          "category": "",
+          "loreBiasGroups": [
+            {
+              "phrases": [],
+              "ensureSequenceFinish": false,
+              "generateOnce": true,
+              "bias": 0,
+              "enabled": true,
+              "whenInactive": false
+            }
+          ],
+          "advancedConditions": []
+        },
+        "categoryBiasGroups": [
+          {
+            "phrases": [],
+            "ensureSequenceFinish": false,
+            "generateOnce": true,
+            "bias": 0,
+            "enabled": true,
+            "whenInactive": false
+          }
+        ],
+        "settings": {
+          "entryHeader": "----"
+        },
+        "order": []
+      },
+      {
+        "name": "SE: Factions",
+        "id": "ef5d44ad-04d5-41ac-a0e3-847680a04024",
+        "enabled": true,
+        "createSubcontext": false,
+        "subcontextSettings": {
+          "text": "",
+          "contextConfig": {
+            "prefix": "",
+            "suffix": "\n",
+            "tokenBudget": 1,
+            "reservedTokens": 0,
+            "budgetPriority": 400,
+            "trimDirection": "trimBottom",
+            "insertionType": "newline",
+            "maximumTrimType": "sentence",
+            "insertionPosition": -1
+          },
+          "lastUpdatedAt": 1791872018116,
+          "displayName": "New Lorebook Entry",
+          "id": "1c7d1bcf-950a-465d-a794-d36635e0158e",
+          "keys": [],
+          "searchRange": 1000,
+          "enabled": true,
+          "forceActivation": false,
+          "keyRelative": false,
+          "nonStoryActivatable": false,
+          "category": "",
+          "loreBiasGroups": [
+            {
+              "phrases": [],
+              "ensureSequenceFinish": false,
+              "generateOnce": true,
+              "bias": 0,
+              "enabled": true,
+              "whenInactive": false
+            }
+          ],
+          "advancedConditions": []
+        },
+        "useCategoryDefaults": false,
+        "categoryDefaults": {
+          "text": "",
+          "contextConfig": {
+            "prefix": "",
+            "suffix": "\n",
+            "tokenBudget": 1,
+            "reservedTokens": 0,
+            "budgetPriority": 400,
+            "trimDirection": "trimBottom",
+            "insertionType": "newline",
+            "maximumTrimType": "sentence",
+            "insertionPosition": -1
+          },
+          "lastUpdatedAt": 1791867936004,
+          "displayName": "New Lorebook Entry",
+          "id": "5a4b5508-ea13-42d9-ab4e-dc9b81be3fb1",
+          "keys": [],
+          "searchRange": 1000,
+          "enabled": true,
+          "forceActivation": false,
+          "keyRelative": false,
+          "nonStoryActivatable": false,
+          "category": "",
+          "loreBiasGroups": [
+            {
+              "phrases": [],
+              "ensureSequenceFinish": false,
+              "generateOnce": true,
+              "bias": 0,
+              "enabled": true,
+              "whenInactive": false
+            }
+          ],
+          "advancedConditions": []
+        },
+        "categoryBiasGroups": [
+          {
+            "phrases": [],
+            "ensureSequenceFinish": false,
+            "generateOnce": true,
+            "bias": 0,
+            "enabled": true,
+            "whenInactive": false
+          }
+        ],
+        "settings": {
+          "entryHeader": "----"
+        },
+        "order": []
+      },
+      {
+        "name": "SE: Locations",
+        "id": "d44117a1-73e1-49bc-85f3-198f55f498a5",
+        "enabled": true,
+        "createSubcontext": false,
+        "subcontextSettings": {
+          "text": "",
+          "contextConfig": {
+            "prefix": "",
+            "suffix": "\n",
+            "tokenBudget": 1,
+            "reservedTokens": 0,
+            "budgetPriority": 400,
+            "trimDirection": "trimBottom",
+            "insertionType": "newline",
+            "maximumTrimType": "sentence",
+            "insertionPosition": -1
+          },
+          "lastUpdatedAt": 1791872018116,
+          "displayName": "New Lorebook Entry",
+          "id": "322ba476-7389-4587-9358-1e08e3a80baf",
+          "keys": [],
+          "searchRange": 1000,
+          "enabled": true,
+          "forceActivation": false,
+          "keyRelative": false,
+          "nonStoryActivatable": false,
+          "category": "",
+          "loreBiasGroups": [
+            {
+              "phrases": [],
+              "ensureSequenceFinish": false,
+              "generateOnce": true,
+              "bias": 0,
+              "enabled": true,
+              "whenInactive": false
+            }
+          ],
+          "advancedConditions": []
+        },
+        "useCategoryDefaults": false,
+        "categoryDefaults": {
+          "text": "",
+          "contextConfig": {
+            "prefix": "",
+            "suffix": "\n",
+            "tokenBudget": 1,
+            "reservedTokens": 0,
+            "budgetPriority": 400,
+            "trimDirection": "trimBottom",
+            "insertionType": "newline",
+            "maximumTrimType": "sentence",
+            "insertionPosition": -1
+          },
+          "lastUpdatedAt": 1791867936004,
+          "displayName": "New Lorebook Entry",
+          "id": "88860dcb-3fa7-41d4-9acd-bfdefbd42c14",
+          "keys": [],
+          "searchRange": 1000,
+          "enabled": true,
+          "forceActivation": false,
+          "keyRelative": false,
+          "nonStoryActivatable": false,
+          "category": "",
+          "loreBiasGroups": [
+            {
+              "phrases": [],
+              "ensureSequenceFinish": false,
+              "generateOnce": true,
+              "bias": 0,
+              "enabled": true,
+              "whenInactive": false
+            }
+          ],
+          "advancedConditions": []
+        },
+        "categoryBiasGroups": [
+          {
+            "phrases": [],
+            "ensureSequenceFinish": false,
+            "generateOnce": true,
+            "bias": 0,
+            "enabled": true,
+            "whenInactive": false
+          }
+        ],
+        "settings": {
+          "entryHeader": "----"
+        },
+        "order": []
+      },
+      {
+        "name": "SE: Systems",
+        "id": "1a973cb4-299f-4d3d-b4da-4dbc454607e6",
+        "enabled": true,
+        "createSubcontext": false,
+        "subcontextSettings": {
+          "text": "",
+          "contextConfig": {
+            "prefix": "",
+            "suffix": "\n",
+            "tokenBudget": 1,
+            "reservedTokens": 0,
+            "budgetPriority": 400,
+            "trimDirection": "trimBottom",
+            "insertionType": "newline",
+            "maximumTrimType": "sentence",
+            "insertionPosition": -1
+          },
+          "lastUpdatedAt": 1791872018116,
+          "displayName": "New Lorebook Entry",
+          "id": "351866ca-ae01-49a7-a02b-a5123dd53107",
+          "keys": [],
+          "searchRange": 1000,
+          "enabled": true,
+          "forceActivation": false,
+          "keyRelative": false,
+          "nonStoryActivatable": false,
+          "category": "",
+          "loreBiasGroups": [
+            {
+              "phrases": [],
+              "ensureSequenceFinish": false,
+              "generateOnce": true,
+              "bias": 0,
+              "enabled": true,
+              "whenInactive": false
+            }
+          ],
+          "advancedConditions": []
+        },
+        "useCategoryDefaults": false,
+        "categoryDefaults": {
+          "text": "",
+          "contextConfig": {
+            "prefix": "",
+            "suffix": "\n",
+            "tokenBudget": 1,
+            "reservedTokens": 0,
+            "budgetPriority": 400,
+            "trimDirection": "trimBottom",
+            "insertionType": "newline",
+            "maximumTrimType": "sentence",
+            "insertionPosition": -1
+          },
+          "lastUpdatedAt": 1791867936004,
+          "displayName": "New Lorebook Entry",
+          "id": "cda9c97e-0e8d-49b7-b050-34c4f6c0d8fa",
+          "keys": [],
+          "searchRange": 1000,
+          "enabled": true,
+          "forceActivation": false,
+          "keyRelative": false,
+          "nonStoryActivatable": false,
+          "category": "",
+          "loreBiasGroups": [
+            {
+              "phrases": [],
+              "ensureSequenceFinish": false,
+              "generateOnce": true,
+              "bias": 0,
+              "enabled": true,
+              "whenInactive": false
+            }
+          ],
+          "advancedConditions": []
+        },
+        "categoryBiasGroups": [
+          {
+            "phrases": [],
+            "ensureSequenceFinish": false,
+            "generateOnce": true,
+            "bias": 0,
+            "enabled": true,
+            "whenInactive": false
+          }
+        ],
+        "settings": {
+          "entryHeader": "----"
+        },
+        "order": []
+      },
+      {
+        "name": "SE: Narrative Vectors",
+        "id": "18e74281-89d2-49d1-b027-8fe11be8fa61",
+        "enabled": true,
+        "createSubcontext": false,
+        "subcontextSettings": {
+          "text": "",
+          "contextConfig": {
+            "prefix": "",
+            "suffix": "\n",
+            "tokenBudget": 1,
+            "reservedTokens": 0,
+            "budgetPriority": 400,
+            "trimDirection": "trimBottom",
+            "insertionType": "newline",
+            "maximumTrimType": "sentence",
+            "insertionPosition": -1
+          },
+          "lastUpdatedAt": 1791872018116,
+          "displayName": "New Lorebook Entry",
+          "id": "a224467b-1df4-46c5-b5c0-412355896fd2",
+          "keys": [],
+          "searchRange": 1000,
+          "enabled": true,
+          "forceActivation": false,
+          "keyRelative": false,
+          "nonStoryActivatable": false,
+          "category": "",
+          "loreBiasGroups": [
+            {
+              "phrases": [],
+              "ensureSequenceFinish": false,
+              "generateOnce": true,
+              "bias": 0,
+              "enabled": true,
+              "whenInactive": false
+            }
+          ],
+          "advancedConditions": []
+        },
+        "useCategoryDefaults": false,
+        "categoryDefaults": {
+          "text": "",
+          "contextConfig": {
+            "prefix": "",
+            "suffix": "\n",
+            "tokenBudget": 1,
+            "reservedTokens": 0,
+            "budgetPriority": 400,
+            "trimDirection": "trimBottom",
+            "insertionType": "newline",
+            "maximumTrimType": "sentence",
+            "insertionPosition": -1
+          },
+          "lastUpdatedAt": 1791867936004,
+          "displayName": "New Lorebook Entry",
+          "id": "1644abbc-d5c5-44d5-b937-d618af6eaf10",
+          "keys": [],
+          "searchRange": 1000,
+          "enabled": true,
+          "forceActivation": false,
+          "keyRelative": false,
+          "nonStoryActivatable": false,
+          "category": "",
+          "loreBiasGroups": [
+            {
+              "phrases": [],
+              "ensureSequenceFinish": false,
+              "generateOnce": true,
+              "bias": 0,
+              "enabled": true,
+              "whenInactive": false
+            }
+          ],
+          "advancedConditions": []
+        },
+        "categoryBiasGroups": [
+          {
+            "phrases": [],
+            "ensureSequenceFinish": false,
+            "generateOnce": true,
+            "bias": 0,
+            "enabled": true,
+            "whenInactive": false
+          }
+        ],
+        "settings": {
+          "entryHeader": "----"
+        },
+        "order": []
+      },
+      {
+        "name": "SE: Topics",
+        "id": "8558c9d9-a2f3-4fe9-9d0c-07b056f691c7",
+        "enabled": true,
+        "createSubcontext": false,
+        "subcontextSettings": {
+          "text": "",
+          "contextConfig": {
+            "prefix": "",
+            "suffix": "\n",
+            "tokenBudget": 1,
+            "reservedTokens": 0,
+            "budgetPriority": 400,
+            "trimDirection": "trimBottom",
+            "insertionType": "newline",
+            "maximumTrimType": "sentence",
+            "insertionPosition": -1
+          },
+          "lastUpdatedAt": 1791872018116,
+          "displayName": "New Lorebook Entry",
+          "id": "ad94e5f3-ba57-4b21-b799-3bbfbc54b644",
+          "keys": [],
+          "searchRange": 1000,
+          "enabled": true,
+          "forceActivation": false,
+          "keyRelative": false,
+          "nonStoryActivatable": false,
+          "category": "",
+          "loreBiasGroups": [
+            {
+              "phrases": [],
+              "ensureSequenceFinish": false,
+              "generateOnce": true,
+              "bias": 0,
+              "enabled": true,
+              "whenInactive": false
+            }
+          ],
+          "advancedConditions": []
+        },
+        "useCategoryDefaults": false,
+        "categoryDefaults": {
+          "text": "",
+          "contextConfig": {
+            "prefix": "",
+            "suffix": "\n",
+            "tokenBudget": 1,
+            "reservedTokens": 0,
+            "budgetPriority": 400,
+            "trimDirection": "trimBottom",
+            "insertionType": "newline",
+            "maximumTrimType": "sentence",
+            "insertionPosition": -1
+          },
+          "lastUpdatedAt": 1791867936004,
+          "displayName": "New Lorebook Entry",
+          "id": "f07411f0-51e7-4075-a453-f711762288d4",
+          "keys": [],
+          "searchRange": 1000,
+          "enabled": true,
+          "forceActivation": false,
+          "keyRelative": false,
+          "nonStoryActivatable": false,
+          "category": "",
+          "loreBiasGroups": [
+            {
+              "phrases": [],
+              "ensureSequenceFinish": false,
+              "generateOnce": true,
+              "bias": 0,
+              "enabled": true,
+              "whenInactive": false
+            }
+          ],
+          "advancedConditions": []
+        },
+        "categoryBiasGroups": [
+          {
+            "phrases": [],
+            "ensureSequenceFinish": false,
+            "generateOnce": true,
+            "bias": 0,
+            "enabled": true,
+            "whenInactive": false
+          }
+        ],
+        "settings": {
+          "entryHeader": "----"
+        },
+        "order": []
+      }
+    ],
+    "order": []
+  },
+  "author": "",
+  "storyContextConfig": {
+    "prefix": "",
+    "suffix": "",
+    "tokenBudget": 1,
+    "reservedTokens": 512,
+    "budgetPriority": 0,
+    "trimDirection": "trimTop",
+    "insertionType": "newline",
+    "maximumTrimType": "sentence",
+    "insertionPosition": -1,
+    "allowInsertionInside": true
+  },
+  "contextDefaults": {
+    "ephemeralDefaults": [
+      {
+        "text": "",
+        "contextConfig": {
+          "prefix": "",
+          "suffix": "\n",
+          "tokenBudget": 1,
+          "reservedTokens": 1,
+          "budgetPriority": -10000,
+          "trimDirection": "doNotTrim",
+          "insertionType": "newline",
+          "maximumTrimType": "newline",
+          "insertionPosition": -2
+        },
+        "startingStep": 1,
+        "delay": 0,
+        "duration": 1,
+        "repeat": false,
+        "reverse": false
+      }
+    ],
+    "loreDefaults": [
+      {
+        "text": "",
+        "contextConfig": {
+          "prefix": "",
+          "suffix": "\n",
+          "tokenBudget": 1,
+          "reservedTokens": 0,
+          "budgetPriority": 400,
+          "trimDirection": "trimBottom",
+          "insertionType": "newline",
+          "maximumTrimType": "sentence",
+          "insertionPosition": -1
+        },
+        "lastUpdatedAt": 1791863404738,
+        "displayName": "New Lorebook Entry",
+        "id": "4d96854c-27a2-4179-8cce-8b22e0c1a90b",
+        "keys": [],
+        "searchRange": 1000,
+        "enabled": true,
+        "forceActivation": false,
+        "keyRelative": false,
+        "nonStoryActivatable": false,
+        "category": "",
+        "loreBiasGroups": [
+          {
+            "phrases": [],
+            "ensureSequenceFinish": false,
+            "generateOnce": true,
+            "bias": 0,
+            "enabled": true,
+            "whenInactive": false
+          }
+        ],
+        "advancedConditions": []
+      }
+    ]
+  },
+  "phraseBiasGroups": [
+    {
+      "phrases": [],
+      "ensureSequenceFinish": false,
+      "generateOnce": true,
+      "bias": 0,
+      "enabled": true,
+      "whenInactive": false
+    }
+  ],
+  "bannedSequenceGroups": [
+    {
+      "sequences": [],
+      "enabled": true
+    }
+  ],
+  "messageSettings": {
+    "systemPrompts": {},
+    "prefills": {}
+  },
+  "userScripts": [],
+  "attg": {
+    "tags": [],
+    "genre": []
+  }
+}
