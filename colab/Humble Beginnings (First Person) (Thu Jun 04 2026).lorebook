@@ -1,0 +1,404 @@
+{
+  "lorebookVersion": 6,
+  "entries": [
+    {
+      "text": "Anser was a small rural village in the kingdom of Cromus, where I was born and raised. I sought to leave Anser in search of adventure.",
+      "contextConfig": {
+        "prefix": "[ ",
+        "suffix": " ]\n",
+        "tokenBudget": 1,
+        "reservedTokens": 1,
+        "budgetPriority": -200,
+        "trimDirection": "trimBottom",
+        "insertionType": "newline",
+        "maximumTrimType": "sentence",
+        "insertionPosition": -10
+      },
+      "lastUpdatedAt": 1624590857000,
+      "displayName": "Anser",
+      "id": "c2a1496c-a1fe-48d1-b199-76ccc530fe25",
+      "keys": [
+        "Anser",
+        "home",
+        "hometown",
+        "village"
+      ],
+      "searchRange": 1000,
+      "enabled": true,
+      "forceActivation": false,
+      "keyRelative": false,
+      "nonStoryActivatable": false,
+      "category": "3cef9c46-ab86-4d19-8cae-1f2d9c4d0f3f",
+      "loreBiasGroups": [
+        {
+          "phrases": [],
+          "ensureSequenceFinish": false,
+          "generateOnce": true,
+          "bias": 0,
+          "enabled": true,
+          "whenInactive": false
+        }
+      ],
+      "advancedConditions": []
+    },
+    {
+      "text": "Cromus was a kingdom ruled by the benevolent King Cromus XI. The opulent Cromus Castle was located in the capital city.",
+      "contextConfig": {
+        "prefix": "[ ",
+        "suffix": " ]\n",
+        "tokenBudget": 1,
+        "reservedTokens": 1,
+        "budgetPriority": -200,
+        "trimDirection": "trimBottom",
+        "insertionType": "newline",
+        "maximumTrimType": "sentence",
+        "insertionPosition": -10
+      },
+      "lastUpdatedAt": 1624590856000,
+      "displayName": "Cromus",
+      "id": "2515e32b-6405-4f3e-b24c-af10d765ad93",
+      "keys": [
+        "Cromus",
+        "kingdom",
+        "country",
+        "capital",
+        "castle",
+        "king"
+      ],
+      "searchRange": 1000,
+      "enabled": true,
+      "forceActivation": false,
+      "keyRelative": false,
+      "nonStoryActivatable": false,
+      "category": "3cef9c46-ab86-4d19-8cae-1f2d9c4d0f3f",
+      "loreBiasGroups": [
+        {
+          "phrases": [],
+          "ensureSequenceFinish": false,
+          "generateOnce": true,
+          "bias": 0,
+          "enabled": true,
+          "whenInactive": false
+        }
+      ],
+      "advancedConditions": []
+    },
+    {
+      "text": "Gold coins were the currency of Cromus. Regular sundries cost only a few gold coins, while expensive jewelry could cost hundreds of coins.",
+      "contextConfig": {
+        "prefix": "[ ",
+        "suffix": " ]\n",
+        "tokenBudget": 1,
+        "reservedTokens": 1,
+        "budgetPriority": -200,
+        "trimDirection": "trimBottom",
+        "insertionType": "newline",
+        "maximumTrimType": "sentence",
+        "insertionPosition": -10
+      },
+      "lastUpdatedAt": 1624590855000,
+      "displayName": "Currency",
+      "id": "f18da6e8-ac2f-41bd-a50c-c5b8b01ce408",
+      "keys": [
+        "currency",
+        "cost",
+        "money",
+        "gold",
+        "coin",
+        "coins",
+        "price"
+      ],
+      "searchRange": 1000,
+      "enabled": true,
+      "forceActivation": false,
+      "keyRelative": false,
+      "nonStoryActivatable": false,
+      "category": "3cef9c46-ab86-4d19-8cae-1f2d9c4d0f3f",
+      "loreBiasGroups": [
+        {
+          "phrases": [],
+          "ensureSequenceFinish": false,
+          "generateOnce": true,
+          "bias": 0,
+          "enabled": true,
+          "whenInactive": false
+        }
+      ],
+      "advancedConditions": []
+    },
+    {
+      "text": "The Ninjas are an elite military force trained in stealth and espionage. They serve as the personal guard of the Shogun and are tasked with protecting him from any threats. Their skills are such that they can sneak into even the most heavily guarded fortresses without being detected, and they're known to be able to kill a man with a single blow.",
+      "contextConfig": {
+        "prefix": "",
+        "suffix": "\n",
+        "tokenBudget": 1,
+        "reservedTokens": 0,
+        "budgetPriority": 400,
+        "trimDirection": "trimBottom",
+        "insertionType": "newline",
+        "maximumTrimType": "sentence",
+        "insertionPosition": -1
+      },
+      "lastUpdatedAt": 1780543458320,
+      "displayName": "Ninjas",
+      "id": "83ef011e-3692-4883-949d-cf9c8dcec573",
+      "keys": [
+        "Ninjas"
+      ],
+      "searchRange": 1000,
+      "enabled": true,
+      "forceActivation": false,
+      "keyRelative": false,
+      "nonStoryActivatable": false,
+      "category": "518bba0f-b56f-4a65-ad6a-94c75ebc6d3d",
+      "loreBiasGroups": [
+        {
+          "phrases": [],
+          "ensureSequenceFinish": false,
+          "generateOnce": true,
+          "bias": 0,
+          "enabled": true,
+          "whenInactive": false
+        }
+      ],
+      "advancedConditions": []
+    },
+    {
+      "text": "",
+      "contextConfig": {
+        "prefix": "",
+        "suffix": "\n",
+        "tokenBudget": 1,
+        "reservedTokens": 0,
+        "budgetPriority": 400,
+        "trimDirection": "trimBottom",
+        "insertionType": "newline",
+        "maximumTrimType": "sentence",
+        "insertionPosition": -1
+      },
+      "lastUpdatedAt": 1780543484880,
+      "displayName": "Ninja Squad",
+      "id": "c45f4076-ac97-44d1-9e29-c9364d7cc2bf",
+      "keys": [],
+      "searchRange": 1000,
+      "enabled": true,
+      "forceActivation": false,
+      "keyRelative": false,
+      "nonStoryActivatable": false,
+      "category": "518bba0f-b56f-4a65-ad6a-94c75ebc6d3d",
+      "loreBiasGroups": [
+        {
+          "phrases": [],
+          "ensureSequenceFinish": false,
+          "generateOnce": true,
+          "bias": 0,
+          "enabled": true,
+          "whenInactive": false
+        }
+      ],
+      "advancedConditions": [
+        {
+          "type": "lore",
+          "entryId": "83ef011e-3692-4883-949d-cf9c8dcec573"
+        }
+      ]
+    }
+  ],
+  "settings": {
+    "orderByKeyLocations": false
+  },
+  "categories": [
+    {
+      "name": "Base",
+      "id": "3cef9c46-ab86-4d19-8cae-1f2d9c4d0f3f",
+      "enabled": true,
+      "createSubcontext": false,
+      "subcontextSettings": {
+        "text": "",
+        "contextConfig": {
+          "prefix": "",
+          "suffix": "\n",
+          "tokenBudget": 1,
+          "reservedTokens": 0,
+          "budgetPriority": 400,
+          "trimDirection": "trimBottom",
+          "insertionType": "newline",
+          "maximumTrimType": "sentence",
+          "insertionPosition": -1
+        },
+        "lastUpdatedAt": 1780549350298,
+        "displayName": "New Lorebook Entry",
+        "id": "ee80904a-036a-40ac-9b60-3a500c3bbfe9",
+        "keys": [],
+        "searchRange": 1000,
+        "enabled": true,
+        "forceActivation": false,
+        "keyRelative": false,
+        "nonStoryActivatable": false,
+        "category": "",
+        "loreBiasGroups": [
+          {
+            "phrases": [],
+            "ensureSequenceFinish": false,
+            "generateOnce": true,
+            "bias": 0,
+            "enabled": true,
+            "whenInactive": false
+          }
+        ],
+        "advancedConditions": []
+      },
+      "useCategoryDefaults": false,
+      "categoryDefaults": {
+        "text": "",
+        "contextConfig": {
+          "prefix": "",
+          "suffix": "\n",
+          "tokenBudget": 1,
+          "reservedTokens": 0,
+          "budgetPriority": 400,
+          "trimDirection": "trimBottom",
+          "insertionType": "newline",
+          "maximumTrimType": "sentence",
+          "insertionPosition": -1
+        },
+        "lastUpdatedAt": 1780543122363,
+        "displayName": "New Lorebook Entry",
+        "id": "54ef1189-a772-4943-afc2-374f84c3bff8",
+        "keys": [],
+        "searchRange": 1000,
+        "enabled": true,
+        "forceActivation": false,
+        "keyRelative": false,
+        "nonStoryActivatable": false,
+        "category": "",
+        "loreBiasGroups": [
+          {
+            "phrases": [],
+            "ensureSequenceFinish": false,
+            "generateOnce": true,
+            "bias": 0,
+            "enabled": true,
+            "whenInactive": false
+          }
+        ],
+        "advancedConditions": []
+      },
+      "categoryBiasGroups": [
+        {
+          "phrases": [],
+          "ensureSequenceFinish": false,
+          "generateOnce": true,
+          "bias": 0,
+          "enabled": true,
+          "whenInactive": false
+        }
+      ],
+      "settings": {
+        "entryHeader": "Base"
+      },
+      "order": [
+        "c2a1496c-a1fe-48d1-b199-76ccc530fe25",
+        "2515e32b-6405-4f3e-b24c-af10d765ad93",
+        "f18da6e8-ac2f-41bd-a50c-c5b8b01ce408"
+      ],
+      "open": false
+    },
+    {
+      "name": "New Category",
+      "id": "518bba0f-b56f-4a65-ad6a-94c75ebc6d3d",
+      "enabled": true,
+      "createSubcontext": false,
+      "subcontextSettings": {
+        "text": "",
+        "contextConfig": {
+          "prefix": "",
+          "suffix": "\n",
+          "tokenBudget": 1,
+          "reservedTokens": 0,
+          "budgetPriority": 400,
+          "trimDirection": "trimBottom",
+          "insertionType": "newline",
+          "maximumTrimType": "sentence",
+          "insertionPosition": -1
+        },
+        "lastUpdatedAt": 1780549350298,
+        "displayName": "New Lorebook Entry",
+        "id": "0e2c63ca-0e30-4298-8a06-257812cb2fbb",
+        "keys": [],
+        "searchRange": 1000,
+        "enabled": true,
+        "forceActivation": false,
+        "keyRelative": false,
+        "nonStoryActivatable": false,
+        "category": "",
+        "loreBiasGroups": [
+          {
+            "phrases": [],
+            "ensureSequenceFinish": false,
+            "generateOnce": true,
+            "bias": 0,
+            "enabled": true,
+            "whenInactive": false
+          }
+        ],
+        "advancedConditions": []
+      },
+      "useCategoryDefaults": false,
+      "categoryDefaults": {
+        "text": "",
+        "contextConfig": {
+          "prefix": "",
+          "suffix": "\n",
+          "tokenBudget": 1,
+          "reservedTokens": 0,
+          "budgetPriority": 400,
+          "trimDirection": "trimBottom",
+          "insertionType": "newline",
+          "maximumTrimType": "sentence",
+          "insertionPosition": -1
+        },
+        "lastUpdatedAt": 1780543219179,
+        "displayName": "New Lorebook Entry",
+        "id": "df8a73b7-72ba-4c77-886c-e81f5daaf2cf",
+        "keys": [],
+        "searchRange": 1000,
+        "enabled": true,
+        "forceActivation": false,
+        "keyRelative": false,
+        "nonStoryActivatable": false,
+        "category": "",
+        "loreBiasGroups": [
+          {
+            "phrases": [],
+            "ensureSequenceFinish": false,
+            "generateOnce": true,
+            "bias": 0,
+            "enabled": true,
+            "whenInactive": false
+          }
+        ],
+        "advancedConditions": []
+      },
+      "categoryBiasGroups": [
+        {
+          "phrases": [],
+          "ensureSequenceFinish": false,
+          "generateOnce": true,
+          "bias": 0,
+          "enabled": true,
+          "whenInactive": false
+        }
+      ],
+      "settings": {},
+      "order": [
+        "83ef011e-3692-4883-949d-cf9c8dcec573",
+        "c45f4076-ac97-44d1-9e29-c9364d7cc2bf"
+      ]
+    }
+  ],
+  "order": [
+    "3cef9c46-ab86-4d19-8cae-1f2d9c4d0f3f",
+    "518bba0f-b56f-4a65-ad6a-94c75ebc6d3d"
+  ]
+}
