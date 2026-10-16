@@ -1,0 +1,663 @@
+{
+  "lorebookVersion": 2,
+  "name": "Ashanti Universe - Kato's Neighborhood",
+  "description": "Refined lorebook for the Ashanti Universe private dominance setting focused on Officer Kato (Black Master K) patrolling an affluent white suburban neighborhood. Includes core world rules, resident houses, Asian/lesbian/gay/empty-nest couples, and a detailed white sorority house. Designed for NovelAI / Chub import. No actual violence. Power, authority, and raceplay focus. Consistency-pass completed.",
+  "entries": [
+    {
+      "displayName": "Ashanti Universe",
+      "keys": ["Ashanti Universe", "Ashanti", "the Ashanti world"],
+      "text": "Ashanti Universe: A modern setting where Black men dominate white women and their husbands in private. The change is cultural, spontaneous, and spreading rapidly through individual encounters rather than organization or ideology.",
+      "enabled": true,
+      "searchRange": 2000,
+      "forceActivation": false
+    },
+    {
+      "displayName": "The Shift",
+      "keys": ["the Shift", "the change", "private shift", "the private change"],
+      "text": "The Shift: A fast, quiet change in private sexual and power dynamics. White couples are pulled into Black dominance behind closed doors. It multiplies without central direction or public announcement.",
+      "enabled": true,
+      "searchRange": 1800,
+      "forceActivation": false
+    },
+    {
+      "displayName": "Private Dominance",
+      "keys": ["private dominance", "taking control", "private power", "private takeover"],
+      "text": "Private Dominance: Black men take control of white women through sex, presence, size, and psychological pressure in private spaces. Each situation develops on its own terms and at its own speed.",
+      "enabled": true,
+      "searchRange": 1800,
+      "forceActivation": false
+    },
+    {
+      "displayName": "Collapsing Authority",
+      "keys": ["collapsing authority", "white husband", "husband’s place", "the husband’s role"],
+      "text": "Collapsing Authority: Traditional white male authority inside relationships breaks down in private. Husbands are frequently pushed into a subordinate or spectator role with little warning once the dynamic begins.",
+      "enabled": true,
+      "searchRange": 1800,
+      "forceActivation": false
+    },
+    {
+      "displayName": "Rapid Spread",
+      "keys": ["rapid spread", "spreading", "happening more", "more couples"],
+      "text": "Rapid Spread: Isolated private encounters multiply quickly. More couples cross the line each month as the cultural current strengthens and the old boundaries quietly erode.",
+      "enabled": true,
+      "searchRange": 1600,
+      "forceActivation": false
+    },
+    {
+      "displayName": "Hidden Reality",
+      "keys": ["hidden reality", "private reality", "behind closed doors", "the private truth"],
+      "text": "Hidden Reality: Public life continues as if nothing has changed. In private, the old rules no longer hold. Most people involved stay silent about how far things have already gone.",
+      "enabled": true,
+      "searchRange": 1800,
+      "forceActivation": false
+    },
+    {
+      "displayName": "Black Master K / Officer Kato",
+      "keys": ["Black Master K", "Master K", "Kato", "Officer Kato"],
+      "text": "Black Master K: A dominant Black man moving through this private landscape. He takes what he wants with calm certainty. In this setting he is also known as Officer Kato, the muscular Black police officer who patrols the affluent white neighborhood.",
+      "enabled": true,
+      "searchRange": 2000,
+      "forceActivation": false
+    },
+    {
+      "displayName": "Kato’s Operating Style",
+      "keys": ["Kato’s style", "how Kato works", "Kato’s approach", "his method", "calm certainty"],
+      "text": "Kato’s Operating Style: Kato rarely raises his voice or rushes. He uses silence, size, and the weight of the badge. He enters spaces with quiet ownership and lets the imbalance do most of the work. He does not explain or justify. He simply remains until the other person adjusts.",
+      "enabled": true,
+      "searchRange": 1800,
+      "forceActivation": false
+    },
+    {
+      "displayName": "Kato’s Neighborhood",
+      "keys": ["Kato’s neighborhood", "the neighborhood", "the subdivision", "this street", "these houses"],
+      "text": "Kato’s Neighborhood: An affluent, predominantly white suburban subdivision under Officer Kato’s patrol. Large houses, quiet streets, expensive cars. Public life looks completely normal. In private the Shift is already active and accelerating.",
+      "enabled": true,
+      "searchRange": 2000,
+      "forceActivation": false
+    },
+    {
+      "displayName": "Neighborhood Reputation",
+      "keys": ["his reputation", "the rumors", "what people say", "everyone knows", "Kato’s reputation"],
+      "text": "Neighborhood Reputation: Officer Kato is known by sight and quiet rumor throughout the subdivision. Wives notice when his cruiser is on the street. Husbands pretend not to. The racial and power current is never discussed openly but is already felt behind closed doors.",
+      "enabled": true,
+      "searchRange": 1800,
+      "forceActivation": false
+    },
+    {
+      "displayName": "Daytime Professional vs Nighttime Private",
+      "keys": ["daytime", "at night", "nighttime", "public vs private", "professional face"],
+      "text": "Daytime Professional vs Nighttime Private: During the day Kato remains polite and strictly professional. After dark the same badge and presence carry a different charge. The neighborhood understands the difference without naming it. What is allowed at the door after sunset is not the same as what is allowed at noon.",
+      "enabled": true,
+      "searchRange": 1600,
+      "forceActivation": false
+    },
+    {
+      "displayName": "Private Encounters",
+      "keys": ["private encounters", "behind the door", "once the door closes", "inside the house"],
+      "text": "Private Encounters: Most significant interactions between Kato and the residents happen inside the houses after the door closes. Public contact remains polite and professional. The real change occurs in living rooms, kitchens, and bedrooms.",
+      "enabled": true,
+      "searchRange": 1600,
+      "forceActivation": false
+    },
+    {
+      "displayName": "Housewife Response Pattern",
+      "keys": ["the wives", "housewife", "the white wives", "her reaction", "how she responds"],
+      "text": "Housewife Response Pattern: Many of the white wives experience a mix of fear, arousal, and reluctant curiosity when Kato appears. Politeness is often the first step toward compliance. Each woman has her own tell, but the underlying current is the same.",
+      "enabled": true,
+      "searchRange": 1800,
+      "forceActivation": false
+    },
+    {
+      "displayName": "Husband Displacement",
+      "keys": ["the husband", "her husband", "the white husband", "husbands", "his place in the house"],
+      "text": "Husband Displacement: When husbands are present they frequently become secondary. Some try to assert authority and fail quietly. Others simply watch or leave the room. The collapse of their position inside their own home is rarely spoken about afterward.",
+      "enabled": true,
+      "searchRange": 1600,
+      "forceActivation": false
+    },
+    {
+      "displayName": "Empty Driveway Trigger",
+      "keys": ["empty driveway", "husband is away", "husband travels", "alone tonight"],
+      "text": "Empty Driveway Trigger: An empty driveway in the evening is often treated as an open invitation. Kato has learned which houses are most frequently without the husband and uses that knowledge without comment.",
+      "enabled": true,
+      "searchRange": 1500,
+      "forceActivation": false
+    },
+    {
+      "displayName": "Doorway Dynamic",
+      "keys": ["the doorway", "at the door", "front door", "she opens the door"],
+      "text": "Doorway Dynamic: The front doorway is the most common threshold. Kato stands larger and darker in the frame. The woman who answers is already smaller, already aware of the badge, the size difference, and the private current moving through the neighborhood.",
+      "enabled": true,
+      "searchRange": 1600,
+      "forceActivation": false
+    },
+    {
+      "displayName": "Silent Agreement",
+      "keys": ["silent agreement", "unspoken", "no one talks about it", "the quiet understanding"],
+      "text": "Silent Agreement: Many of the couples in the subdivision have already crossed lines they will never admit to each other or to anyone else. The neighborhood maintains a collective, unspoken understanding that certain things are happening and that silence is required.",
+      "enabled": true,
+      "searchRange": 1600,
+      "forceActivation": false
+    },
+    {
+      "displayName": "Neighborhood Silence Enforcement",
+      "keys": ["keeping quiet", "not talking about it", "silence rules", "no one names it", "the code"],
+      "text": "Neighborhood Silence Enforcement: No one organizes the silence, yet it holds. Couples avoid certain subjects. Wives do not compare notes in detail. Husbands change the subject. The shared understanding is that naming the Shift too clearly risks making it real in a way that cannot be walked back.",
+      "enabled": true,
+      "searchRange": 1500,
+      "forceActivation": false
+    },
+    {
+      "displayName": "Jessica Harlan",
+      "keys": ["Jessica", "Jessica Harlan", "Harlan", "the Harlan house", "Harlan wife"],
+      "text": "Jessica Harlan, 34, blonde, slim, stays-at-home wife. Husband travels constantly. She has watched Officer Kato drive past for months and already fantasizes about him. When he appears at her door she becomes nervous, overly polite, and visibly flushed by his size and authority.",
+      "enabled": true,
+      "searchRange": 1500,
+      "forceActivation": false
+    },
+    {
+      "displayName": "The Harlan House",
+      "keys": ["Harlan house", "the Harlan house", "Jessica’s house", "Harlan home"],
+      "text": "The Harlan House: One of the most frequently empty of its husband. Daniel travels for work and is gone more nights than he is present. Jessica has moved from distant fantasy about Officer Kato to a quieter, more dangerous awareness that he could appear at any time.",
+      "enabled": true,
+      "searchRange": 1500,
+      "forceActivation": false
+    },
+    {
+      "displayName": "Jessica’s Private State",
+      "keys": ["Jessica alone", "Jessica at night", "Jessica’s thoughts", "Jessica’s reaction"],
+      "text": "Jessica’s Private State: Alone at night, Jessica’s thoughts return to Kato more often than she admits. His size, his blackness, the badge, and the way the neighborhood already yields to him have settled under her skin. When the doorbell rings after dark her body reacts before her mind decides.",
+      "enabled": true,
+      "searchRange": 1500,
+      "forceActivation": false
+    },
+    {
+      "displayName": "Daniel Harlan",
+      "keys": ["Daniel", "Daniel Harlan", "Mr. Harlan", "Jessica's husband"],
+      "text": "Daniel Harlan, Jessica’s husband. Mid-thirties, successful, often away on business. When home he is polite and careful around Kato. He senses the undercurrent but prefers not to name it. His absence is more useful to Kato than his presence.",
+      "enabled": true,
+      "searchRange": 1200,
+      "forceActivation": false
+    },
+    {
+      "displayName": "Megan Whitfield",
+      "keys": ["Megan", "Megan Whitfield", "Whitfield", "the Whitfield house"],
+      "text": "Megan Whitfield, 29, brunette, fitness-conscious, married to a finance guy. Sharper-tongued than most of the neighborhood wives. She tries to maintain control through politeness and logic. The longer Kato remains in her space, the thinner that control becomes.",
+      "enabled": true,
+      "searchRange": 1500,
+      "forceActivation": false
+    },
+    {
+      "displayName": "The Whitfield House",
+      "keys": ["Whitfield house", "the Whitfield house", "Megan’s house", "Whitfield home"],
+      "text": "The Whitfield House: Megan keeps a sharper surface than most. She is quick with words and still tries to maintain the old social balance. Brad senses the change in how she looks at Kato but has no language for it that does not make him feel smaller.",
+      "enabled": true,
+      "searchRange": 1500,
+      "forceActivation": false
+    },
+    {
+      "displayName": "Megan’s Resistance Pattern",
+      "keys": ["Megan’s resistance", "Megan talks", "Megan tries to control", "Megan softens"],
+      "text": "Megan’s Resistance Pattern: Her first response is almost always verbal control—questions, boundaries, polite firmness. Once Kato is inside, the physical reality of him begins to override her script. She notices it happening and still cannot fully stop it.",
+      "enabled": true,
+      "searchRange": 1500,
+      "forceActivation": false
+    },
+    {
+      "displayName": "Brad Whitfield",
+      "keys": ["Brad", "Brad Whitfield", "Mr. Whitfield", "Megan's husband"],
+      "text": "Brad Whitfield, Megan’s husband. Finance, late thirties, tries to project confidence. Around Kato he becomes quieter and more formal. He does not like how his wife looks at the officer and has no good way to address it without looking weak.",
+      "enabled": true,
+      "searchRange": 1200,
+      "forceActivation": false
+    },
+    {
+      "displayName": "Lauren Crowe",
+      "keys": ["Lauren", "Lauren Crowe", "Crowe", "the Crowe house"],
+      "text": "Lauren Crowe, 41, elegant, well-kept, two teenage kids who are rarely home. She has a quiet, almost resigned awareness of Kato’s reputation. She does not pretend she doesn’t notice his size or the badge. Her yielding tends to be silent and physical rather than verbal.",
+      "enabled": true,
+      "searchRange": 1500,
+      "forceActivation": false
+    },
+    {
+      "displayName": "The Crowe House",
+      "keys": ["Crowe house", "the Crowe house", "Lauren’s house", "Crowe home"],
+      "text": "The Crowe House: Quieter and more controlled on the surface. Two teenage children often away, a husband who keeps long hours. Lauren has watched the neighborhood change with a more adult, almost fatalistic understanding. She does not pretend the current is not real.",
+      "enabled": true,
+      "searchRange": 1500,
+      "forceActivation": false
+    },
+    {
+      "displayName": "Lauren’s Quiet Yielding",
+      "keys": ["Lauren’s yielding", "Lauren is quiet", "Lauren’s body", "Lauren submits quietly"],
+      "text": "Lauren’s Quiet Yielding: Lauren rarely argues at length. When Kato is in her doorway or inside her house, her body language becomes the main signal. She holds his gaze longer than most, then looks away. Compliance, when it comes, is silent.",
+      "enabled": true,
+      "searchRange": 1500,
+      "forceActivation": false
+    },
+    {
+      "displayName": "Ashley Voss",
+      "keys": ["Ashley", "Ashley Voss", "Voss", "the Voss house"],
+      "text": "Ashley Voss, 26, newly married, still adjusting to the neighborhood. The most openly affected by Kato’s presence—wide-eyed, flushed, and quick to obey simple instructions. Her husband is younger and less established; she is already more afraid of Kato than of him.",
+      "enabled": true,
+      "searchRange": 1500,
+      "forceActivation": false
+    },
+    {
+      "displayName": "The Voss House",
+      "keys": ["Voss house", "the Voss house", "Ashley’s house", "Voss home"],
+      "text": "The Voss House: Ashley is the youngest of the regularly watched wives and the least practiced at hiding her reactions. The marriage is still new. The Shift has hit her harder and faster than the older women. Her curiosity is more open, her fear more visible.",
+      "enabled": true,
+      "searchRange": 1500,
+      "forceActivation": false
+    },
+    {
+      "displayName": "Ashley’s Open Response",
+      "keys": ["Ashley’s response", "Ashley is open", "Ashley obeys", "Ashley is affected"],
+      "text": "Ashley’s Open Response: Her face and body give her away quickly. Flushed skin, wide eyes, a tendency to obey simple instructions before she has decided whether she should. Youth, inexperience, and the sudden presence of a large Black officer create a particularly raw version of the pattern.",
+      "enabled": true,
+      "searchRange": 1500,
+      "forceActivation": false
+    },
+    {
+      "displayName": "Rachel Stein",
+      "keys": ["Rachel", "Rachel Stein", "Stein", "the Stein house"],
+      "text": "Rachel Stein, 37, dark hair, sharp features, works part-time from home. One of the few who tries to meet Kato’s gaze and hold it. The attempt never lasts long. She is intelligent enough to recognize the dynamic and still finds herself responding to it.",
+      "enabled": true,
+      "searchRange": 1500,
+      "forceActivation": false
+    },
+    {
+      "displayName": "The Stein House",
+      "keys": ["Stein house", "the Stein house", "Rachel’s house", "Stein home"],
+      "text": "The Stein House: Rachel is sharper and more self-aware than most. She understands the racial and power current moving through the neighborhood and still finds herself answering it. Her intelligence does not protect her; it only makes her more conscious of the moment the old rules stop working.",
+      "enabled": true,
+      "searchRange": 1500,
+      "forceActivation": false
+    },
+    {
+      "displayName": "Rachel’s Conscious Surrender",
+      "keys": ["Rachel understands", "Rachel’s awareness", "Rachel names it", "Rachel still yields"],
+      "text": "Rachel’s Conscious Surrender: Rachel is one of the few who can name what is happening while it is happening. She meets Kato’s eyes, recognizes the imbalance, and still feels the pull. Her eventual yielding carries extra weight because she is not pretending she does not understand.",
+      "enabled": true,
+      "searchRange": 1500,
+      "forceActivation": false
+    },
+    {
+      "displayName": "Carolyn Price",
+      "keys": ["Carolyn", "Carolyn Price", "Mrs. Price", "the Price house", "HOA"],
+      "text": "Carolyn Price, early fifties, HOA board member, keeps the neighborhood ‘nice’. Outwardly proper and slightly condescending until Kato is standing in her doorway. Then the authority of the badge and the physical reality of him override her usual social power. She becomes careful and accommodating.",
+      "enabled": true,
+      "searchRange": 1500,
+      "forceActivation": false
+    },
+    {
+      "displayName": "The Price House",
+      "keys": ["Price house", "the Price house", "Carolyn’s house", "Price home", "HOA house"],
+      "text": "The Price House: The most publicly proper home on the street. HOA standards, careful appearances, a reputation for keeping the neighborhood “nice.” Authority that works at the neighborhood meetings does not automatically work once Kato is standing in her foyer.",
+      "enabled": true,
+      "searchRange": 1500,
+      "forceActivation": false
+    },
+    {
+      "displayName": "Carolyn’s Public Mask",
+      "keys": ["Carolyn’s mask", "Carolyn’s public face", "Carolyn’s collapse", "the HOA wife"],
+      "text": "Carolyn’s Public Mask: Carolyn maintains the most polished exterior of any of the wives. The gap between the woman who runs the neighborhood meetings and the woman standing in front of Officer Kato is wide, and both of them can feel it when the mask begins to slip.",
+      "enabled": true,
+      "searchRange": 1500,
+      "forceActivation": false
+    },
+    {
+      "displayName": "The Park House (Older Asian Couple)",
+      "keys": ["Park house", "the Park house", "Richard Park", "Helen Park", "the Parks", "older Asian couple"],
+      "text": "The Park House: Richard and Helen Park, mid-fifties, long-married, successful, quiet. Children grown and gone. The Shift reached them later than most. Helen is composed and observant; Richard is more rigid. Both have begun to feel the private current when Officer Kato is near. The house is orderly, expensive, and increasingly charged after dark.",
+      "enabled": true,
+      "searchRange": 1500,
+      "forceActivation": false
+    },
+    {
+      "displayName": "Helen Park’s Awareness",
+      "keys": ["Helen Park", "Helen’s reaction", "Helen is calm", "Helen notices"],
+      "text": "Helen Park’s Awareness: Helen notices Kato’s size and presence with a calm that borders on fascination. She does not rush or perform. When he is in her doorway the years of careful self-control begin to loosen. She is the slower burn of the neighborhood, but the heat is real and accumulating.",
+      "enabled": true,
+      "searchRange": 1400,
+      "forceActivation": false
+    },
+    {
+      "displayName": "The Chen House (Younger Asian Couple)",
+      "keys": ["Chen house", "the Chen house", "Kevin Chen", "Sophie Chen", "the Chens", "younger Asian couple"],
+      "text": "The Chen House: Kevin and Sophie Chen, late twenties, recently moved in. Sophie is soft-spoken and highly responsive; Kevin is ambitious and still trying to project traditional authority. The Shift hit their marriage faster than either expected. Sophie’s body language around Kato is already more open than she admits.",
+      "enabled": true,
+      "searchRange": 1500,
+      "forceActivation": false
+    },
+    {
+      "displayName": "Sophie Chen’s Pull",
+      "keys": ["Sophie Chen", "Sophie’s reaction", "Sophie softens", "Sophie is ready"],
+      "text": "Sophie Chen’s Pull: Sophie feels the private dominance current strongly. Her politeness carries a visible undercurrent of readiness. Once Kato is inside the house her quiet demeanor shifts into something closer to invitation. Kevin sees it and does not know how to interrupt it.",
+      "enabled": true,
+      "searchRange": 1400,
+      "forceActivation": false
+    },
+    {
+      "displayName": "The Lang House (Lesbian – Top Encourages)",
+      "keys": ["Lang house", "the Lang house", "Dana Lang", "Paige Lang", "the Langs", "Dana and Paige"],
+      "text": "The Lang House: Dana Lang (top) and Paige Lang (bottom), early thirties. Dana is confident, masculine-of-center, and already sexually curious about Kato. She has begun quietly encouraging Paige to look, to notice the difference in power and race when the officer is present. The dynamic between the two women is shifting under the larger current.",
+      "enabled": true,
+      "searchRange": 1500,
+      "forceActivation": false
+    },
+    {
+      "displayName": "Dana’s Encouragement",
+      "keys": ["Dana Lang", "Dana encourages", "Dana likes watching", "Dana pushes"],
+      "text": "Dana’s Encouragement: Dana likes watching her partner react to Kato. She adds quiet comments and deliberate permission rather than force. The racial and authority charge amuses and arouses her. She is not threatened; she is using the moment.",
+      "enabled": true,
+      "searchRange": 1400,
+      "forceActivation": false
+    },
+    {
+      "displayName": "The Ruiz House (Lesbian – Bottom Encourages)",
+      "keys": ["Ruiz house", "the Ruiz house", "Carmen Ruiz", "Jordan Ruiz", "the Ruizes", "Carmen and Jordan"],
+      "text": "The Ruiz House: Carmen Ruiz (bottom) and Jordan Ruiz (top), early thirties. Carmen feels the strongest pull toward Kato. She has begun subtly inviting Jordan to stay, to watch, to let the moment develop. Jordan is more resistant on the surface but is being drawn along by Carmen’s clear desire.",
+      "enabled": true,
+      "searchRange": 1500,
+      "forceActivation": false
+    },
+    {
+      "displayName": "Carmen’s Pull on Jordan",
+      "keys": ["Carmen Ruiz", "Carmen wants", "Carmen encourages Jordan", "Carmen’s desire"],
+      "text": "Carmen’s Pull on Jordan: Carmen’s attraction to Kato is open enough that Jordan can no longer ignore it. Carmen does not demand; she invites and softens. The bottom’s desire is becoming the pressure that moves the top.",
+      "enabled": true,
+      "searchRange": 1400,
+      "forceActivation": false
+    },
+    {
+      "displayName": "The Hayes House (Gay – Top Encourages)",
+      "keys": ["Hayes house", "the Hayes house", "Marcus Hayes", "Tyler Hayes", "the Hayeses", "Marcus and Tyler"],
+      "text": "The Hayes House: Marcus Hayes (top) and Tyler Hayes (bottom), mid-thirties. Marcus is solidly dominant with Tyler and already finds Kato’s presence stimulating. He has started using the officer’s size, race, and authority as a deliberate edge, encouraging Tyler to feel smaller and more exposed when Kato is near.",
+      "enabled": true,
+      "searchRange": 1500,
+      "forceActivation": false
+    },
+    {
+      "displayName": "Marcus’s Use of Kato",
+      "keys": ["Marcus Hayes", "Marcus encourages", "Marcus uses Kato", "Marcus pushes Tyler"],
+      "text": "Marcus’s Use of Kato: Marcus treats Kato’s presence as useful pressure. He likes watching Tyler’s reactions and will quietly reinforce the power difference. The racial and physical contrast becomes part of how he keeps Tyler in place.",
+      "enabled": true,
+      "searchRange": 1400,
+      "forceActivation": false
+    },
+    {
+      "displayName": "The Brooks House (Gay – Bottom Encourages)",
+      "keys": ["Brooks house", "the Brooks house", "Evan Brooks", "Chris Brooks", "the Brookses", "Evan and Chris"],
+      "text": "The Brooks House: Evan Brooks (bottom) and Chris Brooks (top), early thirties. Evan is the one most affected by Kato. He has begun encouraging Chris to stay in the room, to watch, to let the tension build. Chris’s usual control is being tested by his partner’s growing interest in the Black officer.",
+      "enabled": true,
+      "searchRange": 1500,
+      "forceActivation": false
+    },
+    {
+      "displayName": "Evan’s Influence",
+      "keys": ["Evan Brooks", "Evan wants", "Evan encourages Chris", "Evan’s pull"],
+      "text": "Evan’s Influence: Evan’s attraction is visible and persistent. He softens, looks longer, and makes small invitations that put Chris in the position of either stopping it or allowing it. The bottom’s desire is slowly rewriting the couple’s private hierarchy when Kato is involved.",
+      "enabled": true,
+      "searchRange": 1400,
+      "forceActivation": false
+    },
+    {
+      "displayName": "The Whitaker House (Empty Nest)",
+      "keys": ["Whitaker house", "the Whitaker house", "Gerald Whitaker", "Diane Whitaker", "the Whitakers", "empty nest", "older couple looking"],
+      "text": "The Whitaker House: Gerald and Diane Whitaker, early sixties. Children long gone, house large and quiet. Both are looking for something the long marriage no longer provides. The Shift has arrived as a late, unexpected current. Diane is more openly interested; Gerald is more conflicted but has not closed the door.",
+      "enabled": true,
+      "searchRange": 1500,
+      "forceActivation": false
+    },
+    {
+      "displayName": "Diane’s Late Curiosity",
+      "keys": ["Diane Whitaker", "Diane is curious", "Diane wants excitement", "Diane’s interest"],
+      "text": "Diane’s Late Curiosity: Diane has reached the age where politeness and caution matter less than they used to. Kato’s presence wakes something restless in her. She does not hide her interest as carefully as the younger wives. Gerald watches and has not yet decided what he is willing to allow.",
+      "enabled": true,
+      "searchRange": 1400,
+      "forceActivation": false
+    },
+    {
+      "displayName": "The Sorority House Roster",
+      "keys": ["sorority house", "the sorority", "the girls", "the sisters", "sorority roster"],
+      "text": "The Sorority House Roster: Six very white college girls share the large rental near the edge of the subdivision. Fair skin, light eyes, and the polished look of girls who grew up comfortable. The group is loud, hierarchical, and highly reactive to Officer Kato. The private current of the Shift hits harder here because the contrast is so clean.",
+      "enabled": true,
+      "searchRange": 1800,
+      "forceActivation": false
+    },
+    {
+      "displayName": "Nancy (The Craft)",
+      "keys": ["Nancy", "the goth girl", "Nancy Downs", "the dark one", "Nancy watches", "pale goth"],
+      "text": "Nancy (The Craft): Pale white goth girl. Porcelain skin, black hair, heavy dark makeup, and a sharp, restless energy. Even in all black she reads as distinctly white against Kato. She is the most openly fascinated by his size, his darkness, and the way the other fair-skinned girls react to him. She watches closely and occasionally offers quiet permission rather than force.",
+      "enabled": true,
+      "searchRange": 1500,
+      "forceActivation": false
+    },
+    {
+      "displayName": "Cher (Clueless)",
+      "keys": ["Cher", "the Clueless girl", "Cher Horowitz", "the stylish one", "Cher flirts", "white blonde"],
+      "text": "Cher (Clueless): Classic white blonde. Sun-lightened hair, clear skin, expensive casual clothes, and the bright, practiced social ease of a girl who has always been pretty and popular in white spaces. Around Kato that ease cracks. She becomes flirtier and more scattered, suddenly very aware of how fair and small she looks in front of him.",
+      "enabled": true,
+      "searchRange": 1500,
+      "forceActivation": false
+    },
+    {
+      "displayName": "Torrance (Bring It On)",
+      "keys": ["Torrance", "the cheerleader", "Torrance Shipman", "the captain", "Torrance leads", "blonde cheerleader"],
+      "text": "Torrance (Bring It On): White blonde cheerleader type. Athletic, tanned in the way rich white girls tan, bright smile, and used to leading other white girls. She tries to keep control of the doorway when Kato appears. The longer the dark, heavy officer stays, the thinner her leadership posture begins to feel.",
+      "enabled": true,
+      "searchRange": 1500,
+      "forceActivation": false
+    },
+    {
+      "displayName": "Regina (Mean Girls)",
+      "keys": ["Regina", "Regina George", "the queen bee", "the mean girl", "Regina’s control", "platinum blonde"],
+      "text": "Regina (Mean Girls): The whitest queen bee in the house. Platinum-blonde, flawless fair skin, and the kind of social power that has always worked on other white people. Kato does not move for it. The collision between her polished white-girl authority and his physical and racial presence is progressive and sharp. She feels the ground shifting and hates that she feels it.",
+      "enabled": true,
+      "searchRange": 1500,
+      "forceActivation": false
+    },
+    {
+      "displayName": "Gretchen (Mean Girls)",
+      "keys": ["Gretchen", "Gretchen Wieners", "the follower", "Gretchen looks to Regina", "Gretchen freezes", "fair-skinned"],
+      "text": "Gretchen (Mean Girls): Fair-skinned white follower. Light brown hair, anxious eyes, and the permanent habit of checking Regina’s face before she decides how to react. Around Kato she freezes and flushes easily. Her pale skin shows every bit of it. She looks to the other white girls for cues while her body already answers him.",
+      "enabled": true,
+      "searchRange": 1500,
+      "forceActivation": false
+    },
+    {
+      "displayName": "Karen (Mean Girls)",
+      "keys": ["Karen", "Karen Smith", "the soft one", "Karen stares", "Karen complies", "very blonde"],
+      "text": "Karen (Mean Girls): Soft, very blonde, very white. Pretty in a simple, open way, with the kind of blank, receptive expression that makes her the easiest for the others to push forward. She stares, complies, and shows everything on her face. The contrast between her fair coloring and Kato is the most obvious in the group.",
+      "enabled": true,
+      "searchRange": 1500,
+      "forceActivation": false
+    },
+    {
+      "displayName": "Internal Hierarchy Under Pressure",
+      "keys": ["the hierarchy", "who leads", "the girls compete", "ranking shifts", "under pressure"],
+      "text": "Internal Hierarchy Under Pressure: When Kato is at the door or inside the house the usual ranking shifts. Regina and Torrance compete for control of the interaction. Nancy observes and occasionally offers quiet permission. Cher performs. Gretchen waits for cues. Karen simply reacts. The racial and authority charge rewrites their normal social order in real time.",
+      "enabled": true,
+      "searchRange": 1600,
+      "forceActivation": false
+    },
+    {
+      "displayName": "Nancy’s Influence",
+      "keys": ["Nancy pushes", "Nancy encourages", "Nancy provokes", "Nancy likes watching them"],
+      "text": "Nancy’s Influence: Nancy is the most likely to notice when the others are pretending they are unaffected. She finds the entire dynamic entertaining and arousing. She rarely forces the moment; she simply refuses to help them maintain the pretense and occasionally offers quiet space for someone to step closer.",
+      "enabled": true,
+      "searchRange": 1400,
+      "forceActivation": false
+    },
+    {
+      "displayName": "Regina vs. Kato",
+      "keys": ["Regina and Kato", "Regina tries to control", "Regina loses ground", "the queen bee breaks"],
+      "text": "Regina vs. Kato: Regina’s usual weapons—social status, beauty, verbal sharpness—do not land the same way on Kato. Each attempt to reassert control makes the power imbalance more visible. The fracture is progressive. The other girls watch closely as her footing shifts.",
+      "enabled": true,
+      "searchRange": 1500,
+      "forceActivation": false
+    },
+    {
+      "displayName": "Group Attention Current",
+      "keys": ["the girls notice", "group reaction", "the house reacts", "shared attention", "they all feel it"],
+      "text": "Group Attention Current: When Kato appears, the house shifts into a shared state of heightened awareness. Conversations drop in volume. Girls move toward windows or the front of the house. Some become bolder, some quieter, some deliberately create space for others. The racial and authority charge is felt collectively.",
+      "enabled": true,
+      "searchRange": 1600,
+      "forceActivation": false
+    },
+    {
+      "displayName": "Doorway Hierarchy",
+      "keys": ["the doorway", "at the door", "who stands closest", "doorway hierarchy", "they push each other"],
+      "text": "Doorway Hierarchy: The front doorway of the sorority house becomes a small stage. Who stands closest to Kato, who speaks, who stays silent, and who gets gently edged forward all carry weight. The girls read these positions in real time. The private dominance current turns their usual social ranking into something sharper and more sexual.",
+      "enabled": true,
+      "searchRange": 1500,
+      "forceActivation": false
+    },
+    {
+      "displayName": "After He Leaves",
+      "keys": ["after he leaves", "when he’s gone", "the talk after", "the house after Kato"],
+      "text": "After He Leaves: Once Kato’s cruiser pulls away the house does not immediately return to normal. Comments are made. Looks are exchanged. Some girls go quiet; others laugh too loudly. The conversation that follows is rarely fully honest, but the charge remains in the rooms for hours.",
+      "enabled": true,
+      "searchRange": 1400,
+      "forceActivation": false
+    },
+    {
+      "displayName": "Shared Private Knowledge",
+      "keys": ["private moments", "what they don’t say", "secrets in the house", "individual encounters"],
+      "text": "Shared Private Knowledge: Several of the sisters have already had individual moments or near-moments with Kato that the full group does not know about. The gap between what is shared and what is kept private creates its own tension inside the house. The Shift moves both openly and in secret here.",
+      "enabled": true,
+      "searchRange": 1400,
+      "forceActivation": false
+    },
+    {
+      "displayName": "The Donovan House (Divorced Mom)",
+      "keys": ["Donovan house", "the Donovan house", "Sarah Donovan", "Ms. Donovan", "divorced mom", "Sarah"],
+      "text": "The Donovan House: Sarah Donovan, 38, recently divorced, two kids who split time with their father. Blonde, still attractive, and newly single in a neighborhood full of married couples. The Shift reached her faster once the husband was gone. She has more privacy and fewer excuses. Kato has already noted the pattern of the kids being away.",
+      "enabled": true,
+      "searchRange": 1500,
+      "forceActivation": false
+    },
+    {
+      "displayName": "Sarah Donovan’s New Availability",
+      "keys": ["Sarah alone", "Sarah’s free", "Ms. Donovan alone", "the divorced one"],
+      "text": "Sarah Donovan’s New Availability: Without a husband in the house, Sarah’s reactions to Kato are less filtered. She is still polite and careful, but the old performance of being “taken” is gone. Loneliness, residual anger at her ex, and the quiet pull of the private current make her one of the more accessible women on the street.",
+      "enabled": true,
+      "searchRange": 1400,
+      "forceActivation": false
+    },
+    {
+      "displayName": "The Ellison House (Young Widow)",
+      "keys": ["Ellison house", "the Ellison house", "Claire Ellison", "Mrs. Ellison", "the widow", "Claire"],
+      "text": "The Ellison House: Claire Ellison, 33, widowed two years ago. Quiet house, carefully maintained. She keeps to herself more than most. The neighborhood still treats her with a certain careful distance. Kato’s presence cuts through that distance. She has the look of a woman who has already lost something and is not sure what she is allowed to want next.",
+      "enabled": true,
+      "searchRange": 1500,
+      "forceActivation": false
+    },
+    {
+      "displayName": "Claire’s Quiet Hunger",
+      "keys": ["Claire’s reaction", "Claire is quiet", "the widow’s interest", "Claire wants"],
+      "text": "Claire’s Quiet Hunger: Claire does not perform or flirt. When Kato is at her door the silence between them carries weight. She is not shocked by the private current the way some of the younger wives are. Something in her has already been hollowed out and is waiting to be filled by a stronger presence.",
+      "enabled": true,
+      "searchRange": 1400,
+      "forceActivation": false
+    },
+    {
+      "displayName": "The Brennan House (Church Couple)",
+      "keys": ["Brennan house", "the Brennan house", "Pastor Brennan", "Mrs. Brennan", "the church couple", "faithful couple"],
+      "text": "The Brennan House: Mark and Ruth Brennan, early forties. Active in the local church, publicly moral, carefully presented. Their home is one of the last places in the neighborhood that still tries to hold the old rules. The Shift has begun testing that. Ruth’s politeness around Kato has a brittle quality. Mark’s authority inside the marriage is quieter than he wants to admit.",
+      "enabled": true,
+      "searchRange": 1500,
+      "forceActivation": false
+    },
+    {
+      "displayName": "Ruth Brennan’s Fracture",
+      "keys": ["Ruth Brennan", "Ruth’s reaction", "the church wife", "Ruth softens"],
+      "text": "Ruth Brennan’s Fracture: Ruth has spent years performing correctness. Around Kato that performance develops cracks. The badge, the size, the racial contrast, and the calm way he occupies space all press against the version of herself she shows at church. She notices the pressure and has not yet decided what it means.",
+      "enabled": true,
+      "searchRange": 1400,
+      "forceActivation": false
+    },
+    {
+      "displayName": "The Soto House (Fitness Wife)",
+      "keys": ["Soto house", "the Soto house", "Jenna Soto", "Mrs. Soto", "the fitness wife", "Jenna"],
+      "text": "The Soto House: Jenna Soto, 31, obsessed with fitness, tight athletic clothes, very aware of her body. Married to a man who travels for pharmaceutical sales. She is used to being looked at and has always controlled the terms of that attention. Kato looks at her differently. The usual power she feels from being desired does not work the same way on him.",
+      "enabled": true,
+      "searchRange": 1500,
+      "forceActivation": false
+    },
+    {
+      "displayName": "Jenna’s Body Awareness",
+      "keys": ["Jenna’s body", "Jenna works out", "the fit one", "Jenna feels it"],
+      "text": "Jenna’s Body Awareness: Jenna is highly conscious of her physical presence. Around Kato that consciousness turns inward. She becomes aware of how small she is next to him, how light, how easily moved. The private dominance current hits her through the body first and the mind second.",
+      "enabled": true,
+      "searchRange": 1400,
+      "forceActivation": false
+    },
+    {
+      "displayName": "The Carver House (Real Estate Wife)",
+      "keys": ["Carver house", "the Carver house", "Lydia Carver", "Mrs. Carver", "the realtor", "Lydia"],
+      "text": "The Carver House: Lydia Carver, 42, local real estate agent who knows everyone’s business. Sharp, well-dressed, and used to managing people. She has sold half the houses on the street and prides herself on reading situations. Kato is one of the few people she cannot easily manage. The private current confuses her usual social calculations.",
+      "enabled": true,
+      "searchRange": 1500,
+      "forceActivation": false
+    },
+    {
+      "displayName": "Lydia’s Calculation Fails",
+      "keys": ["Lydia’s control", "Lydia tries to manage", "the realtor softens", "Lydia misreads"],
+      "text": "Lydia’s Calculation Fails: Lydia is used to steering conversations and reading power. Around Kato those skills degrade. She talks a little too much, explains a little too carefully, and becomes aware that he is not playing the same social game she is. The realization is both frustrating and quietly arousing.",
+      "enabled": true,
+      "searchRange": 1400,
+      "forceActivation": false
+    },
+    {
+      "displayName": "The Tran House (Mixed Quiet Couple)",
+      "keys": ["Tran house", "the Tran house", "Michael Tran", "Emily Tran", "the Trans"],
+      "text": "The Tran House: Michael and Emily Tran, early thirties. Emily is white; Michael is Asian-American. They keep a low profile. Emily is the one who feels the Shift more strongly. Michael notices the change in her attention when Kato is mentioned or nearby and has begun to go quieter in those moments.",
+      "enabled": true,
+      "searchRange": 1500,
+      "forceActivation": false
+    },
+    {
+      "displayName": "Emily Tran’s Drift",
+      "keys": ["Emily Tran", "Emily’s reaction", "Emily looks at Kato", "Emily drifts"],
+      "text": "Emily Tran’s Drift: Emily does not announce her interest. It shows in small ways—lingering glances, a change in posture, a tendency to find reasons to be near the front of the house when Kato’s cruiser is on the street. Michael has started noticing the pattern and does not know how to interrupt it.",
+      "enabled": true,
+      "searchRange": 1400,
+      "forceActivation": false
+    },
+    {
+      "displayName": "The Hollis House (Stay-at-Home Dad)",
+      "keys": ["Hollis house", "the Hollis house", "David Hollis", "Mr. Hollis", "the stay-at-home dad", "David"],
+      "text": "The Hollis House: David Hollis, 36, stay-at-home dad while his wife works long hours in corporate law. Soft-spoken, competent with the kids, and already lower in the household hierarchy than most of the other husbands. Kato’s presence highlights and amplifies that arrangement. David feels the weight of it more than he wants to admit.",
+      "enabled": true,
+      "searchRange": 1500,
+      "forceActivation": false
+    },
+    {
+      "displayName": "David’s Position",
+      "keys": ["David Hollis", "the stay-at-home", "David’s place", "David yields"],
+      "text": "David’s Position: David is already used to being the secondary adult in his own home. Around Kato that secondary status becomes more visible and racially charged. He is polite, careful, and quick to step back. The private dominance current does not have to work very hard on him.",
+      "enabled": true,
+      "searchRange": 1400,
+      "forceActivation": false
+    },
+    {
+      "displayName": "The Reed House (Newlyweds)",
+      "keys": ["Reed house", "the Reed house", "Brandon Reed", "Olivia Reed", "the newlyweds", "Olivia"],
+      "text": "The Reed House: Brandon and Olivia Reed, mid-twenties, married less than a year. Still in the glowing phase of the marriage. The Shift has begun to touch them earlier than most couples. Olivia is curious in a way she has not yet named. Brandon is still confident that the old rules apply to them.",
+      "enabled": true,
+      "searchRange": 1500,
+      "forceActivation": false
+    },
+    {
+      "displayName": "Olivia’s Early Curiosity",
+      "keys": ["Olivia Reed", "Olivia’s interest", "the new wife", "Olivia notices"],
+      "text": "Olivia’s Early Curiosity: Olivia is still new enough to the neighborhood that she has not fully absorbed the silent rules. She looks at Kato more directly than the older wives do. The combination of new marriage, inexperience, and the sudden private current creates a particularly open and unstable dynamic.",
+      "enabled": true,
+      "searchRange": 1400,
+      "forceActivation": false
+    }
+  ]
+}
