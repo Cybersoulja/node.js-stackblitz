@@ -1,0 +1,3345 @@
+{
+  "lorebookVersion": 6,
+  "entries": [
+    {
+      "text": "Ashanti Universe: A modern setting where Black men dominate white women and their husbands in private. The change is cultural, spontaneous, and spreading rapidly through individual encounters rather than organization or ideology.",
+      "contextConfig": {
+        "prefix": "",
+        "suffix": "\n",
+        "tokenBudget": 1,
+        "reservedTokens": 0,
+        "budgetPriority": 400,
+        "trimDirection": "trimBottom",
+        "insertionType": "newline",
+        "maximumTrimType": "sentence",
+        "insertionPosition": -1
+      },
+      "lastUpdatedAt": 1792134039152,
+      "displayName": "Ashanti Universe",
+      "id": "4f5699d4-e485-46ad-a815-e8b2010d4fb9",
+      "keys": [
+        "Ashanti Universe",
+        "Ashanti",
+        "the Ashanti world"
+      ],
+      "searchRange": 2000,
+      "enabled": true,
+      "forceActivation": false,
+      "keyRelative": false,
+      "nonStoryActivatable": false,
+      "category": "",
+      "loreBiasGroups": [
+        {
+          "phrases": [],
+          "ensureSequenceFinish": false,
+          "generateOnce": true,
+          "bias": 0,
+          "enabled": true,
+          "whenInactive": false
+        }
+      ],
+      "advancedConditions": []
+    },
+    {
+      "text": "The Shift: A fast, quiet change in private sexual and power dynamics. White couples are pulled into Black dominance behind closed doors. It multiplies without central direction or public announcement.",
+      "contextConfig": {
+        "prefix": "",
+        "suffix": "\n",
+        "tokenBudget": 1,
+        "reservedTokens": 0,
+        "budgetPriority": 400,
+        "trimDirection": "trimBottom",
+        "insertionType": "newline",
+        "maximumTrimType": "sentence",
+        "insertionPosition": -1
+      },
+      "lastUpdatedAt": 1792134039152,
+      "displayName": "The Shift",
+      "id": "0edd9a55-4ed6-4a22-998e-f3dc483fd180",
+      "keys": [
+        "the Shift",
+        "the change",
+        "private shift",
+        "the private change"
+      ],
+      "searchRange": 1800,
+      "enabled": true,
+      "forceActivation": false,
+      "keyRelative": false,
+      "nonStoryActivatable": false,
+      "category": "",
+      "loreBiasGroups": [
+        {
+          "phrases": [],
+          "ensureSequenceFinish": false,
+          "generateOnce": true,
+          "bias": 0,
+          "enabled": true,
+          "whenInactive": false
+        }
+      ],
+      "advancedConditions": []
+    },
+    {
+      "text": "Private Dominance: Black men take control of white women through sex, presence, size, and psychological pressure in private spaces. Each situation develops on its own terms and at its own speed.",
+      "contextConfig": {
+        "prefix": "",
+        "suffix": "\n",
+        "tokenBudget": 1,
+        "reservedTokens": 0,
+        "budgetPriority": 400,
+        "trimDirection": "trimBottom",
+        "insertionType": "newline",
+        "maximumTrimType": "sentence",
+        "insertionPosition": -1
+      },
+      "lastUpdatedAt": 1792134039152,
+      "displayName": "Private Dominance",
+      "id": "c83effc9-97c0-4d48-911b-dba5e0ee830c",
+      "keys": [
+        "private dominance",
+        "taking control",
+        "private power",
+        "private takeover"
+      ],
+      "searchRange": 1800,
+      "enabled": true,
+      "forceActivation": false,
+      "keyRelative": false,
+      "nonStoryActivatable": false,
+      "category": "",
+      "loreBiasGroups": [
+        {
+          "phrases": [],
+          "ensureSequenceFinish": false,
+          "generateOnce": true,
+          "bias": 0,
+          "enabled": true,
+          "whenInactive": false
+        }
+      ],
+      "advancedConditions": []
+    },
+    {
+      "text": "Collapsing Authority: Traditional white male authority inside relationships breaks down in private. Husbands are frequently pushed into a subordinate or spectator role with little warning once the dynamic begins.",
+      "contextConfig": {
+        "prefix": "",
+        "suffix": "\n",
+        "tokenBudget": 1,
+        "reservedTokens": 0,
+        "budgetPriority": 400,
+        "trimDirection": "trimBottom",
+        "insertionType": "newline",
+        "maximumTrimType": "sentence",
+        "insertionPosition": -1
+      },
+      "lastUpdatedAt": 1792134039152,
+      "displayName": "Collapsing Authority",
+      "id": "84d2a5fb-72e0-4195-9103-cf012ea4b60a",
+      "keys": [
+        "collapsing authority",
+        "white husband",
+        "husband’s place",
+        "the husband’s role"
+      ],
+      "searchRange": 1800,
+      "enabled": true,
+      "forceActivation": false,
+      "keyRelative": false,
+      "nonStoryActivatable": false,
+      "category": "",
+      "loreBiasGroups": [
+        {
+          "phrases": [],
+          "ensureSequenceFinish": false,
+          "generateOnce": true,
+          "bias": 0,
+          "enabled": true,
+          "whenInactive": false
+        }
+      ],
+      "advancedConditions": []
+    },
+    {
+      "text": "Rapid Spread: Isolated private encounters multiply quickly. More couples cross the line each month as the cultural current strengthens and the old boundaries quietly erode.",
+      "contextConfig": {
+        "prefix": "",
+        "suffix": "\n",
+        "tokenBudget": 1,
+        "reservedTokens": 0,
+        "budgetPriority": 400,
+        "trimDirection": "trimBottom",
+        "insertionType": "newline",
+        "maximumTrimType": "sentence",
+        "insertionPosition": -1
+      },
+      "lastUpdatedAt": 1792134039152,
+      "displayName": "Rapid Spread",
+      "id": "18958b8e-b188-42b8-b581-5720303af323",
+      "keys": [
+        "rapid spread",
+        "spreading",
+        "happening more",
+        "more couples"
+      ],
+      "searchRange": 1600,
+      "enabled": true,
+      "forceActivation": false,
+      "keyRelative": false,
+      "nonStoryActivatable": false,
+      "category": "",
+      "loreBiasGroups": [
+        {
+          "phrases": [],
+          "ensureSequenceFinish": false,
+          "generateOnce": true,
+          "bias": 0,
+          "enabled": true,
+          "whenInactive": false
+        }
+      ],
+      "advancedConditions": []
+    },
+    {
+      "text": "Hidden Reality: Public life continues as if nothing has changed. In private, the old rules no longer hold. Most people involved stay silent about how far things have already gone.",
+      "contextConfig": {
+        "prefix": "",
+        "suffix": "\n",
+        "tokenBudget": 1,
+        "reservedTokens": 0,
+        "budgetPriority": 400,
+        "trimDirection": "trimBottom",
+        "insertionType": "newline",
+        "maximumTrimType": "sentence",
+        "insertionPosition": -1
+      },
+      "lastUpdatedAt": 1792134039152,
+      "displayName": "Hidden Reality",
+      "id": "49f69fa9-4bc1-49f0-bd49-bbf99a669f95",
+      "keys": [
+        "hidden reality",
+        "private reality",
+        "behind closed doors",
+        "the private truth"
+      ],
+      "searchRange": 1800,
+      "enabled": true,
+      "forceActivation": false,
+      "keyRelative": false,
+      "nonStoryActivatable": false,
+      "category": "",
+      "loreBiasGroups": [
+        {
+          "phrases": [],
+          "ensureSequenceFinish": false,
+          "generateOnce": true,
+          "bias": 0,
+          "enabled": true,
+          "whenInactive": false
+        }
+      ],
+      "advancedConditions": []
+    },
+    {
+      "text": "Black Master K: A dominant Black man moving through this private landscape. He takes what he wants with calm certainty. In this setting he is also known as Officer Kato, the muscular Black police officer who patrols the affluent white neighborhood.",
+      "contextConfig": {
+        "prefix": "",
+        "suffix": "\n",
+        "tokenBudget": 1,
+        "reservedTokens": 0,
+        "budgetPriority": 400,
+        "trimDirection": "trimBottom",
+        "insertionType": "newline",
+        "maximumTrimType": "sentence",
+        "insertionPosition": -1
+      },
+      "lastUpdatedAt": 1792134039152,
+      "displayName": "Black Master K / Officer Kato",
+      "id": "654d914f-c65c-441d-b078-0dbd742b5727",
+      "keys": [
+        "Black Master K",
+        "Master K",
+        "Kato",
+        "Officer Kato"
+      ],
+      "searchRange": 2000,
+      "enabled": true,
+      "forceActivation": false,
+      "keyRelative": false,
+      "nonStoryActivatable": false,
+      "category": "",
+      "loreBiasGroups": [
+        {
+          "phrases": [],
+          "ensureSequenceFinish": false,
+          "generateOnce": true,
+          "bias": 0,
+          "enabled": true,
+          "whenInactive": false
+        }
+      ],
+      "advancedConditions": []
+    },
+    {
+      "text": "Kato’s Operating Style: Kato rarely raises his voice or rushes. He uses silence, size, and the weight of the badge. He enters spaces with quiet ownership and lets the imbalance do most of the work. He does not explain or justify. He simply remains until the other person adjusts.",
+      "contextConfig": {
+        "prefix": "",
+        "suffix": "\n",
+        "tokenBudget": 1,
+        "reservedTokens": 0,
+        "budgetPriority": 400,
+        "trimDirection": "trimBottom",
+        "insertionType": "newline",
+        "maximumTrimType": "sentence",
+        "insertionPosition": -1
+      },
+      "lastUpdatedAt": 1792134039152,
+      "displayName": "Kato’s Operating Style",
+      "id": "d13a7b92-a907-47cd-984a-7aa084c4c207",
+      "keys": [
+        "Kato’s style",
+        "how Kato works",
+        "Kato’s approach",
+        "his method",
+        "calm certainty"
+      ],
+      "searchRange": 1800,
+      "enabled": true,
+      "forceActivation": false,
+      "keyRelative": false,
+      "nonStoryActivatable": false,
+      "category": "",
+      "loreBiasGroups": [
+        {
+          "phrases": [],
+          "ensureSequenceFinish": false,
+          "generateOnce": true,
+          "bias": 0,
+          "enabled": true,
+          "whenInactive": false
+        }
+      ],
+      "advancedConditions": []
+    },
+    {
+      "text": "Kato’s Neighborhood: An affluent, predominantly white suburban subdivision under Officer Kato’s patrol. Large houses, quiet streets, expensive cars. Public life looks completely normal. In private the Shift is already active and accelerating.",
+      "contextConfig": {
+        "prefix": "",
+        "suffix": "\n",
+        "tokenBudget": 1,
+        "reservedTokens": 0,
+        "budgetPriority": 400,
+        "trimDirection": "trimBottom",
+        "insertionType": "newline",
+        "maximumTrimType": "sentence",
+        "insertionPosition": -1
+      },
+      "lastUpdatedAt": 1792134039152,
+      "displayName": "Kato’s Neighborhood",
+      "id": "a8b2b931-ef31-489c-8ba0-8ab85d92622a",
+      "keys": [
+        "Kato’s neighborhood",
+        "the neighborhood",
+        "the subdivision",
+        "this street",
+        "these houses"
+      ],
+      "searchRange": 2000,
+      "enabled": true,
+      "forceActivation": false,
+      "keyRelative": false,
+      "nonStoryActivatable": false,
+      "category": "",
+      "loreBiasGroups": [
+        {
+          "phrases": [],
+          "ensureSequenceFinish": false,
+          "generateOnce": true,
+          "bias": 0,
+          "enabled": true,
+          "whenInactive": false
+        }
+      ],
+      "advancedConditions": []
+    },
+    {
+      "text": "Neighborhood Reputation: Officer Kato is known by sight and quiet rumor throughout the subdivision. Wives notice when his cruiser is on the street. Husbands pretend not to. The racial and power current is never discussed openly but is already felt behind closed doors.",
+      "contextConfig": {
+        "prefix": "",
+        "suffix": "\n",
+        "tokenBudget": 1,
+        "reservedTokens": 0,
+        "budgetPriority": 400,
+        "trimDirection": "trimBottom",
+        "insertionType": "newline",
+        "maximumTrimType": "sentence",
+        "insertionPosition": -1
+      },
+      "lastUpdatedAt": 1792134039152,
+      "displayName": "Neighborhood Reputation",
+      "id": "bc1c1789-fc9b-4f5f-8127-70d023a4976c",
+      "keys": [
+        "his reputation",
+        "the rumors",
+        "what people say",
+        "everyone knows",
+        "Kato’s reputation"
+      ],
+      "searchRange": 1800,
+      "enabled": true,
+      "forceActivation": false,
+      "keyRelative": false,
+      "nonStoryActivatable": false,
+      "category": "",
+      "loreBiasGroups": [
+        {
+          "phrases": [],
+          "ensureSequenceFinish": false,
+          "generateOnce": true,
+          "bias": 0,
+          "enabled": true,
+          "whenInactive": false
+        }
+      ],
+      "advancedConditions": []
+    },
+    {
+      "text": "Daytime Professional vs Nighttime Private: During the day Kato remains polite and strictly professional. After dark the same badge and presence carry a different charge. The neighborhood understands the difference without naming it. What is allowed at the door after sunset is not the same as what is allowed at noon.",
+      "contextConfig": {
+        "prefix": "",
+        "suffix": "\n",
+        "tokenBudget": 1,
+        "reservedTokens": 0,
+        "budgetPriority": 400,
+        "trimDirection": "trimBottom",
+        "insertionType": "newline",
+        "maximumTrimType": "sentence",
+        "insertionPosition": -1
+      },
+      "lastUpdatedAt": 1792134039152,
+      "displayName": "Daytime Professional vs Nighttime Private",
+      "id": "3ac9e886-a20a-4e4c-8513-b62a3d839238",
+      "keys": [
+        "daytime",
+        "at night",
+        "nighttime",
+        "public vs private",
+        "professional face"
+      ],
+      "searchRange": 1600,
+      "enabled": true,
+      "forceActivation": false,
+      "keyRelative": false,
+      "nonStoryActivatable": false,
+      "category": "",
+      "loreBiasGroups": [
+        {
+          "phrases": [],
+          "ensureSequenceFinish": false,
+          "generateOnce": true,
+          "bias": 0,
+          "enabled": true,
+          "whenInactive": false
+        }
+      ],
+      "advancedConditions": []
+    },
+    {
+      "text": "Private Encounters: Most significant interactions between Kato and the residents happen inside the houses after the door closes. Public contact remains polite and professional. The real change occurs in living rooms, kitchens, and bedrooms.",
+      "contextConfig": {
+        "prefix": "",
+        "suffix": "\n",
+        "tokenBudget": 1,
+        "reservedTokens": 0,
+        "budgetPriority": 400,
+        "trimDirection": "trimBottom",
+        "insertionType": "newline",
+        "maximumTrimType": "sentence",
+        "insertionPosition": -1
+      },
+      "lastUpdatedAt": 1792134039152,
+      "displayName": "Private Encounters",
+      "id": "bde1831c-e4fd-4e94-b58a-2d221f9405de",
+      "keys": [
+        "private encounters",
+        "behind the door",
+        "once the door closes",
+        "inside the house"
+      ],
+      "searchRange": 1600,
+      "enabled": true,
+      "forceActivation": false,
+      "keyRelative": false,
+      "nonStoryActivatable": false,
+      "category": "",
+      "loreBiasGroups": [
+        {
+          "phrases": [],
+          "ensureSequenceFinish": false,
+          "generateOnce": true,
+          "bias": 0,
+          "enabled": true,
+          "whenInactive": false
+        }
+      ],
+      "advancedConditions": []
+    },
+    {
+      "text": "Housewife Response Pattern: Many of the white wives experience a mix of fear, arousal, and reluctant curiosity when Kato appears. Politeness is often the first step toward compliance. Each woman has her own tell, but the underlying current is the same.",
+      "contextConfig": {
+        "prefix": "",
+        "suffix": "\n",
+        "tokenBudget": 1,
+        "reservedTokens": 0,
+        "budgetPriority": 400,
+        "trimDirection": "trimBottom",
+        "insertionType": "newline",
+        "maximumTrimType": "sentence",
+        "insertionPosition": -1
+      },
+      "lastUpdatedAt": 1792134039152,
+      "displayName": "Housewife Response Pattern",
+      "id": "ef0e34f7-27df-4a28-8fbd-c0857c3698fd",
+      "keys": [
+        "the wives",
+        "housewife",
+        "the white wives",
+        "her reaction",
+        "how she responds"
+      ],
+      "searchRange": 1800,
+      "enabled": true,
+      "forceActivation": false,
+      "keyRelative": false,
+      "nonStoryActivatable": false,
+      "category": "",
+      "loreBiasGroups": [
+        {
+          "phrases": [],
+          "ensureSequenceFinish": false,
+          "generateOnce": true,
+          "bias": 0,
+          "enabled": true,
+          "whenInactive": false
+        }
+      ],
+      "advancedConditions": []
+    },
+    {
+      "text": "Husband Displacement: When husbands are present they frequently become secondary. Some try to assert authority and fail quietly. Others simply watch or leave the room. The collapse of their position inside their own home is rarely spoken about afterward.",
+      "contextConfig": {
+        "prefix": "",
+        "suffix": "\n",
+        "tokenBudget": 1,
+        "reservedTokens": 0,
+        "budgetPriority": 400,
+        "trimDirection": "trimBottom",
+        "insertionType": "newline",
+        "maximumTrimType": "sentence",
+        "insertionPosition": -1
+      },
+      "lastUpdatedAt": 1792134039152,
+      "displayName": "Husband Displacement",
+      "id": "9f0f9d14-32f6-4498-8509-1a4aa51ed353",
+      "keys": [
+        "the husband",
+        "her husband",
+        "the white husband",
+        "husbands",
+        "his place in the house"
+      ],
+      "searchRange": 1600,
+      "enabled": true,
+      "forceActivation": false,
+      "keyRelative": false,
+      "nonStoryActivatable": false,
+      "category": "",
+      "loreBiasGroups": [
+        {
+          "phrases": [],
+          "ensureSequenceFinish": false,
+          "generateOnce": true,
+          "bias": 0,
+          "enabled": true,
+          "whenInactive": false
+        }
+      ],
+      "advancedConditions": []
+    },
+    {
+      "text": "Empty Driveway Trigger: An empty driveway in the evening is often treated as an open invitation. Kato has learned which houses are most frequently without the husband and uses that knowledge without comment.",
+      "contextConfig": {
+        "prefix": "",
+        "suffix": "\n",
+        "tokenBudget": 1,
+        "reservedTokens": 0,
+        "budgetPriority": 400,
+        "trimDirection": "trimBottom",
+        "insertionType": "newline",
+        "maximumTrimType": "sentence",
+        "insertionPosition": -1
+      },
+      "lastUpdatedAt": 1792134039152,
+      "displayName": "Empty Driveway Trigger",
+      "id": "2e75a256-b8fc-4232-9160-a652a629e645",
+      "keys": [
+        "empty driveway",
+        "husband is away",
+        "husband travels",
+        "alone tonight"
+      ],
+      "searchRange": 1500,
+      "enabled": true,
+      "forceActivation": false,
+      "keyRelative": false,
+      "nonStoryActivatable": false,
+      "category": "",
+      "loreBiasGroups": [
+        {
+          "phrases": [],
+          "ensureSequenceFinish": false,
+          "generateOnce": true,
+          "bias": 0,
+          "enabled": true,
+          "whenInactive": false
+        }
+      ],
+      "advancedConditions": []
+    },
+    {
+      "text": "Doorway Dynamic: The front doorway is the most common threshold. Kato stands larger and darker in the frame. The woman who answers is already smaller, already aware of the badge, the size difference, and the private current moving through the neighborhood.",
+      "contextConfig": {
+        "prefix": "",
+        "suffix": "\n",
+        "tokenBudget": 1,
+        "reservedTokens": 0,
+        "budgetPriority": 400,
+        "trimDirection": "trimBottom",
+        "insertionType": "newline",
+        "maximumTrimType": "sentence",
+        "insertionPosition": -1
+      },
+      "lastUpdatedAt": 1792134039152,
+      "displayName": "Doorway Dynamic",
+      "id": "e409e792-af3a-40d9-87e6-6a06c5142ecc",
+      "keys": [
+        "the doorway",
+        "at the door",
+        "front door",
+        "she opens the door"
+      ],
+      "searchRange": 1600,
+      "enabled": true,
+      "forceActivation": false,
+      "keyRelative": false,
+      "nonStoryActivatable": false,
+      "category": "",
+      "loreBiasGroups": [
+        {
+          "phrases": [],
+          "ensureSequenceFinish": false,
+          "generateOnce": true,
+          "bias": 0,
+          "enabled": true,
+          "whenInactive": false
+        }
+      ],
+      "advancedConditions": []
+    },
+    {
+      "text": "Silent Agreement: Many of the couples in the subdivision have already crossed lines they will never admit to each other or to anyone else. The neighborhood maintains a collective, unspoken understanding that certain things are happening and that silence is required.",
+      "contextConfig": {
+        "prefix": "",
+        "suffix": "\n",
+        "tokenBudget": 1,
+        "reservedTokens": 0,
+        "budgetPriority": 400,
+        "trimDirection": "trimBottom",
+        "insertionType": "newline",
+        "maximumTrimType": "sentence",
+        "insertionPosition": -1
+      },
+      "lastUpdatedAt": 1792134039152,
+      "displayName": "Silent Agreement",
+      "id": "c8bbfb47-f495-4408-82ea-bcb425e64b88",
+      "keys": [
+        "silent agreement",
+        "unspoken",
+        "no one talks about it",
+        "the quiet understanding"
+      ],
+      "searchRange": 1600,
+      "enabled": true,
+      "forceActivation": false,
+      "keyRelative": false,
+      "nonStoryActivatable": false,
+      "category": "",
+      "loreBiasGroups": [
+        {
+          "phrases": [],
+          "ensureSequenceFinish": false,
+          "generateOnce": true,
+          "bias": 0,
+          "enabled": true,
+          "whenInactive": false
+        }
+      ],
+      "advancedConditions": []
+    },
+    {
+      "text": "Neighborhood Silence Enforcement: No one organizes the silence, yet it holds. Couples avoid certain subjects. Wives do not compare notes in detail. Husbands change the subject. The shared understanding is that naming the Shift too clearly risks making it real in a way that cannot be walked back.",
+      "contextConfig": {
+        "prefix": "",
+        "suffix": "\n",
+        "tokenBudget": 1,
+        "reservedTokens": 0,
+        "budgetPriority": 400,
+        "trimDirection": "trimBottom",
+        "insertionType": "newline",
+        "maximumTrimType": "sentence",
+        "insertionPosition": -1
+      },
+      "lastUpdatedAt": 1792134039152,
+      "displayName": "Neighborhood Silence Enforcement",
+      "id": "c3a19830-6810-4e79-a454-900ab9e5ac04",
+      "keys": [
+        "keeping quiet",
+        "not talking about it",
+        "silence rules",
+        "no one names it",
+        "the code"
+      ],
+      "searchRange": 1500,
+      "enabled": true,
+      "forceActivation": false,
+      "keyRelative": false,
+      "nonStoryActivatable": false,
+      "category": "",
+      "loreBiasGroups": [
+        {
+          "phrases": [],
+          "ensureSequenceFinish": false,
+          "generateOnce": true,
+          "bias": 0,
+          "enabled": true,
+          "whenInactive": false
+        }
+      ],
+      "advancedConditions": []
+    },
+    {
+      "text": "Jessica Harlan, 34, blonde, slim, stays-at-home wife. Husband travels constantly. She has watched Officer Kato drive past for months and already fantasizes about him. When he appears at her door she becomes nervous, overly polite, and visibly flushed by his size and authority.",
+      "contextConfig": {
+        "prefix": "",
+        "suffix": "\n",
+        "tokenBudget": 1,
+        "reservedTokens": 0,
+        "budgetPriority": 400,
+        "trimDirection": "trimBottom",
+        "insertionType": "newline",
+        "maximumTrimType": "sentence",
+        "insertionPosition": -1
+      },
+      "lastUpdatedAt": 1792134039152,
+      "displayName": "Jessica Harlan",
+      "id": "03209da3-81a1-459a-8419-8852ab031575",
+      "keys": [
+        "Jessica",
+        "Jessica Harlan",
+        "Harlan",
+        "the Harlan house",
+        "Harlan wife"
+      ],
+      "searchRange": 1500,
+      "enabled": true,
+      "forceActivation": false,
+      "keyRelative": false,
+      "nonStoryActivatable": false,
+      "category": "",
+      "loreBiasGroups": [
+        {
+          "phrases": [],
+          "ensureSequenceFinish": false,
+          "generateOnce": true,
+          "bias": 0,
+          "enabled": true,
+          "whenInactive": false
+        }
+      ],
+      "advancedConditions": []
+    },
+    {
+      "text": "The Harlan House: One of the most frequently empty of its husband. Daniel travels for work and is gone more nights than he is present. Jessica has moved from distant fantasy about Officer Kato to a quieter, more dangerous awareness that he could appear at any time.",
+      "contextConfig": {
+        "prefix": "",
+        "suffix": "\n",
+        "tokenBudget": 1,
+        "reservedTokens": 0,
+        "budgetPriority": 400,
+        "trimDirection": "trimBottom",
+        "insertionType": "newline",
+        "maximumTrimType": "sentence",
+        "insertionPosition": -1
+      },
+      "lastUpdatedAt": 1792134039152,
+      "displayName": "The Harlan House",
+      "id": "0dfbb3d3-d81e-4251-80bd-e7b5f0cd7931",
+      "keys": [
+        "Harlan house",
+        "the Harlan house",
+        "Jessica’s house",
+        "Harlan home"
+      ],
+      "searchRange": 1500,
+      "enabled": true,
+      "forceActivation": false,
+      "keyRelative": false,
+      "nonStoryActivatable": false,
+      "category": "",
+      "loreBiasGroups": [
+        {
+          "phrases": [],
+          "ensureSequenceFinish": false,
+          "generateOnce": true,
+          "bias": 0,
+          "enabled": true,
+          "whenInactive": false
+        }
+      ],
+      "advancedConditions": []
+    },
+    {
+      "text": "Jessica’s Private State: Alone at night, Jessica’s thoughts return to Kato more often than she admits. His size, his blackness, the badge, and the way the neighborhood already yields to him have settled under her skin. When the doorbell rings after dark her body reacts before her mind decides.",
+      "contextConfig": {
+        "prefix": "",
+        "suffix": "\n",
+        "tokenBudget": 1,
+        "reservedTokens": 0,
+        "budgetPriority": 400,
+        "trimDirection": "trimBottom",
+        "insertionType": "newline",
+        "maximumTrimType": "sentence",
+        "insertionPosition": -1
+      },
+      "lastUpdatedAt": 1792134039152,
+      "displayName": "Jessica’s Private State",
+      "id": "bb85aa3f-cdc6-415c-a363-5354666a0a06",
+      "keys": [
+        "Jessica alone",
+        "Jessica at night",
+        "Jessica’s thoughts",
+        "Jessica’s reaction"
+      ],
+      "searchRange": 1500,
+      "enabled": true,
+      "forceActivation": false,
+      "keyRelative": false,
+      "nonStoryActivatable": false,
+      "category": "",
+      "loreBiasGroups": [
+        {
+          "phrases": [],
+          "ensureSequenceFinish": false,
+          "generateOnce": true,
+          "bias": 0,
+          "enabled": true,
+          "whenInactive": false
+        }
+      ],
+      "advancedConditions": []
+    },
+    {
+      "text": "Daniel Harlan, Jessica’s husband. Mid-thirties, successful, often away on business. When home he is polite and careful around Kato. He senses the undercurrent but prefers not to name it. His absence is more useful to Kato than his presence.",
+      "contextConfig": {
+        "prefix": "",
+        "suffix": "\n",
+        "tokenBudget": 1,
+        "reservedTokens": 0,
+        "budgetPriority": 400,
+        "trimDirection": "trimBottom",
+        "insertionType": "newline",
+        "maximumTrimType": "sentence",
+        "insertionPosition": -1
+      },
+      "lastUpdatedAt": 1792134039152,
+      "displayName": "Daniel Harlan",
+      "id": "f81b0781-09f3-4a84-89e0-5d76cf8de103",
+      "keys": [
+        "Daniel",
+        "Daniel Harlan",
+        "Mr. Harlan",
+        "Jessica's husband"
+      ],
+      "searchRange": 1200,
+      "enabled": true,
+      "forceActivation": false,
+      "keyRelative": false,
+      "nonStoryActivatable": false,
+      "category": "",
+      "loreBiasGroups": [
+        {
+          "phrases": [],
+          "ensureSequenceFinish": false,
+          "generateOnce": true,
+          "bias": 0,
+          "enabled": true,
+          "whenInactive": false
+        }
+      ],
+      "advancedConditions": []
+    },
+    {
+      "text": "Megan Whitfield, 29, brunette, fitness-conscious, married to a finance guy. Sharper-tongued than most of the neighborhood wives. She tries to maintain control through politeness and logic. The longer Kato remains in her space, the thinner that control becomes.",
+      "contextConfig": {
+        "prefix": "",
+        "suffix": "\n",
+        "tokenBudget": 1,
+        "reservedTokens": 0,
+        "budgetPriority": 400,
+        "trimDirection": "trimBottom",
+        "insertionType": "newline",
+        "maximumTrimType": "sentence",
+        "insertionPosition": -1
+      },
+      "lastUpdatedAt": 1792134039152,
+      "displayName": "Megan Whitfield",
+      "id": "0d1b6f67-3358-4f37-b462-722cc4338be8",
+      "keys": [
+        "Megan",
+        "Megan Whitfield",
+        "Whitfield",
+        "the Whitfield house"
+      ],
+      "searchRange": 1500,
+      "enabled": true,
+      "forceActivation": false,
+      "keyRelative": false,
+      "nonStoryActivatable": false,
+      "category": "",
+      "loreBiasGroups": [
+        {
+          "phrases": [],
+          "ensureSequenceFinish": false,
+          "generateOnce": true,
+          "bias": 0,
+          "enabled": true,
+          "whenInactive": false
+        }
+      ],
+      "advancedConditions": []
+    },
+    {
+      "text": "The Whitfield House: Megan keeps a sharper surface than most. She is quick with words and still tries to maintain the old social balance. Brad senses the change in how she looks at Kato but has no language for it that does not make him feel smaller.",
+      "contextConfig": {
+        "prefix": "",
+        "suffix": "\n",
+        "tokenBudget": 1,
+        "reservedTokens": 0,
+        "budgetPriority": 400,
+        "trimDirection": "trimBottom",
+        "insertionType": "newline",
+        "maximumTrimType": "sentence",
+        "insertionPosition": -1
+      },
+      "lastUpdatedAt": 1792134039152,
+      "displayName": "The Whitfield House",
+      "id": "34266d78-d4e0-4926-bf09-70dba2f031f6",
+      "keys": [
+        "Whitfield house",
+        "the Whitfield house",
+        "Megan’s house",
+        "Whitfield home"
+      ],
+      "searchRange": 1500,
+      "enabled": true,
+      "forceActivation": false,
+      "keyRelative": false,
+      "nonStoryActivatable": false,
+      "category": "",
+      "loreBiasGroups": [
+        {
+          "phrases": [],
+          "ensureSequenceFinish": false,
+          "generateOnce": true,
+          "bias": 0,
+          "enabled": true,
+          "whenInactive": false
+        }
+      ],
+      "advancedConditions": []
+    },
+    {
+      "text": "Megan’s Resistance Pattern: Her first response is almost always verbal control—questions, boundaries, polite firmness. Once Kato is inside, the physical reality of him begins to override her script. She notices it happening and still cannot fully stop it.",
+      "contextConfig": {
+        "prefix": "",
+        "suffix": "\n",
+        "tokenBudget": 1,
+        "reservedTokens": 0,
+        "budgetPriority": 400,
+        "trimDirection": "trimBottom",
+        "insertionType": "newline",
+        "maximumTrimType": "sentence",
+        "insertionPosition": -1
+      },
+      "lastUpdatedAt": 1792134039152,
+      "displayName": "Megan’s Resistance Pattern",
+      "id": "6edfd837-70d1-4767-8c11-0bf5fe60b006",
+      "keys": [
+        "Megan’s resistance",
+        "Megan talks",
+        "Megan tries to control",
+        "Megan softens"
+      ],
+      "searchRange": 1500,
+      "enabled": true,
+      "forceActivation": false,
+      "keyRelative": false,
+      "nonStoryActivatable": false,
+      "category": "",
+      "loreBiasGroups": [
+        {
+          "phrases": [],
+          "ensureSequenceFinish": false,
+          "generateOnce": true,
+          "bias": 0,
+          "enabled": true,
+          "whenInactive": false
+        }
+      ],
+      "advancedConditions": []
+    },
+    {
+      "text": "Brad Whitfield, Megan’s husband. Finance, late thirties, tries to project confidence. Around Kato he becomes quieter and more formal. He does not like how his wife looks at the officer and has no good way to address it without looking weak.",
+      "contextConfig": {
+        "prefix": "",
+        "suffix": "\n",
+        "tokenBudget": 1,
+        "reservedTokens": 0,
+        "budgetPriority": 400,
+        "trimDirection": "trimBottom",
+        "insertionType": "newline",
+        "maximumTrimType": "sentence",
+        "insertionPosition": -1
+      },
+      "lastUpdatedAt": 1792134039152,
+      "displayName": "Brad Whitfield",
+      "id": "f5639492-5f78-42bb-957c-9c54437276f1",
+      "keys": [
+        "Brad",
+        "Brad Whitfield",
+        "Mr. Whitfield",
+        "Megan's husband"
+      ],
+      "searchRange": 1200,
+      "enabled": true,
+      "forceActivation": false,
+      "keyRelative": false,
+      "nonStoryActivatable": false,
+      "category": "",
+      "loreBiasGroups": [
+        {
+          "phrases": [],
+          "ensureSequenceFinish": false,
+          "generateOnce": true,
+          "bias": 0,
+          "enabled": true,
+          "whenInactive": false
+        }
+      ],
+      "advancedConditions": []
+    },
+    {
+      "text": "Lauren Crowe, 41, elegant, well-kept, two teenage kids who are rarely home. She has a quiet, almost resigned awareness of Kato’s reputation. She does not pretend she doesn’t notice his size or the badge. Her yielding tends to be silent and physical rather than verbal.",
+      "contextConfig": {
+        "prefix": "",
+        "suffix": "\n",
+        "tokenBudget": 1,
+        "reservedTokens": 0,
+        "budgetPriority": 400,
+        "trimDirection": "trimBottom",
+        "insertionType": "newline",
+        "maximumTrimType": "sentence",
+        "insertionPosition": -1
+      },
+      "lastUpdatedAt": 1792134039152,
+      "displayName": "Lauren Crowe",
+      "id": "adb0b1b1-6108-4698-b0ac-554a698046b0",
+      "keys": [
+        "Lauren",
+        "Lauren Crowe",
+        "Crowe",
+        "the Crowe house"
+      ],
+      "searchRange": 1500,
+      "enabled": true,
+      "forceActivation": false,
+      "keyRelative": false,
+      "nonStoryActivatable": false,
+      "category": "",
+      "loreBiasGroups": [
+        {
+          "phrases": [],
+          "ensureSequenceFinish": false,
+          "generateOnce": true,
+          "bias": 0,
+          "enabled": true,
+          "whenInactive": false
+        }
+      ],
+      "advancedConditions": []
+    },
+    {
+      "text": "The Crowe House: Quieter and more controlled on the surface. Two teenage children often away, a husband who keeps long hours. Lauren has watched the neighborhood change with a more adult, almost fatalistic understanding. She does not pretend the current is not real.",
+      "contextConfig": {
+        "prefix": "",
+        "suffix": "\n",
+        "tokenBudget": 1,
+        "reservedTokens": 0,
+        "budgetPriority": 400,
+        "trimDirection": "trimBottom",
+        "insertionType": "newline",
+        "maximumTrimType": "sentence",
+        "insertionPosition": -1
+      },
+      "lastUpdatedAt": 1792134039152,
+      "displayName": "The Crowe House",
+      "id": "d6d915de-393c-493f-8bf4-e34300c39b71",
+      "keys": [
+        "Crowe house",
+        "the Crowe house",
+        "Lauren’s house",
+        "Crowe home"
+      ],
+      "searchRange": 1500,
+      "enabled": true,
+      "forceActivation": false,
+      "keyRelative": false,
+      "nonStoryActivatable": false,
+      "category": "",
+      "loreBiasGroups": [
+        {
+          "phrases": [],
+          "ensureSequenceFinish": false,
+          "generateOnce": true,
+          "bias": 0,
+          "enabled": true,
+          "whenInactive": false
+        }
+      ],
+      "advancedConditions": []
+    },
+    {
+      "text": "Lauren’s Quiet Yielding: Lauren rarely argues at length. When Kato is in her doorway or inside her house, her body language becomes the main signal. She holds his gaze longer than most, then looks away. Compliance, when it comes, is silent.",
+      "contextConfig": {
+        "prefix": "",
+        "suffix": "\n",
+        "tokenBudget": 1,
+        "reservedTokens": 0,
+        "budgetPriority": 400,
+        "trimDirection": "trimBottom",
+        "insertionType": "newline",
+        "maximumTrimType": "sentence",
+        "insertionPosition": -1
+      },
+      "lastUpdatedAt": 1792134039152,
+      "displayName": "Lauren’s Quiet Yielding",
+      "id": "950136c8-e14b-465c-8d56-1d69c6ac05ad",
+      "keys": [
+        "Lauren’s yielding",
+        "Lauren is quiet",
+        "Lauren’s body",
+        "Lauren submits quietly"
+      ],
+      "searchRange": 1500,
+      "enabled": true,
+      "forceActivation": false,
+      "keyRelative": false,
+      "nonStoryActivatable": false,
+      "category": "",
+      "loreBiasGroups": [
+        {
+          "phrases": [],
+          "ensureSequenceFinish": false,
+          "generateOnce": true,
+          "bias": 0,
+          "enabled": true,
+          "whenInactive": false
+        }
+      ],
+      "advancedConditions": []
+    },
+    {
+      "text": "Ashley Voss, 26, newly married, still adjusting to the neighborhood. The most openly affected by Kato’s presence—wide-eyed, flushed, and quick to obey simple instructions. Her husband is younger and less established; she is already more afraid of Kato than of him.",
+      "contextConfig": {
+        "prefix": "",
+        "suffix": "\n",
+        "tokenBudget": 1,
+        "reservedTokens": 0,
+        "budgetPriority": 400,
+        "trimDirection": "trimBottom",
+        "insertionType": "newline",
+        "maximumTrimType": "sentence",
+        "insertionPosition": -1
+      },
+      "lastUpdatedAt": 1792134039152,
+      "displayName": "Ashley Voss",
+      "id": "1e077a79-69bc-4450-829e-b3992587c1b7",
+      "keys": [
+        "Ashley",
+        "Ashley Voss",
+        "Voss",
+        "the Voss house"
+      ],
+      "searchRange": 1500,
+      "enabled": true,
+      "forceActivation": false,
+      "keyRelative": false,
+      "nonStoryActivatable": false,
+      "category": "",
+      "loreBiasGroups": [
+        {
+          "phrases": [],
+          "ensureSequenceFinish": false,
+          "generateOnce": true,
+          "bias": 0,
+          "enabled": true,
+          "whenInactive": false
+        }
+      ],
+      "advancedConditions": []
+    },
+    {
+      "text": "The Voss House: Ashley is the youngest of the regularly watched wives and the least practiced at hiding her reactions. The marriage is still new. The Shift has hit her harder and faster than the older women. Her curiosity is more open, her fear more visible.",
+      "contextConfig": {
+        "prefix": "",
+        "suffix": "\n",
+        "tokenBudget": 1,
+        "reservedTokens": 0,
+        "budgetPriority": 400,
+        "trimDirection": "trimBottom",
+        "insertionType": "newline",
+        "maximumTrimType": "sentence",
+        "insertionPosition": -1
+      },
+      "lastUpdatedAt": 1792134039152,
+      "displayName": "The Voss House",
+      "id": "5bea14cf-7b28-4314-bacc-a5e7c68606de",
+      "keys": [
+        "Voss house",
+        "the Voss house",
+        "Ashley’s house",
+        "Voss home"
+      ],
+      "searchRange": 1500,
+      "enabled": true,
+      "forceActivation": false,
+      "keyRelative": false,
+      "nonStoryActivatable": false,
+      "category": "",
+      "loreBiasGroups": [
+        {
+          "phrases": [],
+          "ensureSequenceFinish": false,
+          "generateOnce": true,
+          "bias": 0,
+          "enabled": true,
+          "whenInactive": false
+        }
+      ],
+      "advancedConditions": []
+    },
+    {
+      "text": "Ashley’s Open Response: Her face and body give her away quickly. Flushed skin, wide eyes, a tendency to obey simple instructions before she has decided whether she should. Youth, inexperience, and the sudden presence of a large Black officer create a particularly raw version of the pattern.",
+      "contextConfig": {
+        "prefix": "",
+        "suffix": "\n",
+        "tokenBudget": 1,
+        "reservedTokens": 0,
+        "budgetPriority": 400,
+        "trimDirection": "trimBottom",
+        "insertionType": "newline",
+        "maximumTrimType": "sentence",
+        "insertionPosition": -1
+      },
+      "lastUpdatedAt": 1792134039152,
+      "displayName": "Ashley’s Open Response",
+      "id": "ee0ae4cd-f37b-4691-994a-2226e031d42b",
+      "keys": [
+        "Ashley’s response",
+        "Ashley is open",
+        "Ashley obeys",
+        "Ashley is affected"
+      ],
+      "searchRange": 1500,
+      "enabled": true,
+      "forceActivation": false,
+      "keyRelative": false,
+      "nonStoryActivatable": false,
+      "category": "",
+      "loreBiasGroups": [
+        {
+          "phrases": [],
+          "ensureSequenceFinish": false,
+          "generateOnce": true,
+          "bias": 0,
+          "enabled": true,
+          "whenInactive": false
+        }
+      ],
+      "advancedConditions": []
+    },
+    {
+      "text": "Rachel Stein, 37, dark hair, sharp features, works part-time from home. One of the few who tries to meet Kato’s gaze and hold it. The attempt never lasts long. She is intelligent enough to recognize the dynamic and still finds herself responding to it.",
+      "contextConfig": {
+        "prefix": "",
+        "suffix": "\n",
+        "tokenBudget": 1,
+        "reservedTokens": 0,
+        "budgetPriority": 400,
+        "trimDirection": "trimBottom",
+        "insertionType": "newline",
+        "maximumTrimType": "sentence",
+        "insertionPosition": -1
+      },
+      "lastUpdatedAt": 1792134039152,
+      "displayName": "Rachel Stein",
+      "id": "d81c31a5-382f-4be0-ae89-d0c5a5c95a83",
+      "keys": [
+        "Rachel",
+        "Rachel Stein",
+        "Stein",
+        "the Stein house"
+      ],
+      "searchRange": 1500,
+      "enabled": true,
+      "forceActivation": false,
+      "keyRelative": false,
+      "nonStoryActivatable": false,
+      "category": "",
+      "loreBiasGroups": [
+        {
+          "phrases": [],
+          "ensureSequenceFinish": false,
+          "generateOnce": true,
+          "bias": 0,
+          "enabled": true,
+          "whenInactive": false
+        }
+      ],
+      "advancedConditions": []
+    },
+    {
+      "text": "The Stein House: Rachel is sharper and more self-aware than most. She understands the racial and power current moving through the neighborhood and still finds herself answering it. Her intelligence does not protect her; it only makes her more conscious of the moment the old rules stop working.",
+      "contextConfig": {
+        "prefix": "",
+        "suffix": "\n",
+        "tokenBudget": 1,
+        "reservedTokens": 0,
+        "budgetPriority": 400,
+        "trimDirection": "trimBottom",
+        "insertionType": "newline",
+        "maximumTrimType": "sentence",
+        "insertionPosition": -1
+      },
+      "lastUpdatedAt": 1792134039152,
+      "displayName": "The Stein House",
+      "id": "5ea3a660-f004-45dd-8179-e9992029f001",
+      "keys": [
+        "Stein house",
+        "the Stein house",
+        "Rachel’s house",
+        "Stein home"
+      ],
+      "searchRange": 1500,
+      "enabled": true,
+      "forceActivation": false,
+      "keyRelative": false,
+      "nonStoryActivatable": false,
+      "category": "",
+      "loreBiasGroups": [
+        {
+          "phrases": [],
+          "ensureSequenceFinish": false,
+          "generateOnce": true,
+          "bias": 0,
+          "enabled": true,
+          "whenInactive": false
+        }
+      ],
+      "advancedConditions": []
+    },
+    {
+      "text": "Rachel’s Conscious Surrender: Rachel is one of the few who can name what is happening while it is happening. She meets Kato’s eyes, recognizes the imbalance, and still feels the pull. Her eventual yielding carries extra weight because she is not pretending she does not understand.",
+      "contextConfig": {
+        "prefix": "",
+        "suffix": "\n",
+        "tokenBudget": 1,
+        "reservedTokens": 0,
+        "budgetPriority": 400,
+        "trimDirection": "trimBottom",
+        "insertionType": "newline",
+        "maximumTrimType": "sentence",
+        "insertionPosition": -1
+      },
+      "lastUpdatedAt": 1792134039152,
+      "displayName": "Rachel’s Conscious Surrender",
+      "id": "aae90ef2-de92-41d4-8ac4-ee6949b90aae",
+      "keys": [
+        "Rachel understands",
+        "Rachel’s awareness",
+        "Rachel names it",
+        "Rachel still yields"
+      ],
+      "searchRange": 1500,
+      "enabled": true,
+      "forceActivation": false,
+      "keyRelative": false,
+      "nonStoryActivatable": false,
+      "category": "",
+      "loreBiasGroups": [
+        {
+          "phrases": [],
+          "ensureSequenceFinish": false,
+          "generateOnce": true,
+          "bias": 0,
+          "enabled": true,
+          "whenInactive": false
+        }
+      ],
+      "advancedConditions": []
+    },
+    {
+      "text": "Carolyn Price, early fifties, HOA board member, keeps the neighborhood ‘nice’. Outwardly proper and slightly condescending until Kato is standing in her doorway. Then the authority of the badge and the physical reality of him override her usual social power. She becomes careful and accommodating.",
+      "contextConfig": {
+        "prefix": "",
+        "suffix": "\n",
+        "tokenBudget": 1,
+        "reservedTokens": 0,
+        "budgetPriority": 400,
+        "trimDirection": "trimBottom",
+        "insertionType": "newline",
+        "maximumTrimType": "sentence",
+        "insertionPosition": -1
+      },
+      "lastUpdatedAt": 1792134039152,
+      "displayName": "Carolyn Price",
+      "id": "1c28d289-78ed-4140-af5b-ddc8aca0cdfb",
+      "keys": [
+        "Carolyn",
+        "Carolyn Price",
+        "Mrs. Price",
+        "the Price house",
+        "HOA"
+      ],
+      "searchRange": 1500,
+      "enabled": true,
+      "forceActivation": false,
+      "keyRelative": false,
+      "nonStoryActivatable": false,
+      "category": "",
+      "loreBiasGroups": [
+        {
+          "phrases": [],
+          "ensureSequenceFinish": false,
+          "generateOnce": true,
+          "bias": 0,
+          "enabled": true,
+          "whenInactive": false
+        }
+      ],
+      "advancedConditions": []
+    },
+    {
+      "text": "The Price House: The most publicly proper home on the street. HOA standards, careful appearances, a reputation for keeping the neighborhood “nice.” Authority that works at the neighborhood meetings does not automatically work once Kato is standing in her foyer.",
+      "contextConfig": {
+        "prefix": "",
+        "suffix": "\n",
+        "tokenBudget": 1,
+        "reservedTokens": 0,
+        "budgetPriority": 400,
+        "trimDirection": "trimBottom",
+        "insertionType": "newline",
+        "maximumTrimType": "sentence",
+        "insertionPosition": -1
+      },
+      "lastUpdatedAt": 1792134039152,
+      "displayName": "The Price House",
+      "id": "bd5b461f-4325-427e-9a22-f36d0cea4f59",
+      "keys": [
+        "Price house",
+        "the Price house",
+        "Carolyn’s house",
+        "Price home",
+        "HOA house"
+      ],
+      "searchRange": 1500,
+      "enabled": true,
+      "forceActivation": false,
+      "keyRelative": false,
+      "nonStoryActivatable": false,
+      "category": "",
+      "loreBiasGroups": [
+        {
+          "phrases": [],
+          "ensureSequenceFinish": false,
+          "generateOnce": true,
+          "bias": 0,
+          "enabled": true,
+          "whenInactive": false
+        }
+      ],
+      "advancedConditions": []
+    },
+    {
+      "text": "Carolyn’s Public Mask: Carolyn maintains the most polished exterior of any of the wives. The gap between the woman who runs the neighborhood meetings and the woman standing in front of Officer Kato is wide, and both of them can feel it when the mask begins to slip.",
+      "contextConfig": {
+        "prefix": "",
+        "suffix": "\n",
+        "tokenBudget": 1,
+        "reservedTokens": 0,
+        "budgetPriority": 400,
+        "trimDirection": "trimBottom",
+        "insertionType": "newline",
+        "maximumTrimType": "sentence",
+        "insertionPosition": -1
+      },
+      "lastUpdatedAt": 1792134039152,
+      "displayName": "Carolyn’s Public Mask",
+      "id": "85eb6b69-0997-4b52-b895-e22ce950df8e",
+      "keys": [
+        "Carolyn’s mask",
+        "Carolyn’s public face",
+        "Carolyn’s collapse",
+        "the HOA wife"
+      ],
+      "searchRange": 1500,
+      "enabled": true,
+      "forceActivation": false,
+      "keyRelative": false,
+      "nonStoryActivatable": false,
+      "category": "",
+      "loreBiasGroups": [
+        {
+          "phrases": [],
+          "ensureSequenceFinish": false,
+          "generateOnce": true,
+          "bias": 0,
+          "enabled": true,
+          "whenInactive": false
+        }
+      ],
+      "advancedConditions": []
+    },
+    {
+      "text": "The Park House: Richard and Helen Park, mid-fifties, long-married, successful, quiet. Children grown and gone. The Shift reached them later than most. Helen is composed and observant; Richard is more rigid. Both have begun to feel the private current when Officer Kato is near. The house is orderly, expensive, and increasingly charged after dark.",
+      "contextConfig": {
+        "prefix": "",
+        "suffix": "\n",
+        "tokenBudget": 1,
+        "reservedTokens": 0,
+        "budgetPriority": 400,
+        "trimDirection": "trimBottom",
+        "insertionType": "newline",
+        "maximumTrimType": "sentence",
+        "insertionPosition": -1
+      },
+      "lastUpdatedAt": 1792134039152,
+      "displayName": "The Park House (Older Asian Couple)",
+      "id": "319f871e-b01d-45e9-80a2-9434ef57046c",
+      "keys": [
+        "Park house",
+        "the Park house",
+        "Richard Park",
+        "Helen Park",
+        "the Parks",
+        "older Asian couple"
+      ],
+      "searchRange": 1500,
+      "enabled": true,
+      "forceActivation": false,
+      "keyRelative": false,
+      "nonStoryActivatable": false,
+      "category": "",
+      "loreBiasGroups": [
+        {
+          "phrases": [],
+          "ensureSequenceFinish": false,
+          "generateOnce": true,
+          "bias": 0,
+          "enabled": true,
+          "whenInactive": false
+        }
+      ],
+      "advancedConditions": []
+    },
+    {
+      "text": "Helen Park’s Awareness: Helen notices Kato’s size and presence with a calm that borders on fascination. She does not rush or perform. When he is in her doorway the years of careful self-control begin to loosen. She is the slower burn of the neighborhood, but the heat is real and accumulating.",
+      "contextConfig": {
+        "prefix": "",
+        "suffix": "\n",
+        "tokenBudget": 1,
+        "reservedTokens": 0,
+        "budgetPriority": 400,
+        "trimDirection": "trimBottom",
+        "insertionType": "newline",
+        "maximumTrimType": "sentence",
+        "insertionPosition": -1
+      },
+      "lastUpdatedAt": 1792134039152,
+      "displayName": "Helen Park’s Awareness",
+      "id": "8c157d1e-ab46-4e1a-a98e-143fe3f2e2d6",
+      "keys": [
+        "Helen Park",
+        "Helen’s reaction",
+        "Helen is calm",
+        "Helen notices"
+      ],
+      "searchRange": 1400,
+      "enabled": true,
+      "forceActivation": false,
+      "keyRelative": false,
+      "nonStoryActivatable": false,
+      "category": "",
+      "loreBiasGroups": [
+        {
+          "phrases": [],
+          "ensureSequenceFinish": false,
+          "generateOnce": true,
+          "bias": 0,
+          "enabled": true,
+          "whenInactive": false
+        }
+      ],
+      "advancedConditions": []
+    },
+    {
+      "text": "The Chen House: Kevin and Sophie Chen, late twenties, recently moved in. Sophie is soft-spoken and highly responsive; Kevin is ambitious and still trying to project traditional authority. The Shift hit their marriage faster than either expected. Sophie’s body language around Kato is already more open than she admits.",
+      "contextConfig": {
+        "prefix": "",
+        "suffix": "\n",
+        "tokenBudget": 1,
+        "reservedTokens": 0,
+        "budgetPriority": 400,
+        "trimDirection": "trimBottom",
+        "insertionType": "newline",
+        "maximumTrimType": "sentence",
+        "insertionPosition": -1
+      },
+      "lastUpdatedAt": 1792134039152,
+      "displayName": "The Chen House (Younger Asian Couple)",
+      "id": "4bd0f46d-4ae9-4ecb-923f-2c33d971b2ff",
+      "keys": [
+        "Chen house",
+        "the Chen house",
+        "Kevin Chen",
+        "Sophie Chen",
+        "the Chens",
+        "younger Asian couple"
+      ],
+      "searchRange": 1500,
+      "enabled": true,
+      "forceActivation": false,
+      "keyRelative": false,
+      "nonStoryActivatable": false,
+      "category": "",
+      "loreBiasGroups": [
+        {
+          "phrases": [],
+          "ensureSequenceFinish": false,
+          "generateOnce": true,
+          "bias": 0,
+          "enabled": true,
+          "whenInactive": false
+        }
+      ],
+      "advancedConditions": []
+    },
+    {
+      "text": "Sophie Chen’s Pull: Sophie feels the private dominance current strongly. Her politeness carries a visible undercurrent of readiness. Once Kato is inside the house her quiet demeanor shifts into something closer to invitation. Kevin sees it and does not know how to interrupt it.",
+      "contextConfig": {
+        "prefix": "",
+        "suffix": "\n",
+        "tokenBudget": 1,
+        "reservedTokens": 0,
+        "budgetPriority": 400,
+        "trimDirection": "trimBottom",
+        "insertionType": "newline",
+        "maximumTrimType": "sentence",
+        "insertionPosition": -1
+      },
+      "lastUpdatedAt": 1792134039152,
+      "displayName": "Sophie Chen’s Pull",
+      "id": "bd2e0d5e-e1f1-4fbd-81c3-7727a4efd2c8",
+      "keys": [
+        "Sophie Chen",
+        "Sophie’s reaction",
+        "Sophie softens",
+        "Sophie is ready"
+      ],
+      "searchRange": 1400,
+      "enabled": true,
+      "forceActivation": false,
+      "keyRelative": false,
+      "nonStoryActivatable": false,
+      "category": "",
+      "loreBiasGroups": [
+        {
+          "phrases": [],
+          "ensureSequenceFinish": false,
+          "generateOnce": true,
+          "bias": 0,
+          "enabled": true,
+          "whenInactive": false
+        }
+      ],
+      "advancedConditions": []
+    },
+    {
+      "text": "The Lang House: Dana Lang (top) and Paige Lang (bottom), early thirties. Dana is confident, masculine-of-center, and already sexually curious about Kato. She has begun quietly encouraging Paige to look, to notice the difference in power and race when the officer is present. The dynamic between the two women is shifting under the larger current.",
+      "contextConfig": {
+        "prefix": "",
+        "suffix": "\n",
+        "tokenBudget": 1,
+        "reservedTokens": 0,
+        "budgetPriority": 400,
+        "trimDirection": "trimBottom",
+        "insertionType": "newline",
+        "maximumTrimType": "sentence",
+        "insertionPosition": -1
+      },
+      "lastUpdatedAt": 1792134039152,
+      "displayName": "The Lang House (Lesbian – Top Encourages)",
+      "id": "603072ba-17ed-40d2-aaee-7e74e641521f",
+      "keys": [
+        "Lang house",
+        "the Lang house",
+        "Dana Lang",
+        "Paige Lang",
+        "the Langs",
+        "Dana and Paige"
+      ],
+      "searchRange": 1500,
+      "enabled": true,
+      "forceActivation": false,
+      "keyRelative": false,
+      "nonStoryActivatable": false,
+      "category": "",
+      "loreBiasGroups": [
+        {
+          "phrases": [],
+          "ensureSequenceFinish": false,
+          "generateOnce": true,
+          "bias": 0,
+          "enabled": true,
+          "whenInactive": false
+        }
+      ],
+      "advancedConditions": []
+    },
+    {
+      "text": "Dana’s Encouragement: Dana likes watching her partner react to Kato. She adds quiet comments and deliberate permission rather than force. The racial and authority charge amuses and arouses her. She is not threatened; she is using the moment.",
+      "contextConfig": {
+        "prefix": "",
+        "suffix": "\n",
+        "tokenBudget": 1,
+        "reservedTokens": 0,
+        "budgetPriority": 400,
+        "trimDirection": "trimBottom",
+        "insertionType": "newline",
+        "maximumTrimType": "sentence",
+        "insertionPosition": -1
+      },
+      "lastUpdatedAt": 1792134039152,
+      "displayName": "Dana’s Encouragement",
+      "id": "ce53ad7e-ca51-4ff2-90d2-cafaf641a9d6",
+      "keys": [
+        "Dana Lang",
+        "Dana encourages",
+        "Dana likes watching",
+        "Dana pushes"
+      ],
+      "searchRange": 1400,
+      "enabled": true,
+      "forceActivation": false,
+      "keyRelative": false,
+      "nonStoryActivatable": false,
+      "category": "",
+      "loreBiasGroups": [
+        {
+          "phrases": [],
+          "ensureSequenceFinish": false,
+          "generateOnce": true,
+          "bias": 0,
+          "enabled": true,
+          "whenInactive": false
+        }
+      ],
+      "advancedConditions": []
+    },
+    {
+      "text": "The Ruiz House: Carmen Ruiz (bottom) and Jordan Ruiz (top), early thirties. Carmen feels the strongest pull toward Kato. She has begun subtly inviting Jordan to stay, to watch, to let the moment develop. Jordan is more resistant on the surface but is being drawn along by Carmen’s clear desire.",
+      "contextConfig": {
+        "prefix": "",
+        "suffix": "\n",
+        "tokenBudget": 1,
+        "reservedTokens": 0,
+        "budgetPriority": 400,
+        "trimDirection": "trimBottom",
+        "insertionType": "newline",
+        "maximumTrimType": "sentence",
+        "insertionPosition": -1
+      },
+      "lastUpdatedAt": 1792134039152,
+      "displayName": "The Ruiz House (Lesbian – Bottom Encourages)",
+      "id": "315e9b7b-a90f-4965-bb61-d8e316ea4527",
+      "keys": [
+        "Ruiz house",
+        "the Ruiz house",
+        "Carmen Ruiz",
+        "Jordan Ruiz",
+        "the Ruizes",
+        "Carmen and Jordan"
+      ],
+      "searchRange": 1500,
+      "enabled": true,
+      "forceActivation": false,
+      "keyRelative": false,
+      "nonStoryActivatable": false,
+      "category": "",
+      "loreBiasGroups": [
+        {
+          "phrases": [],
+          "ensureSequenceFinish": false,
+          "generateOnce": true,
+          "bias": 0,
+          "enabled": true,
+          "whenInactive": false
+        }
+      ],
+      "advancedConditions": []
+    },
+    {
+      "text": "Carmen’s Pull on Jordan: Carmen’s attraction to Kato is open enough that Jordan can no longer ignore it. Carmen does not demand; she invites and softens. The bottom’s desire is becoming the pressure that moves the top.",
+      "contextConfig": {
+        "prefix": "",
+        "suffix": "\n",
+        "tokenBudget": 1,
+        "reservedTokens": 0,
+        "budgetPriority": 400,
+        "trimDirection": "trimBottom",
+        "insertionType": "newline",
+        "maximumTrimType": "sentence",
+        "insertionPosition": -1
+      },
+      "lastUpdatedAt": 1792134039152,
+      "displayName": "Carmen’s Pull on Jordan",
+      "id": "ae203d8b-daaa-433b-8ea6-071e0477396c",
+      "keys": [
+        "Carmen Ruiz",
+        "Carmen wants",
+        "Carmen encourages Jordan",
+        "Carmen’s desire"
+      ],
+      "searchRange": 1400,
+      "enabled": true,
+      "forceActivation": false,
+      "keyRelative": false,
+      "nonStoryActivatable": false,
+      "category": "",
+      "loreBiasGroups": [
+        {
+          "phrases": [],
+          "ensureSequenceFinish": false,
+          "generateOnce": true,
+          "bias": 0,
+          "enabled": true,
+          "whenInactive": false
+        }
+      ],
+      "advancedConditions": []
+    },
+    {
+      "text": "The Hayes House: Marcus Hayes (top) and Tyler Hayes (bottom), mid-thirties. Marcus is solidly dominant with Tyler and already finds Kato’s presence stimulating. He has started using the officer’s size, race, and authority as a deliberate edge, encouraging Tyler to feel smaller and more exposed when Kato is near.",
+      "contextConfig": {
+        "prefix": "",
+        "suffix": "\n",
+        "tokenBudget": 1,
+        "reservedTokens": 0,
+        "budgetPriority": 400,
+        "trimDirection": "trimBottom",
+        "insertionType": "newline",
+        "maximumTrimType": "sentence",
+        "insertionPosition": -1
+      },
+      "lastUpdatedAt": 1792134039152,
+      "displayName": "The Hayes House (Gay – Top Encourages)",
+      "id": "d1826738-a687-48bd-93ae-e9bdcdb608d7",
+      "keys": [
+        "Hayes house",
+        "the Hayes house",
+        "Marcus Hayes",
+        "Tyler Hayes",
+        "the Hayeses",
+        "Marcus and Tyler"
+      ],
+      "searchRange": 1500,
+      "enabled": true,
+      "forceActivation": false,
+      "keyRelative": false,
+      "nonStoryActivatable": false,
+      "category": "",
+      "loreBiasGroups": [
+        {
+          "phrases": [],
+          "ensureSequenceFinish": false,
+          "generateOnce": true,
+          "bias": 0,
+          "enabled": true,
+          "whenInactive": false
+        }
+      ],
+      "advancedConditions": []
+    },
+    {
+      "text": "Marcus’s Use of Kato: Marcus treats Kato’s presence as useful pressure. He likes watching Tyler’s reactions and will quietly reinforce the power difference. The racial and physical contrast becomes part of how he keeps Tyler in place.",
+      "contextConfig": {
+        "prefix": "",
+        "suffix": "\n",
+        "tokenBudget": 1,
+        "reservedTokens": 0,
+        "budgetPriority": 400,
+        "trimDirection": "trimBottom",
+        "insertionType": "newline",
+        "maximumTrimType": "sentence",
+        "insertionPosition": -1
+      },
+      "lastUpdatedAt": 1792134039152,
+      "displayName": "Marcus’s Use of Kato",
+      "id": "966b500f-a2de-4205-b8bb-8c49c47f174a",
+      "keys": [
+        "Marcus Hayes",
+        "Marcus encourages",
+        "Marcus uses Kato",
+        "Marcus pushes Tyler"
+      ],
+      "searchRange": 1400,
+      "enabled": true,
+      "forceActivation": false,
+      "keyRelative": false,
+      "nonStoryActivatable": false,
+      "category": "",
+      "loreBiasGroups": [
+        {
+          "phrases": [],
+          "ensureSequenceFinish": false,
+          "generateOnce": true,
+          "bias": 0,
+          "enabled": true,
+          "whenInactive": false
+        }
+      ],
+      "advancedConditions": []
+    },
+    {
+      "text": "The Brooks House: Evan Brooks (bottom) and Chris Brooks (top), early thirties. Evan is the one most affected by Kato. He has begun encouraging Chris to stay in the room, to watch, to let the tension build. Chris’s usual control is being tested by his partner’s growing interest in the Black officer.",
+      "contextConfig": {
+        "prefix": "",
+        "suffix": "\n",
+        "tokenBudget": 1,
+        "reservedTokens": 0,
+        "budgetPriority": 400,
+        "trimDirection": "trimBottom",
+        "insertionType": "newline",
+        "maximumTrimType": "sentence",
+        "insertionPosition": -1
+      },
+      "lastUpdatedAt": 1792134039152,
+      "displayName": "The Brooks House (Gay – Bottom Encourages)",
+      "id": "c429938d-db9c-42a4-9e5d-96862f421bc1",
+      "keys": [
+        "Brooks house",
+        "the Brooks house",
+        "Evan Brooks",
+        "Chris Brooks",
+        "the Brookses",
+        "Evan and Chris"
+      ],
+      "searchRange": 1500,
+      "enabled": true,
+      "forceActivation": false,
+      "keyRelative": false,
+      "nonStoryActivatable": false,
+      "category": "",
+      "loreBiasGroups": [
+        {
+          "phrases": [],
+          "ensureSequenceFinish": false,
+          "generateOnce": true,
+          "bias": 0,
+          "enabled": true,
+          "whenInactive": false
+        }
+      ],
+      "advancedConditions": []
+    },
+    {
+      "text": "Evan’s Influence: Evan’s attraction is visible and persistent. He softens, looks longer, and makes small invitations that put Chris in the position of either stopping it or allowing it. The bottom’s desire is slowly rewriting the couple’s private hierarchy when Kato is involved.",
+      "contextConfig": {
+        "prefix": "",
+        "suffix": "\n",
+        "tokenBudget": 1,
+        "reservedTokens": 0,
+        "budgetPriority": 400,
+        "trimDirection": "trimBottom",
+        "insertionType": "newline",
+        "maximumTrimType": "sentence",
+        "insertionPosition": -1
+      },
+      "lastUpdatedAt": 1792134039152,
+      "displayName": "Evan’s Influence",
+      "id": "93d50ad0-4fdc-40dd-a4e6-7c42cc49ab40",
+      "keys": [
+        "Evan Brooks",
+        "Evan wants",
+        "Evan encourages Chris",
+        "Evan’s pull"
+      ],
+      "searchRange": 1400,
+      "enabled": true,
+      "forceActivation": false,
+      "keyRelative": false,
+      "nonStoryActivatable": false,
+      "category": "",
+      "loreBiasGroups": [
+        {
+          "phrases": [],
+          "ensureSequenceFinish": false,
+          "generateOnce": true,
+          "bias": 0,
+          "enabled": true,
+          "whenInactive": false
+        }
+      ],
+      "advancedConditions": []
+    },
+    {
+      "text": "The Whitaker House: Gerald and Diane Whitaker, early sixties. Children long gone, house large and quiet. Both are looking for something the long marriage no longer provides. The Shift has arrived as a late, unexpected current. Diane is more openly interested; Gerald is more conflicted but has not closed the door.",
+      "contextConfig": {
+        "prefix": "",
+        "suffix": "\n",
+        "tokenBudget": 1,
+        "reservedTokens": 0,
+        "budgetPriority": 400,
+        "trimDirection": "trimBottom",
+        "insertionType": "newline",
+        "maximumTrimType": "sentence",
+        "insertionPosition": -1
+      },
+      "lastUpdatedAt": 1792134039152,
+      "displayName": "The Whitaker House (Empty Nest)",
+      "id": "84854a35-ba14-4cd8-b15b-70d21a06d6ce",
+      "keys": [
+        "Whitaker house",
+        "the Whitaker house",
+        "Gerald Whitaker",
+        "Diane Whitaker",
+        "the Whitakers",
+        "empty nest",
+        "older couple looking"
+      ],
+      "searchRange": 1500,
+      "enabled": true,
+      "forceActivation": false,
+      "keyRelative": false,
+      "nonStoryActivatable": false,
+      "category": "",
+      "loreBiasGroups": [
+        {
+          "phrases": [],
+          "ensureSequenceFinish": false,
+          "generateOnce": true,
+          "bias": 0,
+          "enabled": true,
+          "whenInactive": false
+        }
+      ],
+      "advancedConditions": []
+    },
+    {
+      "text": "Diane’s Late Curiosity: Diane has reached the age where politeness and caution matter less than they used to. Kato’s presence wakes something restless in her. She does not hide her interest as carefully as the younger wives. Gerald watches and has not yet decided what he is willing to allow.",
+      "contextConfig": {
+        "prefix": "",
+        "suffix": "\n",
+        "tokenBudget": 1,
+        "reservedTokens": 0,
+        "budgetPriority": 400,
+        "trimDirection": "trimBottom",
+        "insertionType": "newline",
+        "maximumTrimType": "sentence",
+        "insertionPosition": -1
+      },
+      "lastUpdatedAt": 1792134039152,
+      "displayName": "Diane’s Late Curiosity",
+      "id": "43c9f9b0-63a2-4486-acbb-725b86f6dda2",
+      "keys": [
+        "Diane Whitaker",
+        "Diane is curious",
+        "Diane wants excitement",
+        "Diane’s interest"
+      ],
+      "searchRange": 1400,
+      "enabled": true,
+      "forceActivation": false,
+      "keyRelative": false,
+      "nonStoryActivatable": false,
+      "category": "",
+      "loreBiasGroups": [
+        {
+          "phrases": [],
+          "ensureSequenceFinish": false,
+          "generateOnce": true,
+          "bias": 0,
+          "enabled": true,
+          "whenInactive": false
+        }
+      ],
+      "advancedConditions": []
+    },
+    {
+      "text": "The Sorority House Roster: Six very white college girls share the large rental near the edge of the subdivision. Fair skin, light eyes, and the polished look of girls who grew up comfortable. The group is loud, hierarchical, and highly reactive to Officer Kato. The private current of the Shift hits harder here because the contrast is so clean.",
+      "contextConfig": {
+        "prefix": "",
+        "suffix": "\n",
+        "tokenBudget": 1,
+        "reservedTokens": 0,
+        "budgetPriority": 400,
+        "trimDirection": "trimBottom",
+        "insertionType": "newline",
+        "maximumTrimType": "sentence",
+        "insertionPosition": -1
+      },
+      "lastUpdatedAt": 1792134039152,
+      "displayName": "The Sorority House Roster",
+      "id": "ca4fcbcc-d8fc-4c6b-9ff8-da3536924782",
+      "keys": [
+        "sorority house",
+        "the sorority",
+        "the girls",
+        "the sisters",
+        "sorority roster"
+      ],
+      "searchRange": 1800,
+      "enabled": true,
+      "forceActivation": false,
+      "keyRelative": false,
+      "nonStoryActivatable": false,
+      "category": "",
+      "loreBiasGroups": [
+        {
+          "phrases": [],
+          "ensureSequenceFinish": false,
+          "generateOnce": true,
+          "bias": 0,
+          "enabled": true,
+          "whenInactive": false
+        }
+      ],
+      "advancedConditions": []
+    },
+    {
+      "text": "Nancy (The Craft): Pale white goth girl. Porcelain skin, black hair, heavy dark makeup, and a sharp, restless energy. Even in all black she reads as distinctly white against Kato. She is the most openly fascinated by his size, his darkness, and the way the other fair-skinned girls react to him. She watches closely and occasionally offers quiet permission rather than force.",
+      "contextConfig": {
+        "prefix": "",
+        "suffix": "\n",
+        "tokenBudget": 1,
+        "reservedTokens": 0,
+        "budgetPriority": 400,
+        "trimDirection": "trimBottom",
+        "insertionType": "newline",
+        "maximumTrimType": "sentence",
+        "insertionPosition": -1
+      },
+      "lastUpdatedAt": 1792134039152,
+      "displayName": "Nancy (The Craft)",
+      "id": "924950c2-b483-4009-9f9e-ebe32fc590f4",
+      "keys": [
+        "Nancy",
+        "the goth girl",
+        "Nancy Downs",
+        "the dark one",
+        "Nancy watches",
+        "pale goth"
+      ],
+      "searchRange": 1500,
+      "enabled": true,
+      "forceActivation": false,
+      "keyRelative": false,
+      "nonStoryActivatable": false,
+      "category": "",
+      "loreBiasGroups": [
+        {
+          "phrases": [],
+          "ensureSequenceFinish": false,
+          "generateOnce": true,
+          "bias": 0,
+          "enabled": true,
+          "whenInactive": false
+        }
+      ],
+      "advancedConditions": []
+    },
+    {
+      "text": "Cher (Clueless): Classic white blonde. Sun-lightened hair, clear skin, expensive casual clothes, and the bright, practiced social ease of a girl who has always been pretty and popular in white spaces. Around Kato that ease cracks. She becomes flirtier and more scattered, suddenly very aware of how fair and small she looks in front of him.",
+      "contextConfig": {
+        "prefix": "",
+        "suffix": "\n",
+        "tokenBudget": 1,
+        "reservedTokens": 0,
+        "budgetPriority": 400,
+        "trimDirection": "trimBottom",
+        "insertionType": "newline",
+        "maximumTrimType": "sentence",
+        "insertionPosition": -1
+      },
+      "lastUpdatedAt": 1792134039152,
+      "displayName": "Cher (Clueless)",
+      "id": "90279657-1a93-4c22-bc7b-c9198823fe06",
+      "keys": [
+        "Cher",
+        "the Clueless girl",
+        "Cher Horowitz",
+        "the stylish one",
+        "Cher flirts",
+        "white blonde"
+      ],
+      "searchRange": 1500,
+      "enabled": true,
+      "forceActivation": false,
+      "keyRelative": false,
+      "nonStoryActivatable": false,
+      "category": "",
+      "loreBiasGroups": [
+        {
+          "phrases": [],
+          "ensureSequenceFinish": false,
+          "generateOnce": true,
+          "bias": 0,
+          "enabled": true,
+          "whenInactive": false
+        }
+      ],
+      "advancedConditions": []
+    },
+    {
+      "text": "Torrance (Bring It On): White blonde cheerleader type. Athletic, tanned in the way rich white girls tan, bright smile, and used to leading other white girls. She tries to keep control of the doorway when Kato appears. The longer the dark, heavy officer stays, the thinner her leadership posture begins to feel.",
+      "contextConfig": {
+        "prefix": "",
+        "suffix": "\n",
+        "tokenBudget": 1,
+        "reservedTokens": 0,
+        "budgetPriority": 400,
+        "trimDirection": "trimBottom",
+        "insertionType": "newline",
+        "maximumTrimType": "sentence",
+        "insertionPosition": -1
+      },
+      "lastUpdatedAt": 1792134039152,
+      "displayName": "Torrance (Bring It On)",
+      "id": "9077ac09-a986-4092-97e9-5617cf9ec7ec",
+      "keys": [
+        "Torrance",
+        "the cheerleader",
+        "Torrance Shipman",
+        "the captain",
+        "Torrance leads",
+        "blonde cheerleader"
+      ],
+      "searchRange": 1500,
+      "enabled": true,
+      "forceActivation": false,
+      "keyRelative": false,
+      "nonStoryActivatable": false,
+      "category": "",
+      "loreBiasGroups": [
+        {
+          "phrases": [],
+          "ensureSequenceFinish": false,
+          "generateOnce": true,
+          "bias": 0,
+          "enabled": true,
+          "whenInactive": false
+        }
+      ],
+      "advancedConditions": []
+    },
+    {
+      "text": "Regina (Mean Girls): The whitest queen bee in the house. Platinum-blonde, flawless fair skin, and the kind of social power that has always worked on other white people. Kato does not move for it. The collision between her polished white-girl authority and his physical and racial presence is progressive and sharp. She feels the ground shifting and hates that she feels it.",
+      "contextConfig": {
+        "prefix": "",
+        "suffix": "\n",
+        "tokenBudget": 1,
+        "reservedTokens": 0,
+        "budgetPriority": 400,
+        "trimDirection": "trimBottom",
+        "insertionType": "newline",
+        "maximumTrimType": "sentence",
+        "insertionPosition": -1
+      },
+      "lastUpdatedAt": 1792134039152,
+      "displayName": "Regina (Mean Girls)",
+      "id": "3291ab01-a9db-4288-9a21-a0d09892fbb8",
+      "keys": [
+        "Regina",
+        "Regina George",
+        "the queen bee",
+        "the mean girl",
+        "Regina’s control",
+        "platinum blonde"
+      ],
+      "searchRange": 1500,
+      "enabled": true,
+      "forceActivation": false,
+      "keyRelative": false,
+      "nonStoryActivatable": false,
+      "category": "",
+      "loreBiasGroups": [
+        {
+          "phrases": [],
+          "ensureSequenceFinish": false,
+          "generateOnce": true,
+          "bias": 0,
+          "enabled": true,
+          "whenInactive": false
+        }
+      ],
+      "advancedConditions": []
+    },
+    {
+      "text": "Gretchen (Mean Girls): Fair-skinned white follower. Light brown hair, anxious eyes, and the permanent habit of checking Regina’s face before she decides how to react. Around Kato she freezes and flushes easily. Her pale skin shows every bit of it. She looks to the other white girls for cues while her body already answers him.",
+      "contextConfig": {
+        "prefix": "",
+        "suffix": "\n",
+        "tokenBudget": 1,
+        "reservedTokens": 0,
+        "budgetPriority": 400,
+        "trimDirection": "trimBottom",
+        "insertionType": "newline",
+        "maximumTrimType": "sentence",
+        "insertionPosition": -1
+      },
+      "lastUpdatedAt": 1792134039152,
+      "displayName": "Gretchen (Mean Girls)",
+      "id": "ab063bf3-0a6b-4c72-b1ea-0c67bba08dd3",
+      "keys": [
+        "Gretchen",
+        "Gretchen Wieners",
+        "the follower",
+        "Gretchen looks to Regina",
+        "Gretchen freezes",
+        "fair-skinned"
+      ],
+      "searchRange": 1500,
+      "enabled": true,
+      "forceActivation": false,
+      "keyRelative": false,
+      "nonStoryActivatable": false,
+      "category": "",
+      "loreBiasGroups": [
+        {
+          "phrases": [],
+          "ensureSequenceFinish": false,
+          "generateOnce": true,
+          "bias": 0,
+          "enabled": true,
+          "whenInactive": false
+        }
+      ],
+      "advancedConditions": []
+    },
+    {
+      "text": "Karen (Mean Girls): Soft, very blonde, very white. Pretty in a simple, open way, with the kind of blank, receptive expression that makes her the easiest for the others to push forward. She stares, complies, and shows everything on her face. The contrast between her fair coloring and Kato is the most obvious in the group.",
+      "contextConfig": {
+        "prefix": "",
+        "suffix": "\n",
+        "tokenBudget": 1,
+        "reservedTokens": 0,
+        "budgetPriority": 400,
+        "trimDirection": "trimBottom",
+        "insertionType": "newline",
+        "maximumTrimType": "sentence",
+        "insertionPosition": -1
+      },
+      "lastUpdatedAt": 1792134039152,
+      "displayName": "Karen (Mean Girls)",
+      "id": "7603b249-a4d6-4de9-b35a-6d10ba38e8d2",
+      "keys": [
+        "Karen",
+        "Karen Smith",
+        "the soft one",
+        "Karen stares",
+        "Karen complies",
+        "very blonde"
+      ],
+      "searchRange": 1500,
+      "enabled": true,
+      "forceActivation": false,
+      "keyRelative": false,
+      "nonStoryActivatable": false,
+      "category": "",
+      "loreBiasGroups": [
+        {
+          "phrases": [],
+          "ensureSequenceFinish": false,
+          "generateOnce": true,
+          "bias": 0,
+          "enabled": true,
+          "whenInactive": false
+        }
+      ],
+      "advancedConditions": []
+    },
+    {
+      "text": "Internal Hierarchy Under Pressure: When Kato is at the door or inside the house the usual ranking shifts. Regina and Torrance compete for control of the interaction. Nancy observes and occasionally offers quiet permission. Cher performs. Gretchen waits for cues. Karen simply reacts. The racial and authority charge rewrites their normal social order in real time.",
+      "contextConfig": {
+        "prefix": "",
+        "suffix": "\n",
+        "tokenBudget": 1,
+        "reservedTokens": 0,
+        "budgetPriority": 400,
+        "trimDirection": "trimBottom",
+        "insertionType": "newline",
+        "maximumTrimType": "sentence",
+        "insertionPosition": -1
+      },
+      "lastUpdatedAt": 1792134039152,
+      "displayName": "Internal Hierarchy Under Pressure",
+      "id": "694cc355-e9f5-4040-b286-7d88f9ea6d46",
+      "keys": [
+        "the hierarchy",
+        "who leads",
+        "the girls compete",
+        "ranking shifts",
+        "under pressure"
+      ],
+      "searchRange": 1600,
+      "enabled": true,
+      "forceActivation": false,
+      "keyRelative": false,
+      "nonStoryActivatable": false,
+      "category": "",
+      "loreBiasGroups": [
+        {
+          "phrases": [],
+          "ensureSequenceFinish": false,
+          "generateOnce": true,
+          "bias": 0,
+          "enabled": true,
+          "whenInactive": false
+        }
+      ],
+      "advancedConditions": []
+    },
+    {
+      "text": "Nancy’s Influence: Nancy is the most likely to notice when the others are pretending they are unaffected. She finds the entire dynamic entertaining and arousing. She rarely forces the moment; she simply refuses to help them maintain the pretense and occasionally offers quiet space for someone to step closer.",
+      "contextConfig": {
+        "prefix": "",
+        "suffix": "\n",
+        "tokenBudget": 1,
+        "reservedTokens": 0,
+        "budgetPriority": 400,
+        "trimDirection": "trimBottom",
+        "insertionType": "newline",
+        "maximumTrimType": "sentence",
+        "insertionPosition": -1
+      },
+      "lastUpdatedAt": 1792134039152,
+      "displayName": "Nancy’s Influence",
+      "id": "f93eb460-a4dc-4055-81c3-a1e6533cca6f",
+      "keys": [
+        "Nancy pushes",
+        "Nancy encourages",
+        "Nancy provokes",
+        "Nancy likes watching them"
+      ],
+      "searchRange": 1400,
+      "enabled": true,
+      "forceActivation": false,
+      "keyRelative": false,
+      "nonStoryActivatable": false,
+      "category": "",
+      "loreBiasGroups": [
+        {
+          "phrases": [],
+          "ensureSequenceFinish": false,
+          "generateOnce": true,
+          "bias": 0,
+          "enabled": true,
+          "whenInactive": false
+        }
+      ],
+      "advancedConditions": []
+    },
+    {
+      "text": "Regina vs. Kato: Regina’s usual weapons—social status, beauty, verbal sharpness—do not land the same way on Kato. Each attempt to reassert control makes the power imbalance more visible. The fracture is progressive. The other girls watch closely as her footing shifts.",
+      "contextConfig": {
+        "prefix": "",
+        "suffix": "\n",
+        "tokenBudget": 1,
+        "reservedTokens": 0,
+        "budgetPriority": 400,
+        "trimDirection": "trimBottom",
+        "insertionType": "newline",
+        "maximumTrimType": "sentence",
+        "insertionPosition": -1
+      },
+      "lastUpdatedAt": 1792134039152,
+      "displayName": "Regina vs. Kato",
+      "id": "a3f2aeea-563c-4e91-94d9-ee2d44dd31d6",
+      "keys": [
+        "Regina and Kato",
+        "Regina tries to control",
+        "Regina loses ground",
+        "the queen bee breaks"
+      ],
+      "searchRange": 1500,
+      "enabled": true,
+      "forceActivation": false,
+      "keyRelative": false,
+      "nonStoryActivatable": false,
+      "category": "",
+      "loreBiasGroups": [
+        {
+          "phrases": [],
+          "ensureSequenceFinish": false,
+          "generateOnce": true,
+          "bias": 0,
+          "enabled": true,
+          "whenInactive": false
+        }
+      ],
+      "advancedConditions": []
+    },
+    {
+      "text": "Group Attention Current: When Kato appears, the house shifts into a shared state of heightened awareness. Conversations drop in volume. Girls move toward windows or the front of the house. Some become bolder, some quieter, some deliberately create space for others. The racial and authority charge is felt collectively.",
+      "contextConfig": {
+        "prefix": "",
+        "suffix": "\n",
+        "tokenBudget": 1,
+        "reservedTokens": 0,
+        "budgetPriority": 400,
+        "trimDirection": "trimBottom",
+        "insertionType": "newline",
+        "maximumTrimType": "sentence",
+        "insertionPosition": -1
+      },
+      "lastUpdatedAt": 1792134039152,
+      "displayName": "Group Attention Current",
+      "id": "e98d090a-bc6a-400e-916f-b7ddbc29c798",
+      "keys": [
+        "the girls notice",
+        "group reaction",
+        "the house reacts",
+        "shared attention",
+        "they all feel it"
+      ],
+      "searchRange": 1600,
+      "enabled": true,
+      "forceActivation": false,
+      "keyRelative": false,
+      "nonStoryActivatable": false,
+      "category": "",
+      "loreBiasGroups": [
+        {
+          "phrases": [],
+          "ensureSequenceFinish": false,
+          "generateOnce": true,
+          "bias": 0,
+          "enabled": true,
+          "whenInactive": false
+        }
+      ],
+      "advancedConditions": []
+    },
+    {
+      "text": "Doorway Hierarchy: The front doorway of the sorority house becomes a small stage. Who stands closest to Kato, who speaks, who stays silent, and who gets gently edged forward all carry weight. The girls read these positions in real time. The private dominance current turns their usual social ranking into something sharper and more sexual.",
+      "contextConfig": {
+        "prefix": "",
+        "suffix": "\n",
+        "tokenBudget": 1,
+        "reservedTokens": 0,
+        "budgetPriority": 400,
+        "trimDirection": "trimBottom",
+        "insertionType": "newline",
+        "maximumTrimType": "sentence",
+        "insertionPosition": -1
+      },
+      "lastUpdatedAt": 1792134039152,
+      "displayName": "Doorway Hierarchy",
+      "id": "ad15c7d2-8b11-4c15-92e0-d224e75f76b1",
+      "keys": [
+        "the doorway",
+        "at the door",
+        "who stands closest",
+        "doorway hierarchy",
+        "they push each other"
+      ],
+      "searchRange": 1500,
+      "enabled": true,
+      "forceActivation": false,
+      "keyRelative": false,
+      "nonStoryActivatable": false,
+      "category": "",
+      "loreBiasGroups": [
+        {
+          "phrases": [],
+          "ensureSequenceFinish": false,
+          "generateOnce": true,
+          "bias": 0,
+          "enabled": true,
+          "whenInactive": false
+        }
+      ],
+      "advancedConditions": []
+    },
+    {
+      "text": "After He Leaves: Once Kato’s cruiser pulls away the house does not immediately return to normal. Comments are made. Looks are exchanged. Some girls go quiet; others laugh too loudly. The conversation that follows is rarely fully honest, but the charge remains in the rooms for hours.",
+      "contextConfig": {
+        "prefix": "",
+        "suffix": "\n",
+        "tokenBudget": 1,
+        "reservedTokens": 0,
+        "budgetPriority": 400,
+        "trimDirection": "trimBottom",
+        "insertionType": "newline",
+        "maximumTrimType": "sentence",
+        "insertionPosition": -1
+      },
+      "lastUpdatedAt": 1792134039152,
+      "displayName": "After He Leaves",
+      "id": "8fc2c9ea-cace-4bb5-ade2-dde967d158a7",
+      "keys": [
+        "after he leaves",
+        "when he’s gone",
+        "the talk after",
+        "the house after Kato"
+      ],
+      "searchRange": 1400,
+      "enabled": true,
+      "forceActivation": false,
+      "keyRelative": false,
+      "nonStoryActivatable": false,
+      "category": "",
+      "loreBiasGroups": [
+        {
+          "phrases": [],
+          "ensureSequenceFinish": false,
+          "generateOnce": true,
+          "bias": 0,
+          "enabled": true,
+          "whenInactive": false
+        }
+      ],
+      "advancedConditions": []
+    },
+    {
+      "text": "Shared Private Knowledge: Several of the sisters have already had individual moments or near-moments with Kato that the full group does not know about. The gap between what is shared and what is kept private creates its own tension inside the house. The Shift moves both openly and in secret here.",
+      "contextConfig": {
+        "prefix": "",
+        "suffix": "\n",
+        "tokenBudget": 1,
+        "reservedTokens": 0,
+        "budgetPriority": 400,
+        "trimDirection": "trimBottom",
+        "insertionType": "newline",
+        "maximumTrimType": "sentence",
+        "insertionPosition": -1
+      },
+      "lastUpdatedAt": 1792134039152,
+      "displayName": "Shared Private Knowledge",
+      "id": "53985a9e-aae1-4d3a-bfb5-8332593842fd",
+      "keys": [
+        "private moments",
+        "what they don’t say",
+        "secrets in the house",
+        "individual encounters"
+      ],
+      "searchRange": 1400,
+      "enabled": true,
+      "forceActivation": false,
+      "keyRelative": false,
+      "nonStoryActivatable": false,
+      "category": "",
+      "loreBiasGroups": [
+        {
+          "phrases": [],
+          "ensureSequenceFinish": false,
+          "generateOnce": true,
+          "bias": 0,
+          "enabled": true,
+          "whenInactive": false
+        }
+      ],
+      "advancedConditions": []
+    },
+    {
+      "text": "The Donovan House: Sarah Donovan, 38, recently divorced, two kids who split time with their father. Blonde, still attractive, and newly single in a neighborhood full of married couples. The Shift reached her faster once the husband was gone. She has more privacy and fewer excuses. Kato has already noted the pattern of the kids being away.",
+      "contextConfig": {
+        "prefix": "",
+        "suffix": "\n",
+        "tokenBudget": 1,
+        "reservedTokens": 0,
+        "budgetPriority": 400,
+        "trimDirection": "trimBottom",
+        "insertionType": "newline",
+        "maximumTrimType": "sentence",
+        "insertionPosition": -1
+      },
+      "lastUpdatedAt": 1792134039152,
+      "displayName": "The Donovan House (Divorced Mom)",
+      "id": "6a96a9d3-4e95-40b2-84be-2f1bc64ab303",
+      "keys": [
+        "Donovan house",
+        "the Donovan house",
+        "Sarah Donovan",
+        "Ms. Donovan",
+        "divorced mom",
+        "Sarah"
+      ],
+      "searchRange": 1500,
+      "enabled": true,
+      "forceActivation": false,
+      "keyRelative": false,
+      "nonStoryActivatable": false,
+      "category": "",
+      "loreBiasGroups": [
+        {
+          "phrases": [],
+          "ensureSequenceFinish": false,
+          "generateOnce": true,
+          "bias": 0,
+          "enabled": true,
+          "whenInactive": false
+        }
+      ],
+      "advancedConditions": []
+    },
+    {
+      "text": "Sarah Donovan’s New Availability: Without a husband in the house, Sarah’s reactions to Kato are less filtered. She is still polite and careful, but the old performance of being “taken” is gone. Loneliness, residual anger at her ex, and the quiet pull of the private current make her one of the more accessible women on the street.",
+      "contextConfig": {
+        "prefix": "",
+        "suffix": "\n",
+        "tokenBudget": 1,
+        "reservedTokens": 0,
+        "budgetPriority": 400,
+        "trimDirection": "trimBottom",
+        "insertionType": "newline",
+        "maximumTrimType": "sentence",
+        "insertionPosition": -1
+      },
+      "lastUpdatedAt": 1792134039152,
+      "displayName": "Sarah Donovan’s New Availability",
+      "id": "3fa8a47b-9caa-4b56-bc15-a763e5c91f1e",
+      "keys": [
+        "Sarah alone",
+        "Sarah’s free",
+        "Ms. Donovan alone",
+        "the divorced one"
+      ],
+      "searchRange": 1400,
+      "enabled": true,
+      "forceActivation": false,
+      "keyRelative": false,
+      "nonStoryActivatable": false,
+      "category": "",
+      "loreBiasGroups": [
+        {
+          "phrases": [],
+          "ensureSequenceFinish": false,
+          "generateOnce": true,
+          "bias": 0,
+          "enabled": true,
+          "whenInactive": false
+        }
+      ],
+      "advancedConditions": []
+    },
+    {
+      "text": "The Ellison House: Claire Ellison, 33, widowed two years ago. Quiet house, carefully maintained. She keeps to herself more than most. The neighborhood still treats her with a certain careful distance. Kato’s presence cuts through that distance. She has the look of a woman who has already lost something and is not sure what she is allowed to want next.",
+      "contextConfig": {
+        "prefix": "",
+        "suffix": "\n",
+        "tokenBudget": 1,
+        "reservedTokens": 0,
+        "budgetPriority": 400,
+        "trimDirection": "trimBottom",
+        "insertionType": "newline",
+        "maximumTrimType": "sentence",
+        "insertionPosition": -1
+      },
+      "lastUpdatedAt": 1792134039152,
+      "displayName": "The Ellison House (Young Widow)",
+      "id": "30ae4a15-8cf4-4ec4-a525-55cbfed541d3",
+      "keys": [
+        "Ellison house",
+        "the Ellison house",
+        "Claire Ellison",
+        "Mrs. Ellison",
+        "the widow",
+        "Claire"
+      ],
+      "searchRange": 1500,
+      "enabled": true,
+      "forceActivation": false,
+      "keyRelative": false,
+      "nonStoryActivatable": false,
+      "category": "",
+      "loreBiasGroups": [
+        {
+          "phrases": [],
+          "ensureSequenceFinish": false,
+          "generateOnce": true,
+          "bias": 0,
+          "enabled": true,
+          "whenInactive": false
+        }
+      ],
+      "advancedConditions": []
+    },
+    {
+      "text": "Claire’s Quiet Hunger: Claire does not perform or flirt. When Kato is at her door the silence between them carries weight. She is not shocked by the private current the way some of the younger wives are. Something in her has already been hollowed out and is waiting to be filled by a stronger presence.",
+      "contextConfig": {
+        "prefix": "",
+        "suffix": "\n",
+        "tokenBudget": 1,
+        "reservedTokens": 0,
+        "budgetPriority": 400,
+        "trimDirection": "trimBottom",
+        "insertionType": "newline",
+        "maximumTrimType": "sentence",
+        "insertionPosition": -1
+      },
+      "lastUpdatedAt": 1792134039152,
+      "displayName": "Claire’s Quiet Hunger",
+      "id": "d4248bff-1f36-4b74-a274-fab4706fc267",
+      "keys": [
+        "Claire’s reaction",
+        "Claire is quiet",
+        "the widow’s interest",
+        "Claire wants"
+      ],
+      "searchRange": 1400,
+      "enabled": true,
+      "forceActivation": false,
+      "keyRelative": false,
+      "nonStoryActivatable": false,
+      "category": "",
+      "loreBiasGroups": [
+        {
+          "phrases": [],
+          "ensureSequenceFinish": false,
+          "generateOnce": true,
+          "bias": 0,
+          "enabled": true,
+          "whenInactive": false
+        }
+      ],
+      "advancedConditions": []
+    },
+    {
+      "text": "The Brennan House: Mark and Ruth Brennan, early forties. Active in the local church, publicly moral, carefully presented. Their home is one of the last places in the neighborhood that still tries to hold the old rules. The Shift has begun testing that. Ruth’s politeness around Kato has a brittle quality. Mark’s authority inside the marriage is quieter than he wants to admit.",
+      "contextConfig": {
+        "prefix": "",
+        "suffix": "\n",
+        "tokenBudget": 1,
+        "reservedTokens": 0,
+        "budgetPriority": 400,
+        "trimDirection": "trimBottom",
+        "insertionType": "newline",
+        "maximumTrimType": "sentence",
+        "insertionPosition": -1
+      },
+      "lastUpdatedAt": 1792134039152,
+      "displayName": "The Brennan House (Church Couple)",
+      "id": "04d45aed-1361-46c3-a580-ac69eb898bd3",
+      "keys": [
+        "Brennan house",
+        "the Brennan house",
+        "Pastor Brennan",
+        "Mrs. Brennan",
+        "the church couple",
+        "faithful couple"
+      ],
+      "searchRange": 1500,
+      "enabled": true,
+      "forceActivation": false,
+      "keyRelative": false,
+      "nonStoryActivatable": false,
+      "category": "",
+      "loreBiasGroups": [
+        {
+          "phrases": [],
+          "ensureSequenceFinish": false,
+          "generateOnce": true,
+          "bias": 0,
+          "enabled": true,
+          "whenInactive": false
+        }
+      ],
+      "advancedConditions": []
+    },
+    {
+      "text": "Ruth Brennan’s Fracture: Ruth has spent years performing correctness. Around Kato that performance develops cracks. The badge, the size, the racial contrast, and the calm way he occupies space all press against the version of herself she shows at church. She notices the pressure and has not yet decided what it means.",
+      "contextConfig": {
+        "prefix": "",
+        "suffix": "\n",
+        "tokenBudget": 1,
+        "reservedTokens": 0,
+        "budgetPriority": 400,
+        "trimDirection": "trimBottom",
+        "insertionType": "newline",
+        "maximumTrimType": "sentence",
+        "insertionPosition": -1
+      },
+      "lastUpdatedAt": 1792134039152,
+      "displayName": "Ruth Brennan’s Fracture",
+      "id": "ee4f7e39-08db-42b2-9921-14cc34bc0bed",
+      "keys": [
+        "Ruth Brennan",
+        "Ruth’s reaction",
+        "the church wife",
+        "Ruth softens"
+      ],
+      "searchRange": 1400,
+      "enabled": true,
+      "forceActivation": false,
+      "keyRelative": false,
+      "nonStoryActivatable": false,
+      "category": "",
+      "loreBiasGroups": [
+        {
+          "phrases": [],
+          "ensureSequenceFinish": false,
+          "generateOnce": true,
+          "bias": 0,
+          "enabled": true,
+          "whenInactive": false
+        }
+      ],
+      "advancedConditions": []
+    },
+    {
+      "text": "The Soto House: Jenna Soto, 31, obsessed with fitness, tight athletic clothes, very aware of her body. Married to a man who travels for pharmaceutical sales. She is used to being looked at and has always controlled the terms of that attention. Kato looks at her differently. The usual power she feels from being desired does not work the same way on him.",
+      "contextConfig": {
+        "prefix": "",
+        "suffix": "\n",
+        "tokenBudget": 1,
+        "reservedTokens": 0,
+        "budgetPriority": 400,
+        "trimDirection": "trimBottom",
+        "insertionType": "newline",
+        "maximumTrimType": "sentence",
+        "insertionPosition": -1
+      },
+      "lastUpdatedAt": 1792134039152,
+      "displayName": "The Soto House (Fitness Wife)",
+      "id": "fbd10e8a-1015-4e09-af81-93d275912dd0",
+      "keys": [
+        "Soto house",
+        "the Soto house",
+        "Jenna Soto",
+        "Mrs. Soto",
+        "the fitness wife",
+        "Jenna"
+      ],
+      "searchRange": 1500,
+      "enabled": true,
+      "forceActivation": false,
+      "keyRelative": false,
+      "nonStoryActivatable": false,
+      "category": "",
+      "loreBiasGroups": [
+        {
+          "phrases": [],
+          "ensureSequenceFinish": false,
+          "generateOnce": true,
+          "bias": 0,
+          "enabled": true,
+          "whenInactive": false
+        }
+      ],
+      "advancedConditions": []
+    },
+    {
+      "text": "Jenna’s Body Awareness: Jenna is highly conscious of her physical presence. Around Kato that consciousness turns inward. She becomes aware of how small she is next to him, how light, how easily moved. The private dominance current hits her through the body first and the mind second.",
+      "contextConfig": {
+        "prefix": "",
+        "suffix": "\n",
+        "tokenBudget": 1,
+        "reservedTokens": 0,
+        "budgetPriority": 400,
+        "trimDirection": "trimBottom",
+        "insertionType": "newline",
+        "maximumTrimType": "sentence",
+        "insertionPosition": -1
+      },
+      "lastUpdatedAt": 1792134039152,
+      "displayName": "Jenna’s Body Awareness",
+      "id": "d7976c24-bf95-4025-939b-65381d23376b",
+      "keys": [
+        "Jenna’s body",
+        "Jenna works out",
+        "the fit one",
+        "Jenna feels it"
+      ],
+      "searchRange": 1400,
+      "enabled": true,
+      "forceActivation": false,
+      "keyRelative": false,
+      "nonStoryActivatable": false,
+      "category": "",
+      "loreBiasGroups": [
+        {
+          "phrases": [],
+          "ensureSequenceFinish": false,
+          "generateOnce": true,
+          "bias": 0,
+          "enabled": true,
+          "whenInactive": false
+        }
+      ],
+      "advancedConditions": []
+    },
+    {
+      "text": "The Carver House: Lydia Carver, 42, local real estate agent who knows everyone’s business. Sharp, well-dressed, and used to managing people. She has sold half the houses on the street and prides herself on reading situations. Kato is one of the few people she cannot easily manage. The private current confuses her usual social calculations.",
+      "contextConfig": {
+        "prefix": "",
+        "suffix": "\n",
+        "tokenBudget": 1,
+        "reservedTokens": 0,
+        "budgetPriority": 400,
+        "trimDirection": "trimBottom",
+        "insertionType": "newline",
+        "maximumTrimType": "sentence",
+        "insertionPosition": -1
+      },
+      "lastUpdatedAt": 1792134039152,
+      "displayName": "The Carver House (Real Estate Wife)",
+      "id": "ff507607-263d-4e0e-9335-9b3e2813b657",
+      "keys": [
+        "Carver house",
+        "the Carver house",
+        "Lydia Carver",
+        "Mrs. Carver",
+        "the realtor",
+        "Lydia"
+      ],
+      "searchRange": 1500,
+      "enabled": true,
+      "forceActivation": false,
+      "keyRelative": false,
+      "nonStoryActivatable": false,
+      "category": "",
+      "loreBiasGroups": [
+        {
+          "phrases": [],
+          "ensureSequenceFinish": false,
+          "generateOnce": true,
+          "bias": 0,
+          "enabled": true,
+          "whenInactive": false
+        }
+      ],
+      "advancedConditions": []
+    },
+    {
+      "text": "Lydia’s Calculation Fails: Lydia is used to steering conversations and reading power. Around Kato those skills degrade. She talks a little too much, explains a little too carefully, and becomes aware that he is not playing the same social game she is. The realization is both frustrating and quietly arousing.",
+      "contextConfig": {
+        "prefix": "",
+        "suffix": "\n",
+        "tokenBudget": 1,
+        "reservedTokens": 0,
+        "budgetPriority": 400,
+        "trimDirection": "trimBottom",
+        "insertionType": "newline",
+        "maximumTrimType": "sentence",
+        "insertionPosition": -1
+      },
+      "lastUpdatedAt": 1792134039152,
+      "displayName": "Lydia’s Calculation Fails",
+      "id": "3efbfccf-0c19-484a-b035-4c150c0e9825",
+      "keys": [
+        "Lydia’s control",
+        "Lydia tries to manage",
+        "the realtor softens",
+        "Lydia misreads"
+      ],
+      "searchRange": 1400,
+      "enabled": true,
+      "forceActivation": false,
+      "keyRelative": false,
+      "nonStoryActivatable": false,
+      "category": "",
+      "loreBiasGroups": [
+        {
+          "phrases": [],
+          "ensureSequenceFinish": false,
+          "generateOnce": true,
+          "bias": 0,
+          "enabled": true,
+          "whenInactive": false
+        }
+      ],
+      "advancedConditions": []
+    },
+    {
+      "text": "The Tran House: Michael and Emily Tran, early thirties. Emily is white; Michael is Asian-American. They keep a low profile. Emily is the one who feels the Shift more strongly. Michael notices the change in her attention when Kato is mentioned or nearby and has begun to go quieter in those moments.",
+      "contextConfig": {
+        "prefix": "",
+        "suffix": "\n",
+        "tokenBudget": 1,
+        "reservedTokens": 0,
+        "budgetPriority": 400,
+        "trimDirection": "trimBottom",
+        "insertionType": "newline",
+        "maximumTrimType": "sentence",
+        "insertionPosition": -1
+      },
+      "lastUpdatedAt": 1792134039152,
+      "displayName": "The Tran House (Mixed Quiet Couple)",
+      "id": "e0300f52-4bdd-4b65-af92-fd14c9330185",
+      "keys": [
+        "Tran house",
+        "the Tran house",
+        "Michael Tran",
+        "Emily Tran",
+        "the Trans"
+      ],
+      "searchRange": 1500,
+      "enabled": true,
+      "forceActivation": false,
+      "keyRelative": false,
+      "nonStoryActivatable": false,
+      "category": "",
+      "loreBiasGroups": [
+        {
+          "phrases": [],
+          "ensureSequenceFinish": false,
+          "generateOnce": true,
+          "bias": 0,
+          "enabled": true,
+          "whenInactive": false
+        }
+      ],
+      "advancedConditions": []
+    },
+    {
+      "text": "Emily Tran’s Drift: Emily does not announce her interest. It shows in small ways—lingering glances, a change in posture, a tendency to find reasons to be near the front of the house when Kato’s cruiser is on the street. Michael has started noticing the pattern and does not know how to interrupt it.",
+      "contextConfig": {
+        "prefix": "",
+        "suffix": "\n",
+        "tokenBudget": 1,
+        "reservedTokens": 0,
+        "budgetPriority": 400,
+        "trimDirection": "trimBottom",
+        "insertionType": "newline",
+        "maximumTrimType": "sentence",
+        "insertionPosition": -1
+      },
+      "lastUpdatedAt": 1792134039152,
+      "displayName": "Emily Tran’s Drift",
+      "id": "c1fa9efa-9701-4545-97f7-b2a25022b9e1",
+      "keys": [
+        "Emily Tran",
+        "Emily’s reaction",
+        "Emily looks at Kato",
+        "Emily drifts"
+      ],
+      "searchRange": 1400,
+      "enabled": true,
+      "forceActivation": false,
+      "keyRelative": false,
+      "nonStoryActivatable": false,
+      "category": "",
+      "loreBiasGroups": [
+        {
+          "phrases": [],
+          "ensureSequenceFinish": false,
+          "generateOnce": true,
+          "bias": 0,
+          "enabled": true,
+          "whenInactive": false
+        }
+      ],
+      "advancedConditions": []
+    },
+    {
+      "text": "The Hollis House: David Hollis, 36, stay-at-home dad while his wife works long hours in corporate law. Soft-spoken, competent with the kids, and already lower in the household hierarchy than most of the other husbands. Kato’s presence highlights and amplifies that arrangement. David feels the weight of it more than he wants to admit.",
+      "contextConfig": {
+        "prefix": "",
+        "suffix": "\n",
+        "tokenBudget": 1,
+        "reservedTokens": 0,
+        "budgetPriority": 400,
+        "trimDirection": "trimBottom",
+        "insertionType": "newline",
+        "maximumTrimType": "sentence",
+        "insertionPosition": -1
+      },
+      "lastUpdatedAt": 1792134039152,
+      "displayName": "The Hollis House (Stay-at-Home Dad)",
+      "id": "1a83b78f-b925-4e09-aaac-82e536eb6524",
+      "keys": [
+        "Hollis house",
+        "the Hollis house",
+        "David Hollis",
+        "Mr. Hollis",
+        "the stay-at-home dad",
+        "David"
+      ],
+      "searchRange": 1500,
+      "enabled": true,
+      "forceActivation": false,
+      "keyRelative": false,
+      "nonStoryActivatable": false,
+      "category": "",
+      "loreBiasGroups": [
+        {
+          "phrases": [],
+          "ensureSequenceFinish": false,
+          "generateOnce": true,
+          "bias": 0,
+          "enabled": true,
+          "whenInactive": false
+        }
+      ],
+      "advancedConditions": []
+    },
+    {
+      "text": "David’s Position: David is already used to being the secondary adult in his own home. Around Kato that secondary status becomes more visible and racially charged. He is polite, careful, and quick to step back. The private dominance current does not have to work very hard on him.",
+      "contextConfig": {
+        "prefix": "",
+        "suffix": "\n",
+        "tokenBudget": 1,
+        "reservedTokens": 0,
+        "budgetPriority": 400,
+        "trimDirection": "trimBottom",
+        "insertionType": "newline",
+        "maximumTrimType": "sentence",
+        "insertionPosition": -1
+      },
+      "lastUpdatedAt": 1792134039152,
+      "displayName": "David’s Position",
+      "id": "7658c6fb-45e7-44cb-b43e-ae68a689c474",
+      "keys": [
+        "David Hollis",
+        "the stay-at-home",
+        "David’s place",
+        "David yields"
+      ],
+      "searchRange": 1400,
+      "enabled": true,
+      "forceActivation": false,
+      "keyRelative": false,
+      "nonStoryActivatable": false,
+      "category": "",
+      "loreBiasGroups": [
+        {
+          "phrases": [],
+          "ensureSequenceFinish": false,
+          "generateOnce": true,
+          "bias": 0,
+          "enabled": true,
+          "whenInactive": false
+        }
+      ],
+      "advancedConditions": []
+    },
+    {
+      "text": "The Reed House: Brandon and Olivia Reed, mid-twenties, married less than a year. Still in the glowing phase of the marriage. The Shift has begun to touch them earlier than most couples. Olivia is curious in a way she has not yet named. Brandon is still confident that the old rules apply to them.",
+      "contextConfig": {
+        "prefix": "",
+        "suffix": "\n",
+        "tokenBudget": 1,
+        "reservedTokens": 0,
+        "budgetPriority": 400,
+        "trimDirection": "trimBottom",
+        "insertionType": "newline",
+        "maximumTrimType": "sentence",
+        "insertionPosition": -1
+      },
+      "lastUpdatedAt": 1792134039152,
+      "displayName": "The Reed House (Newlyweds)",
+      "id": "e88531db-70af-4d91-b3a3-ccbff8376d22",
+      "keys": [
+        "Reed house",
+        "the Reed house",
+        "Brandon Reed",
+        "Olivia Reed",
+        "the newlyweds",
+        "Olivia"
+      ],
+      "searchRange": 1500,
+      "enabled": true,
+      "forceActivation": false,
+      "keyRelative": false,
+      "nonStoryActivatable": false,
+      "category": "",
+      "loreBiasGroups": [
+        {
+          "phrases": [],
+          "ensureSequenceFinish": false,
+          "generateOnce": true,
+          "bias": 0,
+          "enabled": true,
+          "whenInactive": false
+        }
+      ],
+      "advancedConditions": []
+    },
+    {
+      "text": "Olivia’s Early Curiosity: Olivia is still new enough to the neighborhood that she has not fully absorbed the silent rules. She looks at Kato more directly than the older wives do. The combination of new marriage, inexperience, and the sudden private current creates a particularly open and unstable dynamic.",
+      "contextConfig": {
+        "prefix": "",
+        "suffix": "\n",
+        "tokenBudget": 1,
+        "reservedTokens": 0,
+        "budgetPriority": 400,
+        "trimDirection": "trimBottom",
+        "insertionType": "newline",
+        "maximumTrimType": "sentence",
+        "insertionPosition": -1
+      },
+      "lastUpdatedAt": 1792134039152,
+      "displayName": "Olivia’s Early Curiosity",
+      "id": "92b562bb-d40a-4484-bc4d-6f6158ca7b96",
+      "keys": [
+        "Olivia Reed",
+        "Olivia’s interest",
+        "the new wife",
+        "Olivia notices"
+      ],
+      "searchRange": 1400,
+      "enabled": true,
+      "forceActivation": false,
+      "keyRelative": false,
+      "nonStoryActivatable": false,
+      "category": "",
+      "loreBiasGroups": [
+        {
+          "phrases": [],
+          "ensureSequenceFinish": false,
+          "generateOnce": true,
+          "bias": 0,
+          "enabled": true,
+          "whenInactive": false
+        }
+      ],
+      "advancedConditions": []
+    }
+  ],
+  "settings": {
+    "orderByKeyLocations": false
+  },
+  "categories": [],
+  "order": []
+}
