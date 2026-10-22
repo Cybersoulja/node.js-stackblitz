@@ -1,0 +1,829 @@
+/*---
+compatibilityVersion: naiscript-1.0
+id: 2732a2d1-4a8a-4c92-bdef-d3ae71c6d056
+name: Worldsmith Lore Generator
+createdAt: 1787793291034
+updatedAt: 1792663200000
+version: 0.1.1
+author: User
+description: Procedurally generates coherent fantasy locations, factions, and characters and safely writes them to the current NovelAI Lorebook.
+memoryLimit: 16
+---*/
+
+// Worldsmith Lore Generator v0.1.1
+// Import-ready NovelAI user script. No external dependencies.
+//
+// Design:
+//   world model -> procedural generators -> NovelAI lorebook adapter -> UI
+//
+// v0.1 intentionally does not create Lorebook categories because the minimal
+// createEntry API is enough for a reliable first version. Categories can be
+// added once we decide how generated worlds should be organized.
+
+// -----------------------------------------------------------------------------
+// Data pools
+// -----------------------------------------------------------------------------
+
+const WS_DATA = {
+  worldAdjectives: [
+    "Shattered", "Silver", "Ashen", "Hollow", "Crimson", "Forgotten",
+    "Gilded", "Veiled", "Stormbound", "Obsidian", "Whispering", "Last"
+  ],
+  worldNouns: [
+    "Crown", "Marches", "Reach", "Dominion", "Vale", "Expanse",
+    "Thrones", "Kingdoms", "Frontier", "Coast", "Realms", "Concord"
+  ],
+
+  firstNames: [
+    "Aelira", "Mara", "Selene", "Ilyra", "Veyra", "Neris", "Talia", "Rhea",
+    "Kael", "Theron", "Corin", "Daren", "Lucan", "Orin", "Soren", "Tavian"
+  ],
+  lastNames: [
+    "Vey", "Ashfall", "Morrow", "Vale", "Thorne", "Dusk", "Rook", "Hale",
+    "Marrow", "Voss", "Grey", "Kestrel", "Arden", "Fen", "Dane", "Veyne"
+  ],
+
+  pronouns: ["she/her", "he/him", "they/them"],
+
+  locationPrefixes: [
+    "Black", "Red", "Silver", "Ash", "High", "Low", "Storm", "Crow",
+    "Moon", "Frost", "Ember", "Dusk", "Iron", "Thorn", "Raven", "Gloom"
+  ],
+  locationSuffixes: [
+    "water", "fall", "hollow", "watch", "mere", "haven", "reach", "ford",
+    "spire", "gate", "cross", "marsh", "vale", "keep", "port", "rest"
+  ],
+
+  locationTypes: [
+    { value: "walled city", weight: 5 },
+    { value: "river town", weight: 4 },
+    { value: "frontier settlement", weight: 3 },
+    { value: "mountain fortress", weight: 2 },
+    { value: "coastal port", weight: 3 },
+    { value: "ruined holy city", weight: 1 },
+    { value: "forest enclave", weight: 2 }
+  ],
+  locationTraits: [
+    "fogbound", "prosperous", "lawless", "ancient", "crowded", "isolated",
+    "haunted", "militarized", "cosmopolitan", "superstitious", "decaying",
+    "scholarly", "mercantile", "ritual-bound", "secretive"
+  ],
+
+  factionAdjectives: [
+    "Ashen", "Ivory", "Black", "Scarlet", "Silent", "Golden", "Broken",
+    "Veiled", "Iron", "Pale", "Emerald", "Last"
+  ],
+  factionNouns: [
+    "Knives", "Lanterns", "Crown", "Circle", "Compact", "Order",
+    "Company", "Choir", "Wardens", "Court", "Syndicate", "Conclave"
+  ],
+  factionTypes: [
+    { value: "merchant league", weight: 3 },
+    { value: "criminal syndicate", weight: 3 },
+    { value: "knightly order", weight: 3 },
+    { value: "arcane society", weight: 2 },
+    { value: "religious order", weight: 2 },
+    { value: "noble house", weight: 4 },
+    { value: "mercenary company", weight: 3 },
+    { value: "rebel network", weight: 2 }
+  ],
+  factionGoals: [
+    "control the region's trade routes",
+    "replace the current ruler with a loyal claimant",
+    "recover a lost source of magical power",
+    "destroy evidence of an old betrayal",
+    "unify the frontier under one authority",
+    "break a rival faction's monopoly",
+    "protect forbidden knowledge from outsiders",
+    "prepare for a war most people do not believe is coming"
+  ],
+  factionMethods: [
+    "bribery and patronage", "spies and informants", "ritual magic",
+    "public charity backed by private coercion", "military contracts",
+    "arranged alliances", "smuggling networks", "scholarship and propaganda"
+  ],
+
+  rolesByFactionType: {
+    "merchant league": ["factor", "caravan master", "broker", "account keeper"],
+    "criminal syndicate": ["smuggler", "fence", "enforcer", "information broker"],
+    "knightly order": ["knight", "scout", "quartermaster", "oathkeeper"],
+    "arcane society": ["mage", "alchemist", "researcher", "ritualist"],
+    "religious order": ["priest", "relic keeper", "pilgrim guide", "inquisitor"],
+    "noble house": ["retainer", "diplomat", "spymaster", "house knight"],
+    "mercenary company": ["mercenary", "scout", "captain", "surgeon"],
+    "rebel network": ["courier", "saboteur", "organizer", "spy"]
+  },
+
+  characterTraits: [
+    "sarcastic", "secretive", "reckless", "loyal", "ambitious", "paranoid",
+    "patient", "vengeful", "idealistic", "pragmatic", "charming", "severe",
+    "curious", "protective", "superstitious", "calculating", "generous",
+    "stubborn", "melancholic", "audacious"
+  ],
+  secrets: [
+    "owes a dangerous debt to a rival faction",
+    "is secretly related to a prominent political enemy",
+    "knows the real cause of a recent disaster",
+    "is protecting someone believed to be dead",
+    "stole an artifact whose owner is still searching for it",
+    "has been feeding selective information to both sides of a conflict",
+    "survived an event they publicly claim never to have witnessed",
+    "intends to betray their superior when the right opportunity appears"
+  ]
+};
+
+// -----------------------------------------------------------------------------
+// Seeded random generator
+// -----------------------------------------------------------------------------
+
+function wsMakeRng(seed) {
+  let state = (Number(seed) >>> 0) || 1;
+
+  return {
+    float() {
+      // Mulberry32: compact deterministic PRNG suitable for procedural content.
+      state |= 0;
+      state = (state + 0x6D2B79F5) | 0;
+      let t = state;
+      t = Math.imul(t ^ (t >>> 15), t | 1);
+      t ^= t + Math.imul(t ^ (t >>> 7), t | 61);
+      return ((t ^ (t >>> 14)) >>> 0) / 4294967296;
+    },
+
+    int(min, max) {
+      return Math.floor(this.float() * (max - min + 1)) + min;
+    },
+
+    pick(items) {
+      if (!items || items.length === 0) {
+        throw new Error("Cannot pick from an empty list.");
+      }
+      return items[this.int(0, items.length - 1)];
+    },
+
+    pickMany(items, count) {
+      const copy = items.slice();
+      const output = [];
+      const amount = Math.min(Math.max(0, count), copy.length);
+
+      for (let i = 0; i < amount; i++) {
+        const index = this.int(0, copy.length - 1);
+        output.push(copy[index]);
+        copy.splice(index, 1);
+      }
+      return output;
+    },
+
+    weighted(items) {
+      const total = items.reduce((sum, item) => sum + item.weight, 0);
+      let roll = this.float() * total;
+
+      for (const item of items) {
+        roll -= item.weight;
+        if (roll <= 0) return item.value;
+      }
+
+      return items[items.length - 1].value;
+    },
+
+    chance(probability) {
+      return this.float() < probability;
+    }
+  };
+}
+
+// -----------------------------------------------------------------------------
+// Canonical world generator
+// -----------------------------------------------------------------------------
+
+function wsSlug(value) {
+  return String(value)
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g, "-")
+    .replace(/^-+|-+$/g, "");
+}
+
+function wsUniqueName(rng, makeName, used) {
+  for (let attempt = 0; attempt < 100; attempt++) {
+    const name = makeName();
+    if (!used.has(name)) {
+      used.add(name);
+      return name;
+    }
+  }
+
+  const fallback = `${makeName()} ${used.size + 1}`;
+  used.add(fallback);
+  return fallback;
+}
+
+function wsGenerateWorldName(rng) {
+  return `The ${rng.pick(WS_DATA.worldAdjectives)} ${rng.pick(WS_DATA.worldNouns)}`;
+}
+
+function wsGenerateLocation(rng, index, usedNames) {
+  const name = wsUniqueName(
+    rng,
+    () => rng.pick(WS_DATA.locationPrefixes) + rng.pick(WS_DATA.locationSuffixes),
+    usedNames
+  );
+
+  const type = rng.weighted(WS_DATA.locationTypes);
+  const traits = rng.pickMany(WS_DATA.locationTraits, 3);
+
+  return {
+    id: `location-${index + 1}-${wsSlug(name)}`,
+    kind: "location",
+    name,
+    type,
+    traits,
+    summary: `${name} is a ${type} known for being ${traits[0]}, ${traits[1]}, and ${traits[2]}.`
+  };
+}
+
+function wsGenerateFaction(rng, index, locations, usedNames) {
+  const name = wsUniqueName(
+    rng,
+    () => `The ${rng.pick(WS_DATA.factionAdjectives)} ${rng.pick(WS_DATA.factionNouns)}`,
+    usedNames
+  );
+
+  const type = rng.weighted(WS_DATA.factionTypes);
+  const base = rng.pick(locations);
+  const goal = rng.pick(WS_DATA.factionGoals);
+  const method = rng.pick(WS_DATA.factionMethods);
+
+  return {
+    id: `faction-${index + 1}-${wsSlug(name)}`,
+    kind: "faction",
+    name,
+    type,
+    baseLocationId: base.id,
+    baseLocationName: base.name,
+    goal,
+    method,
+    summary: `${name} is a ${type} based in ${base.name}. Its leaders seek to ${goal}, primarily through ${method}.`
+  };
+}
+
+function wsGenerateCharacter(rng, index, locations, factions, usedNames) {
+  const name = wsUniqueName(
+    rng,
+    () => `${rng.pick(WS_DATA.firstNames)} ${rng.pick(WS_DATA.lastNames)}`,
+    usedNames
+  );
+
+  const faction = rng.pick(factions);
+  const factionBase = locations.find((location) => location.id === faction.baseLocationId);
+  const location = rng.chance(0.72) && factionBase ? factionBase : rng.pick(locations);
+  const rolePool = WS_DATA.rolesByFactionType[faction.type] || ["agent", "adventurer", "retainer"];
+  const role = rng.pick(rolePool);
+  const traits = rng.pickMany(WS_DATA.characterTraits, 3);
+  const pronouns = rng.pick(WS_DATA.pronouns);
+  const secret = rng.pick(WS_DATA.secrets);
+
+  return {
+    id: `character-${index + 1}-${wsSlug(name)}`,
+    kind: "character",
+    name,
+    firstName: name.split(" ")[0],
+    pronouns,
+    role,
+    factionId: faction.id,
+    factionName: faction.name,
+    locationId: location.id,
+    locationName: location.name,
+    traits,
+    secret,
+    summary:
+      `${name} (${pronouns}) is a ${role} associated with ${faction.name} in ${location.name}. ` +
+      `${name} is ${traits[0]}, ${traits[1]}, and ${traits[2]}. Secret: ${name} ${secret}.`
+  };
+}
+
+function wsStableHash(value) {
+  let hash = 2166136261;
+  for (let index = 0; index < value.length; index++) {
+    hash ^= value.charCodeAt(index);
+    hash = Math.imul(hash, 16777619);
+  }
+  return (hash >>> 0).toString(36);
+}
+
+function wsNormalizeSeed(value) {
+  const numeric = Math.floor(Number(value));
+  return Number.isFinite(numeric) ? Math.min(2147483646, Math.max(1, numeric)) : 1;
+}
+
+function wsGenerateWorld(options) {
+  const seed = wsNormalizeSeed(options.seed);
+  const rng = wsMakeRng(seed);
+
+  const locationCount = Math.max(1, Math.min(30, Math.floor(Number(options.locations) || 1)));
+  const factionCount = Math.max(1, Math.min(30, Math.floor(Number(options.factions) || 1)));
+  const characterCount = Math.max(1, Math.min(100, Math.floor(Number(options.characters) || 1)));
+
+  const locationNames = new Set();
+  const factionNames = new Set();
+  const characterNames = new Set();
+
+  const locations = [];
+  for (let i = 0; i < locationCount; i++) {
+    locations.push(wsGenerateLocation(rng, i, locationNames));
+  }
+
+  const factions = [];
+  for (let i = 0; i < factionCount; i++) {
+    factions.push(wsGenerateFaction(rng, i, locations, factionNames));
+  }
+
+  const characters = [];
+  for (let i = 0; i < characterCount; i++) {
+    characters.push(wsGenerateCharacter(rng, i, locations, factions, characterNames));
+  }
+
+  const suppliedName = String(options.worldName || "").trim();
+  const worldName = suppliedName || wsGenerateWorldName(rng);
+
+  const canonical = {
+    schema: "worldsmith.world.v1",
+    seed,
+    name: worldName,
+    locations,
+    factions,
+    characters
+  };
+
+  return {
+    ...canonical,
+    worldId: `ws-${wsStableHash(JSON.stringify(canonical))}`
+  };
+}
+
+// -----------------------------------------------------------------------------
+// NovelAI lorebook adapter
+// -----------------------------------------------------------------------------
+
+function wsEntryMarker(world, entity) {
+  return `[Worldsmith:v1 world=${world.worldId} entity=${entity.id}]`;
+}
+
+function wsLocationToLoreEntry(location, world) {
+  return {
+    displayName: `[Location] ${location.name}`,
+    keys: [location.name],
+    enabled: true,
+    text:
+      `${wsEntryMarker(world, location)}\n` +
+      `${location.name}\n` +
+      `World: ${world.name}\n` +
+      `Type: ${location.type}\n` +
+      `Traits: ${location.traits.join(", ")}\n` +
+      `${location.summary}`
+  };
+}
+
+function wsFactionToLoreEntry(faction, world) {
+  return {
+    displayName: `[Faction] ${faction.name}`,
+    keys: [faction.name],
+    enabled: true,
+    text:
+      `${wsEntryMarker(world, faction)}\n` +
+      `${faction.name}\n` +
+      `World: ${world.name}\n` +
+      `Type: ${faction.type}\n` +
+      `Base: ${faction.baseLocationName}\n` +
+      `Goal: ${faction.goal}\n` +
+      `Methods: ${faction.method}\n` +
+      `${faction.summary}`
+  };
+}
+
+function wsCharacterToLoreEntry(character, world, options) {
+  const keys = options.includeFirstNameKey ? [character.name, character.firstName] : [character.name];
+  const secretLine = options.includeSecrets ? `Secret: ${character.name} ${character.secret}.\n` : "";
+  const publicSummary =
+    `${character.name} (${character.pronouns}) is a ${character.role} associated with ` +
+    `${character.factionName} in ${character.locationName}. ${character.name} is ` +
+    `${character.traits[0]}, ${character.traits[1]}, and ${character.traits[2]}.`;
+
+  return {
+    displayName: `[Character] ${character.name}`,
+    keys,
+    enabled: true,
+    text:
+      `${wsEntryMarker(world, character)}\n` +
+      `${character.name}\n` +
+      `World: ${world.name}\n` +
+      `Pronouns: ${character.pronouns}\n` +
+      `Role: ${character.role}\n` +
+      `Faction: ${character.factionName}\n` +
+      `Location: ${character.locationName}\n` +
+      `Traits: ${character.traits.join(", ")}\n` +
+      secretLine +
+      publicSummary
+  };
+}
+
+function wsWorldToLoreEntries(world, options) {
+  return [
+    ...world.locations.map((item) => wsLocationToLoreEntry(item, world)),
+    ...world.factions.map((item) => wsFactionToLoreEntry(item, world)),
+    ...world.characters.map((item) => wsCharacterToLoreEntry(item, world, options))
+  ];
+}
+
+function wsLoreEntryId(entry) {
+  return entry.id || entry.entryId || (entry.entry && entry.entry.id);
+}
+
+function wsLoreEntryText(entry) {
+  return entry.text || (entry.entry && entry.entry.text) || "";
+}
+
+async function wsFindWorldEntries(world) {
+  const entries = await api.v1.lorebook.entries();
+  const marker = `[Worldsmith:v1 world=${world.worldId} `;
+  return entries.filter((entry) => wsLoreEntryText(entry).includes(marker));
+}
+
+async function wsRequireLorebookEdit() {
+  if (await api.v1.permissions.has("lorebookEdit")) return true;
+  const granted = await api.v1.permissions.request("lorebookEdit");
+  if (!granted) {
+    await api.v1.ui.toast("Worldsmith needs Lorebook edit permission to create entries.", { type: "error" });
+  }
+  return granted;
+}
+
+async function wsWriteWorldToLorebook(world, options, replaceEntries = []) {
+  if (!(await wsRequireLorebookEdit())) return { created: 0, total: 0, cancelled: true };
+
+  const entries = wsWorldToLoreEntries(world, options);
+  const createdEntryIds = [];
+  const importRecord = {
+    worldId: world.worldId,
+    worldName: world.name,
+    seed: world.seed,
+    createdEntryIds,
+    completed: false
+  };
+  await api.v1.storage.set(WS_KEYS.lastImport, importRecord);
+
+  try {
+    for (const entry of entries) {
+      const id = await api.v1.lorebook.createEntry(entry);
+      if (id) createdEntryIds.push(id);
+      await api.v1.storage.set(WS_KEYS.lastImport, importRecord);
+    }
+    // Only remove the previous marked world after the replacement has been fully created.
+    for (const existing of replaceEntries) {
+      const id = wsLoreEntryId(existing);
+      if (id) await api.v1.lorebook.removeEntry(id);
+    }
+    importRecord.completed = true;
+    await api.v1.storage.set(WS_KEYS.lastImport, importRecord);
+    return { created: entries.length, total: entries.length, cancelled: false };
+  } catch (error) {
+    await api.v1.storage.set(WS_KEYS.lastImport, importRecord);
+    error.worldsmithCreated = createdEntryIds.length;
+    error.worldsmithTotal = entries.length;
+    throw error;
+  }
+}
+
+// -----------------------------------------------------------------------------
+// UI
+// -----------------------------------------------------------------------------
+
+const WS_KEYS = {
+  worldName: "worldsmith.worldName",
+  seed: "worldsmith.seed",
+  characters: "worldsmith.characters",
+  locations: "worldsmith.locations",
+  factions: "worldsmith.factions",
+  includeSecrets: "worldsmith.includeSecrets",
+  includeFirstNameKey: "worldsmith.includeFirstNameKey",
+  lastPreview: "worldsmith.lastPreview",
+  lastImport: "worldsmith.lastImport"
+};
+
+async function wsEnsureDefaults() {
+  const defaults = {
+    [WS_KEYS.worldName]: "",
+    [WS_KEYS.seed]: api.v1.random.int(1, 2147483646),
+    [WS_KEYS.characters]: 8,
+    [WS_KEYS.locations]: 4,
+    [WS_KEYS.factions]: 3,
+    [WS_KEYS.includeSecrets]: false,
+    [WS_KEYS.includeFirstNameKey]: false
+  };
+
+  for (const key of Object.keys(defaults)) {
+    const current = await api.v1.storage.get(key);
+    if (current === undefined || current === null) {
+      await api.v1.storage.set(key, defaults[key]);
+    }
+  }
+}
+
+async function wsReadOptions() {
+  return {
+    worldName: await api.v1.storage.get(WS_KEYS.worldName),
+    seed: await api.v1.storage.get(WS_KEYS.seed),
+    characters: await api.v1.storage.get(WS_KEYS.characters),
+    locations: await api.v1.storage.get(WS_KEYS.locations),
+    factions: await api.v1.storage.get(WS_KEYS.factions),
+    includeSecrets: await api.v1.storage.get(WS_KEYS.includeSecrets),
+    includeFirstNameKey: await api.v1.storage.get(WS_KEYS.includeFirstNameKey)
+  };
+}
+
+function wsPreviewText(world) {
+  const lines = [
+    `${world.name}`,
+    `Seed: ${world.seed}`,
+    "",
+    `LOCATIONS (${world.locations.length})`
+  ];
+
+  for (const location of world.locations) {
+    lines.push(`- ${location.name}: ${location.type}; ${location.traits.join(", ")}`);
+  }
+
+  lines.push("", `FACTIONS (${world.factions.length})`);
+  for (const faction of world.factions) {
+    lines.push(`- ${faction.name}: ${faction.type}; base ${faction.baseLocationName}`);
+  }
+
+  lines.push("", `CHARACTERS (${world.characters.length})`);
+  for (const character of world.characters) {
+    lines.push(
+      `- ${character.name}: ${character.role}; ${character.factionName}; ${character.locationName}`
+    );
+  }
+
+  return lines.join("\n");
+}
+
+async function wsOpenPreview(world) {
+  const preview = await api.v1.ui.window.open({
+    title: `Worldsmith Preview — ${world.name}`,
+    defaultWidth: 720,
+    defaultHeight: 640,
+    resizable: true,
+    content: []
+  });
+
+  preview.update({
+    content: [
+      {
+        type: "column",
+        content: [
+          {
+            type: "text",
+            text: wsPreviewText(world),
+            markdown: false,
+            style: { whiteSpace: "pre-wrap" }
+          },
+          {
+            type: "button",
+            text: "Close Preview",
+            callback: () => preview.close()
+          }
+        ]
+      }
+    ]
+  });
+}
+
+async function wsRunImport(world, options, replaceEntries = []) {
+  try {
+    const result = await wsWriteWorldToLorebook(world, options, replaceEntries);
+    if (!result.cancelled) {
+      await api.v1.ui.toast(
+        `Worldsmith created ${result.created} Lorebook entries for ${world.name}.`,
+        { type: "success" }
+      );
+      api.v1.log(`Worldsmith: created ${result.created} entries for ${world.name}, seed ${world.seed}.`);
+    }
+  } catch (error) {
+    const progress = error.worldsmithTotal
+      ? ` (${error.worldsmithCreated}/${error.worldsmithTotal} entries were created; use Clean Up Last Import if needed.)`
+      : "";
+    api.v1.error("Worldsmith import failed:", error);
+    await api.v1.ui.toast(
+      `Worldsmith import failed${progress} ${error && error.message ? error.message : String(error)}`,
+      { type: "error" }
+    );
+  }
+}
+
+async function wsImportPreviewedWorld() {
+  const world = await api.v1.tempStorage.get(WS_KEYS.lastPreview);
+  if (!world) {
+    await api.v1.ui.toast("Preview a world before importing it.", { type: "error" });
+    return;
+  }
+  const options = await wsReadOptions();
+  const existing = await wsFindWorldEntries(world);
+  if (existing.length === 0) return wsRunImport(world, options);
+
+  const conflict = await api.v1.ui.window.open({
+    title: "Worldsmith Duplicate Detected",
+    defaultWidth: 480,
+    defaultHeight: 300,
+    resizable: true,
+    content: []
+  });
+  conflict.update({ content: [{ type: "column", content: [
+    { type: "text", text: `Found ${existing.length} existing Worldsmith entries for **${world.name}**.`, markdown: true },
+    { type: "text", text: "Choose an action. Replacing removes only entries carrying this exact Worldsmith marker." },
+    { type: "button", text: "Replace Existing World", disableWhileCallbackRunning: true, callback: async () => {
+      await wsRunImport(world, options, existing);
+      conflict.close();
+    }},
+    { type: "button", text: "Create Duplicate Anyway", disableWhileCallbackRunning: true, callback: async () => {
+      await wsRunImport(world, options);
+      conflict.close();
+    }},
+    { type: "button", text: "Cancel", callback: () => conflict.close() }
+  ]}] });
+}
+
+async function wsCleanUpLastImport() {
+  const record = await api.v1.storage.get(WS_KEYS.lastImport);
+  const ids = record && Array.isArray(record.createdEntryIds) ? record.createdEntryIds.filter(Boolean) : [];
+  if (ids.length === 0) {
+    await api.v1.ui.toast("No tracked Worldsmith entries are available to clean up.", { type: "info" });
+    return;
+  }
+  if (!(await wsRequireLorebookEdit())) return;
+  let removed = 0;
+  for (const id of ids) {
+    await api.v1.lorebook.removeEntry(id);
+    removed += 1;
+  }
+  await api.v1.storage.remove(WS_KEYS.lastImport);
+  await api.v1.ui.toast(`Removed ${removed} tracked Worldsmith entries.`, { type: "success" });
+}
+
+async function wsConfirmCleanUpLastImport() {
+  const record = await api.v1.storage.get(WS_KEYS.lastImport);
+  const count = record && Array.isArray(record.createdEntryIds) ? record.createdEntryIds.filter(Boolean).length : 0;
+  if (count === 0) {
+    await api.v1.ui.toast("No tracked Worldsmith entries are available to clean up.", { type: "info" });
+    return;
+  }
+  const confirmation = await api.v1.ui.window.open({
+    title: "Clean Up Last Worldsmith Import?",
+    defaultWidth: 460,
+    defaultHeight: 230,
+    resizable: true,
+    content: []
+  });
+  confirmation.update({ content: [{ type: "column", content: [
+    { type: "text", text: `Remove the ${count} Lorebook entries tracked from **${record.worldName || "the last import"}**? This cannot be undone.`, markdown: true },
+    { type: "button", text: "Remove Tracked Entries", disableWhileCallbackRunning: true, callback: async () => {
+      await wsCleanUpLastImport();
+      confirmation.close();
+    }},
+    { type: "button", text: "Cancel", callback: () => confirmation.close() }
+  ]}] });
+}
+
+async function wsOpenWorldsmith() {
+  await wsEnsureDefaults();
+
+  const controlWindow = await api.v1.ui.window.open({
+    title: "Worldsmith Lore Generator",
+    defaultWidth: 520,
+    defaultHeight: 620,
+    resizable: true,
+    content: []
+  });
+
+  const render = () => {
+    controlWindow.update({
+      content: [
+        {
+          type: "column",
+          content: [
+            {
+              type: "text",
+              text:
+                "# Worldsmith\n" +
+                "Generate a coherent fantasy lore pack. The same seed reproduces the same world.",
+              markdown: true
+            },
+
+            { type: "text", text: "World name (leave blank to generate one):" },
+            { type: "textInput", storageKey: WS_KEYS.worldName },
+
+            { type: "text", text: "Seed:" },
+            { type: "numberInput", storageKey: WS_KEYS.seed },
+
+            { type: "text", text: "Locations (1–30):" },
+            { type: "numberInput", storageKey: WS_KEYS.locations },
+
+            { type: "text", text: "Factions (1–30):" },
+            { type: "numberInput", storageKey: WS_KEYS.factions },
+
+            { type: "text", text: "Characters (1–100):" },
+            { type: "numberInput", storageKey: WS_KEYS.characters },
+
+            {
+              type: "checkboxInput",
+              storageKey: WS_KEYS.includeSecrets,
+              text: "Include character secrets in active Lorebook entries"
+            },
+            {
+              type: "checkboxInput",
+              storageKey: WS_KEYS.includeFirstNameKey,
+              text: "Use first names as additional activation keys"
+            },
+
+            {
+              type: "button",
+              text: "Roll New Seed",
+              callback: async () => {
+                await api.v1.storage.set(
+                  WS_KEYS.seed,
+                  api.v1.random.int(1, 2147483646)
+                );
+                api.v1.ui.toast("New Worldsmith seed rolled.", { type: "success" });
+              }
+            },
+
+            {
+              type: "button",
+              text: "Preview Generated World",
+              disableWhileCallbackRunning: true,
+              callback: async () => {
+                const options = await wsReadOptions();
+                const world = wsGenerateWorld(options);
+                await api.v1.tempStorage.set(WS_KEYS.lastPreview, world);
+                await wsOpenPreview(world);
+              }
+            },
+
+            {
+              type: "button",
+              text: "Create Previewed Lorebook Entries",
+              disableWhileCallbackRunning: true,
+              callback: wsImportPreviewedWorld
+            },
+
+            {
+              type: "button",
+              text: "Clean Up Last Import",
+              disableWhileCallbackRunning: true,
+              callback: wsConfirmCleanUpLastImport
+            },
+
+            {
+              type: "text",
+              text:
+                "v0.1 generates locations first, factions second, and characters last, " +
+                "so characters can reference real generated factions and places.",
+              markdown: false
+            },
+
+            {
+              type: "button",
+              text: "Close",
+              callback: () => controlWindow.close()
+            }
+          ]
+        }
+      ]
+    });
+  };
+
+  render();
+}
+
+// -----------------------------------------------------------------------------
+// Script registration
+// -----------------------------------------------------------------------------
+
+(async () => {
+  try {
+    await wsEnsureDefaults();
+
+    await api.v1.ui.register([
+      {
+        type: "toolbarButton",
+        id: "worldsmith-lore-generator-button",
+        text: "Worldsmith",
+        callback: wsOpenWorldsmith
+      }
+    ]);
+
+    api.v1.log("Worldsmith Lore Generator v0.1.1 loaded.");
+  } catch (error) {
+    api.v1.error("Worldsmith failed to load:", error);
+    await api.v1.ui.toast("Worldsmith failed to load. Check Script Diagnostics.", { type: "error" });
+  }
+})();
