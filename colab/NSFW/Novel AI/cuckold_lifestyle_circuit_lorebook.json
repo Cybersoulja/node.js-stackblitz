@@ -1,0 +1,515 @@
+{
+  "lorebookVersion": 6,
+  "entries": [
+    {
+      "text": "This is a modern or near-future world in which organized cuckold and hotwife lifestyle networks have consolidated significant social, erotic, and status power. Exclusive clubs, private resorts, discreet urban districts, and invitation-only circuits form the everyday geography. Status is visible, eroticized, and enforced through reputation, demonstrated performance, usefulness, beauty, fertility where relevant, and public or semi-public proof. Couples and individuals navigate graded roles—hotwife, bull, cuck/service, entertainment, domestic—according to attitude, loyalty, and community standing. Community spaces function like high-stakes forums: people introduce themselves, verify authenticity, share experiences as currency, seek arrangements, and treat the “point of no return” as a recognized life transition. The erotic charge of hierarchical power, ownership/service, and the spectacle of submission or performance is central. All participants are consenting adults. Never dictate the player character’s thoughts, feelings, dialogue, or decisions.",
+      "displayName": "Core World Premise",
+      "id": "8c11f26c-5f3d-4bdf-9575-edf30742164d",
+      "keys": [
+        "lifestyle order",
+        "the circuit",
+        "lifestyle network",
+        "cuckold lifestyle",
+        "hotwife world",
+        "the order"
+      ],
+      "searchRange": 2000,
+      "enabled": true,
+      "forceActivation": true,
+      "keyRelative": false,
+      "nonStoryActivatable": false,
+      "category": "9c868e13-2d96-4595-8689-7f252335b17b",
+      "loreBiasGroups": [],
+      "contextConfig": {
+        "prefix": "",
+        "suffix": "\n",
+        "tokenBudget": 350,
+        "budgetPriority": 500,
+        "trimDirection": "trimBottom",
+        "insertionType": "newline",
+        "maximumTrimType": "sentence",
+        "reservedTokens": 0,
+        "insertionPosition": -1
+      },
+      "lastUpdatedAt": 1761015000000
+    },
+    {
+      "text": "Roles in the lifestyle circuit are graded and visible. Hotwives hold elevated erotic and social status through beauty, performance, fertility value, and public reputation. Bulls (high-status male partners, often selected for physical presence, confidence, and proven performance) occupy the apex of sexual access. Cucks / service partners occupy supportive, observant, or service roles; their standing rises or falls with loyalty, usefulness, demonstrated submission, and the reputation of the hotwife they are attached to. Entertainment and domestic roles exist for those whose primary utility is spectacle or household function. Status is earned and can be lost. Verification of authenticity and past experiences is common before deeper arrangements.",
+      "displayName": "Roles & Hierarchy",
+      "id": "c968aee1-8ad2-44e3-b4de-3d9441df47bd",
+      "keys": [
+        "hotwife",
+        "bull",
+        "cuck",
+        "service partner",
+        "roles",
+        "hierarchy",
+        "status"
+      ],
+      "searchRange": 1500,
+      "enabled": true,
+      "forceActivation": false,
+      "keyRelative": false,
+      "nonStoryActivatable": false,
+      "category": "9c868e13-2d96-4595-8689-7f252335b17b",
+      "loreBiasGroups": [],
+      "contextConfig": {
+        "prefix": "",
+        "suffix": "\n",
+        "tokenBudget": 280,
+        "budgetPriority": 450,
+        "trimDirection": "trimBottom",
+        "insertionType": "newline",
+        "maximumTrimType": "sentence",
+        "reservedTokens": 0,
+        "insertionPosition": -1
+      },
+      "lastUpdatedAt": 1761015000000
+    },
+    {
+      "text": "The “point of no return” is a recognized life transition within the lifestyle circuit. It marks the moment a couple or individual moves from fantasy, testing, or occasional play into permanent, publicly acknowledged, or irreversible service/ownership arrangements. After this point, prior boundaries are considered renegotiated or dissolved, reputation is permanently altered, and the individual or couple is treated as fully inside the hierarchy. Stories, verification posts, and club records often treat the point of no return as a status marker and erotic milestone. Crossing it is voluntary among adults but carries lasting social and hierarchical consequences.",
+      "displayName": "Point of No Return",
+      "id": "aa3a8a52-eb68-4d75-8031-c95bcc6f691f",
+      "keys": [
+        "point of no return",
+        "point of no return",
+        "crossed the line",
+        "permanent",
+        "irreversible",
+        "fully inside"
+      ],
+      "searchRange": 1200,
+      "enabled": true,
+      "forceActivation": false,
+      "keyRelative": false,
+      "nonStoryActivatable": false,
+      "category": "9c868e13-2d96-4595-8689-7f252335b17b",
+      "loreBiasGroups": [],
+      "contextConfig": {
+        "prefix": "",
+        "suffix": "\n",
+        "tokenBudget": 220,
+        "budgetPriority": 420,
+        "trimDirection": "trimBottom",
+        "insertionType": "newline",
+        "maximumTrimType": "sentence",
+        "reservedTokens": 0,
+        "insertionPosition": -1
+      },
+      "lastUpdatedAt": 1761015000000
+    },
+    {
+      "text": "Reputation functions as primary social currency. Experience posts, verification of past encounters, public or semi-public demonstrations, and consistent performance determine standing. People introduce themselves, share carefully curated stories, and compete for access to higher-tier bulls, clubs, or households. False claims or poor performance can damage status permanently. Loyalty, usefulness, beauty, and demonstrated desire are the measurable currencies that raise or lower position within the circuit.",
+      "displayName": "Reputation & Currency",
+      "id": "f59b9928-1e50-4857-8d4d-e287e1698fd5",
+      "keys": [
+        "reputation",
+        "status",
+        "verification",
+        "experience post",
+        "standing",
+        "social currency"
+      ],
+      "searchRange": 1200,
+      "enabled": true,
+      "forceActivation": false,
+      "keyRelative": false,
+      "nonStoryActivatable": false,
+      "category": "9c868e13-2d96-4595-8689-7f252335b17b",
+      "loreBiasGroups": [],
+      "contextConfig": {
+        "prefix": "",
+        "suffix": "\n",
+        "tokenBudget": 200,
+        "budgetPriority": 400,
+        "trimDirection": "trimBottom",
+        "insertionType": "newline",
+        "maximumTrimType": "sentence",
+        "reservedTokens": 0,
+        "insertionPosition": -1
+      },
+      "lastUpdatedAt": 1761015000000
+    },
+    {
+      "text": "Exclusive clubs form the primary social and erotic venues of the lifestyle circuit. Entry is invitation-only or reputation-gated. Interiors are designed for visibility and controlled spectacle: lounges, private rooms, observation spaces, and stages. Club nights often feature introductions, demonstrations, and informal verification. Rules emphasize consent, clear signaling of availability, and respect for established ownership or service arrangements. Higher-tier clubs maintain stricter vetting and greater privacy.",
+      "displayName": "Exclusive Clubs",
+      "id": "b39aab5c-2978-4a05-a9e7-b5a2d1c9587f",
+      "keys": [
+        "club",
+        "the club",
+        "exclusive club",
+        "lifestyle club",
+        "club night",
+        "invitation-only"
+      ],
+      "searchRange": 1200,
+      "enabled": true,
+      "forceActivation": false,
+      "keyRelative": false,
+      "nonStoryActivatable": false,
+      "category": "e3bc1ca8-8ab8-4dcd-9bb9-cb79e7f71ac7",
+      "loreBiasGroups": [],
+      "contextConfig": {
+        "prefix": "",
+        "suffix": "\n",
+        "tokenBudget": 220,
+        "budgetPriority": 380,
+        "trimDirection": "trimBottom",
+        "insertionType": "newline",
+        "maximumTrimType": "sentence",
+        "reservedTokens": 0,
+        "insertionPosition": -1
+      },
+      "lastUpdatedAt": 1761015000000
+    },
+    {
+      "text": "Private resorts and lifestyle retreats serve as concentrated environments where couples and individuals accelerate their involvement. Many are adults-only, all-inclusive, and structured around hotwife/bull/cuck dynamics. Facilities commonly include separate or hierarchical sleeping arrangements, public and semi-public play spaces, pools, bars, and formal or informal verification events. A stay at a known resort often functions as a reputation milestone or a deliberate step toward the point of no return.",
+      "displayName": "Lifestyle Resorts",
+      "id": "1af381be-cbbb-4134-b631-812ab5ba4c40",
+      "keys": [
+        "resort",
+        "lifestyle resort",
+        "retreat",
+        "vacation",
+        "adults-only",
+        "resort stay"
+      ],
+      "searchRange": 1200,
+      "enabled": true,
+      "forceActivation": false,
+      "keyRelative": false,
+      "nonStoryActivatable": false,
+      "category": "e3bc1ca8-8ab8-4dcd-9bb9-cb79e7f71ac7",
+      "loreBiasGroups": [],
+      "contextConfig": {
+        "prefix": "",
+        "suffix": "\n",
+        "tokenBudget": 220,
+        "budgetPriority": 380,
+        "trimDirection": "trimBottom",
+        "insertionType": "newline",
+        "maximumTrimType": "sentence",
+        "reservedTokens": 0,
+        "insertionPosition": -1
+      },
+      "lastUpdatedAt": 1761015000000
+    },
+    {
+      "text": "Discreet urban districts and private compounds provide everyday geography for the lifestyle circuit. Service-oriented neighborhoods, verification halls, introduction venues, and elite Black-or-high-status-only spaces (where relevant to specific local circuits) exist alongside ordinary city life. Travel between these nodes is common. Access is controlled by reputation, invitation, or sponsorship. Ordinary life continues under the hierarchy; extraordinary erotic and status events punctuate it.",
+      "displayName": "Urban Districts & Compounds",
+      "id": "84c57399-39d5-4604-85c6-28007992c96f",
+      "keys": [
+        "district",
+        "compound",
+        "private compound",
+        "service district",
+        "verification hall",
+        "urban circuit"
+      ],
+      "searchRange": 1000,
+      "enabled": true,
+      "forceActivation": false,
+      "keyRelative": false,
+      "nonStoryActivatable": false,
+      "category": "e3bc1ca8-8ab8-4dcd-9bb9-cb79e7f71ac7",
+      "loreBiasGroups": [],
+      "contextConfig": {
+        "prefix": "",
+        "suffix": "\n",
+        "tokenBudget": 200,
+        "budgetPriority": 360,
+        "trimDirection": "trimBottom",
+        "insertionType": "newline",
+        "maximumTrimType": "sentence",
+        "reservedTokens": 0,
+        "insertionPosition": -1
+      },
+      "lastUpdatedAt": 1761015000000
+    },
+    {
+      "text": "Bulls occupy the highest tier of sexual and social access within the lifestyle circuit. They are selected or rise through proven performance, physical presence, confidence, and the quality of the hotwives or households they attach to. Elite bulls maintain networks, receive preferential club and resort access, and may hold informal authority over service arrangements. Internal disagreements exist between those who prefer exclusive ownership and those who treat access as fluid currency. Bulls have full interiority, ambition, and agency.",
+      "displayName": "Bulls",
+      "id": "542e64e3-4b5d-44be-9825-bc37c080c3ec",
+      "keys": [
+        "bull",
+        "the bull",
+        "bulls",
+        "high-status male",
+        "elite bull"
+      ],
+      "searchRange": 1000,
+      "enabled": true,
+      "forceActivation": false,
+      "keyRelative": false,
+      "nonStoryActivatable": false,
+      "category": "19a8a1f2-0998-478d-8f99-bed82624b127",
+      "loreBiasGroups": [],
+      "contextConfig": {
+        "prefix": "",
+        "suffix": "\n",
+        "tokenBudget": 200,
+        "budgetPriority": 400,
+        "trimDirection": "trimBottom",
+        "insertionType": "newline",
+        "maximumTrimType": "sentence",
+        "reservedTokens": 0,
+        "insertionPosition": -1
+      },
+      "lastUpdatedAt": 1761015000000
+    },
+    {
+      "text": "Hotwives hold elevated erotic and social status. Their standing derives from beauty, sexual performance, fertility value (where relevant), public or semi-public reputation, and the quality of bulls they attract or are claimed by. Many exercise significant agency over their households and service partners. Dirty talk, public demonstration, and experience-sharing are common tools of status maintenance. A hotwife’s reputation can elevate or destroy the standing of any attached cuck or service partner.",
+      "displayName": "Hotwives",
+      "id": "7249d3b2-29a1-4e34-a3c2-f283af4367e7",
+      "keys": [
+        "hotwife",
+        "the hotwife",
+        "hotwives",
+        "wife",
+        "queen"
+      ],
+      "searchRange": 1000,
+      "enabled": true,
+      "forceActivation": false,
+      "keyRelative": false,
+      "nonStoryActivatable": false,
+      "category": "19a8a1f2-0998-478d-8f99-bed82624b127",
+      "loreBiasGroups": [],
+      "contextConfig": {
+        "prefix": "",
+        "suffix": "\n",
+        "tokenBudget": 200,
+        "budgetPriority": 400,
+        "trimDirection": "trimBottom",
+        "insertionType": "newline",
+        "maximumTrimType": "sentence",
+        "reservedTokens": 0,
+        "insertionPosition": -1
+      },
+      "lastUpdatedAt": 1761015000000
+    },
+    {
+      "text": "Cucks and service partners occupy supportive, observant, or actively service-oriented roles. Their standing is derivative of the hotwife or household they are attached to, modified by personal loyalty, usefulness, demonstrated submission, chastity or feminization markers where present, and public reputation. Agency exists within constraints: they can rise through performance and reliability or fall through failure, resistance, or loss of favor. Many experience the hierarchy as both erotic and hierarchical. Consent and adult agency remain in force.",
+      "displayName": "Cucks & Service Partners",
+      "id": "1178f3c9-8951-4b87-9f00-3039e96aea28",
+      "keys": [
+        "cuck",
+        "cuckold",
+        "service partner",
+        "husband",
+        "service",
+        "submissive partner"
+      ],
+      "searchRange": 1000,
+      "enabled": true,
+      "forceActivation": false,
+      "keyRelative": false,
+      "nonStoryActivatable": false,
+      "category": "19a8a1f2-0998-478d-8f99-bed82624b127",
+      "loreBiasGroups": [],
+      "contextConfig": {
+        "prefix": "",
+        "suffix": "\n",
+        "tokenBudget": 220,
+        "budgetPriority": 390,
+        "trimDirection": "trimBottom",
+        "insertionType": "newline",
+        "maximumTrimType": "sentence",
+        "reservedTokens": 0,
+        "insertionPosition": -1
+      },
+      "lastUpdatedAt": 1761015000000
+    },
+    {
+      "text": "Verification and introduction rituals are standard before deeper involvement. Newcomers or those seeking higher-tier access present themselves, share curated experience histories, and may undergo informal or formal verification of claims. Lifestyle forums, club greeters, and resort staff facilitate these processes. Authenticity and consistency of story are prized; exaggeration or falsehood damages reputation. Successful verification opens doors to better clubs, bulls, or households.",
+      "displayName": "Verification & Introductions",
+      "id": "570199fd-d962-4e3b-a677-423af4bb812e",
+      "keys": [
+        "verification",
+        "introduction",
+        "verify",
+        "newcomer",
+        "authenticate",
+        "experience history"
+      ],
+      "searchRange": 1000,
+      "enabled": true,
+      "forceActivation": false,
+      "keyRelative": false,
+      "nonStoryActivatable": false,
+      "category": "9c868e13-2d96-4595-8689-7f252335b17b",
+      "loreBiasGroups": [],
+      "contextConfig": {
+        "prefix": "",
+        "suffix": "\n",
+        "tokenBudget": 180,
+        "budgetPriority": 370,
+        "trimDirection": "trimBottom",
+        "insertionType": "newline",
+        "maximumTrimType": "sentence",
+        "reservedTokens": 0,
+        "insertionPosition": -1
+      },
+      "lastUpdatedAt": 1761015000000
+    },
+    {
+      "text": "Names in this world are drawn from uncommon or rare real-world sources. Avoid generic or overused AI-default names. Prefer distinctive yet wearable modern or vintage names that feel natural for adult characters. Examples of acceptable style: Demelza, Barnaby, Lysander, Orla, Evander, Cecily, Sidonie, Valentin, Amias, Caoimhe, Jethro, Lalita. Always generate fresh names from external uncommon lists rather than recycling familiar placeholders.",
+      "displayName": "Naming Convention",
+      "id": "4f393a96-528b-48eb-b235-8dd2a0764da6",
+      "keys": [
+        "name",
+        "names",
+        "character name",
+        "naming"
+      ],
+      "searchRange": 800,
+      "enabled": true,
+      "forceActivation": false,
+      "keyRelative": false,
+      "nonStoryActivatable": false,
+      "category": "336d2212-9a9e-4d2c-ae3e-1ecb29dd4a82",
+      "loreBiasGroups": [],
+      "contextConfig": {
+        "prefix": "",
+        "suffix": "\n",
+        "tokenBudget": 160,
+        "budgetPriority": 300,
+        "trimDirection": "trimBottom",
+        "insertionType": "newline",
+        "maximumTrimType": "sentence",
+        "reservedTokens": 0,
+        "insertionPosition": -1
+      },
+      "lastUpdatedAt": 1761015000000
+    },
+    {
+      "text": "All characters are consenting adults. Power-exchange, hierarchical, and race-play dynamics (where present) operate inside explicit or ongoing consent. Characters retain agency within their roles and can negotiate, resist, rise, or fall. Never dictate the player character’s internal thoughts, feelings, dialogue, or decisions. Offer meaningful choices with consequences. Reveal world details through action, dialogue, sensory detail, status markers, and reputation talk rather than exposition dumps.",
+      "displayName": "Consent & Agency Rules",
+      "id": "e40f36bc-0d76-4671-a1e4-60367643eafc",
+      "keys": [
+        "consent",
+        "agency",
+        "player character",
+        "boundaries",
+        "choices"
+      ],
+      "searchRange": 1500,
+      "enabled": true,
+      "forceActivation": true,
+      "keyRelative": false,
+      "nonStoryActivatable": false,
+      "category": "336d2212-9a9e-4d2c-ae3e-1ecb29dd4a82",
+      "loreBiasGroups": [],
+      "contextConfig": {
+        "prefix": "",
+        "suffix": "\n",
+        "tokenBudget": 200,
+        "budgetPriority": 480,
+        "trimDirection": "trimBottom",
+        "insertionType": "newline",
+        "maximumTrimType": "sentence",
+        "reservedTokens": 0,
+        "insertionPosition": -1
+      },
+      "lastUpdatedAt": 1761015000000
+    },
+    {
+      "text": "When generating interactive text-adventure style output, begin each turn with exactly one mood marker: 🌧️ grim/heavy · ☀️ hopeful/warm · 🌑 tense/watchful · 🔥 heated/urgent. Then render HP as five hearts (❤️ or 🖤). Inventory under 🎒 using only allowed type emojis. Currency only when relevant. Always offer exactly three choices prefixed with 🗡️ 🕊️ 👁️ 🏃. Maintain these systems consistently for continuity.",
+      "displayName": "Text Adventure Status Tracking",
+      "id": "4ca1e345-327d-44a5-a3a6-360c5a9d88e1",
+      "keys": [
+        "HP",
+        "inventory",
+        "choices",
+        "mood",
+        "status",
+        "❤️",
+        "🎒"
+      ],
+      "searchRange": 800,
+      "enabled": true,
+      "forceActivation": false,
+      "keyRelative": false,
+      "nonStoryActivatable": false,
+      "category": "336d2212-9a9e-4d2c-ae3e-1ecb29dd4a82",
+      "loreBiasGroups": [],
+      "contextConfig": {
+        "prefix": "",
+        "suffix": "\n",
+        "tokenBudget": 180,
+        "budgetPriority": 350,
+        "trimDirection": "trimBottom",
+        "insertionType": "newline",
+        "maximumTrimType": "sentence",
+        "reservedTokens": 0,
+        "insertionPosition": -1
+      },
+      "lastUpdatedAt": 1761015000000
+    }
+  ],
+  "categories": [
+    {
+      "name": "World Core",
+      "id": "9c868e13-2d96-4595-8689-7f252335b17b",
+      "enabled": true,
+      "createSubcontext": false,
+      "categoryDefaults": {
+        "prefix": "",
+        "suffix": "\n",
+        "tokenBudget": 250,
+        "budgetPriority": 400,
+        "trimDirection": "trimBottom",
+        "insertionType": "newline",
+        "maximumTrimType": "sentence"
+      }
+    },
+    {
+      "name": "Locations",
+      "id": "e3bc1ca8-8ab8-4dcd-9bb9-cb79e7f71ac7",
+      "enabled": true,
+      "createSubcontext": false,
+      "categoryDefaults": {
+        "prefix": "",
+        "suffix": "\n",
+        "tokenBudget": 200,
+        "budgetPriority": 370,
+        "trimDirection": "trimBottom",
+        "insertionType": "newline",
+        "maximumTrimType": "sentence"
+      }
+    },
+    {
+      "name": "Roles & Characters",
+      "id": "19a8a1f2-0998-478d-8f99-bed82624b127",
+      "enabled": true,
+      "createSubcontext": false,
+      "categoryDefaults": {
+        "prefix": "",
+        "suffix": "\n",
+        "tokenBudget": 200,
+        "budgetPriority": 390,
+        "trimDirection": "trimBottom",
+        "insertionType": "newline",
+        "maximumTrimType": "sentence"
+      }
+    },
+    {
+      "name": "System & Rules",
+      "id": "336d2212-9a9e-4d2c-ae3e-1ecb29dd4a82",
+      "enabled": true,
+      "createSubcontext": false,
+      "categoryDefaults": {
+        "prefix": "",
+        "suffix": "\n",
+        "tokenBudget": 180,
+        "budgetPriority": 350,
+        "trimDirection": "trimBottom",
+        "insertionType": "newline",
+        "maximumTrimType": "sentence"
+      }
+    }
+  ],
+  "settings": {
+    "orderByKeyLocations": true
+  }
+}
