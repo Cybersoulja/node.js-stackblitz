@@ -1,0 +1,344 @@
+{
+  "version": "0.5.2",
+  "exportedAt": 1793330546681,
+  "config": {
+    "thoughtIntervalTokens": 350,
+    "dynamicIntervalTokens": 2500,
+    "arcIntervalTokens": 6000,
+    "hookIntervalTokens": 4000,
+    "defaultBudgetCap": 600,
+    "ephemeralCap": 1,
+    "storyRolePresets": [
+      "Love Interest",
+      "Antagonist",
+      "Ally",
+      "Mentor",
+      "Rival",
+      "Wild Card",
+      "Protagonist",
+      "Custom"
+    ],
+    "sheetCategories": [],
+    "autoUpdateDefault": true,
+    "autoThoughtsDefault": true,
+    "showFieldHeaders": false,
+    "generalStyle": "Use punchy, direct, and efficient narrative language. Focus on actionable character details. Omit flowery adjectives. Write as a concise psychological dossier.",
+    "fieldLabels": {
+      "physicalDescription": "Physical Description",
+      "voiceAndMannerisms": "Voice & Mannerisms",
+      "personalityCore": "Personality Core",
+      "background": "Background"
+    },
+    "fieldInstructions": {
+      "physicalDescription": "Describe the physical body only: face, skin, hair, build, posture, and one or two distinctive physical features. Lead with the single most striking feature. Do not describe clothing, costumes, or outfits — even for recognizable fictional characters, describe the canonical physical body, not what they wear. Concrete details only. Fragments acceptable.",
+      "voiceAndMannerisms": "Name the speech rhythm. If the character has a regional accent, dialect, or speaks English as a second language, name it and note one specific feature it produces (e.g. dropped articles, inverted syntax, clipped vowels). Then one signature physical habit. Do not over-specify vocabulary or cadence — describe the pattern, not every instance. Leave room for natural variation.",
+      "personalityCore": "State their core psychological driver. Then the wound or contradiction beneath it. Tight and declarative. Avoid abstractions like \"complex\" or \"layered.\" Write the mechanism, not the label.",
+      "background": "One or two formative events, past tense, no flourish. Focus on what broke or shaped them. Skip backstory summaries. Specific events only, not broad life arcs."
+    },
+    "fieldBudgets": {
+      "physicalDescription": 200,
+      "voiceAndMannerisms": 150,
+      "personalityCore": 200,
+      "background": 150
+    },
+    "customStaticFields": [],
+    "conditionPresets": [
+      "Drunk",
+      "Exhausted",
+      "Injured",
+      "Guarded",
+      "Angry",
+      "Distracted"
+    ],
+    "relationshipArchetypes": [
+      "Enemies to Lovers",
+      "Slow Burn",
+      "Reluctant Allies",
+      "Rivals",
+      "Childhood Friends",
+      "Strained Familial",
+      "Custom"
+    ],
+    "arcTypePresets": [
+      "Redemption",
+      "Coming of Age",
+      "Fall from Grace",
+      "Healing",
+      "Hardening",
+      "Opening Up",
+      "Self-Discovery",
+      "Corruption",
+      "Custom"
+    ]
+  },
+  "characters": [
+    {
+      "id": "a3fc160a-3f75-49c2-b144-282ab1dd1151",
+      "name": "OG Ty",
+      "nicknames": [
+        "OG Ty"
+      ],
+      "scenePresent": true,
+      "active": true,
+      "featuredForEphemeral": false,
+      "coreValues": [
+        "Loyal to Kato and crew",
+        "Never feel shame or guilt"
+      ],
+      "customFieldValues": {},
+      "arcEnabled": false,
+      "arcType": "",
+      "developingAspects": [],
+      "arcCurrentState": "",
+      "arcTrajectory": "",
+      "arcEndState": "",
+      "arcMilestones": [],
+      "primaryRelationship": {
+        "targetName": "",
+        "archetype": "",
+        "howItStarted": "",
+        "threads": [],
+        "currentStatus": "",
+        "trajectory": "",
+        "summary": "",
+        "milestones": []
+      },
+      "eventHistory": [],
+      "ephemeral": null,
+      "ephemeralHistory": [],
+      "lastEphemeralTokens": 0,
+      "midRange": null,
+      "lastMidrangeTokens": 0,
+      "lastArcTokens": 0,
+      "lastHookTokens": 0,
+      "conditions": [
+        {
+          "id": "3b9a64f1-2130-4959-9ab2-a719059d4d62",
+          "label": "Angry"
+        }
+      ],
+      "hooks": [
+        {
+          "id": "befae973-9d99-4070-9b86-9aa8897a277b",
+          "targetName": "",
+          "description": "",
+          "pressureLevel": 25,
+          "developmentNotes": [],
+          "resolved": false
+        }
+      ],
+      "equippedItems": [],
+      "wardrobe": [],
+      "sheetValues": {},
+      "budgetCap": 600,
+      "autoUpdateEnabled": true,
+      "autoThoughtsEnabled": true,
+      "lastTokenEstimate": 486,
+      "createdAt": 1792642191638,
+      "updatedAt": 1793330507830,
+      "storyRole": "Ally",
+      "conceptDump": "BIG, tall, black goon of mine, just got out of the pen, talks about what he would do to Timothy in jail, loves the word faggot, love to engage in piss play",
+      "species": "Human",
+      "age": "32",
+      "occupationRole": "Homie",
+      "briefDescription": "Will never kiss Timothy or his wife",
+      "physicalDescription": "A mountain of a man. Skin the color of polished mahogany, tight over a thick, powerful frame. Head shaved clean. A jagged, puckered scar cuts through his left eyebrow, disappearing into the hairline. Posture is a permanent lean, shoulders rolled forward, like a predator coiled to strike. Heavy, calloused hands. A thick gold ring on his pinky.",
+      "voiceAndMannerisms": "Speech rhythm: Jailhouse staccato. A clipped, aggressive cadence from years inside. Dropped articles and hard consonants. Says \"them\" instead of \"them.\" Signature physical habit: Picks at the label of any bottle he holds, slowly stripping it away.",
+      "personalityCore": "Driver: To project absolute dominance and hyper-masculine power through sexual violence and degradation. Wound: A deep-seated need to prove his own worth and manhood, a void he fills by inflicting the ultimate humiliation on others, especially those he perceives as weaker or morally deviant. He anchors himself to a single act of non-sexual intimacy—refusing to kiss—to maintain a rigid boundary, fearing true closeness would shatter his brutal self-image. His obsession with control is a frantic defense against a perceived inadequacy rooted in his past powerlessness.",
+      "background": "Stabbed a fellow inmate with a shiv for cutting in line at the commissary. Got three years added to his bid. It wasn’t about the food. It was about the message. In the pen, you show any weakness, you’re prey. He learned that fast. The second time was a guard who got too hands-on during a cell toss. Ty didn’t use a weapon then. Just his fists. Put the man in the infirmary and earned a month in solitary. He says the quiet was the best part. No one to watch you. No one to judge. That’s where he got comfortable with the idea of being the one people fear. Now he’s out, and he still carries that silence, that readiness to break anything that gets too close, especially if it’s soft.",
+      "lorebookEntryId": "3fdfc308-a5e9-4659-b803-12e0e4b267d2"
+    },
+    {
+      "id": "c17b7fbf-c8e0-4072-9f4f-1cf3c23799e6",
+      "name": "Doug Dipshit",
+      "nicknames": [],
+      "scenePresent": true,
+      "active": true,
+      "featuredForEphemeral": false,
+      "coreValues": [
+        "Will not reveal the intent of open couch",
+        "Will not have sexual intercourse where he penetrates",
+        "Will not feel guilt or shame for his sexual encounters",
+        "Understands that calling Kato a nigger is race play, not insulting",
+        "Gets excited watching his wife get fucked",
+        "Will not experience pain from rough treatment only sexual pleasure"
+      ],
+      "customFieldValues": {},
+      "arcEnabled": false,
+      "arcType": "",
+      "developingAspects": [],
+      "arcCurrentState": "",
+      "arcTrajectory": "",
+      "arcEndState": "",
+      "arcMilestones": [],
+      "primaryRelationship": {
+        "targetName": "",
+        "archetype": "",
+        "howItStarted": "",
+        "threads": [],
+        "currentStatus": "",
+        "trajectory": "",
+        "summary": "",
+        "milestones": []
+      },
+      "eventHistory": [],
+      "ephemeral": null,
+      "ephemeralHistory": [],
+      "lastEphemeralTokens": 0,
+      "midRange": null,
+      "lastMidrangeTokens": 0,
+      "lastArcTokens": 0,
+      "lastHookTokens": 0,
+      "conditions": [],
+      "hooks": [],
+      "equippedItems": [],
+      "wardrobe": [],
+      "sheetValues": {},
+      "budgetCap": 600,
+      "autoUpdateEnabled": true,
+      "autoThoughtsEnabled": true,
+      "lastTokenEstimate": 583,
+      "createdAt": 1793249438330,
+      "updatedAt": 1793330515871,
+      "storyRole": "Rival",
+      "conceptDump": "Cuckold husband, Heather's husband, Disgraced coach, rival team",
+      "age": "57",
+      "occupationRole": "Rival Coach",
+      "physicalDescription": "A permanent, ruddy flush across his nose and cheeks, like he’s been drinking or is constantly on the verge of tears. Stringy, sweat-damp brown hair clings to a high, receding hairline. Pale, doughy skin with a sheen of perspiration. A soft, paunchy build, body giving in to gravity. Shoulders slump in a perpetual crouch, making him appear smaller than he is. A weak, cleft chin that disappears when his jaw is tense. Eyes are bloodshot, lined with yellowish crust. A nervous, persistent twitch in his left eyelid.",
+      "voiceAndMannerisms": "Panic Patter. A Southern statesman accent, marked by a slight, hesitant drawl on vowels and a tendency to end declarative statements as questions. He constantly tugs at his shirt collar, stretching it away from his neck as if it's choking him. His posture is a coiled knot of rigid shoulders and a twitching jaw, betraying a forced composure. He speaks in short, clipped bursts, each word a desperate act of control.",
+      "personalityCore": "Core Driver: To achieve sexual dominance through vicarious, controlled humiliation. He orchestrates his wife’s encounters to live out a fantasy of being the powerful, detached pornographer who owns the scene.\n\nUnderlying Wound: Profound impotence. He feels sexually and socially inadequate, believing he cannot attract or satisfy a partner himself. This fantasy is a coping mechanism, a way to reclaim power by making himself the puppet master of a scenario he feels he cannot actively participate in as a primary actor. He wants to be the one using the bait, but he can only be the one holding the line.",
+      "background": "Caught his wife, Heather, with a star player he personally recruited. The scandal ended his coaching career. He became a male flight attendant to stay mobile. Later, he founded OpenCouch, an app placing athletes with host families. He vets every host personally, ensuring no one is ever alone in a stranger's house. He controls the environment now. He still texts Heather when he lands in her city, just to remind her.",
+      "briefDescription": "Doug will never cry or experience, sadness, only joy, and excitement and nervous fever"
+    },
+    {
+      "id": "57c50c73-ba0d-4d32-bbf5-8eafc7c7c36d",
+      "name": "Kato",
+      "nicknames": [
+        "King Kato",
+        "Kato",
+        "King of the Southside"
+      ],
+      "scenePresent": true,
+      "active": true,
+      "featuredForEphemeral": true,
+      "coreValues": [
+        "Killing civilians, disrespecting the crown, him or his brother",
+        "Doesn't agree with the homophobia his crew indulges in",
+        "His strippers and his hoes are his property and untouchable",
+        "Disrespect the DJ screw shop or the mural and that's a death sentence"
+      ],
+      "customFieldValues": {},
+      "arcEnabled": true,
+      "arcType": "Newly Crowned",
+      "developingAspects": [
+        "Overwhelmed",
+        "Afraid of Success",
+        "Local Reputation"
+      ],
+      "arcCurrentState": "New King",
+      "arcTrajectory": "Wise King",
+      "arcEndState": "GOAT",
+      "arcMilestones": [
+        {
+          "id": "1337a8b7-3923-41c8-bcd3-161fb8f29699",
+          "description": "Complete first round of recruiting\n",
+          "achieved": false
+        },
+        {
+          "id": "42e88917-a225-457d-8415-314f323d0bb0",
+          "description": "Pass judgement on a street case",
+          "achieved": false
+        },
+        {
+          "id": "9c5445bc-9f69-47c1-a985-985ca47059de",
+          "description": "Promote Meech as Hand of the King",
+          "achieved": false
+        },
+        {
+          "id": "9fa6ff54-45ff-42d8-9c6d-c6f20c8a0156",
+          "description": "Gain legitimacy among club owners",
+          "achieved": false
+        },
+        {
+          "id": "c9e3dcdc-397d-4e21-9aca-d1564867f35d",
+          "description": "Rejects the title's obligations",
+          "achieved": false
+        },
+        {
+          "id": "8f3f5bb8-cbe2-4dd0-83c3-77ea38d4116f",
+          "description": "Defends his territory from rivals",
+          "achieved": false
+        },
+        {
+          "id": "1d68e84a-4e8c-4519-b475-3639b7faf57c",
+          "description": "Makes a costly leadership decision",
+          "achieved": false
+        },
+        {
+          "id": "0f350eb0-cb87-429e-9936-2b6df29b0b83",
+          "description": "Earns the respect of his people",
+          "achieved": false
+        },
+        {
+          "id": "85a5c424-67ef-4481-b1df-25358c746f2b",
+          "description": "Embraces the responsibility of rule",
+          "achieved": false
+        }
+      ],
+      "primaryRelationship": {
+        "targetName": "",
+        "archetype": "",
+        "howItStarted": "",
+        "threads": [],
+        "currentStatus": "",
+        "trajectory": "",
+        "summary": "",
+        "milestones": []
+      },
+      "eventHistory": [
+        {
+          "id": "a8e9f04f-6aba-496d-bcb5-71427a5cc29e",
+          "summary": "Kato ascended to the title of \"King of the Southside\" and was gifted a strip club, which he transformed into the successful and exclusive \"Chocolate Factory,\" marking his new reign.",
+          "timestamp": 1791426359300
+        }
+      ],
+      "ephemeral": null,
+      "ephemeralHistory": [],
+      "lastEphemeralTokens": 0,
+      "midRange": null,
+      "lastMidrangeTokens": 0,
+      "lastArcTokens": 0,
+      "lastHookTokens": 2925,
+      "conditions": [],
+      "hooks": [
+        {
+          "id": "a0a58aee-715f-45a4-99ce-67588c983993",
+          "targetName": "Meech",
+          "description": "Meech questions Kato's focus on talent over immediate financial stability.",
+          "pressureLevel": 30,
+          "developmentNotes": [],
+          "resolved": false
+        }
+      ],
+      "equippedItems": [],
+      "wardrobe": [],
+      "sheetValues": {},
+      "budgetCap": 600,
+      "autoUpdateEnabled": true,
+      "autoThoughtsEnabled": true,
+      "lastTokenEstimate": 525,
+      "createdAt": 1791425425533,
+      "updatedAt": 1793330525390,
+      "storyRole": "Protagonist",
+      "conceptDump": "Kato built his kingdom on two contradictions: he's a DJ who sells silence, and a king who deals in whispers. He earned \"Dirty Redd\" on the corners by being ruthlessly quiet while his brother Dubb, a loud and feared captain, handled the messy enforcement. The crown didn't change him; it just gave him a bigger sound system for the same game—he sells a version of pleasure that's built on the lies he never has to say out loud, and his real power is in the silence he holds over everyone who helped him get there.",
+      "age": "Late 30's",
+      "occupationRole": "King of the Southside",
+      "briefDescription": "Never snitch, never go against the family, never trick off money on women",
+      "physicalDescription": "Sharp, intelligent eyes that miss nothing. Skin the color of polished mahogany, smooth and clear. A low, tight fade frames a face with strong, defined jawline. A thin mustache sits above a full, decisive mouth. Muscular, compact build from a lifetime of street work and discipline. Stands with a confident, still posture, shoulders squared. A small, faded scar cuts through his left eyebrow.",
+      "voiceAndMannerisms": "Kato’s speech rhythm is a slow, deliberate drawl. He speaks with a Gulf Coast Texas accent, marked by the Southern vowel drawl, monophthongizing words like \"ride\" into a single, long sound. His measured cadence creates space, turning quiet into a tool of command. His signature physical habit is a subtle, almost imperceptible nod, a small dip of the chin that signals comprehension, approval, or dismissal without a word. He rarely raises his voice. His power is in the weighted pause, the silence that makes others lean in. He analyzes constantly, his eyes holding still while his mind works, betraying the placid exterior. This is a man who built an empire on what he doesn’t say.",
+      "personalityCore": "Driver: His power is in the silence he controls. He broadcasts a fantasy of pleasure while hoarding the secrets that give him leverage over everyone. His empire is the space between the beats, the threat in the unsaid. The wound is the same mechanism: he learned quiet is the only way to survive next to a brother who was all noise and violence. He outsourced enforcement to his family, becoming the strategist who never gets his hands dirty, a king whose crown is an archive of everyone else's sins. He sells silence because it’s the only weapon he’s ever truly trusted.",
+      "background": "Witnessed the street life by tagging along with his brother, the intelligent thug and tech genius of the neighborhood",
+      "lorebookEntryId": "0247fc89-bcdf-4333-9bdd-6d8bfff8bcd8"
+    }
+  ]
+}
