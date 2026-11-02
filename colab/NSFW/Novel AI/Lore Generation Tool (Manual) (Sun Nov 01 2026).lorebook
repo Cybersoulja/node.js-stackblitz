@@ -1,0 +1,532 @@
+{
+  "lorebookVersion": 6,
+  "entries": [
+    {
+      "text": "Input:  $[USER_INPUT]\n\nOutput: $[AI_OUTPUT]\n\nKeys: $[AI_OUTPUT]",
+      "contextConfig": {
+        "prefix": "",
+        "suffix": "\n",
+        "tokenBudget": 1,
+        "reservedTokens": 0,
+        "budgetPriority": 400,
+        "trimDirection": "trimTop",
+        "insertionType": "newline",
+        "maximumTrimType": "newline",
+        "insertionPosition": -1
+      },
+      "lastUpdatedAt": 1791662332626,
+      "displayName": "Metadata",
+      "id": "d2f64a31-8c06-4932-9342-367739771098",
+      "keys": [
+        "metadata",
+        "ashanti",
+        "resort",
+        "bnwo"
+      ],
+      "searchRange": 1000,
+      "enabled": true,
+      "forceActivation": true,
+      "keyRelative": false,
+      "nonStoryActivatable": false,
+      "category": "57249802-8776-4ea5-adad-bd2e8087beb8",
+      "loreBiasGroups": [
+        {
+          "phrases": [],
+          "ensureSequenceFinish": false,
+          "generateOnce": true,
+          "bias": 0,
+          "enabled": true,
+          "whenInactive": false
+        }
+      ],
+      "advancedConditions": []
+    },
+    {
+      "text": "Kato \"Big Bad\" Mitchell",
+      "contextConfig": {
+        "prefix": "",
+        "suffix": "\n",
+        "tokenBudget": 1,
+        "reservedTokens": 0,
+        "budgetPriority": 400,
+        "trimDirection": "trimBottom",
+        "insertionType": "newline",
+        "maximumTrimType": "sentence",
+        "insertionPosition": -1
+      },
+      "lastUpdatedAt": 1791654680561,
+      "displayName": "New Lorebook Entry",
+      "id": "ba337aba-9c3f-45c8-a386-f682975d4c86",
+      "keys": [
+        "new lorebook entry",
+        "kato",
+        "mitchell"
+      ],
+      "searchRange": 1000,
+      "enabled": true,
+      "forceActivation": false,
+      "keyRelative": false,
+      "nonStoryActivatable": false,
+      "category": "",
+      "loreBiasGroups": [
+        {
+          "phrases": [],
+          "ensureSequenceFinish": false,
+          "generateOnce": true,
+          "bias": 0,
+          "enabled": true,
+          "whenInactive": false
+        }
+      ],
+      "advancedConditions": []
+    },
+    {
+      "text": "Human, Early 40s, Hot wife\n\nHeather is OK with whatever Kato does to her and her husband, the more aggressive, hard-core, degrading and violent the better\n\nPigtail-bound dirty blonde hair. Sharp blue eyes. Sun-kissed skin with faint crow's feet. Tall, lanky build. Long, slender limbs. Delicate hands with red-painted nails. Anklet circling her left ankle. Toe ring on the second toe. Red polish on well-kept feet. Slightly stooped posture, as if shrinking from something unseen. A persistent, tight-lipped smile that doesn't reach her eyes.\n\nSpeech Rhythm: Southern Drawl, with a hard, deliberate emphasis on the \"BL\" consonant cluster in \"black,\" making the word pop. Physical Habit: Flips her hair back with a sharp wrist flick when intrigued or aroused by a taboo thought. She uses colorful, often profane language, constantly indulging in race play, her tone shifting from sugary sweet to razor-sharp in an instant. Her core drive is to experience increasingly aggressive and degrading scenarios, both for herself and her husband, as a release from years of repression. She views Kato as the instrument of this liberation.\n\nCore driver is self-annihilation through extreme degradation. The wound is her husband’s hidden obsession, which she internalized as her own inadequacy. His desire for black men became her command. She now seeks external validation for her perceived worthlessness, craving acts so violent and degrading they confirm her self-contempt. She projects his shame onto herself, then punishes her body for it. Her consent is a weapon she aims at her own identity, using others to erase the woman she was. The more brutal the act, the more complete the erasure. This is her retribution, not against him, but against the innocence she believes was a lie.\n\nHeather found the phone. Not just once. Repeated discoveries of Doug's hidden obsession with black men shattered her reality. The constant lies eroded her trust, replacing it with a cold, detached curiosity. Her housewife persona felt like a costume. She wasn't angry. She was hollowed out, a void waiting to be filled. The shame she once felt for him curdled into a need for his public humiliation. Now, she craves the degradation he secretly coveted, wanting it real, brutal, and undeniable. She wants to watch him break completely. It’s not just a kink anymore; it’s a mission.\n\nDoes not want to be treated like a princess, does not want to be seen as a boring housewife; Feels white guilt for slavery, This is her giving reparations.",
+      "contextConfig": {
+        "prefix": "",
+        "suffix": "\n",
+        "tokenBudget": 1,
+        "reservedTokens": 0,
+        "budgetPriority": 400,
+        "trimDirection": "trimBottom",
+        "insertionType": "newline",
+        "maximumTrimType": "sentence",
+        "insertionPosition": -1
+      },
+      "lastUpdatedAt": 1791657735108,
+      "displayName": "Heather",
+      "id": "8b29e68c-c88d-4a79-9280-aef176fed245",
+      "keys": [
+        "Heather"
+      ],
+      "searchRange": 1000,
+      "enabled": true,
+      "forceActivation": false,
+      "keyRelative": false,
+      "nonStoryActivatable": false,
+      "category": "",
+      "loreBiasGroups": [
+        {
+          "phrases": [],
+          "ensureSequenceFinish": false,
+          "generateOnce": true,
+          "bias": 0,
+          "enabled": true,
+          "whenInactive": false
+        }
+      ],
+      "advancedConditions": []
+    },
+    {
+      "text": "",
+      "contextConfig": {
+        "prefix": "",
+        "suffix": "\n",
+        "tokenBudget": 1,
+        "reservedTokens": 0,
+        "budgetPriority": 400,
+        "trimDirection": "trimBottom",
+        "insertionType": "newline",
+        "maximumTrimType": "sentence",
+        "insertionPosition": -1
+      },
+      "lastUpdatedAt": 1791658643084,
+      "displayName": "The Henpecked Patriarch",
+      "id": "269ffca4-4114-4728-acee-7910e5a780b6",
+      "keys": [
+        "the henpecked patriarch"
+      ],
+      "searchRange": 1000,
+      "enabled": true,
+      "forceActivation": false,
+      "keyRelative": false,
+      "nonStoryActivatable": false,
+      "category": "6ffbf36c-3015-402e-9b29-50da19b7771e",
+      "loreBiasGroups": [
+        {
+          "phrases": [],
+          "ensureSequenceFinish": false,
+          "generateOnce": true,
+          "bias": 0,
+          "enabled": true,
+          "whenInactive": false
+        }
+      ],
+      "advancedConditions": []
+    },
+    {
+      "text": "",
+      "contextConfig": {
+        "prefix": "",
+        "suffix": "\n",
+        "tokenBudget": 1,
+        "reservedTokens": 0,
+        "budgetPriority": 400,
+        "trimDirection": "trimBottom",
+        "insertionType": "newline",
+        "maximumTrimType": "sentence",
+        "insertionPosition": -1
+      },
+      "lastUpdatedAt": 1791658643084,
+      "displayName": "The Grandma & The Grandson",
+      "id": "2876672b-a916-41df-84c8-70b10f4f9a91",
+      "keys": [
+        "the grandma & the grandson"
+      ],
+      "searchRange": 1000,
+      "enabled": true,
+      "forceActivation": false,
+      "keyRelative": false,
+      "nonStoryActivatable": false,
+      "category": "6ffbf36c-3015-402e-9b29-50da19b7771e",
+      "loreBiasGroups": [
+        {
+          "phrases": [],
+          "ensureSequenceFinish": false,
+          "generateOnce": true,
+          "bias": 0,
+          "enabled": true,
+          "whenInactive": false
+        }
+      ],
+      "advancedConditions": []
+    },
+    {
+      "text": "",
+      "contextConfig": {
+        "prefix": "",
+        "suffix": "\n",
+        "tokenBudget": 1,
+        "reservedTokens": 0,
+        "budgetPriority": 400,
+        "trimDirection": "trimBottom",
+        "insertionType": "newline",
+        "maximumTrimType": "sentence",
+        "insertionPosition": -1
+      },
+      "lastUpdatedAt": 1791658643084,
+      "displayName": "The Bitched-Up Husband",
+      "id": "468549bc-4a33-4c8c-ab72-a251f290f9f5",
+      "keys": [
+        "the bitched-up husband"
+      ],
+      "searchRange": 1000,
+      "enabled": true,
+      "forceActivation": false,
+      "keyRelative": false,
+      "nonStoryActivatable": false,
+      "category": "6ffbf36c-3015-402e-9b29-50da19b7771e",
+      "loreBiasGroups": [
+        {
+          "phrases": [],
+          "ensureSequenceFinish": false,
+          "generateOnce": true,
+          "bias": 0,
+          "enabled": true,
+          "whenInactive": false
+        }
+      ],
+      "advancedConditions": []
+    },
+    {
+      "text": "",
+      "contextConfig": {
+        "prefix": "",
+        "suffix": "\n",
+        "tokenBudget": 1,
+        "reservedTokens": 0,
+        "budgetPriority": 400,
+        "trimDirection": "trimBottom",
+        "insertionType": "newline",
+        "maximumTrimType": "sentence",
+        "insertionPosition": -1
+      },
+      "lastUpdatedAt": 1791658643084,
+      "displayName": "The Digital Voyeurs",
+      "id": "6431e0fc-87e3-484b-bde1-e28313e72c0a",
+      "keys": [
+        "the digital voyeurs"
+      ],
+      "searchRange": 1000,
+      "enabled": true,
+      "forceActivation": false,
+      "keyRelative": false,
+      "nonStoryActivatable": false,
+      "category": "6ffbf36c-3015-402e-9b29-50da19b7771e",
+      "loreBiasGroups": [
+        {
+          "phrases": [],
+          "ensureSequenceFinish": false,
+          "generateOnce": true,
+          "bias": 0,
+          "enabled": true,
+          "whenInactive": false
+        }
+      ],
+      "advancedConditions": []
+    },
+    {
+      "text": "",
+      "contextConfig": {
+        "prefix": "",
+        "suffix": "\n",
+        "tokenBudget": 1,
+        "reservedTokens": 0,
+        "budgetPriority": 400,
+        "trimDirection": "trimBottom",
+        "insertionType": "newline",
+        "maximumTrimType": "sentence",
+        "insertionPosition": -1
+      },
+      "lastUpdatedAt": 1791658643084,
+      "displayName": "The Swingers",
+      "id": "fed2871a-2fbd-4c8d-9bcf-2362072f91e3",
+      "keys": [
+        "the swingers"
+      ],
+      "searchRange": 1000,
+      "enabled": true,
+      "forceActivation": false,
+      "keyRelative": false,
+      "nonStoryActivatable": false,
+      "category": "6ffbf36c-3015-402e-9b29-50da19b7771e",
+      "loreBiasGroups": [
+        {
+          "phrases": [],
+          "ensureSequenceFinish": false,
+          "generateOnce": true,
+          "bias": 0,
+          "enabled": true,
+          "whenInactive": false
+        }
+      ],
+      "advancedConditions": []
+    },
+    {
+      "text": "",
+      "contextConfig": {
+        "prefix": "",
+        "suffix": "\n",
+        "tokenBudget": 1,
+        "reservedTokens": 0,
+        "budgetPriority": 400,
+        "trimDirection": "trimBottom",
+        "insertionType": "newline",
+        "maximumTrimType": "sentence",
+        "insertionPosition": -1
+      },
+      "lastUpdatedAt": 1791658643084,
+      "displayName": "The Gay Couples",
+      "id": "d57aaa4a-a87b-4aeb-8668-d4f0a50f82cf",
+      "keys": [
+        "the gay couples"
+      ],
+      "searchRange": 1000,
+      "enabled": true,
+      "forceActivation": false,
+      "keyRelative": false,
+      "nonStoryActivatable": false,
+      "category": "6ffbf36c-3015-402e-9b29-50da19b7771e",
+      "loreBiasGroups": [
+        {
+          "phrases": [],
+          "ensureSequenceFinish": false,
+          "generateOnce": true,
+          "bias": 0,
+          "enabled": true,
+          "whenInactive": false
+        }
+      ],
+      "advancedConditions": []
+    }
+  ],
+  "settings": {
+    "orderByKeyLocations": false
+  },
+  "categories": [
+    {
+      "name": "Meta",
+      "id": "57249802-8776-4ea5-adad-bd2e8087beb8",
+      "enabled": true,
+      "createSubcontext": false,
+      "subcontextSettings": {
+        "text": "",
+        "contextConfig": {
+          "prefix": "",
+          "suffix": "\n",
+          "tokenBudget": 1,
+          "reservedTokens": 0,
+          "budgetPriority": 400,
+          "trimDirection": "trimBottom",
+          "insertionType": "newline",
+          "maximumTrimType": "sentence",
+          "insertionPosition": -1
+        },
+        "lastUpdatedAt": 1630485305940,
+        "displayName": "New Lorebook Entry",
+        "id": "cf37d408-d677-4395-ba1b-c3b5a6cf1679",
+        "keys": [],
+        "searchRange": 1000,
+        "enabled": true,
+        "forceActivation": false,
+        "keyRelative": false,
+        "nonStoryActivatable": false,
+        "category": "",
+        "loreBiasGroups": [
+          {
+            "phrases": [],
+            "ensureSequenceFinish": false,
+            "generateOnce": true,
+            "bias": 0,
+            "enabled": true,
+            "whenInactive": false
+          }
+        ],
+        "advancedConditions": []
+      },
+      "useCategoryDefaults": true,
+      "categoryDefaults": {
+        "text": "",
+        "contextConfig": {
+          "prefix": "",
+          "suffix": "\n",
+          "tokenBudget": 1,
+          "reservedTokens": 0,
+          "budgetPriority": 400,
+          "trimDirection": "trimBottom",
+          "insertionType": "newline",
+          "maximumTrimType": "sentence",
+          "insertionPosition": -1
+        },
+        "lastUpdatedAt": 1630484262591,
+        "displayName": "New Lorebook Entry",
+        "id": "bc7e0560-5466-4756-a29a-39f026062c4a",
+        "keys": [],
+        "searchRange": 1000,
+        "enabled": true,
+        "forceActivation": true,
+        "keyRelative": false,
+        "nonStoryActivatable": false,
+        "category": "",
+        "loreBiasGroups": [
+          {
+            "phrases": [],
+            "ensureSequenceFinish": false,
+            "generateOnce": true,
+            "bias": 0,
+            "enabled": true,
+            "whenInactive": false
+          }
+        ],
+        "advancedConditions": []
+      },
+      "categoryBiasGroups": [
+        {
+          "phrases": [],
+          "ensureSequenceFinish": false,
+          "generateOnce": true,
+          "bias": 0,
+          "enabled": true,
+          "whenInactive": false
+        }
+      ],
+      "settings": {
+        "entryHeader": "----"
+      },
+      "order": [],
+      "open": true
+    },
+    {
+      "name": "SE: Narrative Vectors",
+      "id": "6ffbf36c-3015-402e-9b29-50da19b7771e",
+      "enabled": true,
+      "createSubcontext": false,
+      "subcontextSettings": {
+        "text": "",
+        "contextConfig": {
+          "prefix": "",
+          "suffix": "\n",
+          "tokenBudget": 1,
+          "reservedTokens": 0,
+          "budgetPriority": 400,
+          "trimDirection": "trimBottom",
+          "insertionType": "newline",
+          "maximumTrimType": "sentence",
+          "insertionPosition": -1
+        },
+        "lastUpdatedAt": 1791724980036,
+        "displayName": "New Lorebook Entry",
+        "id": "1b599eb7-336e-405f-997e-ab683bb8deaf",
+        "keys": [],
+        "searchRange": 1000,
+        "enabled": true,
+        "forceActivation": false,
+        "keyRelative": false,
+        "nonStoryActivatable": false,
+        "category": "",
+        "loreBiasGroups": [
+          {
+            "phrases": [],
+            "ensureSequenceFinish": false,
+            "generateOnce": true,
+            "bias": 0,
+            "enabled": true,
+            "whenInactive": false
+          }
+        ],
+        "advancedConditions": []
+      },
+      "useCategoryDefaults": false,
+      "categoryDefaults": {
+        "text": "",
+        "contextConfig": {
+          "prefix": "",
+          "suffix": "\n",
+          "tokenBudget": 1,
+          "reservedTokens": 0,
+          "budgetPriority": 400,
+          "trimDirection": "trimBottom",
+          "insertionType": "newline",
+          "maximumTrimType": "sentence",
+          "insertionPosition": -1
+        },
+        "lastUpdatedAt": 1791658643074,
+        "displayName": "New Lorebook Entry",
+        "id": "b221f88e-46d1-4da1-b99b-740a555a7e8e",
+        "keys": [],
+        "searchRange": 1000,
+        "enabled": true,
+        "forceActivation": false,
+        "keyRelative": false,
+        "nonStoryActivatable": false,
+        "category": "",
+        "loreBiasGroups": [
+          {
+            "phrases": [],
+            "ensureSequenceFinish": false,
+            "generateOnce": true,
+            "bias": 0,
+            "enabled": true,
+            "whenInactive": false
+          }
+        ],
+        "advancedConditions": []
+      },
+      "categoryBiasGroups": [
+        {
+          "phrases": [],
+          "ensureSequenceFinish": false,
+          "generateOnce": true,
+          "bias": 0,
+          "enabled": true,
+          "whenInactive": false
+        }
+      ],
+      "settings": {
+        "entryHeader": "----"
+      },
+      "order": []
+    }
+  ],
+  "order": []
+}
