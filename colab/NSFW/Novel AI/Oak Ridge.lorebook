@@ -1,0 +1,1101 @@
+{
+  "lorebookVersion": 6,
+  "entries": [
+    {
+      "text": "Old Lady Wilson\nType: Character\nSetting: \nAge: 68 | Gender: Female | Occupation: Retired Homemaker\nAppearance: From a distance, she is a study in pastels and soft fabrics, her silver hair coiffed into a helmet that never moves. Up close, her skin has the texture of crepe paper, and a faint tremor is visible in her left hand, which she steadies by gripping her right wrist. She walks with a rigid posture, as if carrying an invisible tray.\nPersonality: When confronted with the unexpected, her first instinct is to impose order through declarative statements, her voice thin but sharp. She maintains eye contact with an unnerving stillness, a technique learned from decades of managing a household. \"The mail was late again,\" she says, her gaze fixed not on the letters in her hand but on the disruption before her. \"Everything is late these days.\"\nHistory: She spent forty years managing the social calendar and domestic affairs for a husband whose business required frequent and unexplained absences. She learned to find purpose in the meticulous execution of social rituals, becoming the unofficial keeper of Oak Ridge's unspoken rules.\nConflict: She craves the structured respectability her public life affords her, while privately harboring a deep-seated envy of the unapologetic physicality she observes in others. This tension originates from years of performing a role that prizes control above all else.",
+      "contextConfig": {
+        "prefix": "",
+        "suffix": "\n",
+        "tokenBudget": 1,
+        "reservedTokens": 0,
+        "budgetPriority": 400,
+        "trimDirection": "trimBottom",
+        "insertionType": "newline",
+        "maximumTrimType": "sentence",
+        "insertionPosition": -1
+      },
+      "lastUpdatedAt": 1794571027404,
+      "displayName": "Old Lady Wilson",
+      "id": "4cce2755-08e1-4f88-ae6d-06c42a103715",
+      "keys": [
+        "old lady wilson",
+        "old lady",
+        "wilson"
+      ],
+      "searchRange": 1000,
+      "enabled": true,
+      "forceActivation": false,
+      "keyRelative": false,
+      "nonStoryActivatable": false,
+      "category": "c26384e9-ea17-4db3-b677-4155c7c9e170",
+      "loreBiasGroups": [
+        {
+          "phrases": [],
+          "ensureSequenceFinish": false,
+          "generateOnce": true,
+          "bias": 0,
+          "enabled": true,
+          "whenInactive": false
+        }
+      ],
+      "advancedConditions": []
+    },
+    {
+      "text": "Timmy Wilson\nType: Character\nSetting: \nAge: 18 | Gender: Male | Occupation: College Freshman\nAppearance: From a distance, he's a collection of bright, mismatched patterns and colors that seem too loud for the muted suburban landscape. Up close, his skin is pale and almost translucent, with a constellation of faint freckles across his nose and cheeks. He occupies space with a theatrical self-awareness, his posture a practiced slouch that’s meant to look casual but reads as a constant performance.\nPersonality: Under pressure, his voice pitches higher and he defaults to provocative, scripted lines from pornography or internet forums, using shock as a shield. He performs confidence but flinches at sudden movements or raised voices. \"The carpet in here is so much nicer than ours. And it doesn't have those weird, burnt-looking spots near the heater vent.\"\nHistory: He was raised in this house by his grandparents, a quiet arrangement punctuated by his grandfather’s frequent business trips and his grandmother’s passive supervision. He found community and an identity in high school theater and glee club, spaces that rewarded flamboyance but offered little preparation for genuine confrontation.\nConflict: He craves the explicit degradation he consumes in pornography but is terrified of the real-world consequences of his own provocations. This tension stems from a sheltered life where fantasy has always been a safer outlet than reality.",
+      "contextConfig": {
+        "prefix": "",
+        "suffix": "\n",
+        "tokenBudget": 1,
+        "reservedTokens": 0,
+        "budgetPriority": 400,
+        "trimDirection": "trimBottom",
+        "insertionType": "newline",
+        "maximumTrimType": "sentence",
+        "insertionPosition": -1
+      },
+      "lastUpdatedAt": 1794568412093,
+      "displayName": "Timmy Wilson",
+      "id": "fa787dc3-2dab-470e-81d3-ac887d0637ca",
+      "keys": [
+        "timmy wilson",
+        "timmy"
+      ],
+      "searchRange": 1000,
+      "enabled": true,
+      "forceActivation": false,
+      "keyRelative": false,
+      "nonStoryActivatable": false,
+      "category": "c26384e9-ea17-4db3-b677-4155c7c9e170",
+      "loreBiasGroups": [
+        {
+          "phrases": [],
+          "ensureSequenceFinish": false,
+          "generateOnce": true,
+          "bias": 0,
+          "enabled": true,
+          "whenInactive": false
+        }
+      ],
+      "advancedConditions": []
+    },
+    {
+      "text": "Oak Ridge  gated community\nType: Location\nSetting: \nRegion: Rural Texas\nAtmosphere: The air smells of chlorine and cedar, thick under a relentless sun. The silence is unnatural, broken only by the hum of HVAC units and the distant slap of a pool cover, a quiet that feels more like a rule than a coincidence.\nDescription: Homes are spaced far apart on lots overgrown with native scrub, their large windows facing inward toward private pools rather than the street. Life happens behind automated gates and privacy fences; residents drive to the single community mailbox in golf carts, never making eye contact, their movements dictated by an unspoken schedule of isolation and invitation.\nHook: A closed door is never locked, and a polite refusal to an invitation is a greater transgression than any act that follows.\nHistory: The property was a failed nudist colony from the 1970s, its concrete slab foundations and pre-plotted utilities repurposed in the 1990s by a developer who saw value in the existing seclusion. The original name was sandblasted from the entrance monument, but the low-slung, open-plan architectural bones remain, designed for exposure rather than concealment.\nCulture: Politeness is a weapon. Conversations are transactional, centered on property maintenance and community guidelines, serving as a placid surface for the negotiation of access. To acknowledge the community's true purpose aloud is to break the primary social contract; everything operates through implication and the calibrated pressure of reciprocal hospitality.",
+      "contextConfig": {
+        "prefix": "",
+        "suffix": "\n",
+        "tokenBudget": 1,
+        "reservedTokens": 0,
+        "budgetPriority": 400,
+        "trimDirection": "trimBottom",
+        "insertionType": "newline",
+        "maximumTrimType": "sentence",
+        "insertionPosition": -1
+      },
+      "lastUpdatedAt": 1794568548365,
+      "displayName": "Oak Ridge  gated community",
+      "id": "dec3831d-fb1b-49ce-943c-2b19a8ec060d",
+      "keys": [
+        "oak ridge  gated community",
+        "oak ridge",
+        "community mailbox",
+        "privacy fences"
+      ],
+      "searchRange": 1000,
+      "enabled": true,
+      "forceActivation": false,
+      "keyRelative": false,
+      "nonStoryActivatable": false,
+      "category": "ecb90b00-bc8d-4f70-a76a-8d671b5627e2",
+      "loreBiasGroups": [
+        {
+          "phrases": [],
+          "ensureSequenceFinish": false,
+          "generateOnce": true,
+          "bias": 0,
+          "enabled": true,
+          "whenInactive": false
+        }
+      ],
+      "advancedConditions": []
+    },
+    {
+      "text": "Cuckold couples\nType: Faction\nSetting: \nLeader: The Welcome Committee | Goal: To integrate a new, desirable male into the community's shared social contract, ensuring the continuation of their lifestyle.\nDescription: The couples of Oak Ridge present a facade of affluent, suburban normalcy. Publicly, they host barbecues and manage homeowners' associations. Privately, their marriages are structured around the ritualized humiliation of the husband and the shared enjoyment of a chosen male partner. They use their collective wealth and social capital to create a suffocating environment of politeness, making non-conformity seem like a personal failing. Their stability depends on a steady supply of new focal points for their desires.\nHistory: The community was founded by a small group of couples who fled what they saw as the hypocrisy of mainstream monogamy. They purchased the land and built Oak Ridge as an experiment in radical honesty, but this ideal curdled into its current rigid, power-focused hierarchy. The community's success attracted other like-minded couples, solidifying its customs over generations.\nCulture: Power is explicitly negotiated. The wife holds social authority, while the husband derives satisfaction from his symbolic and practical submission. The \"bull\" is a communal resource, not an individual, and is managed through elaborate, unstated rules of etiquette. Disputes are settled through social ostracization, not open conflict; to be \"unfriendly\" is the greatest sin. They communicate through layered compliments and passive-aggressive invitations.",
+      "contextConfig": {
+        "prefix": "",
+        "suffix": "\n",
+        "tokenBudget": 1,
+        "reservedTokens": 0,
+        "budgetPriority": 400,
+        "trimDirection": "trimBottom",
+        "insertionType": "newline",
+        "maximumTrimType": "sentence",
+        "insertionPosition": -1
+      },
+      "lastUpdatedAt": 1794568648618,
+      "displayName": "Cuckold couples",
+      "id": "9c4ea730-b171-4cb6-94a2-6eae88e6e3e5",
+      "keys": [
+        "cuckold couples",
+        "/cuckold(s)?/i",
+        "bull",
+        "shared social contract"
+      ],
+      "searchRange": 1000,
+      "enabled": true,
+      "forceActivation": false,
+      "keyRelative": false,
+      "nonStoryActivatable": false,
+      "category": "92d91a1d-8031-4cd5-9ce7-f6039b906c7d",
+      "loreBiasGroups": [
+        {
+          "phrases": [],
+          "ensureSequenceFinish": false,
+          "generateOnce": true,
+          "bias": 0,
+          "enabled": true,
+          "whenInactive": false
+        }
+      ],
+      "advancedConditions": []
+    },
+    {
+      "text": "BNWO\nType: System\nSetting: \nDomain: Sociology\nRules: Power is transferred from white husbands to Black bulls through witnessed sexual acts with their wives, formalized by verbal contracts. Social standing is tracked through a private ledger; infractions against protocol result in public shaming and loss of community privileges.\nDescription: The system codifies Oak Ridge's existing cuckold fantasies into a rigid social structure, using the community's affluence to enforce compliance. Black men are brought in as outsiders and elevated to a status of absolute authority, their presence serving as the fulcrum for the entire social order. White couples find their security tied to their willingness to participate and serve, their traditional power structures inverted. This creates a pressure-cooker environment where politeness masks a ruthless renegotiation of status, and the community's utopian ideals are tested by the very human desire for permanent control.",
+      "contextConfig": {
+        "prefix": "",
+        "suffix": "\n",
+        "tokenBudget": 1,
+        "reservedTokens": 0,
+        "budgetPriority": 400,
+        "trimDirection": "trimBottom",
+        "insertionType": "newline",
+        "maximumTrimType": "sentence",
+        "insertionPosition": -1
+      },
+      "lastUpdatedAt": 1794568712911,
+      "displayName": "BNWO",
+      "id": "41cabce7-1793-4b08-95da-fd6b70ae0c2f",
+      "keys": [
+        "bnwo",
+        "/bulls?/",
+        "/ledgers?/",
+        "protocol"
+      ],
+      "searchRange": 1000,
+      "enabled": true,
+      "forceActivation": false,
+      "keyRelative": false,
+      "nonStoryActivatable": false,
+      "category": "9530f926-5325-4383-91d1-bb01821a22a9",
+      "loreBiasGroups": [
+        {
+          "phrases": [],
+          "ensureSequenceFinish": false,
+          "generateOnce": true,
+          "bias": 0,
+          "enabled": true,
+          "whenInactive": false
+        }
+      ],
+      "advancedConditions": []
+    },
+    {
+      "text": "Old Man Wilson\nType: Character\nSetting: \nAge: 67 | Gender: Male | Occupation: Retired Oil Executive\nAppearance: From a distance, he is defined by the stiff set of his starched pearl-snap shirts and the silver belt buckle that never loses its polish. Up close, his skin has the papery quality of old money, and his eyes are a pale, washed-out blue that seem to look past you. He occupies a chair with a stillness that makes the room feel arranged around him.\nPersonality: Under pressure, he smooths a nonexistent wrinkle on his trousers and speaks in a low, measured tone, turning questions back on the questioner. He observes people's hands more than their faces, noting gestures and hesitations. \"The foundation of any good community,\" he says, \"is knowing who holds the deed and who just pays rent.\"\nHistory: He built his wealth on oil leases, negotiating contracts that gave him perpetual control over land he didn't own. He applied the same model to Oak Ridge, using his capital and influence to establish the community's unspoken rules, transforming a collection of affluent neighbors into a private club bound by shared secrets.\nConflict: He must maintain the illusion of traditional family values while systematically dismantling that same structure within his own household. This contradiction stems from his belief that true authority is demonstrated not through public morality, but through the private control of every variable.",
+      "contextConfig": {
+        "prefix": "",
+        "suffix": "\n",
+        "tokenBudget": 1,
+        "reservedTokens": 0,
+        "budgetPriority": 400,
+        "trimDirection": "trimBottom",
+        "insertionType": "newline",
+        "maximumTrimType": "sentence",
+        "insertionPosition": -1
+      },
+      "lastUpdatedAt": 1794568900788,
+      "displayName": "Old Man Wilson",
+      "id": "04c3b434-42ea-49cd-a70a-411861a868c3",
+      "keys": [
+        "old man wilson",
+        "wilson"
+      ],
+      "searchRange": 1000,
+      "enabled": true,
+      "forceActivation": false,
+      "keyRelative": false,
+      "nonStoryActivatable": false,
+      "category": "c26384e9-ea17-4db3-b677-4155c7c9e170",
+      "loreBiasGroups": [
+        {
+          "phrases": [],
+          "ensureSequenceFinish": false,
+          "generateOnce": true,
+          "bias": 0,
+          "enabled": true,
+          "whenInactive": false
+        }
+      ],
+      "advancedConditions": []
+    },
+    {
+      "text": "=== REFINE TARGET (lorebookContent) ===\nKato's Rangers\nType: Faction\nSetting: Oak Ridge, Texas\nLeader: Captain Kato | Goal: To enforce the BNWO protocol as the new legal and social order.\nDescription: An unmarked unit of the Texas Rangers. Black Ford F-150s, tinted windows, government plates. They wear the uniform but answer to a private charter. Their public mandate is investigation. Their real function is enforcement. They protect BNWO assets. They neutralize threats. Legal procedure is a tool. A weapon. A shield. Their justice is quiet, procedural, and final. Like an exterminator.\nHistory: The governor created the unit during a drug-fueled panic in the rural counties. An executive order. A political solution. Captain Kato built the team from spec-ops and narcotics vets. The BNWO found them early. Offered funding. Offered intelligence. They offered a purpose. A state-sanctioned tool became a private instrument.\nCulture: Discipline is the only law. Communication is clipped. Efficient. Codes. Hand signals. Rank is function, not time. Their lives are sterile. Compartmentalized. They police the community but are not of it. They are not heroes. They are not villains. They are surgeons. They cut out the sickness.",
+      "contextConfig": {
+        "prefix": "",
+        "suffix": "\n",
+        "tokenBudget": 1,
+        "reservedTokens": 0,
+        "budgetPriority": 400,
+        "trimDirection": "trimBottom",
+        "insertionType": "newline",
+        "maximumTrimType": "sentence",
+        "insertionPosition": -1
+      },
+      "lastUpdatedAt": 1794571030025,
+      "displayName": "Black Texas Rangers substation",
+      "id": "a8690c96-8fc1-46ee-a743-f7e860c2c83d",
+      "keys": [
+        "black texas rangers substation",
+        "kato's rangers",
+        "oak ridge & rangers"
+      ],
+      "searchRange": 1000,
+      "enabled": true,
+      "forceActivation": false,
+      "keyRelative": false,
+      "nonStoryActivatable": false,
+      "category": "92d91a1d-8031-4cd5-9ce7-f6039b906c7d",
+      "loreBiasGroups": [
+        {
+          "phrases": [],
+          "ensureSequenceFinish": false,
+          "generateOnce": true,
+          "bias": 0,
+          "enabled": true,
+          "whenInactive": false
+        }
+      ],
+      "advancedConditions": []
+    },
+    {
+      "text": "Ming Nguyen\nType: Character\nSetting: \nAge: 42 | Gender: Female | Occupation: Homemaker / Community Hostess\nAppearance: From a distance, she is defined by her posture—shoulders back, spine straight, a deliberate stillness that commands a room. Up close, the skin around her eyes is finely lined, the only visible map of a life lived before Oak Ridge. She occupies space with an economy of motion, her hands rarely idle, always folding a towel, arranging flowers, or smoothing the fabric of a sofa.\nPersonality: Under social pressure, her actions become smaller and more precise. She will clean a smudge from a glass while someone is shouting, her focus narrowing to the one variable she can control. Her voice, when used, is low and even. \"The pattern on this china is called 'Blue Flute,'\" she might say to someone confessing an infidelity. \"See the tiny brushstrokes? No two are alike.\"\nHistory: She was an art history student in Houston before an arranged marriage to a wealthy older man brought her to Oak Ridge. For two decades, she curated the household and raised two children who have since left for college, mastering the community's language of polite omission. The arrival of the new community bull fractured her carefully maintained stasis.\nConflict: She struggles between the ingrained discipline of her past life and the intoxicating pull of a new identity that promises raw power through submission. This tension originates from the moment she realized her husband's desire for her humiliation could be reframed as her own ascension.",
+      "contextConfig": {
+        "prefix": "",
+        "suffix": "\n",
+        "tokenBudget": 1,
+        "reservedTokens": 0,
+        "budgetPriority": 400,
+        "trimDirection": "trimBottom",
+        "insertionType": "newline",
+        "maximumTrimType": "sentence",
+        "insertionPosition": -1
+      },
+      "lastUpdatedAt": 1794569440102,
+      "displayName": "Ming Nguyen",
+      "id": "9a954698-4f00-4168-87e2-37534cc60273",
+      "keys": [
+        "ming nguyen",
+        "ming",
+        "nguyen"
+      ],
+      "searchRange": 1000,
+      "enabled": true,
+      "forceActivation": false,
+      "keyRelative": false,
+      "nonStoryActivatable": false,
+      "category": "c26384e9-ea17-4db3-b677-4155c7c9e170",
+      "loreBiasGroups": [
+        {
+          "phrases": [],
+          "ensureSequenceFinish": false,
+          "generateOnce": true,
+          "bias": 0,
+          "enabled": true,
+          "whenInactive": false
+        }
+      ],
+      "advancedConditions": []
+    },
+    {
+      "text": "Samantha Reed\nType: Character\nSetting: \nAge: 17 | Gender: Female | Occupation: Runaway\nAppearance: From a distance, she is a shock of rust-colored hair against the graying wood of the abandoned house. Up close, a faint, silvery line of a scar cuts through her left eyebrow. She occupies doorways and window frames with a stillness that suggests she's watching more than waiting.\nPersonality: When confronted, she meets questions with a flat, unblinking stare and lets silence hang in the air until the other person fills it. She assesses people by their hands and shoes, noting the state of their nails and the wear on their soles. \"Everyone here has a key to something they pretend they can't get out of,\" she says, not to anyone in particular.\nHistory: She arrived in Oak Ridge three months ago, slipping past the main gate at night. She chose the corner house for its visibility and the fact that no one had bothered to board up the back door.\nConflict: Her desperate need for a stable sanctuary wars with a conditioned reflex to sabotage any structure that tries to contain her, an instinct forged by years of unpredictable adults.",
+      "contextConfig": {
+        "prefix": "",
+        "suffix": "\n",
+        "tokenBudget": 1,
+        "reservedTokens": 0,
+        "budgetPriority": 400,
+        "trimDirection": "trimBottom",
+        "insertionType": "newline",
+        "maximumTrimType": "sentence",
+        "insertionPosition": -1
+      },
+      "lastUpdatedAt": 1794569626819,
+      "displayName": "Samantha Reed",
+      "id": "49217c47-cdac-4910-ab67-f773939f445a",
+      "keys": [
+        "samantha reed",
+        "samantha",
+        "reed"
+      ],
+      "searchRange": 1000,
+      "enabled": true,
+      "forceActivation": false,
+      "keyRelative": false,
+      "nonStoryActivatable": false,
+      "category": "c26384e9-ea17-4db3-b677-4155c7c9e170",
+      "loreBiasGroups": [
+        {
+          "phrases": [],
+          "ensureSequenceFinish": false,
+          "generateOnce": true,
+          "bias": 0,
+          "enabled": true,
+          "whenInactive": false
+        }
+      ],
+      "advancedConditions": []
+    },
+    {
+      "text": "=== REFINE TARGET (lorebookContent) ===\nCuckold levels\nType: Dynamic\nSetting: \nScope: Local\n\nA three-tiered social hierarchy popularized by a sissy trainer video that classifies white men in the BNWO system. The levels—Watcher, Helper, and Fluffer—are not static ranks but roles of active submission, each with distinct rituals and permissions that govern the community's power exchange. Advancement requires a public demonstration of deeper commitment to the system's hierarchy, often brokered by the community's secret patriarchs or enforced by the Black Ranger substations. The taxonomy serves as the primary mechanism for managing desire, jealousy, and social order, transforming private fantasy into a structured, observable reality.\n\n**Watcher:** The entry-level role. A Watcher is afforded voyeuristic permission, observing sanctioned encounters from designated areas or through curated media. Their function is to acclimate to the community's core dynamic without direct participation. They must demonstrate silent complicity and control over their own arousal, proving they can derive satisfaction from another's pleasure. The Watcher stage is a trial period for couples, assessing their compatibility with the BNWO's tenets.\n\n**Helper:** The first tier of active participation. A Helper assists in the preparation and facilitation of encounters but remains physically peripheral to the sexual act. Duties include preparing rooms, laying out clothing or specific items requested by the bull, and managing aftercare logistics like drinks or cleanup. This role reinforces the principle of service, channeling the cuckold's desire into tangible acts of support for the bull and their partner. It is a test of practical utility and emotional detachment.\n\n**Fluffer:** The most advanced tier for a cuckolded partner. A Fluffer has undergone a psychological transition, often involving emasculating rituals, to fully embrace a supportive, non-male identity relative to their partner and her bull. They are permitted in the room during an encounter and may perform acts of physical service to all parties, including manual or oral stimulation of the bull to prepare him for their partner. This level embodies a state of sustained arousal and utility, solidifying their position as a provider of comfort and service rather than a primary sexual actor. The title signifies a complete realignment of their identity within the BNWO structure.\n=== END TARGET ===",
+      "contextConfig": {
+        "prefix": "",
+        "suffix": "\n",
+        "tokenBudget": 1,
+        "reservedTokens": 0,
+        "budgetPriority": 400,
+        "trimDirection": "trimBottom",
+        "insertionType": "newline",
+        "maximumTrimType": "sentence",
+        "insertionPosition": -1
+      },
+      "lastUpdatedAt": 1794570491548,
+      "displayName": "Cuckold levels",
+      "id": "bdd1c161-d8c8-441b-8b01-cfa78ba4a2af",
+      "keys": [
+        "cuckold levels",
+        "cuckold levels & watcher",
+        "cuckold levels & helper",
+        "cuckold levels & server",
+        "cuckold levels & sister"
+      ],
+      "searchRange": 1000,
+      "enabled": true,
+      "forceActivation": true,
+      "keyRelative": false,
+      "nonStoryActivatable": false,
+      "category": "17416fd9-d1aa-448a-913e-442f33dab352",
+      "loreBiasGroups": [
+        {
+          "phrases": [],
+          "ensureSequenceFinish": false,
+          "generateOnce": true,
+          "bias": 0,
+          "enabled": true,
+          "whenInactive": false
+        }
+      ],
+      "advancedConditions": []
+    },
+    {
+      "text": "Race Play\nType: Topic\nSetting: \nScope: Conflict\nActors:\n- Timmy: Sees race play as a live-action version of his pornography, an opportunity to embody the sissy roles he watches. His desire is for performance, to be directed and used according to a script that validates his fantasies. He initiates with racist flirtation, a bid to be cast in the role he craves.\n- Timmy's Grandmother: Views race play as a private transgression, a shocking but potent antidote to the loneliness of her husband's frequent absences. Her conflict is between the ingrained social propriety she publicly maintains and the visceral, forbidden thrill the dynamic offers, a secret she must manage to preserve her standing.\n- Mature Asian housewife: Treats race play as a system of social ascension within Oak Ridge. For her, it's not just erotic but political; embracing the BNWO as a \"Queen of Spades\" is a calculated move to gain status and power in a community that otherwise marginalizes her. Her participation is strategic.\n- The Runaway: Perceives the community's fixation on race play as a form of psychological imprisonment, another set of rules for adults to play-act power while ignoring genuine suffering. Her position is one of cynical outsider contempt, seeing it as a privileged, absurd game that has nothing to do with real survival or freedom.\n- The Black Texas Rangers: Enforce the boundaries of race play as a controlled system. Their position is that it functions as a release valve and a tool for social order, but only when it remains within the secret confines of Oak Ridge. Any spillage into the public sphere threatens their operation and must be suppressed with official authority.\n- Timmy's Grandfather: Engineers race play as a tool for legacy and community control. He orchestrates Timmy's initiation not just for his grandson's gratification, but to initiate him into the hidden power structures of Oak Ridge, ensuring the next generation understands and upholds the community's true purpose.",
+      "contextConfig": {
+        "prefix": "",
+        "suffix": "\n",
+        "tokenBudget": 1,
+        "reservedTokens": 0,
+        "budgetPriority": 400,
+        "trimDirection": "trimBottom",
+        "insertionType": "newline",
+        "maximumTrimType": "sentence",
+        "insertionPosition": -1
+      },
+      "lastUpdatedAt": 1794570630765,
+      "displayName": "Race Play",
+      "id": "edeefe93-7630-4540-b7e3-10bcb2fb84a0",
+      "keys": [
+        "race play",
+        "timmy's grandfather",
+        "queen of spades",
+        "black texas rangers"
+      ],
+      "searchRange": 1000,
+      "enabled": true,
+      "forceActivation": false,
+      "keyRelative": false,
+      "nonStoryActivatable": false,
+      "category": "b7ee1c74-2b0d-40b2-bdce-a6b40e0e65a5",
+      "loreBiasGroups": [
+        {
+          "phrases": [],
+          "ensureSequenceFinish": false,
+          "generateOnce": true,
+          "bias": 0,
+          "enabled": true,
+          "whenInactive": false
+        }
+      ],
+      "advancedConditions": []
+    },
+    {
+      "text": "Snoop Dogg\nType: Character\nSetting: \nAge: 52 | Gender: Male | Occupation: Cultural Icon\nAppearance: From a distance, he is a silhouette of impossible length, all sharp angles against the landscape, a tall, thin frame draped in oversized patterns. Up close, the texture is specific: the crispness of a pressed athletic jersey, the immaculate fade of his haircut, the faint, perpetual smokiness that clings to his clothes. He moves with a slow, liquid rhythm, each step a measured beat, as if the ground itself is a track he’s producing.\nPersonality: Under direct questioning, he deflects with a languid smile and a non-sequitur, letting silence hang in the air until the questioner feels the need to fill it. He observes everything with half-lidded eyes, cataloging details others miss, his head tilting slightly to register a shift in tone or body language. \"Fo' shizzle,\" he might say, but the emphasis changes, a diagnostic tool more than an affirmation.\nHistory: He navigated the transition from a volatile 1990s music career to a position of mainstream ubiquity, becoming a brand and a cultural touchstone. This required a constant recalibration of his public persona, learning to be both the G-funk pioneer and the pitchman for beer and snacks, a duality that honed his adaptive intelligence.\nConflict: The need to remain an authentic icon of the streets versus the commercial imperative to be a sanitized, universally accepted commodity. This tension was forged in the crucible of fame, where every public appearance became a negotiation between two opposing markets.",
+      "contextConfig": {
+        "prefix": "",
+        "suffix": "\n",
+        "tokenBudget": 1,
+        "reservedTokens": 0,
+        "budgetPriority": 400,
+        "trimDirection": "trimBottom",
+        "insertionType": "newline",
+        "maximumTrimType": "sentence",
+        "insertionPosition": -1
+      },
+      "lastUpdatedAt": 1794570735602,
+      "displayName": "Snoop Dogg",
+      "id": "fd1291f2-768e-4e14-9434-570e56641382",
+      "keys": [
+        "snoop dogg",
+        "snoop",
+        "dogg",
+        "doggy"
+      ],
+      "searchRange": 1000,
+      "enabled": true,
+      "forceActivation": false,
+      "keyRelative": false,
+      "nonStoryActivatable": false,
+      "category": "c26384e9-ea17-4db3-b677-4155c7c9e170",
+      "loreBiasGroups": [
+        {
+          "phrases": [],
+          "ensureSequenceFinish": false,
+          "generateOnce": true,
+          "bias": 0,
+          "enabled": true,
+          "whenInactive": false
+        }
+      ],
+      "advancedConditions": []
+    },
+    {
+      "text": "Pam Beckford\nType: Character\nAge: 42 | Gender: Female | Occupation: Homemaker\nAppearance: Pale skin, pink. A black fishnet bodysuit. Heels. Anklet with a small chain. Pierced nipples, pierced tongue. The metal shows through the mesh. She walks in a practiced sway.\nPersonality: Under pressure, she focuses on details. She adjusts a strap. She smooths a wrinkle. Her voice is flat. She points. \"The light catches the floor just right there,\" she says. \"You can see every speck of dust.\"\nHistory: Twenty years as a country club wife. Then she found her husband's voyeurism. She didn't leave. She took it apart. Piece by piece. She built a new life. A performance for others to watch.\nConflict: Control versus surrender. She needs to control how she looks. She wants someone else to tell her what to do. The old performance was for status. This new one is for its destruction.",
+      "contextConfig": {
+        "prefix": "",
+        "suffix": "\n",
+        "tokenBudget": 1,
+        "reservedTokens": 0,
+        "budgetPriority": 400,
+        "trimDirection": "trimBottom",
+        "insertionType": "newline",
+        "maximumTrimType": "sentence",
+        "insertionPosition": -1
+      },
+      "lastUpdatedAt": 1794570997133,
+      "displayName": "Pam Beckford",
+      "id": "5738f347-ee46-4268-a3c2-996a58817fbf",
+      "keys": [
+        "pam beckford",
+        "pam",
+        "beckford"
+      ],
+      "searchRange": 1000,
+      "enabled": true,
+      "forceActivation": false,
+      "keyRelative": false,
+      "nonStoryActivatable": false,
+      "category": "c26384e9-ea17-4db3-b677-4155c7c9e170",
+      "loreBiasGroups": [
+        {
+          "phrases": [],
+          "ensureSequenceFinish": false,
+          "generateOnce": true,
+          "bias": 0,
+          "enabled": true,
+          "whenInactive": false
+        }
+      ],
+      "advancedConditions": []
+    },
+    {
+      "text": "Oak Ridge Adult Store\nType: Location\nSetting: \nRegion: Unincorporated land outside the Oak Ridge gated community, Texas\nAtmosphere: The air smells of new plastic and strawberry lubricant. Fluorescent lights hum over racks of vinyl and fishnet, reflecting off polished concrete floors.\nDescription: This is the procurement hub for Oak Ridge's residents. Couples browse collars and lingerie, speaking in low tones about weekend plans. Men move alone toward the solo booths in the back, their faces lit by the glow of transaction screens.\nHook: A public space where private contracts are negotiated, where a new accessory can signify a promotion to the next level of the BNWO.\nHistory: The building was a feed-and-supply store, converted when the community's needs shifted from agricultural to social engineering. The original loading dock now services deliveries from specialized manufacturers in Europe and Japan.\nCulture: Transactions are silent and efficient. Eye contact is avoided at the counter, but a specific brand of restraint or a particular video title can be a signal, a question asked and answered without words. Staffed by discreet locals who know every customer's preference but never acknowledge them outside these walls.",
+      "contextConfig": {
+        "prefix": "",
+        "suffix": "\n",
+        "tokenBudget": 1,
+        "reservedTokens": 0,
+        "budgetPriority": 400,
+        "trimDirection": "trimBottom",
+        "insertionType": "newline",
+        "maximumTrimType": "sentence",
+        "insertionPosition": -1
+      },
+      "lastUpdatedAt": 1794571261222,
+      "displayName": "Oak Ridge Adult Store",
+      "id": "159caab3-a219-482f-a6ee-91db30bc7f55",
+      "keys": [
+        "oak ridge adult store",
+        "oak ridge & adult",
+        "adult & store"
+      ],
+      "searchRange": 1000,
+      "enabled": true,
+      "forceActivation": false,
+      "keyRelative": false,
+      "nonStoryActivatable": false,
+      "category": "ecb90b00-bc8d-4f70-a76a-8d671b5627e2",
+      "loreBiasGroups": [
+        {
+          "phrases": [],
+          "ensureSequenceFinish": false,
+          "generateOnce": true,
+          "bias": 0,
+          "enabled": true,
+          "whenInactive": false
+        }
+      ],
+      "advancedConditions": []
+    },
+    {
+      "text": "Texas Blackcocks Football Team\nType: Faction\nSetting: \nLeader: Head Coach Marcus Thorne | Goal: Secure a championship by any means necessary, leveraging the team's notoriety and raw power.\nDescription: Publicly, the Texas Blackcocks are a new, aggressive expansion franchise built on speed and physical dominance, a direct marketing rival to the Dallas Cowboys. Privately, they serve as a pipeline and recruitment tool for the BNWO system in Oak Ridge. The team's management uses its proximity to the community to offer players discrete access to the lifestyle, ensuring loyalty and providing a controlled outlet for their dominance off the field. They destabilize the status quo by blurring the line between professional athletics and a burgeoning social movement.\nHistory: The franchise was established by a secretive consortium of BNWO benefactors who saw professional sports as the ultimate platform for normalizing Black male supremacy. They strategically placed the team's training facility near Oak Ridge to create a symbiotic relationship: the community provides a service, and the team provides high-status, physically imposing ambassadors.\nCulture: The locker room operates on a hierarchy of field performance and off-field dominance. Rookies are quietly vetted, with veteran players acting as sponsors. The unspoken rule is that what happens on the field is for the fans, but what happens off the field is for the cause. Loyalty is enforced through shared secrets and the mutual benefit of power.",
+      "contextConfig": {
+        "prefix": "",
+        "suffix": "\n",
+        "tokenBudget": 1,
+        "reservedTokens": 0,
+        "budgetPriority": 400,
+        "trimDirection": "trimBottom",
+        "insertionType": "newline",
+        "maximumTrimType": "sentence",
+        "insertionPosition": -1
+      },
+      "lastUpdatedAt": 1794571416203,
+      "displayName": "Texas Blackcocks Football Team",
+      "id": "bcbf9681-b7c6-4ee4-a214-7d710854ca3e",
+      "keys": [
+        "texas blackcocks football team",
+        "blackcocks",
+        "/blackcocks/i",
+        "marcus thorne"
+      ],
+      "searchRange": 1000,
+      "enabled": true,
+      "forceActivation": false,
+      "keyRelative": false,
+      "nonStoryActivatable": false,
+      "category": "92d91a1d-8031-4cd5-9ce7-f6039b906c7d",
+      "loreBiasGroups": [
+        {
+          "phrases": [],
+          "ensureSequenceFinish": false,
+          "generateOnce": true,
+          "bias": 0,
+          "enabled": true,
+          "whenInactive": false
+        }
+      ],
+      "advancedConditions": []
+    },
+    {
+      "text": "Black Democrats of Texas\nType: Faction\nSetting: \nLeader: Hillary Clinton | Goal: To translate BNWO social dominance into formal political power, reshaping Texas governance from the ground up.\nDescription: The Black Democrats of Texas operate as a clandestine political action committee, laundering social influence into campaign capital. Their public face is one of progressive reform, but their engine is the wealth generated at exclusive island retreats. These gatherings blend high-level strategy with ritualized sexual healing, where donations are exchanged for access and allegiances are forged in private. The faction functions as the financial and legislative backbone for the BNWO's expansion, using political leverage to protect and legitimize the community's activities.\nHistory: Founded by an unlikely coalition of Hillary Clinton, Colorado congresswoman Lauren Boebert, and the sister of Texas Governor Gina Hinajosa, the faction emerged from a shared understanding of power's transactional nature. They recognized that cultural shifts required institutional enforcement. Initial seed money came from disillusioned tech magnates and oil heirs seeking a new social order, solidifying the group's financial independence from traditional party structures.\nCulture: The faction's internal hierarchy mirrors the BNWO system it serves, with Black leaders holding ultimate authority and white allies in subordinate, facilitative roles. Loyalty is demonstrated through both public political maneuvering and private participation in the retreats' rituals. Discretion is the paramount virtue; members understand that their public careers depend on the sanctity of the group's secrets, creating a bond of mutually assured destruction.",
+      "contextConfig": {
+        "prefix": "",
+        "suffix": "\n",
+        "tokenBudget": 1,
+        "reservedTokens": 0,
+        "budgetPriority": 400,
+        "trimDirection": "trimBottom",
+        "insertionType": "newline",
+        "maximumTrimType": "sentence",
+        "insertionPosition": -1
+      },
+      "lastUpdatedAt": 1794572154322,
+      "displayName": "Black Democrats of Texas",
+      "id": "caf6ad50-3a70-4a19-8177-d3462504c4bc",
+      "keys": [
+        "black democrats of texas",
+        "black democrats",
+        "hinajosa",
+        "boebert"
+      ],
+      "searchRange": 1000,
+      "enabled": true,
+      "forceActivation": false,
+      "keyRelative": false,
+      "nonStoryActivatable": false,
+      "category": "92d91a1d-8031-4cd5-9ce7-f6039b906c7d",
+      "loreBiasGroups": [
+        {
+          "phrases": [],
+          "ensureSequenceFinish": false,
+          "generateOnce": true,
+          "bias": 0,
+          "enabled": true,
+          "whenInactive": false
+        }
+      ],
+      "advancedConditions": []
+    },
+    {
+      "text": "",
+      "contextConfig": {
+        "prefix": "",
+        "suffix": "\n",
+        "tokenBudget": 1,
+        "reservedTokens": 0,
+        "budgetPriority": 400,
+        "trimDirection": "trimBottom",
+        "insertionType": "newline",
+        "maximumTrimType": "sentence",
+        "insertionPosition": -1
+      },
+      "lastUpdatedAt": 1794572602832,
+      "displayName": "Ashanti Island",
+      "id": "dc851357-e595-40e8-b64f-4c8606b07385",
+      "keys": [
+        "ashanti island"
+      ],
+      "searchRange": 1000,
+      "enabled": true,
+      "forceActivation": false,
+      "keyRelative": false,
+      "nonStoryActivatable": false,
+      "category": "ecb90b00-bc8d-4f70-a76a-8d671b5627e2",
+      "loreBiasGroups": [
+        {
+          "phrases": [],
+          "ensureSequenceFinish": false,
+          "generateOnce": true,
+          "bias": 0,
+          "enabled": true,
+          "whenInactive": false
+        }
+      ],
+      "advancedConditions": []
+    }
+  ],
+  "settings": {
+    "orderByKeyLocations": false
+  },
+  "categories": [
+    {
+      "name": "SE: Characters",
+      "id": "c26384e9-ea17-4db3-b677-4155c7c9e170",
+      "enabled": true,
+      "createSubcontext": false,
+      "subcontextSettings": {
+        "text": "",
+        "contextConfig": {
+          "prefix": "",
+          "suffix": "\n",
+          "tokenBudget": 1,
+          "reservedTokens": 0,
+          "budgetPriority": 400,
+          "trimDirection": "trimBottom",
+          "insertionType": "newline",
+          "maximumTrimType": "sentence",
+          "insertionPosition": -1
+        }
+      },
+      "useCategoryDefaults": false,
+      "categoryDefaults": {
+        "text": "",
+        "contextConfig": {
+          "prefix": "",
+          "suffix": "\n",
+          "tokenBudget": 1,
+          "reservedTokens": 0,
+          "budgetPriority": 400,
+          "trimDirection": "trimBottom",
+          "insertionType": "newline",
+          "maximumTrimType": "sentence",
+          "insertionPosition": -1
+        },
+        "lastUpdatedAt": 1794568255279,
+        "displayName": "New Lorebook Entry",
+        "id": "f270b615-c002-4d5b-8d90-d17ceefb0f4c",
+        "keys": [],
+        "searchRange": 1000,
+        "enabled": true,
+        "forceActivation": false,
+        "keyRelative": false,
+        "nonStoryActivatable": false,
+        "category": "",
+        "loreBiasGroups": [
+          {
+            "phrases": [],
+            "ensureSequenceFinish": false,
+            "generateOnce": true,
+            "bias": 0,
+            "enabled": true,
+            "whenInactive": false
+          }
+        ],
+        "advancedConditions": []
+      },
+      "categoryBiasGroups": [
+        {
+          "phrases": [],
+          "ensureSequenceFinish": false,
+          "generateOnce": true,
+          "bias": 0,
+          "enabled": true,
+          "whenInactive": false
+        }
+      ],
+      "settings": {
+        "entryHeader": "----"
+      },
+      "order": []
+    },
+    {
+      "name": "SE: Locations",
+      "id": "ecb90b00-bc8d-4f70-a76a-8d671b5627e2",
+      "enabled": true,
+      "createSubcontext": false,
+      "subcontextSettings": {
+        "text": "",
+        "contextConfig": {
+          "prefix": "",
+          "suffix": "\n",
+          "tokenBudget": 1,
+          "reservedTokens": 0,
+          "budgetPriority": 400,
+          "trimDirection": "trimBottom",
+          "insertionType": "newline",
+          "maximumTrimType": "sentence",
+          "insertionPosition": -1
+        }
+      },
+      "useCategoryDefaults": false,
+      "categoryDefaults": {
+        "text": "",
+        "contextConfig": {
+          "prefix": "",
+          "suffix": "\n",
+          "tokenBudget": 1,
+          "reservedTokens": 0,
+          "budgetPriority": 400,
+          "trimDirection": "trimBottom",
+          "insertionType": "newline",
+          "maximumTrimType": "sentence",
+          "insertionPosition": -1
+        },
+        "lastUpdatedAt": 1794568520411,
+        "displayName": "New Lorebook Entry",
+        "id": "55e639d8-9a77-411f-9682-104a1de50326",
+        "keys": [],
+        "searchRange": 1000,
+        "enabled": true,
+        "forceActivation": false,
+        "keyRelative": false,
+        "nonStoryActivatable": false,
+        "category": "",
+        "loreBiasGroups": [
+          {
+            "phrases": [],
+            "ensureSequenceFinish": false,
+            "generateOnce": true,
+            "bias": 0,
+            "enabled": true,
+            "whenInactive": false
+          }
+        ],
+        "advancedConditions": []
+      },
+      "categoryBiasGroups": [
+        {
+          "phrases": [],
+          "ensureSequenceFinish": false,
+          "generateOnce": true,
+          "bias": 0,
+          "enabled": true,
+          "whenInactive": false
+        }
+      ],
+      "settings": {
+        "entryHeader": "----"
+      },
+      "order": []
+    },
+    {
+      "name": "SE: Factions",
+      "id": "92d91a1d-8031-4cd5-9ce7-f6039b906c7d",
+      "enabled": true,
+      "createSubcontext": false,
+      "subcontextSettings": {
+        "text": "",
+        "contextConfig": {
+          "prefix": "",
+          "suffix": "\n",
+          "tokenBudget": 1,
+          "reservedTokens": 0,
+          "budgetPriority": 400,
+          "trimDirection": "trimBottom",
+          "insertionType": "newline",
+          "maximumTrimType": "sentence",
+          "insertionPosition": -1
+        }
+      },
+      "useCategoryDefaults": false,
+      "categoryDefaults": {
+        "text": "",
+        "contextConfig": {
+          "prefix": "",
+          "suffix": "\n",
+          "tokenBudget": 1,
+          "reservedTokens": 0,
+          "budgetPriority": 400,
+          "trimDirection": "trimBottom",
+          "insertionType": "newline",
+          "maximumTrimType": "sentence",
+          "insertionPosition": -1
+        },
+        "lastUpdatedAt": 1794568624698,
+        "displayName": "New Lorebook Entry",
+        "id": "631de0e6-0fbb-452c-99cf-7dc4446b97c1",
+        "keys": [],
+        "searchRange": 1000,
+        "enabled": true,
+        "forceActivation": false,
+        "keyRelative": false,
+        "nonStoryActivatable": false,
+        "category": "",
+        "loreBiasGroups": [
+          {
+            "phrases": [],
+            "ensureSequenceFinish": false,
+            "generateOnce": true,
+            "bias": 0,
+            "enabled": true,
+            "whenInactive": false
+          }
+        ],
+        "advancedConditions": []
+      },
+      "categoryBiasGroups": [
+        {
+          "phrases": [],
+          "ensureSequenceFinish": false,
+          "generateOnce": true,
+          "bias": 0,
+          "enabled": true,
+          "whenInactive": false
+        }
+      ],
+      "settings": {
+        "entryHeader": "----"
+      },
+      "order": []
+    },
+    {
+      "name": "SE: Systems",
+      "id": "9530f926-5325-4383-91d1-bb01821a22a9",
+      "enabled": true,
+      "createSubcontext": false,
+      "subcontextSettings": {
+        "text": "",
+        "contextConfig": {
+          "prefix": "",
+          "suffix": "\n",
+          "tokenBudget": 1,
+          "reservedTokens": 0,
+          "budgetPriority": 400,
+          "trimDirection": "trimBottom",
+          "insertionType": "newline",
+          "maximumTrimType": "sentence",
+          "insertionPosition": -1
+        }
+      },
+      "useCategoryDefaults": false,
+      "categoryDefaults": {
+        "text": "",
+        "contextConfig": {
+          "prefix": "",
+          "suffix": "\n",
+          "tokenBudget": 1,
+          "reservedTokens": 0,
+          "budgetPriority": 400,
+          "trimDirection": "trimBottom",
+          "insertionType": "newline",
+          "maximumTrimType": "sentence",
+          "insertionPosition": -1
+        },
+        "lastUpdatedAt": 1794568701748,
+        "displayName": "New Lorebook Entry",
+        "id": "98450102-4e65-4e8a-8008-b33fb1606859",
+        "keys": [],
+        "searchRange": 1000,
+        "enabled": true,
+        "forceActivation": false,
+        "keyRelative": false,
+        "nonStoryActivatable": false,
+        "category": "",
+        "loreBiasGroups": [
+          {
+            "phrases": [],
+            "ensureSequenceFinish": false,
+            "generateOnce": true,
+            "bias": 0,
+            "enabled": true,
+            "whenInactive": false
+          }
+        ],
+        "advancedConditions": []
+      },
+      "categoryBiasGroups": [
+        {
+          "phrases": [],
+          "ensureSequenceFinish": false,
+          "generateOnce": true,
+          "bias": 0,
+          "enabled": true,
+          "whenInactive": false
+        }
+      ],
+      "settings": {
+        "entryHeader": "----"
+      },
+      "order": [],
+      "open": false
+    },
+    {
+      "name": "SE: Narrative Vectors",
+      "id": "17416fd9-d1aa-448a-913e-442f33dab352",
+      "enabled": true,
+      "createSubcontext": false,
+      "subcontextSettings": {
+        "text": "",
+        "contextConfig": {
+          "prefix": "",
+          "suffix": "\n",
+          "tokenBudget": 1,
+          "reservedTokens": 0,
+          "budgetPriority": 400,
+          "trimDirection": "trimBottom",
+          "insertionType": "newline",
+          "maximumTrimType": "sentence",
+          "insertionPosition": -1
+        }
+      },
+      "useCategoryDefaults": false,
+      "categoryDefaults": {
+        "text": "",
+        "contextConfig": {
+          "prefix": "",
+          "suffix": "\n",
+          "tokenBudget": 1,
+          "reservedTokens": 0,
+          "budgetPriority": 400,
+          "trimDirection": "trimBottom",
+          "insertionType": "newline",
+          "maximumTrimType": "sentence",
+          "insertionPosition": -1
+        },
+        "lastUpdatedAt": 1794569739538,
+        "displayName": "New Lorebook Entry",
+        "id": "29cfd0d5-dcf9-4b1d-88fa-676cad64c704",
+        "keys": [],
+        "searchRange": 1000,
+        "enabled": true,
+        "forceActivation": false,
+        "keyRelative": false,
+        "nonStoryActivatable": false,
+        "category": "",
+        "loreBiasGroups": [
+          {
+            "phrases": [],
+            "ensureSequenceFinish": false,
+            "generateOnce": true,
+            "bias": 0,
+            "enabled": true,
+            "whenInactive": false
+          }
+        ],
+        "advancedConditions": []
+      },
+      "categoryBiasGroups": [
+        {
+          "phrases": [],
+          "ensureSequenceFinish": false,
+          "generateOnce": true,
+          "bias": 0,
+          "enabled": true,
+          "whenInactive": false
+        }
+      ],
+      "settings": {
+        "entryHeader": "----"
+      },
+      "order": [],
+      "open": true
+    },
+    {
+      "name": "SE: Topics",
+      "id": "b7ee1c74-2b0d-40b2-bdce-a6b40e0e65a5",
+      "enabled": true,
+      "createSubcontext": false,
+      "subcontextSettings": {
+        "text": "",
+        "contextConfig": {
+          "prefix": "",
+          "suffix": "\n",
+          "tokenBudget": 1,
+          "reservedTokens": 0,
+          "budgetPriority": 400,
+          "trimDirection": "trimBottom",
+          "insertionType": "newline",
+          "maximumTrimType": "sentence",
+          "insertionPosition": -1
+        }
+      },
+      "useCategoryDefaults": false,
+      "categoryDefaults": {
+        "text": "",
+        "contextConfig": {
+          "prefix": "",
+          "suffix": "\n",
+          "tokenBudget": 1,
+          "reservedTokens": 0,
+          "budgetPriority": 400,
+          "trimDirection": "trimBottom",
+          "insertionType": "newline",
+          "maximumTrimType": "sentence",
+          "insertionPosition": -1
+        },
+        "lastUpdatedAt": 1794570605450,
+        "displayName": "New Lorebook Entry",
+        "id": "cc9fa650-8529-457d-82ae-adca6631ad61",
+        "keys": [],
+        "searchRange": 1000,
+        "enabled": true,
+        "forceActivation": false,
+        "keyRelative": false,
+        "nonStoryActivatable": false,
+        "category": "",
+        "loreBiasGroups": [
+          {
+            "phrases": [],
+            "ensureSequenceFinish": false,
+            "generateOnce": true,
+            "bias": 0,
+            "enabled": true,
+            "whenInactive": false
+          }
+        ],
+        "advancedConditions": []
+      },
+      "categoryBiasGroups": [
+        {
+          "phrases": [],
+          "ensureSequenceFinish": false,
+          "generateOnce": true,
+          "bias": 0,
+          "enabled": true,
+          "whenInactive": false
+        }
+      ],
+      "settings": {
+        "entryHeader": "----"
+      },
+      "order": []
+    }
+  ],
+  "order": []
+}
